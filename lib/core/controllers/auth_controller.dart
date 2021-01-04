@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:simple_gravatar/simple_gravatar.dart';
 
 class AuthController extends GetxController {
@@ -18,6 +19,7 @@ class AuthController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   Rx<User> firebaseUser = Rx<User>();
   Rx<UserModel> firestoreUser = Rx<UserModel>();
   final RxBool admin = false.obs;
@@ -240,5 +242,39 @@ class AuthController extends GetxController {
     emailController.clear();
     passwordController.clear();
     return _auth.signOut();
+  }
+
+  //Method to handle user sign in using google_sign_in
+  googleSignIn(BuildContext context) async {
+    final labels = AppLocalizations.of(context);
+    showLoadingIndicator();
+
+    try {
+      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          idToken: googleAuth.idToken, accessToken: googleAuth.accessToken
+      );
+      final userCred = (await _auth.signInWithCredential(credential).then((value) =>
+          Get.offAll(HomeUI())));
+      firebaseUser = userCred.user;
+
+      update();
+
+      hideLoadingIndicator();
+    } catch (error) {
+      hideLoadingIndicator();
+      Get.snackbar(labels.auth.signInErrorTitle, labels.auth.signInError,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 7),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    }
+  }
+  
+  // Google_sign_out
+  Future<void> _googleSignOut() async {
+    await _googleSignIn.signOut().then((value) =>
+    Get.offAll(SignUpUI()));
   }
 }

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
   Avatar(
-      this.user,
-      );
+    this.user,
+  );
+
   final UserModel user;
 
   @override

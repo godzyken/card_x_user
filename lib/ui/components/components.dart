@@ -9,3 +9,4 @@ export 'dropdown_picker_with_icon.dart';
 export 'avatar.dart';
 export 'loading.dart';
 export 'segmented_selector.dart';
+export 'google_sign_in_button.dart';
