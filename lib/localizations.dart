@@ -8,9 +8,11 @@ part 'localizations.g.dart';
 //delete the localizations.g.dart file
 //on command line run...
 //flutter packages pub run build_runner build
+//1oS7iJ6ocrZBA53SxRfKF0CG9HAaXeKtzvsTBhgG4Zzk
+//1TZGFxkXPPpB4-otZiq63OiDZidfubRNXtVD63XTP4Nw
 
-@SheetLocalization("1oS7iJ6ocrZBA53SxRfKF0CG9HAaXeKtzvsTBhgG4Zzk",
-    "0", 1) // <- See 1. to get DOCID and SHEETID
+@SheetLocalization("1TZGFxkXPPpB4-otZiq63OiDZidfubRNXtVD63XTP4Nw",
+    "O", 1) // <- See 1. to get DOCID and SHEETID
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
 

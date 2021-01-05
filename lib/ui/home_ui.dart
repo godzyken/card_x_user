@@ -28,6 +28,78 @@ class HomeUI extends StatelessWidget {
                       }),
                 ],
               ),
+              drawer: Drawer(
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                      child: UserAccountsDrawerHeader(
+                        currentAccountPicture: Avatar(controller.firestoreUser.value),
+                        accountName: Text(
+                            labels.home.nameLabel +
+                                ': ' +
+                                controller.firestoreUser.value.name,
+                            style: TextStyle(fontSize: 16)),
+                        accountEmail: Text(
+                            labels.home.emailLabel +
+                                ': ' +
+                                controller.firestoreUser.value.email,
+                            style: TextStyle(fontSize: 16)),
+                      ),
+                    ),
+                    //TODO Générer la traduction
+                    //TODO Créér les routes
+                    ListTile(
+                      title: Text('My Files'),
+                      leading: Icon(Icons.folder),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Shared with me'),
+                      leading: Icon(Icons.people),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Starred'),
+                      leading: Icon(Icons.star),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Recent'),
+                      leading: Icon(Icons.timer),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Offline'),
+                      leading: Icon(Icons.offline_pin),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Uploads'),
+                      leading: Icon(Icons.file_upload),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Backups'),
+                      leading: Icon(Icons.backup),
+                      onTap: () {
+                        print("Clicked");
+                      },
+                    ),
+                  ],
+                ),
+              ),
               body: Center(
                 child: Column(
                   children: <Widget>[

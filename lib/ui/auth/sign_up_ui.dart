@@ -71,7 +71,7 @@ class SignUpUI extends StatelessWidget {
                       }),
                   FormVerticalSpace(),
                   GoogleSignInButton(
-                    labelText: labels?.auth?.signInButton,
+                    labelText: labels?.auth?.googleSignInButton,
                     onPressed: () async {
                       SystemChannels.textInput.invokeMethod('TextInput.hide');
                       authController.googleSignIn(context);
