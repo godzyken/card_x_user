@@ -277,4 +277,13 @@ class AuthController extends GetxController {
     await _googleSignIn.signOut().then((value) =>
     Get.offAll(SignUpUI()));
   }
+
+  // Get PhotoUrl for Profile avatar
+  getPhotoUrl() {
+    if(_auth.currentUser.photoURL != null) {
+      return Image.network(_auth.currentUser.photoURL, height: 100, width: 100);
+    } else {
+      return Icon(Icons.account_circle, size: 100);
+    }
+  }
 }

@@ -4,6 +4,7 @@ import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class SignInUI extends StatelessWidget {
@@ -56,6 +57,14 @@ class SignInUI extends StatelessWidget {
                           authController.signInWithEmailAndPassword(context);
                         }
                       }),
+                  FormVerticalSpace(),
+                  GoogleSignInButton(
+                    labelText: labels?.auth?.googleSignInButton,
+                    onPressed: () async {
+                      SystemChannels.textInput.invokeMethod('TextInput.hide');
+                      authController.googleSignIn(context);
+                    },
+                  ),
                   FormVerticalSpace(),
                   LabelButton(
                     labelText: labels?.auth?.resetPasswordLabelButton,

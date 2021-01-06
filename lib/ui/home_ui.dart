@@ -1,6 +1,7 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
+import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -51,9 +52,7 @@ class HomeUI extends StatelessWidget {
                     ListTile(
                       title: Text('My Files'),
                       leading: Icon(Icons.folder),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      onTap: () => Get.to(MyExplorerUi()),
                     ),
                     ListTile(
                       title: Text('Shared with me'),

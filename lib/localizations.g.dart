@@ -78,6 +78,9 @@ class AppLocalizations {
         amount:
         "Please enter a number i.e. 250 - no dollar symbol and no cents",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Welcome In Card X User"
+      ),
     ),
     Locale.fromSubtags(languageCode: "fr"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
@@ -145,6 +148,9 @@ class AppLocalizations {
         notEmpty: "Ceci est un champ obligatoire.",
         amount:
         "S'il vous plaît entrer un numéro à savoir 250 - aucun symbole du dollar et pas cents",
+      ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Bienvenue dans la carte utilisateur X"
       ),
     ),
     Locale.fromSubtags(languageCode: "es"): AppLocalizations_Labels(
@@ -218,6 +224,9 @@ class AppLocalizations {
         amount:
         "Por favor, introduzca un número, es decir 250 - ningún símbolo del dólar y sin centavos",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Bienvenido en la carta X utilisateur"
+      ),
     ),
     Locale.fromSubtags(languageCode: "de"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
@@ -286,6 +295,9 @@ class AppLocalizations {
         amount:
         "Bitte geben Sie eine Zahl das heißt 250 - kein Dollar-Symbol und keinen Cent",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Willkommen in Karte X Benutzer"
+      ),
     ),
     Locale.fromSubtags(languageCode: "hi"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
@@ -350,6 +362,9 @@ class AppLocalizations {
         number: "एक संख्या दर्ज करें।",
         notEmpty: "यह एक ज़रूरी जगह हैं।",
         amount: "कोई डॉलर प्रतीक और कोई सेंट - एक नंबर अर्थात 250 दर्ज करें",
+      ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "आपका स्वागत है में कार्ड एक्स उपयोगकर्ता"
       ),
     ),
     Locale.fromSubtags(languageCode: "pt"): AppLocalizations_Labels(
@@ -418,6 +433,9 @@ class AppLocalizations {
         amount:
         "Por favor insira um número ou seja 250 - nenhum símbolo dólar e há centavos",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Bem-vindo no cartão X Usuário"
+      ),
     ),
     Locale.fromSubtags(languageCode: "zh"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
@@ -481,6 +499,9 @@ class AppLocalizations {
         notEmpty: "这是一个必填字段。",
         amount: "请输入一个数，即250  - 没有美元符号和无分",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "贝姆 -  vindo没有卡唐XUsuário"
+      ),
     ),
     Locale.fromSubtags(languageCode: "ja"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
@@ -543,6 +564,9 @@ class AppLocalizations {
         number: "番号を入力してください。",
         notEmpty: "これは必要項目です。",
         amount: "ノードル記号なしセント - すなわち、250番号を入力してください。",
+      ),
+      splash: AppLocalizations_Labels_Splash(
+          welcome: "カードXユーザーにようこそ"
       ),
     ),
     Locale.fromSubtags(languageCode: "ru"): AppLocalizations_Labels(
@@ -610,48 +634,52 @@ class AppLocalizations {
         amount:
         "Пожалуйста, введите номер 250 - т.е. без символа доллара и ни цента",
       ),
+      splash: AppLocalizations_Labels_Splash(
+        welcome: "Добро пожаловать в карты X Пользователь"
+      ),
     ),
   };
 
   final AppLocalizations_Labels labels;
 
   static AppLocalizations_Labels of(BuildContext context) =>
-      Localizations.of<AppLocalizations>(context, AppLocalizations)?.labels;
+      Localizations
+          .of<AppLocalizations>(context, AppLocalizations)
+          ?.labels;
 }
 
 class AppLocalizations_Labels_Auth {
-  const AppLocalizations_Labels_Auth(
-      {this.signInButton,
-        this.signUpButton,
-        this.googleSignInButton,
-        this.resetPasswordButton,
-        this.emailFormField,
-        this.passwordFormField,
-        this.nameFormField,
-        this.signInErrorTitle,
-        this.signInError,
-        this.resetPasswordLabelButton,
-        this.signUpLabelButton,
-        this.signUpErrorTitle,
-        this.signUpError,
-        this.signInLabelButton,
-        this.resetPasswordNoticeTitle,
-        this.resetPasswordNotice,
-        this.resetPasswordFailed,
-        this.signInonResetPasswordLabelButton,
-        this.updateUser,
-        this.updateUserSuccessNoticeTitle,
-        this.updateUserSuccessNotice,
-        this.updateUserFailNotice,
-        this.enterPassword,
-        this.cancel,
-        this.submit,
-        this.changePasswordLabelButton,
-        this.resetPasswordTitle,
-        this.updateProfileTitle,
-        this.wrongPasswordNoticeTitle,
-        this.wrongPasswordNotice,
-        this.unknownError});
+  const AppLocalizations_Labels_Auth({this.signInButton,
+    this.signUpButton,
+    this.googleSignInButton,
+    this.resetPasswordButton,
+    this.emailFormField,
+    this.passwordFormField,
+    this.nameFormField,
+    this.signInErrorTitle,
+    this.signInError,
+    this.resetPasswordLabelButton,
+    this.signUpLabelButton,
+    this.signUpErrorTitle,
+    this.signUpError,
+    this.signInLabelButton,
+    this.resetPasswordNoticeTitle,
+    this.resetPasswordNotice,
+    this.resetPasswordFailed,
+    this.signInonResetPasswordLabelButton,
+    this.updateUser,
+    this.updateUserSuccessNoticeTitle,
+    this.updateUserSuccessNotice,
+    this.updateUserFailNotice,
+    this.enterPassword,
+    this.cancel,
+    this.submit,
+    this.changePasswordLabelButton,
+    this.resetPasswordTitle,
+    this.updateProfileTitle,
+    this.wrongPasswordNoticeTitle,
+    this.wrongPasswordNotice,
+    this.unknownError});
 
   final String signInButton;
 
@@ -717,15 +745,14 @@ class AppLocalizations_Labels_Auth {
 }
 
 class AppLocalizations_Labels_Settings {
-  const AppLocalizations_Labels_Settings(
-      {this.title,
-        this.language,
-        this.theme,
-        this.signOut,
-        this.dark,
-        this.light,
-        this.system,
-        this.updateProfile});
+  const AppLocalizations_Labels_Settings({this.title,
+    this.language,
+    this.theme,
+    this.signOut,
+    this.dark,
+    this.light,
+    this.system,
+    this.updateProfile});
 
   final String title;
 
@@ -745,12 +772,11 @@ class AppLocalizations_Labels_Settings {
 }
 
 class AppLocalizations_Labels_Home {
-  const AppLocalizations_Labels_Home(
-      {this.title,
-        this.nameLabel,
-        this.uidLabel,
-        this.emailLabel,
-        this.adminUserLabel});
+  const AppLocalizations_Labels_Home({this.title,
+    this.nameLabel,
+    this.uidLabel,
+    this.emailLabel,
+    this.adminUserLabel});
 
   final String title;
 
@@ -770,13 +796,12 @@ class AppLocalizations_Labels_App {
 }
 
 class AppLocalizations_Labels_Validator {
-  const AppLocalizations_Labels_Validator(
-      {this.email,
-        this.password,
-        this.name,
-        this.number,
-        this.notEmpty,
-        this.amount});
+  const AppLocalizations_Labels_Validator({this.email,
+    this.password,
+    this.name,
+    this.number,
+    this.notEmpty,
+    this.amount});
 
   final String email;
 
@@ -791,9 +816,15 @@ class AppLocalizations_Labels_Validator {
   final String amount;
 }
 
+class AppLocalizations_Labels_Splash {
+  const AppLocalizations_Labels_Splash({this.welcome});
+
+  final String welcome;
+}
+
 class AppLocalizations_Labels {
   const AppLocalizations_Labels(
-      {this.auth, this.settings, this.home, this.app, this.validator});
+      {this.auth, this.settings, this.home, this.app, this.validator, this.splash});
 
   final AppLocalizations_Labels_Auth auth;
 
@@ -804,4 +835,6 @@ class AppLocalizations_Labels {
   final AppLocalizations_Labels_App app;
 
   final AppLocalizations_Labels_Validator validator;
+
+  final AppLocalizations_Labels_Splash splash;
 }
