@@ -76,11 +76,9 @@ class HomeUI extends StatelessWidget {
                       },
                     ),
                     ListTile(
-                      title: Text('Offline'),
-                      leading: Icon(Icons.offline_pin),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      title: Text('take a picture'),
+                      leading: Icon(Icons.camera_alt),
+                      onTap: () => Get.to(UploadingImageToFirebaseUi()),
                     ),
                     ListTile(
                       title: Text('Uploads'),

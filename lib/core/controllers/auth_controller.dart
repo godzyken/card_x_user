@@ -251,11 +251,13 @@ class AuthController extends GetxController {
 
     try {
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth = await googleUser
+          .authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
           idToken: googleAuth.idToken, accessToken: googleAuth.accessToken
       );
-      final userCred = (await _auth.signInWithCredential(credential).then((value) =>
+      final userCred = (await _auth.signInWithCredential(credential).then((
+          value) =>
           Get.offAll(HomeUI())));
       firebaseUser = userCred.user;
 
@@ -271,16 +273,16 @@ class AuthController extends GetxController {
           colorText: Get.theme.snackBarTheme.actionTextColor);
     }
   }
-  
+
   // Google_sign_out
   Future<void> _googleSignOut() async {
     await _googleSignIn.signOut().then((value) =>
-    Get.offAll(SignUpUI()));
+        Get.offAll(SignUpUI()));
   }
 
   // Get PhotoUrl for Profile avatar
   getPhotoUrl() {
-    if(_auth.currentUser.photoURL != null) {
+    if (_auth.currentUser.photoURL != null) {
       return Image.network(_auth.currentUser.photoURL, height: 100, width: 100);
     } else {
       return Icon(Icons.account_circle, size: 100);
