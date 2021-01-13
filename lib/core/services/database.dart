@@ -20,38 +20,25 @@ class Database {
     }
   }
 
-  Future<CardUserModel> getUserCard(UserModel userModel,
-      CardModel cardModel) async {
+  Future<CardUserModel> getUserCard(String uid) async {
     try {
-      DocumentSnapshot _doc = await _firestore.collection("users").doc(
-          userModel.uid)
-          .collection("carduser").doc(cardModel.id)
-          .get();
+      DocumentSnapshot _doc = await _firestore.collection("users").doc(uid).get();
 
-      return CardUserModel(
-        key: cardModel.id,
-        value: cardModel.name,
-        status: userModel.name,
-        userModel: userModel,
-        photoUrl: userModel.photoUrl,
-        icon: userModel.photoUrl,
-        uid: userModel.uid,
-        email: userModel.email,
-      );
+      return CardUserModel.fromDocumentSnapshot(documentSnapshot: _doc);
     } catch (e) {
       print(e);
       rethrow;
     }
   }
 
-  Future<bool> addCard(CardModel cardModel, UserModel userModel) async {
+  Future<void> addCard(String content, String uid) async {
     try {
       await _firestore.collection("users")
-          .doc(userModel.uid)
+          .doc(uid)
           .collection("carduser")
           .add({
         'dateCreated': Timestamp.now(),
-        'content': cardModel,
+        'content': content,
         'done': false,
       });
     } catch (e) {
@@ -60,10 +47,10 @@ class Database {
     }
   }
 
-  Stream<List<CardModel>> cardStream(UserModel userModel) {
+  Stream<List<CardModel>> cardStream(String uid) {
     return _firestore
         .collection("users")
-        .doc(userModel.uid)
+        .doc(uid)
         .collection("carduser")
         .orderBy("dateCreated", descending: true)
         .snapshots()
@@ -76,14 +63,14 @@ class Database {
     });
   }
 
-  Future<void> updateCard(bool newValue, UserModel userModel,
-      CardModel cardModel) async {
+  Future<void> updateCard(bool newValue, String uid,
+      String cardId) async {
     try {
       _firestore
           .collection("users")
-          .doc(userModel.uid)
+          .doc(uid)
           .collection("carduser")
-          .doc(cardModel.id)
+          .doc(cardId)
           .update({"done": newValue});
     } catch (e) {
       print(e);

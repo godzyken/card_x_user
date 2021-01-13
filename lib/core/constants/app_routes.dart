@@ -1,6 +1,7 @@
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
+import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -14,5 +15,6 @@ class AppRoutes {
     GetPage(name: '/reset-password', page: () => ResetPasswordUI()),
     GetPage(name: '/update-profile', page: () => UpdateProfileUI()),
     GetPage(name: '/explorer', page: () => MyExplorerUi()),
+    GetPage(name: '/create-card-profile', page: () => AddCard()),
   ];
 }

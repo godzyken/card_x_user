@@ -3,7 +3,9 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:card_x_user/core/controllers/card_controller.dart';
+import 'package:card_x_user/core/controllers/card_user_controller.dart';
 import 'package:card_x_user/core/models/models.dart';
+import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
@@ -21,8 +23,17 @@ class _CardProfileUserState extends State<CardProfileUser> {
         oldWidget.key == newWidget.key;
   }
 
-  Card _cardUserModel;
-  final card = CardUserModel();
+  int count;
+  CardUserModel _cardUserModel;
+  final cardUserProfile = CardProfileUser();
+  final CardUserController counterState = Get.put(CardUserController());
+
+  @override
+  void initState() {
+    _cardUserModel = CardUserModel();
+    counterState.StartStream();
+    super.initState();
+  }
 
   /*Future<void> uploadData() async {
     String text = 'Hello World!';
@@ -280,59 +291,83 @@ class _CardProfileUserState extends State<CardProfileUser> {
     final labels = AppLocalizations.of(context);
 
     return GetBuilder<CardController>(
-        init: CardController(),
-        builder: (controller) => controller?.cardUser?.value?.uid == null
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : Scaffold(
-                appBar: AppBar(
-                  title: Text(labels?.home?.title),
-                  actions: [
-                    IconButton(icon: Icon(Icons.add), onPressed: () {})
-                  ],
-                ),
-                body: Center(
-                  child: Card(
-                    child: InkWell(
-                      splashColor: Colors.blue.withAlpha(30),
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Container(
-                        width: 300,
-                        height: 100,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const ListTile(
-                              leading: Icon(Icons.album),
-                              title: Text('The Enchanted Nightingale'),
-                              subtitle: Text(
-                                  'Music by Julie Gable. Lyrics by Sidney Stein.'),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                TextButton(
-                                  child: const Text('Show Card'),
-                                  onPressed: () {},
+            init: CardController(),
+            builder: (controller) =>
+            controller?.cardStoreUser?.value?.uid == null
+                ? Center(
+              child: CircularProgressIndicator(),
+            )
+                : Scaffold(
+              appBar: AppBar(
+                title: Text(labels?.home?.title),
+                actions: [
+                  IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        Get.to(CreateACardUi());
+                      })
+                ],
+              ),
+              body: Center(
+                child: Card(
+                  child: InkWell(
+                    splashColor: Colors.blue.withAlpha(30),
+                    onTap: () {
+                      print('Card tapped.');
+                    },
+                    child: Container(
+                      width: 300,
+                      height: 100,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const ListTile(
+                            leading: Icon(Icons.album),
+                            title: Text('The Enchanted Nightingale'),
+                            subtitle: Text(
+                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
+                          ),
+                          Column(
+                              children: [
+                                StreamBuilder(
+                                    stream: counterState.streamController
+                                        .stream,
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot<dynamic> snapshot) {
+                                      count = snapshot.data;
+                                      return Text("Stream : $count");
+                                    }
                                 ),
-                                const SizedBox(width: 8),
-                                TextButton(
-                                  child: const Text('Créer un profile'),
-                                  onPressed: () {},
+                                Center(
+                                  child: Obx(() =>
+                                      Text("Counter Value is : ${counterState
+                                          .streamController.stream}")),
                                 ),
-                                const SizedBox(width: 8),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ]
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              TextButton(
+                                child: const Text('Show Card'),
+                                onPressed: () {},
+                              ),
+                              const SizedBox(width: 8),
+                              TextButton(
+                                child: const Text('Créer un profile'),
+                                onPressed: () {
+
+                                },
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-        )
-    );
+              ),
+            ));
   }
 }

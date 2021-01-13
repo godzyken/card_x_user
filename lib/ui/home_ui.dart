@@ -1,13 +1,24 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
+import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeUI extends StatelessWidget {
+class HomeUI extends StatefulWidget {
+  @override
+  _HomeUIState createState() => _HomeUIState();
+}
+
+class _HomeUIState extends State<HomeUI> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
@@ -34,7 +45,8 @@ class HomeUI extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       child: UserAccountsDrawerHeader(
-                        currentAccountPicture: Avatar(controller.firestoreUser.value),
+                        currentAccountPicture:
+                            Avatar(controller.firestoreUser.value),
                         accountName: Text(
                             labels.home.nameLabel +
                                 ': ' +
@@ -94,42 +106,24 @@ class HomeUI extends StatelessWidget {
                         print("Clicked");
                       },
                     ),
+                    ListTile(
+                      title: Text('My Card'),
+                      leading: Icon(Icons.account_circle),
+                      onTap: () {
+                        print("clicked");
+                        Get.to(AddCard());
+                      },
+                    )
                   ],
                 ),
               ),
               body: Center(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 120),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        FormVerticalSpace(),
-                        Text(
-                            labels.home.uidLabel +
-                                ': ' +
-                                controller.firestoreUser.value.uid,
-                            style: TextStyle(fontSize: 16)),
-                        FormVerticalSpace(),
-                        Text(
-                            labels.home.nameLabel +
-                                ': ' +
-                                controller.firestoreUser.value.name,
-                            style: TextStyle(fontSize: 16)),
-                        FormVerticalSpace(),
-                        Text(
-                            labels.home.emailLabel +
-                                ': ' +
-                                controller.firestoreUser.value.email,
-                            style: TextStyle(fontSize: 16)),
-                        FormVerticalSpace(),
-                        Text(
-                            labels.home.adminUserLabel +
-                                ': ' +
-                                controller.admin.value.toString(),
-                            style: TextStyle(fontSize: 16)),
-                      ],
+                    Expanded(
+                      child: Text(
+                          "this is : ${controller.firebaseUser.value.photoURL}"),
+                      flex: 1,
                     ),
                   ],
                 ),
