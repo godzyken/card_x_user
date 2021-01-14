@@ -111,7 +111,7 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.account_circle),
                       onTap: () {
                         print("clicked");
-                        Get.to(AddCard());
+                        Get.to(CardProfileUser());
                       },
                     )
                   ],

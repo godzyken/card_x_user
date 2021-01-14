@@ -1,16 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:card_x_user/core/controllers/card_controller.dart';
 import 'package:card_x_user/core/controllers/card_user_controller.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/localizations.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class CardProfileUser extends StatefulWidget {
   @override
@@ -31,7 +25,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
   @override
   void initState() {
     _cardUserModel = CardUserModel();
-    counterState.StartStream();
+    counterState.StartStreamCardUser();
     super.initState();
   }
 
@@ -290,84 +284,59 @@ class _CardProfileUserState extends State<CardProfileUser> {
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
 
-    return GetBuilder<CardController>(
-            init: CardController(),
-            builder: (controller) =>
-            controller?.cardStoreUser?.value?.uid == null
-                ? Center(
-              child: CircularProgressIndicator(),
-            )
-                : Scaffold(
-              appBar: AppBar(
-                title: Text(labels?.home?.title),
-                actions: [
-                  IconButton(
-                      icon: Icon(Icons.add),
-                      onPressed: () {
-                        Get.to(CreateACardUi());
-                      })
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(labels?.home?.title),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Get.to(CreateACardUi());
+              })
+        ],
+      ),
+      body: Center(
+        child: Card(
+          child: InkWell(
+            splashColor: Colors.blue.withAlpha(30),
+            onTap: () {
+              print('Card tapped.');
+            },
+            child: Container(
+              width: 300,
+              height: 150,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  const ListTile(
+                    leading: Icon(Icons.album),
+                    title: Text('The Enchanted Nightingale'),
+                    subtitle:
+                        Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('Show Card'),
+                        onPressed: () {},
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        child: const Text('Créer un profile'),
+                        onPressed: () {
+                          Get.to(AddCard());
+                        },
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ),
                 ],
               ),
-              body: Center(
-                child: Card(
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      print('Card tapped.');
-                    },
-                    child: Container(
-                      width: 300,
-                      height: 100,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album),
-                            title: Text('The Enchanted Nightingale'),
-                            subtitle: Text(
-                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
-                          ),
-                          Column(
-                              children: [
-                                StreamBuilder(
-                                    stream: counterState.streamController
-                                        .stream,
-                                    builder: (BuildContext context,
-                                        AsyncSnapshot<dynamic> snapshot) {
-                                      count = snapshot.data;
-                                      return Text("Stream : $count");
-                                    }
-                                ),
-                                Center(
-                                  child: Obx(() =>
-                                      Text("Counter Value is : ${counterState
-                                          .streamController.stream}")),
-                                ),
-                              ]
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              TextButton(
-                                child: const Text('Show Card'),
-                                onPressed: () {},
-                              ),
-                              const SizedBox(width: 8),
-                              TextButton(
-                                child: const Text('Créer un profile'),
-                                onPressed: () {
-
-                                },
-                              ),
-                              const SizedBox(width: 8),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ));
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,4 +1,6 @@
 //User Model
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
@@ -18,6 +20,11 @@ class UserModel {
     );
   }
 
+  static UserModel fromRawJson(String str) =>
+      UserModel.fromJson(json.decode(str) as Map<String, dynamic>);
+
+  String toRawJson() => json.encode(toJson());
+
   UserModel.fromDocumentSnapshot({DocumentSnapshot documentSnapshot}) {
     uid = documentSnapshot.id;
     name = documentSnapshot["name"];
@@ -25,9 +32,16 @@ class UserModel {
     photoUrl = documentSnapshot["photoUrl"];
   }
 
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        uid: json["Uid"] == null ? null : json["Uid"] as String,
+        name: json["Name"] == null ? null : json["Name"] as String,
+        email: json["Email"] == null ? null : json["Email"] as String,
+        photoUrl: json["PhotoUrl"] == null ? null : json["PhotoUrl"] as String,
+      );
+
   factory UserModel.fromSnapshot(DocumentSnapshot snap) {
     Map<String, dynamic> map = snap.data();
-    if(map.containsKey('name')){
+    if (map.containsKey('name')) {
       return UserModel.fromMap(
         map,
       );

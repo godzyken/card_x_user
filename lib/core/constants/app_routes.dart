@@ -15,6 +15,6 @@ class AppRoutes {
     GetPage(name: '/reset-password', page: () => ResetPasswordUI()),
     GetPage(name: '/update-profile', page: () => UpdateProfileUI()),
     GetPage(name: '/explorer', page: () => MyExplorerUi()),
-    GetPage(name: '/create-card-profile', page: () => AddCard()),
+    GetPage(name: '/card-profile', page: () => CardProfileUser()),
   ];
 }

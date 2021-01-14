@@ -6,32 +6,6 @@ class CardService {
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<bool> createNewUser(UserModel user) async {
-    try {
-      await _firestore.collection("users").doc(user.uid).set({
-        "name": user.name,
-        "email": user.email,
-        "photoUrl": user.photoUrl,
-      });
-      return true;
-    } catch (e) {
-      print(e);
-      return false;
-    }
-  }
-
-  Future<UserModel> getUser(String uid) async {
-    try {
-      DocumentSnapshot _doc =
-      await _firestore.collection("users").doc(uid).get();
-
-      return UserModel.fromDocumentSnapshot(documentSnapshot: _doc);
-    } catch (e) {
-      print(e);
-      rethrow;
-    }
-  }
-
   Future<CardModel> addCard(String content, String uid) async {
     try {
       await _firestore
@@ -47,6 +21,7 @@ class CardService {
       print(e);
       rethrow;
     }
+    return null;
   }
 
   Stream<List<CardModel>> cardStream(String uid) {
@@ -83,6 +58,7 @@ class CardService {
     var result = await _firestore.doc(id).get();
     return CardModel.fromDocumentSnapshot(result);
   }
+
 
   deleteOne(String id) {
     _firestore.doc(id).delete();

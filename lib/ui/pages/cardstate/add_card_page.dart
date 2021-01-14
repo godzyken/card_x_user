@@ -4,8 +4,6 @@ import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/generated/assets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -16,10 +14,10 @@ class AddCardPage extends StatefulWidget {
 }
 
 class _AddCardPageState extends State<AddCardPage> {
-  final CardController cardController = CardController.to();
+  final CardController cardController = CardController.to;
 
   List<Assets> cards = []..length;
-  List<CardUserModel> remoteCardModel = []..length = 500;
+  List<CardModel> remoteCardModel = []..length;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +28,7 @@ class _AddCardPageState extends State<AddCardPage> {
           IconButton(
             icon: Icon(Icons.save),
             onPressed: () {
-              saveProduct();
+              // saveProduct();
             },
           )
         ],
@@ -110,7 +108,7 @@ class _AddCardPageState extends State<AddCardPage> {
                               setState(() {
                                 remoteCardModel = remoteCardModel
                                     .where((element) =>
-                                element.key != asset.obs)
+                                element.id != asset.obs)
                                     .toList();
                               });
                             }),
@@ -158,7 +156,7 @@ class _AddCardPageState extends State<AddCardPage> {
     }
   }*/
 
-  void saveProduct() {
+/*  void saveProduct() {
     var user = AuthController.to.firebaseUser.value;
     CardUserModelService cardUserModelService = new CardUserModelService();
     Get.rawSnackbar(
@@ -179,14 +177,16 @@ class _AddCardPageState extends State<AddCardPage> {
       value: cardController.dispoController.text,
       status: cardController.titreProController.text,
       icon: cardController.referenceController.text,
-      userModel: cardController.cardUser.value,
+      date: cardController.horaireController.text,
+      userModel: UserModel(),
     )
         .then((card) async {
       for (var i = 0; i < cards.length; i++) {
-/*        var img = await saveImage(cards[i]);
-        remoteCardModel.add(img);*/
+        var img = await saveImage(cards[i]);
+        remoteCardModel.add(img);
       }
-      cardUserModelService.addGallery(card.id, remoteCardModel);
+
+      cardUserModelService.addGallery(card.key, remoteCardModel);
       setState(() {
         remoteCardModel = [];
         cards = [];
@@ -197,7 +197,7 @@ class _AddCardPageState extends State<AddCardPage> {
       });
       Get.snackbar("Success", "Product saved");
     });
-  }
+  }*/
 }
 
 Future<PhotoUrlModel> saveImage(Assets asset) async {

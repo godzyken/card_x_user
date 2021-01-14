@@ -29,7 +29,7 @@ class _CreateACardUiState extends State<CreateACardUi> {
         CardController.to.loadDetails(id).then((value) =>
             setState(() {
               cardModel = value;
-              cardController.titreProController.text = cardModel.name;
+              cardController.titreProController.text = cardModel.name as String;
             }));
       }
     }
@@ -54,7 +54,7 @@ class _CreateACardUiState extends State<CreateACardUi> {
               }
               if(cardController.titreProController == null) {
                 cardController.titreProController = TextEditingController(
-                  text: CardController.to.cardStoreUser.value.status,
+                  text: cardController.titreProController.value.text,
                 );
               }
               return Form(
