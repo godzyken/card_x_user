@@ -1,4 +1,5 @@
 import 'package:card_x_user/ui/auth/auth.dart';
+import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
@@ -16,5 +17,7 @@ class AppRoutes {
     GetPage(name: '/update-profile', page: () => UpdateProfileUI()),
     GetPage(name: '/explorer', page: () => MyExplorerUi()),
     GetPage(name: '/card-profile', page: () => CardProfileUser()),
+    GetPage(name: '/create-a-card', page: () => CreateACardUi()),
+    GetPage(name: '/view-card', page: () => CardView()),
   ];
 }

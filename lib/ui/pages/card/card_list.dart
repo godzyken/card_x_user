@@ -37,13 +37,13 @@ class CardList extends StatelessWidget {
           return Container(child: Center(child: CircularProgressIndicator()));
         }
 
-        if (c.cardUs.length == 0) {
+        if (c.cardUs.value.done) {
           return Center(child: Text('Nothing to do'));
         }
         return ListView.builder(
-            itemCount: c.cardUs.length,
+            itemCount: c.cardUs.subject.length,
             itemBuilder: (context, index) {
-              return CardItem(c.cardUs.elementAt(index));
+              return CardItem(c.cardUs.reactive.value.value);
             });
       }),
       floatingActionButton: FloatingActionButton(

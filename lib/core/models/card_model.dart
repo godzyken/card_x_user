@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:card_x_user/core/models/card_user_model.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 
 class CardModel {
   String id;
@@ -111,5 +113,63 @@ class Global {
         "TotalDeaths": totalDeaths == null ? null : totalDeaths,
         "NewRecovered": newRecovered == null ? null : newRecovered,
         "TotalRecovered": totalRecovered == null ? null : totalRecovered,
+      };
+}
+
+class RxCardModel {
+  final id = 0.obs;
+  final name = 'name'.obs;
+  final dateCreated = 'dateCreated'.obs;
+  final done = 'done'.obs;
+  final cardUserModel = CardUserModel().obs;
+  final global = Global().obs;
+}
+
+class CardModelu {
+  CardModelu({id, name, dateCreated, done, cardUserModel, global});
+
+  final rx = RxCardModel();
+
+  get name => rx.name.value;
+
+  set name(value) => rx.name.value = value;
+
+  get id => rx.id.value;
+
+  set id(value) => rx.id.value = value;
+
+  get dateCreated => rx.dateCreated.value;
+
+  set dateCreated(value) => rx.dateCreated.value = value;
+
+  get done => rx.done.value;
+
+  set done(value) => rx.done.value = value;
+
+  get cardUserModel => rx.cardUserModel.value;
+
+  set cardUserModel(value) => rx.cardUserModel.value = value;
+
+  get global => rx.global.value;
+
+  set global(value) => rx.global.value = value;
+
+  CardModelu.fromJson(dynamic, json) {
+    id = json['id'];
+    name = json['name'];
+    dateCreated = json['dateCreated'];
+    done = json['done'];
+    cardUserModel = json['cardUserModel'];
+    global = json['global'];
+  }
+
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'id': id,
+        'dateCreated': dateCreated,
+        'done': done,
+        'cardUserModel': cardUserModel,
+        'global': global,
       };
 }

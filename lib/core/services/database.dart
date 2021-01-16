@@ -47,7 +47,7 @@ class Database {
     }
   }
 
-  Stream<List<CardModel>> cardStream(String uid) {
+  Stream<CardModel> cardStream(String uid) {
     return _firestore
         .collection("users")
         .doc(uid)
@@ -55,9 +55,12 @@ class Database {
         .orderBy("dateCreated", descending: true)
         .snapshots()
         .map((querySnapshot) {
-      List<CardModel> retVal = [];
+      CardModel retVal = CardModel(
+        id: querySnapshot.docs.last.id,
+
+      );
       querySnapshot.docs.forEach((element) {
-        retVal.add(CardModel.fromMap(element.data()));
+        retVal.id = element.id;
       });
       return retVal;
     });

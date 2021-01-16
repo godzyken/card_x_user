@@ -16,9 +16,9 @@ class UpdateProfileUI extends StatelessWidget {
     final labels = AppLocalizations.of(context);
 
     //print('user.name: ' + user?.value?.name);
-    authController.nameController.text =
+    authController.nameController.value.text =
         authController?.firestoreUser?.value?.name;
-    authController.emailController.text =
+    authController.emailController.value.text =
         authController?.firestoreUser?.value?.email;
     return Scaffold(
       appBar: AppBar(title: Text(labels.auth.updateProfileTitle)),
@@ -35,24 +35,24 @@ class UpdateProfileUI extends StatelessWidget {
                   LogoGraphicHeader(),
                   SizedBox(height: 48.0),
                   FormInputFieldWithIcon(
-                    controller: authController.nameController,
+                    controller: authController.nameController.value,
                     iconPrefix: Icons.person,
                     labelText: labels.auth.nameFormField,
                     validator: Validator(labels).name,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.nameController.text = value,
+                    authController.nameController.value.text = value,
                   ),
                   FormVerticalSpace(),
                   FormInputFieldWithIcon(
-                    controller: authController.emailController,
+                    controller: authController.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
                     validator: Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.emailController.text = value,
+                    authController.emailController.value.text = value,
                   ),
                   FormVerticalSpace(),
                   PrimaryButton(
@@ -63,8 +63,8 @@ class UpdateProfileUI extends StatelessWidget {
                               .invokeMethod('TextInput.hide');
                           UserModel _updatedUser = UserModel(
                               uid: authController?.firestoreUser?.value?.uid,
-                              name: authController.nameController.text,
-                              email: authController.emailController.text,
+                              name: authController.nameController.value.text,
+                              email: authController.emailController.value.text,
                               photoUrl: authController
                                   ?.firestoreUser?.value?.photoUrl);
                           _updateUserConfirm(context, _updatedUser,

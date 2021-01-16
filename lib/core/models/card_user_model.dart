@@ -89,7 +89,7 @@ class CardUserModel {
         'userModel': userModels,
       };
 
-  static CardUserModel fromJson(Map<String, dynamic> json) => CardUserModel(
+  static CardUserModel fromJson(dynamic json) => CardUserModel(
         key: json["Key"] == null ? null : json["Key"] as String,
         value: json["Value"] == null ? null : json["Value"] as String,
         status: json["Status"] == null ? null : json["Status"] as String,

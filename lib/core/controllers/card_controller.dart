@@ -25,8 +25,8 @@ class CardController extends GetxController {
   TextEditingController descriptionController = TextEditingController();
 
 
-  // Rx<CardUserModel> cardStoreUser = Rx<CardUserModel>();
-  RxList<CardModel> cardUs = RxList<CardModel>();
+  final cardStoreUser = CardUserModel().obs;
+  final cardUs = CardModel().obs;
 
   CardService _cardService;
 
@@ -40,6 +40,7 @@ class CardController extends GetxController {
 
   CardController({this.cardRepository}) {
     _cardService = CardService();
+    update();
   }
 
   @override
@@ -50,13 +51,15 @@ class CardController extends GetxController {
         .firebaseUser
         .value
         .uid;
+
     cardUs.bindStream(Database().cardStream(uid));
-    cardRepository.getCardModels().then((data) {
+
+ /*   cardRepository.getCardModels().then((data) {
       change(data, status: RxStatus.success());
     }, onError: (err)
     {
-      change(null, status: RxStatus.error(err.toString()));
-    });
+      change(cardUs.value, status: RxStatus.error(err.toString()));
+    });*/
   }
 
   @override
@@ -106,7 +109,7 @@ class CardController extends GetxController {
       print(e);
     }
 
-    return null;
+    return cardUs.value;
   }
 
   addCard(String name) async {
@@ -115,7 +118,7 @@ class CardController extends GetxController {
       isAddingCard.value = true;
       var card = await _cardService.addCard(
           authController.firebaseUser.value.uid, name);
-      cardUs.add(card);
+
       Get.snackbar("Success", card.id, snackPosition: SnackPosition.BOTTOM);
       isAddingCard.value = false;
     } catch (e) {
@@ -138,11 +141,12 @@ class CardController extends GetxController {
   updateCard(BuildContext context) async {
     try {
       isAddingCard.value = true;
-      await _cardService.updateCard;
-      int index =
-      cardUs.indexWhere((element) => element.id == cardUs.canUpdate.reactive.status.errorMessage);
+      cardUs.update((val) {
+        val.name = cardUs.value.name;
+        val.done = cardUs.value.done;
+        val.id = cardUs.value.id;
+      });
 
-      cardUs[index] = cardUs.elementAt(index);
       print(cardUs);
       Get.snackbar("Success", "updated", snackPosition: SnackPosition.BOTTOM);
       isAddingCard.value = false;
@@ -155,8 +159,7 @@ class CardController extends GetxController {
   deleteCard(String id) async {
     try {
       await _cardService.deleteOne(id);
-      int index = cardUs.indexWhere((element) => element.id == id);
-      cardUs.removeAt(index);
+
       Get.snackbar("Success", "Deleted", snackPosition: SnackPosition.BOTTOM);
     } catch (e) {
       print(e);
@@ -164,6 +167,8 @@ class CardController extends GetxController {
   }
 
   void change(CardModel data, {RxStatus status}) {}
+
+
 }
 
 

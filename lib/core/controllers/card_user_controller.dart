@@ -16,7 +16,7 @@ class CardUserController extends CardController {
 
   CardUserModelService _cardUserModelService;
 
-  RxList<CardUserModel> cardUsers = RxList<CardUserModel>();
+  final cardUsers = CardModelu().obs;
 
   RxBool isLoadingCard = false.obs;
   RxBool isAddingCard = false.obs;
@@ -35,7 +35,7 @@ class CardUserController extends CardController {
   void onInit() {
     super.onInit();
     String uid = Get.find<AuthController>().firebaseUser.value.uid;
-    cardUsers.bindStream(Database().cardUserStream(uid));
+
     cardRepository.getCardUserModels().then((data) {
       changeUser(data, status: RxStatus.success());
     }, onError: (err) {
@@ -49,17 +49,17 @@ class CardUserController extends CardController {
     });
   }
 
-  Future<CardUserModel> loadUserCards() {
+  Future<CardModelu> loadUserCards() {
     AuthController authController = AuthController.to;
     return _cardUserModelService
         .findOneCardUser(authController.firebaseUser.value.uid);
   }
 
-  Future<CardUserModel> loadDetailsUser(UserModel id) async {
+  Future<CardModelu> loadDetailsUser(String id) async {
     try {
       isLoadingDetails.value = true;
-      var cardModel = await _cardUserModelService.findOneCardUser(id.uid);
-      print(cardModel.value);
+      var cardModel = await _cardUserModelService.findOneCardUser(id);
+      print(cardModel.id);
       isLoadingDetails.value = false;
       return cardModel;
     } catch (e) {
@@ -75,4 +75,15 @@ class CardUserController extends CardController {
   }
 
   void changeUser(CardUserModel data, {RxStatus status}) {}
+
+   updateTheCardUserValues(int newCardUserId, String newCardUserName, bool newDone) {
+
+    cardUsers.update((model) {
+      model.id= newCardUserId;
+      model.name = newCardUserName;
+      model.done = newDone;
+    });
+  }
+
+
 }

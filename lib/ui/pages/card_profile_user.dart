@@ -17,15 +17,27 @@ class _CardProfileUserState extends State<CardProfileUser> {
         oldWidget.key == newWidget.key;
   }
 
-  int count;
-  CardUserModel _cardUserModel;
-  final cardUserProfile = CardProfileUser();
-  final CardUserController counterState = Get.put(CardUserController());
+  CardModelu cardUserModel;
+
+  final cardUserController = CardUserController();
 
   @override
   void initState() {
-    _cardUserModel = CardUserModel();
-    counterState.StartStreamCardUser();
+
+    print(Get.parameters);
+    if (Get.parameters != null) {
+      var id = Get.parameters["id"];
+      if (id != null) {
+        cardUserController.loadDetailsUser(id).then((value) =>
+            setState(() {
+              cardUserController.StartStreamCardUser();
+              cardUserModel = value;
+              cardUserController.updateTheCardUserValues(cardUserModel.id, cardUserModel.name, cardUserModel.done);
+
+            }),
+        );
+      }
+    }
     super.initState();
   }
 
@@ -312,7 +324,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
                     leading: Icon(Icons.album),
                     title: Text('The Enchanted Nightingale'),
                     subtitle:
-                        Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                        Text('Music by Julie Gable. Lyrics by Sidney Stein: '),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

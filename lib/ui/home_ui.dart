@@ -2,6 +2,7 @@ import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
+import 'package:card_x_user/ui/pages/card/widgets/card_viiew.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
@@ -78,6 +79,7 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.star),
                       onTap: () {
                         print("Clicked");
+                        Get.to(CardView());
                       },
                     ),
                     ListTile(
@@ -95,9 +97,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('Uploads'),
                       leading: Icon(Icons.file_upload),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      onTap: () => Get.to(CreateACardUi()),
                     ),
                     ListTile(
                       title: Text('Backups'),

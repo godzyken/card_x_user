@@ -26,9 +26,9 @@ class CardUserModelService extends CardService {
   }
 
 
-  Future<CardUserModel> findOneCardUser(String id) async {
+  Future<CardModelu> findOneCardUser(String id) async {
     var result = await cardUserModelsRef.doc(id).get();
-    return CardUserModel.fromDocumentSnapshot(result);
+    return CardModelu.fromJson(result.id, result.metadata);
   }
 
   Future<CardUserModel> addOne({

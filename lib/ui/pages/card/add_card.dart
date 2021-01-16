@@ -1,8 +1,6 @@
-import 'package:card_x_user/core/controllers/card_controller.dart';
-import 'package:card_x_user/core/models/card_model.dart';
-import 'package:card_x_user/core/models/card_user_model.dart';
+import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
-import 'package:card_x_user/ui/pages/card_profile_user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

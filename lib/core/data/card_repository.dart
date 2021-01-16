@@ -17,4 +17,27 @@ class CardRepository implements ICardRepository {
     }
   }
 
+  @override
+  Future<CardUserModel> getCardUserModels() async {
+    // TODO: implement getCardUserModels
+    final cards = await provider.getCardUserModels("/summary");
+    if (cards.status.hasError == null) {
+      return Future.error(cards.statusText);
+    } else {
+      return cards.body;
+    }
+  }
+
+  @override
+  Future<CardModelu> getCardModelU() async {
+    // TODO: implement getCardModelU
+    final cards = await provider.getCardModelU("/summary");
+    if (cards.status.hasError == null) {
+      return Future.error(cards.statusText);
+    } else {
+      return cards.body;
+    }
+  }
+
+
 }

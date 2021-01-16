@@ -10,6 +10,8 @@ class SplashUI extends StatefulWidget {
 
 class _SplashUIState extends State<SplashUI> {
 
+
+
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
@@ -28,5 +30,16 @@ class _SplashUIState extends State<SplashUI> {
       photoSize: 100.0,
       loaderColor: Colors.red,
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SplashUI();
+  }
+
+  @override
+  bool get mounted {
+    return mounted;
   }
 }

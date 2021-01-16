@@ -28,14 +28,14 @@ class ResetPasswordUI extends StatelessWidget {
                   LogoGraphicHeader(),
                   SizedBox(height: 48.0),
                   FormInputFieldWithIcon(
-                    controller: authController.emailController,
+                    controller: authController.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
                     validator: Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.emailController.text = value,
+                    authController.emailController.value.text = value,
                   ),
                   FormVerticalSpace(),
                   PrimaryButton(
@@ -58,8 +58,8 @@ class ResetPasswordUI extends StatelessWidget {
 
   appBar(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    if ((authController.emailController.text == '') ||
-        (authController.emailController.text == null)) {
+    if ((authController.emailController.value.text == '') ||
+        (authController.emailController.value.text == null)) {
       return null;
     }
     return AppBar(title: Text(labels?.auth?.resetPasswordTitle));
@@ -67,8 +67,8 @@ class ResetPasswordUI extends StatelessWidget {
 
   signInLink(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    if ((authController.emailController.text == '') ||
-        (authController.emailController.text == null)) {
+    if ((authController.emailController.value.text == '') ||
+        (authController.emailController.value.text == null)) {
       return LabelButton(
         labelText: labels?.auth?.signInonResetPasswordLabelButton,
         onPressed: () => Get.offAll(SignInUI()),

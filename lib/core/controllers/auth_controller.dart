@@ -14,12 +14,12 @@ import 'package:simple_gravatar/simple_gravatar.dart';
 class AuthController extends GetxController {
   static AuthController to = Get.find();
   AppLocalizations_Labels labels;
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  final nameController = TextEditingController().obs;
+  final emailController = TextEditingController().obs;
+  final passwordController = TextEditingController().obs;
+  final _auth = FirebaseAuth.instance;
+  final _db = FirebaseFirestore.instance;
+  final _googleSignIn = GoogleSignIn(scopes: ['email']);
   Rx<User> firebaseUser = Rx<User>();
   Rx<UserModel> firestoreUser = Rx<UserModel>();
   final RxBool admin = false.obs;
@@ -35,9 +35,9 @@ class AuthController extends GetxController {
 
   @override
   void onClose() {
-    nameController?.dispose();
-    emailController?.dispose();
-    passwordController?.dispose();
+    nameController?.value?.dispose();
+    emailController?.value?.dispose();
+    passwordController?.value?.dispose();
     super.onClose();
   }
 
@@ -89,10 +89,10 @@ class AuthController extends GetxController {
     showLoadingIndicator();
     try {
       await _auth.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
-      emailController.clear();
-      passwordController.clear();
+          email: emailController.value.text.trim(),
+          password: passwordController.value.text.trim());
+      emailController.value.clear();
+      passwordController.value.clear();
       hideLoadingIndicator();
     } catch (error) {
       hideLoadingIndicator();
@@ -111,12 +111,12 @@ class AuthController extends GetxController {
     try {
       await _auth
           .createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text)
+          email: emailController.value.text, password: passwordController.value.text)
           .then((result) async {
         print('uID: ' + result.user.uid);
         print('email: ' + result.user.email);
         //get photo url from gravatar if user has one
-        Gravatar gravatar = Gravatar(emailController.text);
+        Gravatar gravatar = Gravatar(emailController.value.text);
         String gravatarUrl = gravatar.imageUrl(
           size: 200,
           defaultImage: GravatarImage.retro,
@@ -127,12 +127,12 @@ class AuthController extends GetxController {
         UserModel _newUser = UserModel(
             uid: result.user.uid,
             email: result.user.email,
-            name: nameController.text,
+            name: nameController.value.text,
             photoUrl: gravatarUrl);
         //create the user in firestore
         _createUserFirestore(_newUser, result.user);
-        emailController.clear();
-        passwordController.clear();
+        emailController.value.clear();
+        passwordController.value.clear();
         hideLoadingIndicator();
       });
     } catch (error) {
@@ -204,7 +204,7 @@ class AuthController extends GetxController {
     final labels = AppLocalizations.of(context);
     showLoadingIndicator();
     try {
-      await _auth.sendPasswordResetEmail(email: emailController.text);
+      await _auth.sendPasswordResetEmail(email: emailController.value.text);
       hideLoadingIndicator();
       Get.snackbar(
           labels.auth.resetPasswordNoticeTitle, labels.auth.resetPasswordNotice,
@@ -238,9 +238,9 @@ class AuthController extends GetxController {
 
   // Sign out
   Future<void> signOut() {
-    nameController.clear();
-    emailController.clear();
-    passwordController.clear();
+    nameController.value.clear();
+    emailController.value.clear();
+    passwordController.value.clear();
     return _auth.signOut();
   }
 
