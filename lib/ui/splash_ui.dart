@@ -17,7 +17,7 @@ class _SplashUIState extends State<SplashUI> {
     final labels = AppLocalizations.of(context);
 
     return new SplashScreen(
-      seconds: 15,
+      seconds: 5,
       navigateAfterSeconds: new HomeUI(),
       title: new Text(labels.splash.welcome,
           style: new TextStyle(

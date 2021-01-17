@@ -32,6 +32,9 @@ dependencies:
   firebase_auth: '^0.18.4+1'
   cloud_firestore: '^0.14.4'
   firebase_core_platform_interface: ^2.1.0
+  firebase_messaging: ^7.0.3
+  firebase_in_app_messaging: ^0.3.0+1
+  fcm_config: ^2.0.0-dev.10
   # apple_sign_in:
   get: ^3.24.0
   get_storage: ^1.4.0
@@ -70,6 +73,7 @@ dependency_overrides:
   analyzer: ^0.41.1
   firebase_core: ^0.7.0
   firebase_core_platform_interface: ^3.0.1
+  firebase_messaging: ^8.0.0-dev.12
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

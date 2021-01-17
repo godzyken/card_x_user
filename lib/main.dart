@@ -20,12 +20,10 @@ void main() async {
   Get.put<CardUserController>(CardUserController());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
-
   await GetStorage.init();
-  Firebase.apps;
   FirebaseStorage.instance;
-  await Firebase.initializeApp();
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(MyApp());
 }
@@ -36,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeController.to.getThemeModeFromStore();
     return GetBuilder<LanguageController>(
-      initState: (state) => Firebase.apps,
       builder: (languageController) => Loading(
         child: GetMaterialApp(
           //begin language translation stuff
@@ -58,7 +55,7 @@ class MyApp extends StatelessWidget {
           theme: AppThemes.lightTheme,
           darkTheme: AppThemes.darkTheme,
           themeMode: ThemeMode.system,
-          initialRoute: "/",
+          initialRoute: "/splashscreen",
           getPages: AppRoutes.routes,
         ),
       ),

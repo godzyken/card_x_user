@@ -6,6 +6,7 @@ import 'package:card_x_user/ui/pages/card/widgets/card_viiew.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,8 +16,27 @@ class HomeUI extends StatefulWidget {
 }
 
 class _HomeUIState extends State<HomeUI> {
+  bool _initialized = false;
+  bool _error = false;
+
+  // Define an async function to initialize FlutterFire
+  void initializeFlutterFire() async {
+    try {
+      // Wait for Firebase to initialize and set `_initialized` state to true
+      await Firebase.initializeApp();
+      setState(() {
+        _initialized = true;
+      });
+    } catch(e) {
+      // Set `_error` state to true if Firebase initialization fails
+      setState(() {
+        _error = true;
+      });
+    }
+  }
   @override
   void initState() {
+    initializeFlutterFire();
     super.initState();
   }
 

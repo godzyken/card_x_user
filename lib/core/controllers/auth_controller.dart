@@ -1,10 +1,12 @@
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
+import 'package:card_x_user/main.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -19,10 +21,24 @@ class AuthController extends GetxController {
   final passwordController = TextEditingController().obs;
   final _auth = FirebaseAuth.instance;
   final _db = FirebaseFirestore.instance;
-  final _googleSignIn = GoogleSignIn(scopes: ['email']);
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   Rx<User> firebaseUser = Rx<User>();
   Rx<UserModel> firestoreUser = Rx<UserModel>();
   final RxBool admin = false.obs;
+
+  Future <FirebaseApp> defaultAppInstance = Firebase.initializeApp(
+      name: 'com.godzy.card_x_user',
+      options: const FirebaseOptions(
+          appId: '1:485700706196:android:b351fedd2a99667d69b981',
+          apiKey: 'AIzaSyAYCbvhToZN7uEtnWGKItkCHuTrS0MyGGY',
+          messagingSenderId: 'my_messagingSenderId',
+          projectId: 'flutterauth-demo',
+          storageBucket: 'flutterauth-demo.appspot.com',
+          databaseURL: 'https://flutterauth-demo.firebaseio.com/'
+
+      )
+  );
+
 
   @override
   void onReady() async {
