@@ -4,7 +4,8 @@ import 'package:card_x_user/ui/pages/card/widgets/card_item.dart';
 import 'package:flutter/material.dart'
     '';
 import 'package:get/get.dart';
-class CardList extends StatelessWidget {
+
+/*class CardList extends StatelessWidget {
   CardList({Key key}) : super(key: key);
   AuthController authController = AuthController.to;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -54,4 +55,4 @@ class CardList extends StatelessWidget {
       ),
     );
   }
-}
+}*/

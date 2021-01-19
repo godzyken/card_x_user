@@ -27,14 +27,14 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  firebase_core: ^0.5.3
+  firebase_core: ^0.7.0
   firebase_analytics: '^6.3.0'
-  firebase_auth: '^0.18.4+1'
+  firebase_auth: '^0.20.0+1'
   cloud_firestore: '^0.14.4'
-  firebase_core_platform_interface: ^2.1.0
+  firebase_core_platform_interface: ^3.0.1
   firebase_messaging: ^7.0.3
   firebase_in_app_messaging: ^0.3.0+1
-  fcm_config: ^2.0.0-dev.10
+  fcm_config: ^2.0.0-dev.11
   # apple_sign_in:
   get: ^3.24.0
   get_storage: ^1.4.0

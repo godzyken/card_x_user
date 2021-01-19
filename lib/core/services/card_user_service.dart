@@ -4,12 +4,13 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/core/services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CardUserModelService extends CardService {
-  CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+/*class CardUserModelService extends CardService {
   final StreamController<List<CardUserModel>> _cardUserModelsController =
   StreamController<List<CardUserModel>>.broadcast();
 
   Stream<List<CardUserModel>> findAllCards() {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     // Register the handler for when the cardUserModels data changes
     cardUserModelsRef.snapshots().listen((cardUserModelsSnapshot) {
       if (cardUserModelsSnapshot.docs.isNotEmpty) {
@@ -27,6 +28,8 @@ class CardUserModelService extends CardService {
 
 
   Future<CardModelu> findOneCardUser(String id) async {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     var result = await cardUserModelsRef.doc(id).get();
     return CardModelu.fromJson(result.id, result.metadata);
   }
@@ -39,6 +42,8 @@ class CardUserModelService extends CardService {
     String date,
     UserModel userModel,
   }) async {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     var result = await cardUserModelsRef.add({
       "key": key,
       "value": value,
@@ -55,18 +60,24 @@ class CardUserModelService extends CardService {
   }
 
   Future<void> updateOne(CardUserModel cardUserModel) async {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     cardUserModelsRef.doc(cardUserModel.key).update(cardUserModel.toJson());
   }
 
   deleteOne(String id) {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     cardUserModelsRef.doc(id).delete();
   }
 
   addGallery(String cardUserModelId, List<UserModel> photoUrl) {
+    CollectionReference cardUserModelsRef = FirebaseFirestore.instance.collection("cardUserModels");
+
     cardUserModelsRef.doc(cardUserModelId).update(
       {
         "gallery": photoUrl.map((e) => e.toJson()).toList(),
       },
     );
   }
-}
+}*/

@@ -7,7 +7,7 @@ class CardRepository implements ICardRepository {
   final ICardProvider provider;
 
   @override
-  Future<CardModel> getCardModels() async {
+  Future<CardModelu> getCardModels() async {
     // TODO: implement getCardModels
     final cards = await provider.getCardModels("/summary");
     if (cards.status.hasError == null) {
@@ -27,17 +27,5 @@ class CardRepository implements ICardRepository {
       return cards.body;
     }
   }
-
-  @override
-  Future<CardModelu> getCardModelU() async {
-    // TODO: implement getCardModelU
-    final cards = await provider.getCardModelU("/summary");
-    if (cards.status.hasError == null) {
-      return Future.error(cards.statusText);
-    } else {
-      return cards.body;
-    }
-  }
-
 
 }

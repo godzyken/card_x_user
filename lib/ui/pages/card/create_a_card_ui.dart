@@ -18,22 +18,12 @@ class _CreateACardUiState extends State<CreateACardUi> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  CardModel cardModel;
+  CardModelu cardModel;
 
   @override
   void initState() {
     print(Get.parameters);
-    if (Get.parameters != null) {
-      var id = Get.parameters["id"];
-      if (id != null) {
-        CardController.to.loadDetails(id).then((value) =>
-            setState(() {
-              cardModel = value;
-              cardController.titreProController.text = cardModel.name as String;
-            })
-        );
-      }
-    }
+
     super.initState();
   }
 
@@ -62,18 +52,18 @@ class _CreateACardUiState extends State<CreateACardUi> {
           body: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: GetX(
+              child: GetX<CardController>(
                 initState: (state) =>
-                    cardController.isLoadingDetails(Get.parameters.isNotEmpty),
+                    null,
                 builder:(disposable) {
-                  if(cardController.isLoadingDetails.value) {
+                  if(null) {
                     return Container(
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
-                  if(cardController.titreProController == null) {
-                    cardController.titreProController = TextEditingController(
-                      text: cardController.titreProController.value.text,
+                  if('' == null) {
+                    cardModel.name = TextEditingController(
+                      text: null,
                     );
                   }
                   return Form(
@@ -92,28 +82,28 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO titreFormField translate to labels on card
                               //TODO titre pro to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.titreProController,
+                                controller: cardModel.name,
                                 iconPrefix: Icons.business,
                                 labelText: labels?.auth?.nameFormField,
                                 validator: Validator(labels).name,
                                 keyboardType: TextInputType.name,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.titreProController.text = value,
+                                cardModel.name = value,
                                 maxLines: 1,
                               ),
                               FormVerticalSpace(),
                               //TODO lieu controller link to elasticsearch
                               //TODO lieu translate to labels on card
                               FormInputFieldWithIcon(
-                                controller: cardController.lieuProController,
+                                controller: cardModel.name,
                                 iconPrefix: Icons.location_on,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).streetAdress,
                                 keyboardType: TextInputType.streetAddress,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.descriptionController.text = value,
+                                cardModel.name = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -121,14 +111,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO DescriptionFormField translate to labels on card
                               //TODO Description to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.descriptionController,
+                                controller: cardModel.name,
                                 iconPrefix: Icons.description,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.multiline,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.descriptionController.text = value,
+                                cardModel.name = value,
                                 maxLines: 5,
                               ),
                               FormVerticalSpace(),
@@ -136,14 +126,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO ContactFormField translate to labels on card
                               //TODO Contact to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.contactProController,
+                                controller: cardModel.name,
                                 iconPrefix: Icons.contact_page,
                                 labelText: labels?.auth?.emailFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.contactProController.text = value,
+                                cardModel.name= value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -151,12 +141,12 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO DisponibilityFormField translate to labels on card
                               //TODO Disponibility to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.dispoController,
+                                controller: cardModel.dateCreated,
                                 iconPrefix: Icons.event_busy,
                                 labelText: labels?.auth?.nameFormField,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.dispoController.text = value,
+                                cardModel.dateCreated = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -164,14 +154,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO HoraireFormField translate to labels on card
                               //TODO Horaire to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.horaireController,
+                                controller: null,
                                 iconPrefix: Icons.lock_clock,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.datetime,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardController.horaireController.text = value,
+                                null,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -179,17 +169,17 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO ReferenceFormField translate to labels on card
                               //TODO Reference to validator list
                               FormInputFieldWithIcon(
-                                controller: cardController.referenceController,
+                                controller: null,
                                 iconPrefix: Icons.room_preferences,
                                 labelText: labels?.auth?.nameFormField,
                                 keyboardType: TextInputType.url,
                                 // onChanged: (value) => cardController.updateCard(context),
                                 onSaved: (value) =>
-                                cardController.referenceController.text = value,
+                                null,
                                 maxLines: 2,
                               ),
                               Obx(
-                                    () => cardController.isAddingCard.value
+                                    () => null
                                     ? Container(
                                   child: Center(
                                       child: CircularProgressIndicator(
@@ -197,7 +187,7 @@ class _CreateACardUiState extends State<CreateACardUi> {
                                       )),
                                 )
                                     : FlatButton(
-                                        onPressed: () => cardController.updateCard(context),
+                                        onPressed: () => null,
                                         child: Text(
                                           "Change the value",
                                           style: TextStyle(color: Colors.white),

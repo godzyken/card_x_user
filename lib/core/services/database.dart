@@ -2,6 +2,7 @@ import 'package:card_x_user/core/models/card_model.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+/*
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -98,4 +99,4 @@ class Database {
     }
   }
 
-}
+}*/

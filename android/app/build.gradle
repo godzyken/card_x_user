@@ -69,6 +69,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-core'
     implementation 'com.google.android.gms:play-services-base'
+    implementation 'com.google.android.gms:play-services-basement'
     implementation 'com.google.android.gms:play-services-measurement-impl'
     implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
     implementation 'com.google.firebase:firebase-installations-ktx'

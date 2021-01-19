@@ -1,12 +1,10 @@
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
-import 'package:card_x_user/main.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -19,42 +17,28 @@ class AuthController extends GetxController {
   final nameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
-  final _auth = FirebaseAuth.instance;
-  final _db = FirebaseFirestore.instance;
+
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   Rx<User> firebaseUser = Rx<User>();
   Rx<UserModel> firestoreUser = Rx<UserModel>();
+
   final RxBool admin = false.obs;
 
-  Future <FirebaseApp> defaultAppInstance = Firebase.initializeApp(
-      name: 'com.godzy.card_x_user',
-      options: const FirebaseOptions(
-          appId: '1:485700706196:android:b351fedd2a99667d69b981',
-          apiKey: 'AIzaSyAYCbvhToZN7uEtnWGKItkCHuTrS0MyGGY',
-          messagingSenderId: 'my_messagingSenderId',
-          projectId: 'flutterauth-demo',
-          storageBucket: 'flutterauth-demo.appspot.com',
-          databaseURL: 'https://flutterauth-demo.firebaseio.com/'
+  // Firebase user a realtime stream
+  Stream<User> get user => FirebaseAuth.instance.authStateChanges();
 
-      )
-  );
+  //Streams the firestore user from the firestore collection
+  Stream<UserModel> streamFirestoreUser() {
 
+    print('streamFirestoreUser()');
+    if (firebaseUser?.value?.uid != null) {
+      return FirebaseFirestore.instance
+          .doc('/users/${firebaseUser.value.uid}')
+          .snapshots()
+          .map((snapshot) => UserModel.fromMap(snapshot.data()));
+    }
 
-  @override
-  void onReady() async {
-    //run every time auth state changes
-    ever(firebaseUser, handleAuthChanged);
-    firebaseUser.value = await getUser;
-    firebaseUser.bindStream(user);
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    nameController?.value?.dispose();
-    emailController?.value?.dispose();
-    passwordController?.value?.dispose();
-    super.onClose();
+    return null;
   }
 
   handleAuthChanged(_firebaseUser) async {
@@ -71,40 +55,12 @@ class AuthController extends GetxController {
     }
   }
 
-  // Firebase user one-time fetch
-  Future<User> get getUser async => _auth.currentUser;
-
-  // Firebase user a realtime stream
-  Stream<User> get user => _auth.authStateChanges();
-
-  //Streams the firestore user from the firestore collection
-  Stream<UserModel> streamFirestoreUser() {
-    print('streamFirestoreUser()');
-    if (firebaseUser?.value?.uid != null) {
-      return _db
-          .doc('/users/${firebaseUser.value.uid}')
-          .snapshots()
-          .map((snapshot) => UserModel.fromMap(snapshot.data()));
-    }
-
-    return null;
-  }
-
-  //get the firestore user from the firestore collection
-  Future<UserModel> getFirestoreUser() {
-    if (firebaseUser?.value?.uid != null) {
-      return _db.doc('/users/${firebaseUser.value.uid}').get().then(
-              (documentSnapshot) => UserModel.fromMap(documentSnapshot.data()));
-    }
-    return null;
-  }
-
   //Method to handle user sign in using email and password
   signInWithEmailAndPassword(BuildContext context) async {
     final labels = AppLocalizations.of(context);
     showLoadingIndicator();
     try {
-      await _auth.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.value.text.trim(),
           password: passwordController.value.text.trim());
       emailController.value.clear();
@@ -125,9 +81,10 @@ class AuthController extends GetxController {
     final labels = AppLocalizations.of(context);
     showLoadingIndicator();
     try {
-      await _auth
+      await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-          email: emailController.value.text, password: passwordController.value.text)
+          email: emailController.value.text,
+          password: passwordController.value.text)
           .then((result) async {
         print('uID: ' + result.user.uid);
         print('email: ' + result.user.email);
@@ -151,6 +108,7 @@ class AuthController extends GetxController {
         passwordController.value.clear();
         hideLoadingIndicator();
       });
+
     } catch (error) {
       hideLoadingIndicator();
       Get.snackbar(labels.auth.signUpErrorTitle, error.message,
@@ -161,13 +119,96 @@ class AuthController extends GetxController {
     }
   }
 
+  //check if user is an admin user
+  isAdmin() async {
+
+    await getUser.then((user) async {
+      DocumentSnapshot adminRef =
+      await FirebaseFirestore.instance.collection('admin').doc(user?.uid).get();
+      if (adminRef.exists) {
+        admin.value = true;
+      } else {
+        admin.value = false;
+      }
+      update();
+    });
+  }
+
+  //Method to handle user sign in using google_sign_in
+  googleSignIn(BuildContext context) async {
+    final _auth = FirebaseAuth.instance;
+    final labels = AppLocalizations.of(context);
+    showLoadingIndicator();
+
+    try {
+      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleAuth =
+      await googleUser.authentication;
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+      final userCred = (await _auth
+          .signInWithCredential(credential)
+          .then((value) => Get.offAll(HomeUI())));
+      firebaseUser = userCred.user;
+
+      update();
+
+      hideLoadingIndicator();
+    } catch (error) {
+      hideLoadingIndicator();
+      Get.snackbar(labels.auth.signInErrorTitle, labels.auth.signInError,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 7),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    }
+  }
+
+  // Get PhotoUrl for Profile avatar
+  getPhotoUrl() {
+    final _auth = FirebaseAuth.instance;
+
+    if (_auth.currentUser.photoURL != null) {
+      return Image.network(_auth.currentUser.photoURL, height: 100, width: 100);
+    } else {
+      return Icon(Icons.account_circle, size: 100);
+    }
+
+  }
+
+/*  Future<FirebaseApp> defaultAppInstance = Firebase.initializeApp(
+      name: 'com.godzy.card_x_user',
+      options: const FirebaseOptions(
+          appId: '1:485700706196:android:b351fedd2a99667d69b981',
+          apiKey: 'AIzaSyAYCbvhToZN7uEtnWGKItkCHuTrS0MyGGY',
+          messagingSenderId: 'my_messagingSenderId',
+          projectId: 'flutterauth-demo',
+          storageBucket: 'flutterauth-demo.appspot.com',
+          databaseURL: 'https://flutterauth-demo.firebaseio.com/'));*/
+
+  // Firebase user one-time fetch
+  Future<User> get getUser async {
+    return FirebaseAuth.instance.currentUser;
+  }
+  //get the firestore user from the firestore collection
+  Future<UserModel> getFirestoreUser() {
+
+    if (firebaseUser?.value?.uid != null) {
+      return FirebaseFirestore.instance.doc('/users/${firebaseUser.value.uid}').get().then(
+              (documentSnapshot) => UserModel.fromMap(documentSnapshot.data()));
+    }
+    update();
+    return null;
+  }
+
   //handles updating the user when updating profile
   Future<void> updateUser(BuildContext context, UserModel user, String oldEmail,
       String password) async {
+
     final labels = AppLocalizations.of(context);
     try {
       showLoadingIndicator();
-      await _auth
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: oldEmail, password: password)
           .then((_firebaseUser) {
         _firebaseUser.user
@@ -203,24 +244,12 @@ class AuthController extends GetxController {
     }
   }
 
-  //updates the firestore user in users collection
-  void _updateUserFirestore(UserModel user, User _firebaseUser) {
-    _db.doc('/users/${_firebaseUser.uid}').update(user.toJson());
-    update();
-  }
-
-  //create the firestore user in users collection
-  void _createUserFirestore(UserModel user, User _firebaseUser) {
-    _db.doc('/users/${_firebaseUser.uid}').set(user.toJson());
-    update();
-  }
-
   //password reset email
   Future<void> sendPasswordResetEmail(BuildContext context) async {
     final labels = AppLocalizations.of(context);
     showLoadingIndicator();
     try {
-      await _auth.sendPasswordResetEmail(email: emailController.value.text);
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.value.text);
       hideLoadingIndicator();
       Get.snackbar(
           labels.auth.resetPasswordNoticeTitle, labels.auth.resetPasswordNotice,
@@ -228,6 +257,7 @@ class AuthController extends GetxController {
           duration: Duration(seconds: 5),
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
           colorText: Get.theme.snackBarTheme.actionTextColor);
+      update();
     } catch (error) {
       hideLoadingIndicator();
       Get.snackbar(labels.auth.resetPasswordFailed, error.message,
@@ -238,18 +268,9 @@ class AuthController extends GetxController {
     }
   }
 
-  //check if user is an admin user
-  isAdmin() async {
-    await getUser.then((user) async {
-      DocumentSnapshot adminRef =
-      await _db.collection('admin').doc(user?.uid).get();
-      if (adminRef.exists) {
-        admin.value = true;
-      } else {
-        admin.value = false;
-      }
-      update();
-    });
+  // Google_sign_out
+  Future<void> _googleSignOut() async {
+    await _googleSignIn.signOut().then((value) => Get.offAll(SignUpUI()));
   }
 
   // Sign out
@@ -257,51 +278,39 @@ class AuthController extends GetxController {
     nameController.value.clear();
     emailController.value.clear();
     passwordController.value.clear();
-    return _auth.signOut();
+    _googleSignOut();
+    return FirebaseAuth.instance.signOut();
   }
 
-  //Method to handle user sign in using google_sign_in
-  googleSignIn(BuildContext context) async {
-    final labels = AppLocalizations.of(context);
-    showLoadingIndicator();
+  //updates the firestore user in users collection
+  void _updateUserFirestore(UserModel user, User _firebaseUser) {
 
-    try {
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth = await googleUser
-          .authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleAuth.idToken, accessToken: googleAuth.accessToken
-      );
-      final userCred = (await _auth.signInWithCredential(credential).then((
-          value) =>
-          Get.offAll(HomeUI())));
-      firebaseUser = userCred.user;
-
-      update();
-
-      hideLoadingIndicator();
-    } catch (error) {
-      hideLoadingIndicator();
-      Get.snackbar(labels.auth.signInErrorTitle, labels.auth.signInError,
-          snackPosition: SnackPosition.BOTTOM,
-          duration: Duration(seconds: 7),
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
-          colorText: Get.theme.snackBarTheme.actionTextColor);
-    }
+    FirebaseFirestore.instance.doc('/users/${_firebaseUser.uid}').update(user.toJson());
+    update();
   }
 
-  // Google_sign_out
-  Future<void> _googleSignOut() async {
-    await _googleSignIn.signOut().then((value) =>
-        Get.offAll(SignUpUI()));
+  //create the firestore user in users collection
+  void _createUserFirestore(UserModel user, User _firebaseUser) {
+    FirebaseFirestore.instance.doc('/users/${_firebaseUser.uid}').set(user.toJson());
+    update();
   }
 
-  // Get PhotoUrl for Profile avatar
-  getPhotoUrl() {
-    if (_auth.currentUser.photoURL != null) {
-      return Image.network(_auth.currentUser.photoURL, height: 100, width: 100);
-    } else {
-      return Icon(Icons.account_circle, size: 100);
-    }
+  @override
+  void onReady() async {
+    //run every time auth state changes
+
+    ever(firebaseUser, handleAuthChanged);
+    firebaseUser.value = await getUser;
+    firebaseUser.bindStream(user);
+    super.onReady();
   }
+
+  @override
+  void onClose() {
+    nameController?.value?.dispose();
+    emailController?.value?.dispose();
+    passwordController?.value?.dispose();
+    super.onClose();
+  }
+
 }

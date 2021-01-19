@@ -5,7 +5,6 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -13,18 +12,17 @@ import 'package:get_storage/get_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
-void main() async {
+Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   Get.put<AuthController>(AuthController());
-  Get.put<CardUserController>(CardUserController());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
   await GetStorage.init();
-  FirebaseStorage.instance;
-  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
-  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  await Firebase.initializeApp();
+  // FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+/*  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;*/
   runApp(MyApp());
 }
 
@@ -55,7 +53,7 @@ class MyApp extends StatelessWidget {
           theme: AppThemes.lightTheme,
           darkTheme: AppThemes.darkTheme,
           themeMode: ThemeMode.system,
-          initialRoute: "/splashscreen",
+          initialRoute: "/",
           getPages: AppRoutes.routes,
         ),
       ),

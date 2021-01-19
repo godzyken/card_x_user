@@ -5,6 +5,7 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
+/*
 class CardModel {
   String id;
   List<CardUserModel> name;
@@ -68,6 +69,7 @@ class CardModel {
         'global': global?.toJson(),
       };
 }
+*/
 
 class Global {
   final int newConfirmed;
@@ -162,6 +164,7 @@ class CardModelu {
     cardUserModel = json['cardUserModel'];
     global = json['global'];
   }
+  static CardModelu fromJson2(dynamic json) => CardModelu();
 
 
   Map<String, dynamic> toJson() => {

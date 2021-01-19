@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:card_x_user/core/models/models.dart';
 
 
+/*
 class CardDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -86,3 +87,4 @@ class CardDetailsView extends StatelessWidget {
     );
   }
 }
+*/

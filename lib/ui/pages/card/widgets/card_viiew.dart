@@ -3,7 +3,7 @@ import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CardView extends GetView<CardUserController> {
+/*class CardView extends GetView<CardUserController> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -112,4 +112,4 @@ class CardView extends GetView<CardUserController> {
             )))
     );
   }
-}
+}*/

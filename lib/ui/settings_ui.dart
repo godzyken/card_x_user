@@ -10,8 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingsUI extends StatelessWidget {
-  //final LanguageController languageController = LanguageController.to;
-  //final ThemeController themeController = ThemeController.to;
 
   @override
   Widget build(BuildContext context) {

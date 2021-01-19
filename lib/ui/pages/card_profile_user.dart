@@ -1,12 +1,11 @@
 
-import 'package:card_x_user/core/controllers/card_user_controller.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CardProfileUser extends StatefulWidget {
+/*class CardProfileUser extends StatefulWidget {
   @override
   _CardProfileUserState createState() => _CardProfileUserState();
 }
@@ -30,7 +29,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
       if (id != null) {
         cardUserController.loadDetailsUser(id).then((value) =>
             setState(() {
-              cardUserController.StartStreamCardUser();
+              cardUserController.startStreamCardUser();
               cardUserModel = value;
               cardUserController.updateTheCardUserValues(cardUserModel.id, cardUserModel.name, cardUserModel.done);
 
@@ -41,7 +40,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
     super.initState();
   }
 
-  /*Future<void> uploadData() async {
+  *//*Future<void> uploadData() async {
     String text = 'Hello World!';
     List<int> encoded = utf8.encode(text);
     Uint8List data = Uint8List.fromList(encoded);
@@ -290,7 +289,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
       print(firebase_storage.TaskState.error);
       // ...
     }
-  }*/
+  }*//*
 
   @override
   Widget build(BuildContext context) {
@@ -351,4 +350,4 @@ class _CardProfileUserState extends State<CardProfileUser> {
       ),
     );
   }
-}
+}*/

@@ -1,11 +1,11 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
+import 'package:card_x_user/ui/pages/card/add_card.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
-import 'package:card_x_user/ui/pages/card/widgets/card_viiew.dart';
-import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,27 +16,9 @@ class HomeUI extends StatefulWidget {
 }
 
 class _HomeUIState extends State<HomeUI> {
-  bool _initialized = false;
-  bool _error = false;
 
-  // Define an async function to initialize FlutterFire
-  void initializeFlutterFire() async {
-    try {
-      // Wait for Firebase to initialize and set `_initialized` state to true
-      await Firebase.initializeApp();
-      setState(() {
-        _initialized = true;
-      });
-    } catch(e) {
-      // Set `_error` state to true if Firebase initialization fails
-      setState(() {
-        _error = true;
-      });
-    }
-  }
   @override
   void initState() {
-    initializeFlutterFire();
     super.initState();
   }
 
@@ -85,7 +67,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('My Files'),
                       leading: Icon(Icons.folder),
-                      onTap: () => Get.to(MyExplorerUi()),
+                      // onTap: () => Get.to(MyExplorerUi()),
                     ),
                     ListTile(
                       title: Text('Shared with me'),
@@ -99,7 +81,7 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.star),
                       onTap: () {
                         print("Clicked");
-                        Get.to(CardView());
+                        Get.to(CreateACardUi());
                       },
                     ),
                     ListTile(
@@ -112,12 +94,12 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('take a picture'),
                       leading: Icon(Icons.camera_alt),
-                      onTap: () => Get.to(UploadingImageToFirebaseUi()),
+                      // onTap: () => Get.to(UploadingImageToFirebaseUi()),
                     ),
                     ListTile(
                       title: Text('Uploads'),
                       leading: Icon(Icons.file_upload),
-                      onTap: () => Get.to(CreateACardUi()),
+                      // onTap: () => Get.to(CreateACardUi()),
                     ),
                     ListTile(
                       title: Text('Backups'),
@@ -131,7 +113,7 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.account_circle),
                       onTap: () {
                         print("clicked");
-                        Get.to(CardProfileUser());
+                        // Get.to(CardProfileUser());
                       },
                     )
                   ],
@@ -140,11 +122,12 @@ class _HomeUIState extends State<HomeUI> {
               body: Center(
                 child: Column(
                   children: <Widget>[
-                    Expanded(
+                    AddCard(),
+             /*       Expanded(
                       child: Text(
                           "this is : ${controller.firebaseUser.value.photoURL}"),
                       flex: 1,
-                    ),
+                    ),*/
                   ],
                 ),
               ),

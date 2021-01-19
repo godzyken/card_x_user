@@ -1,4 +1,3 @@
-import 'package:linkedin_login/linkedin_login.dart';
 import 'package:get/get.dart';
 
 class LinkedinAuthController extends GetxController {

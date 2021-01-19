@@ -1,14 +1,15 @@
+import 'package:card_x_user/core/controllers/card_controller.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
-class CardService {
-
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+/*class CardService {
+  final FirebaseFirestore _store = FirebaseFirestore.instance;
 
   Future<CardModel> addCard(String content, String uid) async {
+
     try {
-      await _firestore
+      await _store
           .collection("users")
           .doc(uid)
           .collection("cards")
@@ -25,7 +26,8 @@ class CardService {
   }
 
   Stream<List<CardModel>> cardStream(String uid) {
-    return _firestore
+
+    return _store
         .collection("users")
         .doc(uid)
         .collection("cards")
@@ -40,9 +42,29 @@ class CardService {
     });
   }
 
-  Future<void> updateCard(bool newValue, String uid, String cardId) async {
+  Future<void> createCard(String uid, String id) async {
+
     try {
-      _firestore
+      await _store
+          .collection("users")
+          .doc(uid)
+          .collection("cards")
+          .add({
+        'dateCreated': Timestamp.now(),
+        'content': id,
+        'done': false,
+      });
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+
+  }
+
+  Future<void> updateCard(bool newValue, String uid, String cardId) async {
+
+    try {
+      _store
           .collection("users")
           .doc(uid)
           .collection("cards")
@@ -55,13 +77,15 @@ class CardService {
   }
 
   Future<CardModel> findOne(String id) async {
-    var result = await _firestore.doc(id).get();
+    var result = await _store.doc(id).get();
     return CardModel.fromDocumentSnapshot(result);
   }
 
-
   deleteOne(String id) {
-    _firestore.doc(id).delete();
+    final FirebaseFirestore _store = FirebaseFirestore.instance;
+
+    _store.doc(id).delete();
   }
 
-}
+
+}*/

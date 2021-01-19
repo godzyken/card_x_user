@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class AddCardPage extends StatefulWidget {
+/*class AddCardPage extends StatefulWidget {
   @override
   _AddCardPageState createState() => _AddCardPageState();
 }
@@ -88,11 +88,11 @@ class _AddCardPageState extends State<AddCardPage> {
             padding: const EdgeInsets.all(4.0),
             child: Stack(
               children: <Widget>[
-       /*         AssetThumb(
+       *//*         AssetThumb(
                   asset: asset,
                   width: 300,
                   height: 300,
-                ),*/
+                ),*//*
                 Positioned(
                     child: Container(
                       height: 30,
@@ -131,7 +131,7 @@ class _AddCardPageState extends State<AddCardPage> {
       );
   }
 
-/*  Future<void> loadAssets() async {
+*//*  Future<void> loadAssets() async {
     List<Assets> resultList;
     String error;
 
@@ -154,9 +154,9 @@ class _AddCardPageState extends State<AddCardPage> {
         images = resultList;
       });
     }
-  }*/
+  }*//*
 
-/*  void saveProduct() {
+*//*  void saveProduct() {
     var user = AuthController.to.firebaseUser.value;
     CardUserModelService cardUserModelService = new CardUserModelService();
     Get.rawSnackbar(
@@ -197,11 +197,11 @@ class _AddCardPageState extends State<AddCardPage> {
       });
       Get.snackbar("Success", "Product saved");
     });
-  }*/
+  }*//*
 }
 
 Future<PhotoUrlModel> saveImage(Assets asset) async {
-  /*ByteData byteData = await asset.getByteData();
+  *//*ByteData byteData = await asset.getByteData();
   List<int> imageData = byteData.buffer.asUint8List();
   var now = DateTime.now().millisecondsSinceEpoch;
   // Reference ref = FirebaseFirestore.instance.ref().child("$now.jpg");
@@ -222,7 +222,7 @@ Future<PhotoUrlModel> saveImage(Assets asset) async {
 // Cancel your subscription when done.
   streamSubscription.cancel();
   var url = await storageSnapshot.ref.getDownloadURL();
-  return PhotoUrlModel(id: "$now", url: url);*/
+  return PhotoUrlModel(id: "$now", url: url);*//*
 
   return null;
-}
+}*/
