@@ -1,14 +1,12 @@
-import 'package:card_x_user/core/models/card_model.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/*
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<bool> createNewCar(CardModel cardModel) async {
+  Future<bool> createNewCar(CardModelu cardModel) async {
     try {
-      await _firestore.collection("carduser").doc(cardModel.id).set({
+      await _firestore.collection("cardUser").doc(cardModel.id).set({
         "id": cardModel.id,
         "name": cardModel.name,
         "dateCreate": cardModel.dateCreated,
@@ -23,7 +21,7 @@ class Database {
 
   Future<CardUserModel> getUserCard(String uid) async {
     try {
-      DocumentSnapshot _doc = await _firestore.collection("users").doc(uid).get();
+      DocumentSnapshot _doc = await _firestore.collection("cardUser").doc(uid).get();
 
       return CardUserModel.fromDocumentSnapshot(_doc);
     } catch (e) {
@@ -32,14 +30,14 @@ class Database {
     }
   }
 
-  Future<void> addCard(String content, String uid) async {
+  Future<void> addCard(String name, String uid) async {
     try {
-      await _firestore.collection("users")
+      await _firestore.collection("cardUser")
           .doc(uid)
-          .collection("carduser")
+          .collection("card")
           .add({
         'dateCreated': Timestamp.now(),
-        'content': content,
+        'name': name,
         'done': false,
       });
     } catch (e) {
@@ -48,20 +46,17 @@ class Database {
     }
   }
 
-  Stream<CardModel> cardStream(String uid) {
+  Stream<List<CardModelu>> cardStream(String uid) {
     return _firestore
-        .collection("users")
+        .collection("cardUser")
         .doc(uid)
-        .collection("carduser")
+        .collection("card")
         .orderBy("dateCreated", descending: true)
         .snapshots()
-        .map((querySnapshot) {
-      CardModel retVal = CardModel(
-        id: querySnapshot.docs.last.id,
-
-      );
-      querySnapshot.docs.forEach((element) {
-        retVal.id = element.id;
+        .map((QuerySnapshot query) {
+      List<CardModelu> retVal = [];
+      query.docs.forEach((element) {
+        retVal.add(CardModelu.fromDocumentSnapshot(element));
       });
       return retVal;
     });
@@ -69,9 +64,9 @@ class Database {
 
   Stream<List<CardUserModel>> cardUserStream(String uid) {
     return _firestore
-        .collection("users")
+        .collection("cardUser")
         .doc(uid)
-        .collection("carduser")
+        .collection("card")
         .orderBy("dateCreated", descending: true)
         .snapshots()
         .map((querySnapshot) {
@@ -83,14 +78,13 @@ class Database {
     });
   }
 
-
   Future<void> updateCard(bool newValue, String uid,
       String cardId) async {
     try {
       _firestore
-          .collection("users")
+          .collection("cardUser")
           .doc(uid)
-          .collection("carduser")
+          .collection("card")
           .doc(cardId)
           .update({"done": newValue});
     } catch (e) {
@@ -99,4 +93,4 @@ class Database {
     }
   }
 
-}*/
+}

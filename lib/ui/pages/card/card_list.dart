@@ -1,58 +1,31 @@
-import 'package:card_x_user/core/controllers/auth_controller.dart';
-import 'package:card_x_user/core/controllers/card_controller.dart';
-import 'package:card_x_user/ui/pages/card/widgets/card_item.dart';
-import 'package:flutter/material.dart'
-    '';
+import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 
-/*class CardList extends StatelessWidget {
-  CardList({Key key}) : super(key: key);
-  AuthController authController = AuthController.to;
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+import 'card_ui.dart';
 
+class CardList extends GetWidget<AuthController> {
   @override
   Widget build(BuildContext context) {
-    CardController c = Get.put<CardController>(CardController());
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: Obx(() => authController.user != null
-            ? Text(" ${authController?.firebaseUser?.value?.email}")
-            : Container()),
-        centerTitle: true,
-        leading: IconButton(
-            onPressed: () {
-              scaffoldKey.currentState.openDrawer();
-            },
-            icon: Icon(Icons.menu)),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.exit_to_app),
-              onPressed: () {
-                authController.signOut();
-              })
-        ],
-      ),
-      body: Obx(() {
-        if (c.isLoadingCard.value) {
-          return Container(child: Center(child: CircularProgressIndicator()));
+    return GetX<CardController>(
+      init: Get.put<CardController>(CardController()),
+      builder: (CardController todoController) {
+        if (todoController != null && todoController.cards != null) {
+          return Expanded(
+            child: ListView.builder(
+              itemCount: todoController.cards.length,
+              itemBuilder: (_, index) {
+                return AddCard(
+                    uid: controller.firebaseUser.value.uid,
+                    cardModel: todoController.cards[index]);
+              },
+            ),
+          );
+        } else {
+          return Text("loading...");
         }
-
-        if (c.cardUs.value.done) {
-          return Center(child: Text('Nothing to do'));
-        }
-        return ListView.builder(
-            itemCount: c.cardUs.subject.length,
-            itemBuilder: (context, index) {
-              return CardItem(c.cardUs.reactive.value.value);
-            });
-      }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.toNamed("/add-card"),
-        child: Icon(
-          Icons.add,
-        ),
-      ),
+      },
     );
   }
-}*/
+}

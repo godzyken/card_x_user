@@ -1,12 +1,11 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
-import 'package:card_x_user/ui/pages/card/add_card.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +15,7 @@ class HomeUI extends StatefulWidget {
 }
 
 class _HomeUIState extends State<HomeUI> {
+  final TextEditingController _editingController = TextEditingController();
 
   @override
   void initState() {
@@ -99,7 +99,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('Uploads'),
                       leading: Icon(Icons.file_upload),
-                      // onTap: () => Get.to(CreateACardUi()),
+                      onTap: () => Get.to(AddCard()),
                     ),
                     ListTile(
                       title: Text('Backups'),
@@ -122,12 +122,37 @@ class _HomeUIState extends State<HomeUI> {
               body: Center(
                 child: Column(
                   children: <Widget>[
-                    AddCard(),
-             /*       Expanded(
-                      child: Text(
-                          "this is : ${controller.firebaseUser.value.photoURL}"),
-                      flex: 1,
-                    ),*/
+                    // CardList(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text("Add a Card just here cowboy : ",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Card(
+                      margin: EdgeInsets.all(20),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Expanded(child: TextFormField(
+                              controller: _editingController,
+                            )),
+                            IconButton(icon: Icon(Icons.add), onPressed: () {
+                              Database().addCard(_editingController.text, controller.firebaseUser.value.uid);
+                              _editingController.clear();
+                            }),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Your Cards",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    CardList(),
                   ],
                 ),
               ),

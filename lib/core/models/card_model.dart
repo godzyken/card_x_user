@@ -5,71 +5,6 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
-/*
-class CardModel {
-  String id;
-  List<CardUserModel> name;
-  String dateCreated;
-  bool done;
-  Global global;
-
-  CardModel(
-      {this.id, this.name, this.dateCreated, this.global, this.done = false});
-
-  String toRawJson() => json.encode(toJson());
-
-  CardModel.fromMap(Map<String, dynamic> json) {
-    this.id = json['id'];
-    this.name = json['name'] ?? this.name;
-    this.dateCreated = json['dateCreated'] ?? this.dateCreated;
-    this.done = json['done'] ?? this.done;
-    this.global = json['global'] ?? this.global;
-  }
-
-  copyWith({name, done}) {
-    return CardModel(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      dateCreated: dateCreated ?? this.dateCreated,
-      done: done ?? this.done,
-      global: global ?? this.global,
-    );
-  }
-
-  CardModel.fromDocumentSnapshot(DocumentSnapshot snap) {
-    id = snap.id;
-    name = snap["name"];
-    dateCreated = snap["dateCreated"];
-    done = snap["done"];
-    global = snap['global'];
-  }
-
-  static CardModel fromRawJson(String str) =>
-      CardModel.fromJson(json.decode(str) as Map<String, dynamic>);
-
-  static CardModel fromJson(dynamic json) => CardModel(
-        global: json["Global"] == null
-            ? null
-            : Global.fromJson(json["Global"] as Map<String, dynamic>),
-        dateCreated:
-            json["DateCreate"] == null ? null : json["DateCreate"] as String,
-        name: json["Name"] == null
-            ? null
-            : List<CardUserModel>.from(json["Name"])
-                .map((x) => CardUserModel.fromJson(x as Map<String, dynamic>)),
-        done: json["Done"] == null ? null : json["Done"] as bool,
-        id: json["Id"] == null ? null : json["Id"] as String,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'dateCreated': dateCreated,
-        'done': done,
-        'global': global?.toJson(),
-      };
-}
-*/
 
 class Global {
   final int newConfirmed;
@@ -119,10 +54,10 @@ class Global {
 }
 
 class RxCardModel {
-  final id = 0.obs;
+  final id = ''.obs;
   final name = 'name'.obs;
-  final dateCreated = 'dateCreated'.obs;
-  final done = 'done'.obs;
+  final dateCreated = Timestamp.now().obs;
+  final done = false.obs;
   final cardUserModel = CardUserModel().obs;
   final global = Global().obs;
 }
@@ -166,6 +101,14 @@ class CardModelu {
   }
   static CardModelu fromJson2(dynamic json) => CardModelu();
 
+  CardModelu.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
+    id = documentSnapshot.id;
+    name = documentSnapshot.data()["name"];
+    dateCreated = documentSnapshot.data()["dateCreated"];
+    cardUserModel = documentSnapshot.data()["cardUserModel"];
+    global = documentSnapshot.data()["global"];
+    done = documentSnapshot.data()["done"];
+  }
 
   Map<String, dynamic> toJson() => {
         'name': name,
