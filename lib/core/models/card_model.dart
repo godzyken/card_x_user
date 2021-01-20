@@ -55,7 +55,7 @@ class Global {
 
 class RxCardModel {
   final id = ''.obs;
-  final name = 'name'.obs;
+  final name = ''.obs;
   final dateCreated = Timestamp.now().obs;
   final done = false.obs;
   final cardUserModel = CardUserModel().obs;

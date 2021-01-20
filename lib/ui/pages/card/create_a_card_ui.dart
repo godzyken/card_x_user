@@ -6,26 +6,10 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CreateACardUi extends StatefulWidget {
-  CreateACardUi({Key key}) : super(key: key);
-
-  @override
-  _CreateACardUiState createState() => _CreateACardUiState();
-}
-
-class _CreateACardUiState extends State<CreateACardUi> {
-  final cardController = CardController();
-
+class CreateACardUi extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  final fx = Get.put(FormXController());
   CardModelu cardModel;
-
-  @override
-  void initState() {
-    print(Get.parameters);
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,20 +36,19 @@ class _CreateACardUiState extends State<CreateACardUi> {
           body: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: GetX<CardController>(
-                initState: (state) =>
-                    null,
+              child: GetX<AuthController>(
+                initState: (state) => AuthController(),
                 builder:(disposable) {
-                  if(null) {
+                  if(disposable?.firestoreUser?.value?.uid == null) {
                     return Container(
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
-                  if('' == null) {
+                /*  else {
                     cardModel.name = TextEditingController(
-                      text: null,
-                    );
-                  }
+                      text: disposable.firestoreUser.value.name,
+                    ).text;
+                  }*/
                   return Form(
                     key: _formKey,
                     child: Padding(
@@ -82,28 +65,28 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO titreFormField translate to labels on card
                               //TODO titre pro to validator list
                               FormInputFieldWithIcon(
-                                controller: cardModel.name,
+                                controller: fx.jobTitle.value,
                                 iconPrefix: Icons.business,
                                 labelText: labels?.auth?.nameFormField,
                                 validator: Validator(labels).name,
                                 keyboardType: TextInputType.name,
                                 onChanged: (value) => null,
                                 onSaved: (value) =>
-                                cardModel.name = value,
+                                fx.jobTitle.value.text = value,
                                 maxLines: 1,
                               ),
                               FormVerticalSpace(),
                               //TODO lieu controller link to elasticsearch
                               //TODO lieu translate to labels on card
                               FormInputFieldWithIcon(
-                                controller: cardModel.name,
+                                controller: fx.jobLocation.value,
                                 iconPrefix: Icons.location_on,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).streetAdress,
                                 keyboardType: TextInputType.streetAddress,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobAddress.value,
                                 onSaved: (value) =>
-                                cardModel.name = value,
+                                fx.jobLocation.value.text = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -111,14 +94,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO DescriptionFormField translate to labels on card
                               //TODO Description to validator list
                               FormInputFieldWithIcon(
-                                controller: cardModel.name,
+                                controller: fx.jobDesc.value,
                                 iconPrefix: Icons.description,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.multiline,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobDesc.value,
                                 onSaved: (value) =>
-                                cardModel.name = value,
+                                fx.jobDesc.value.text = value,
                                 maxLines: 5,
                               ),
                               FormVerticalSpace(),
@@ -126,14 +109,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO ContactFormField translate to labels on card
                               //TODO Contact to validator list
                               FormInputFieldWithIcon(
-                                controller: cardModel.name,
+                                controller: fx.jobContact.value,
                                 iconPrefix: Icons.contact_page,
                                 labelText: labels?.auth?.emailFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.emailAddress,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobContact.value,
                                 onSaved: (value) =>
-                                cardModel.name= value,
+                                fx.jobContact.value.text = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -141,12 +124,12 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO DisponibilityFormField translate to labels on card
                               //TODO Disponibility to validator list
                               FormInputFieldWithIcon(
-                                controller: cardModel.dateCreated,
+                                controller: null,
                                 iconPrefix: Icons.event_busy,
                                 labelText: labels?.auth?.nameFormField,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobSchedules.value,
                                 onSaved: (value) =>
-                                cardModel.dateCreated = value,
+                                fx.jobSchedules.value.text = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -154,14 +137,14 @@ class _CreateACardUiState extends State<CreateACardUi> {
                               //TODO HoraireFormField translate to labels on card
                               //TODO Horaire to validator list
                               FormInputFieldWithIcon(
-                                controller: null,
+                                controller: fx.jobSchedules.value,
                                 iconPrefix: Icons.lock_clock,
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).name,
                                 keyboardType: TextInputType.datetime,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobSchedules.value,
                                 onSaved: (value) =>
-                                null,
+                                fx.jobSchedules.value.text = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -179,7 +162,7 @@ class _CreateACardUiState extends State<CreateACardUi> {
                                 maxLines: 2,
                               ),
                               Obx(
-                                    () => null
+                                    () => fx.jobAvailability.value
                                     ? Container(
                                   child: Center(
                                       child: CircularProgressIndicator(
@@ -187,7 +170,7 @@ class _CreateACardUiState extends State<CreateACardUi> {
                                       )),
                                 )
                                     : FlatButton(
-                                        onPressed: () => null,
+                                        onPressed: () => fx.submitFunc.value,
                                         child: Text(
                                           "Change the value",
                                           style: TextStyle(color: Colors.white),
