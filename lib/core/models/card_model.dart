@@ -99,6 +99,7 @@ class CardModelu {
     cardUserModel = json['cardUserModel'];
     global = json['global'];
   }
+
   static CardModelu fromJson2(dynamic json) => CardModelu();
 
   CardModelu.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {

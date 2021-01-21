@@ -9,6 +9,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'pages/pages_ui.dart';
+
 class HomeUI extends StatefulWidget {
   @override
   _HomeUIState createState() => _HomeUIState();
@@ -67,7 +69,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('My Files'),
                       leading: Icon(Icons.folder),
-                      // onTap: () => Get.to(MyExplorerUi()),
+                      onTap: () => Get.to(MyExplorerUi()),
                     ),
                     ListTile(
                       title: Text('Shared with me'),
@@ -99,7 +101,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('Uploads'),
                       leading: Icon(Icons.file_upload),
-                      onTap: () => Get.to(AddCard()),
+                      onTap: () {},
                     ),
                     ListTile(
                       title: Text('Backups'),
@@ -111,36 +113,39 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('My Card'),
                       leading: Icon(Icons.account_circle),
-                      onTap: () {
-                        print("clicked");
-                        // Get.to(CardProfileUser());
-                      },
-                    )
+                      onTap: () => Get.to(CardProfileUser()),
+                    ),
                   ],
                 ),
               ),
               body: Center(
                 child: Column(
                   children: <Widget>[
-                    // CardList(),
                     SizedBox(
                       height: 20,
                     ),
-                    Text("Add a Card just here cowboy : ",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text(
+                      "Add a Card just here cowboy : ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                     Card(
                       margin: EdgeInsets.all(20),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
-                            Expanded(child: TextFormField(
+                            Expanded(
+                                child: TextFormField(
                               controller: _editingController,
                             )),
-                            IconButton(icon: Icon(Icons.add), onPressed: () {
-                              Database().addCard(_editingController.text, controller.firebaseUser.value.uid);
-                              _editingController.clear();
-                            }),
+                            IconButton(
+                                icon: Icon(Icons.add),
+                                onPressed: () {
+                                  Database().addCard(_editingController.text,
+                                      controller.firebaseUser.value.uid);
+                                  _editingController.clear();
+                                }),
                           ],
                         ),
                       ),

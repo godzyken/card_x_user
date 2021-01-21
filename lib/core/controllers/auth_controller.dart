@@ -176,16 +176,6 @@ class AuthController extends GetxController {
 
   }
 
-/*  Future<FirebaseApp> defaultAppInstance = Firebase.initializeApp(
-      name: 'com.godzy.card_x_user',
-      options: const FirebaseOptions(
-          appId: '1:485700706196:android:b351fedd2a99667d69b981',
-          apiKey: 'AIzaSyAYCbvhToZN7uEtnWGKItkCHuTrS0MyGGY',
-          messagingSenderId: 'my_messagingSenderId',
-          projectId: 'flutterauth-demo',
-          storageBucket: 'flutterauth-demo.appspot.com',
-          databaseURL: 'https://flutterauth-demo.firebaseio.com/'));*/
-
   // Firebase user one-time fetch
   Future<User> get getUser async {
     return FirebaseAuth.instance.currentUser;

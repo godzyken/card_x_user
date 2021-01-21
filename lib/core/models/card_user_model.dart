@@ -1,56 +1,95 @@
 import 'dart:convert';
-
-import 'package:card_x_user/core/models/models.dart';
-import 'package:card_x_user/core/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+
+class RxCardUserModel {
+  final key = ''.obs;
+  final job = ''.obs;
+  final location = ''.obs;
+  final description = ''.obs;
+  final contact = ''.obs;
+  final number = ''.obs;
+  final schedules = ''.obs;
+  final status = ''.obs;
+  final dateCreated = ''.obs;
+  final activity = ''.obs;
+  final image = ''.obs;
+}
 
 class CardUserModel {
-  String key;
-  String value;
-  String status;
-  String icon;
-  int newConfirmed;
-  int totalConfirmed;
-  int newDeaths;
-  int totalDeaths;
-  int newRecovered;
-  int totalRecovered;
-  String date;
-  List<UserModel> userModels;
+  CardUserModel({
+    key,
+    job,
+    status,
+    description,
+    dateCreated,
+    schedules,
+    location,
+    image,
+    activity,
+    contact,
+    number,
+  });
 
-  CardUserModel(
-      {this.key,
-      this.value,
-      this.status,
-      this.icon,
-      this.userModels,
-      this.newConfirmed,
-      this.totalConfirmed,
-      this.newDeaths,
-      this.totalDeaths,
-      this.newRecovered,
-      this.totalRecovered,
-      this.date});
+  final rx = RxCardUserModel();
+
+  get key => rx.key.value;
+
+  set key(value) => rx.key.value = value;
+
+  get job => rx.job.value;
+
+  set job(value) => rx.job.value = value;
+
+  get status => rx.status.value;
+
+  set status(value) => rx.status.value = value;
+
+  get description => rx.description.value;
+
+  set description(value) => rx.description.value = value;
+
+  get dateCreated => rx.dateCreated.value;
+
+  set dateCreated(value) => rx.dateCreated.value = value;
+
+  get schedules => rx.schedules.value;
+
+  set schedules(value) => rx.schedules.value = value;
+
+  get location => rx.location.value;
+
+  set location(value) => rx.location.value = value;
+
+  get image => rx.image.value;
+
+  set image(value) => rx.image.value = value;
+
+  get activity => rx.activity.value;
+
+  set activity(value) => rx.activity.value = value;
+
+  get contact => rx.contact.value;
+
+  set contact(value) => rx.contact.value = value;
+
+  get number => rx.number.value;
+
+  set number(value) => rx.number.value = value;
 
   factory CardUserModel.fromMap(Map data) {
     return CardUserModel(
       key: data['key'],
-      value: data['value'] ?? '',
-      icon: data['icon'] ?? '',
+      job: data['job'] ?? '',
+      description: data['description'] ?? '',
       status: data['status'] ?? '',
-      newConfirmed:
-          data['newConfirmed'] ?? Global(newConfirmed: data['newConfirmed']),
-      totalConfirmed: data['totalConfirmed'] ??
-          Global(totalConfirmed: data['totalConfirmed']),
-      newDeaths: data['newDeaths'] ?? Global(newDeaths: data['newDeaths']),
-      totalDeaths:
-          data['totalDeaths'] ?? Global(totalDeaths: data['totalDeaths']),
-      newRecovered:
-          data['newRecovered'] ?? Global(newRecovered: data['newRecovered']),
-      totalRecovered: data['totalRecovered'] ??
-          Global(totalRecovered: data['totalRecovered']),
-      date: data['date'] ?? '',
-      userModels: data['userModel'] ?? UserModel().toJson(),
+      image: data['image'] ?? '',
+      location: data['location'] ?? '',
+      dateCreated: data['dateCreated'] ?? '',
+      activity: data['activity'] ?? '',
+      contact: data['contact'] ?? '',
+      number: data['number'] ?? '',
+      schedules: data['schedules '] ?? '',
     );
   }
 
@@ -59,60 +98,51 @@ class CardUserModel {
   static CardUserModel fromRawJson(String str) =>
       CardUserModel.fromJson(json.decode(str) as Map<String, dynamic>);
 
-  CardUserModel.fromDocumentSnapshot(DocumentSnapshot documentSnapshot, {DocumentSnapshot snapshots}) {
+  static CardUserModel fromJson2(dynamic json) => CardUserModel();
+
+  CardUserModel.fromDocumentSnapshot(DocumentSnapshot documentSnapshot,
+      {DocumentSnapshot snapshots}) {
     key = documentSnapshot['key'];
-    date = documentSnapshot['date'];
-    value = documentSnapshot["value"];
+    job = documentSnapshot["job"];
+    description = documentSnapshot["description"];
     status = documentSnapshot["status"];
-    icon = documentSnapshot["icon"];
-    totalRecovered = documentSnapshot["totalRecovered"];
-    totalConfirmed = documentSnapshot["totalConfirmed"];
-    totalDeaths = documentSnapshot["totalDeaths"];
-    newConfirmed = documentSnapshot["newConfirmed"];
-    newDeaths = documentSnapshot["newDeaths"];
-    newRecovered = documentSnapshot["newRecovered"];
-    userModels = documentSnapshot["userModel"];
+    image = documentSnapshot["image"];
+    location = documentSnapshot["location"];
+    dateCreated = documentSnapshot["dateCreated"];
+    activity = documentSnapshot["activity"];
+    contact = documentSnapshot["contact"];
+    number = documentSnapshot["number"];
+    schedules = documentSnapshot["schedules"];
   }
 
   Map<String, dynamic> toJson() => {
         'key': key,
-        'value': value,
+        'job': job,
+        'description': description,
         'status': status,
-        'icon': icon,
-        'date': date,
-        'totalRecovered': totalRecovered,
-        'totalDeaths': totalDeaths,
-        'totalConfirmed': totalConfirmed,
-        'newConfirmed': newConfirmed,
-        'newRecovered': newRecovered,
-        'newDeaths': newDeaths,
-        'userModel': userModels,
+        'image': image,
+        'location': location,
+        'dateCreated': dateCreated,
+        'activity': activity,
+        'contact': contact,
+        'number': number,
+        'schedules': schedules,
       };
 
   static CardUserModel fromJson(dynamic json) => CardUserModel(
         key: json["Key"] == null ? null : json["Key"] as String,
-        value: json["Value"] == null ? null : json["Value"] as String,
-        status: json["Status"] == null ? null : json["Status"] as String,
-        icon: json["Icon"] == null ? null : json["Icon"] as String,
-        date: json["Date"] == null ? null : json["Date"] as String,
-        newConfirmed:
-            json["NewConfirmed"] == null ? null : json["NewConfirmed"] as int,
-        newDeaths: json["NewDeaths"] == null ? null : json["NewDeaths"] as int,
-        newRecovered:
-            json["NewRecovered"] == null ? null : json["NewRecovered"] as int,
-        totalConfirmed: json["TotalConfirmed"] == null
-            ? null
-            : json["TotalConfirmed"] as int,
-        totalDeaths:
-            json["TotalDeaths"] == null ? null : json["TotalDeaths"] as int,
-        totalRecovered: json["TotalRecovered"] == null
-            ? null
-            : json["TotalRecovered"] as int,
-        userModels: json["UserModel"] == null
-            ? null
-            : List<UserModel>.from(
-                (json["UserModel"] as List<dynamic>)
-                    .map((x) => UserModel.fromJson(x as Map<String, dynamic>)),
-              ),
+        job: json["job"] == null ? null : json["job"] as String,
+        description:
+            json["description"] == null ? null : json["description"] as String,
+        status: json["status"] == null ? null : json["status"] as String,
+        image: json["image"] == null ? null : json["image"] as String,
+        location: json["location"] == null ? null : json["location"] as String,
+        dateCreated:
+            json["dateCreated"] == null ? null : json["dateCreated"] as String,
+        activity: json["activity"] == null ? null : json["activity"] as String,
+        contact: json["contact"] == null ? null : json["contact"] as String,
+        number: json["number"] == null ? null : json["number"] as String,
+        schedules:
+            json["schedules"] == null ? null : json["schedules"] as String,
       );
 }

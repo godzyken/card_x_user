@@ -1,6 +1,7 @@
 import 'package:card_x_user/core/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -21,7 +22,8 @@ class Database {
 
   Future<CardUserModel> getUserCard(String uid) async {
     try {
-      DocumentSnapshot _doc = await _firestore.collection("cardUser").doc(uid).get();
+      DocumentSnapshot _doc =
+          await _firestore.collection("cardUser").doc(uid).get();
 
       return CardUserModel.fromDocumentSnapshot(_doc);
     } catch (e) {
@@ -32,10 +34,7 @@ class Database {
 
   Future<void> addCard(String name, String uid) async {
     try {
-      await _firestore.collection("cardUser")
-          .doc(uid)
-          .collection("card")
-          .add({
+      await _firestore.collection("cardUser").doc(uid).collection("card").add({
         'dateCreated': Timestamp.now(),
         'name': name,
         'done': false,
@@ -43,6 +42,42 @@ class Database {
     } catch (e) {
       print(e);
       rethrow;
+    }
+  }
+
+  Future<void> updateCard(bool newValue, String uid, String cardId) async {
+    try {
+      _firestore
+          .collection("cardUser")
+          .doc(uid)
+          .collection("card")
+          .doc(cardId)
+          .update({"done": newValue});
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
+
+  Future<void> saveACard(CardUserModel cardModel) async {
+    try {
+      await _firestore.collection('cardUser').doc(cardModel.key).collection("card").add({
+        "key": cardModel.key,
+        "job": cardModel.job,
+        "description": cardModel.description,
+        "status": cardModel.status,
+        "image": cardModel.image,
+        "location": cardModel.location,
+        "dateCreated": cardModel.dateCreated,
+        "activity": cardModel.activity,
+        "contact": cardModel.contact,
+        "number": cardModel.number,
+        "schedules": cardModel.schedules,
+      });
+
+    } catch (e) {
+      print(e);
+      return false;
     }
   }
 
@@ -76,21 +111,6 @@ class Database {
       });
       return retVal;
     });
-  }
-
-  Future<void> updateCard(bool newValue, String uid,
-      String cardId) async {
-    try {
-      _firestore
-          .collection("cardUser")
-          .doc(uid)
-          .collection("card")
-          .doc(cardId)
-          .update({"done": newValue});
-    } catch (e) {
-      print(e);
-      rethrow;
-    }
   }
 
 }

@@ -1,6 +1,6 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/helpers/helpers.dart';
-import 'package:card_x_user/core/models/models.dart';
+import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +8,11 @@ import 'package:get/get.dart';
 
 class CreateACardUi extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final fx = Get.put(FormXController());
-  CardModelu cardModel;
 
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
+    final fx = Get.put(FormXController());
 
     return Container(
       decoration: BoxDecoration(
@@ -38,17 +37,14 @@ class CreateACardUi extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: GetX<AuthController>(
                 initState: (state) => AuthController(),
-                builder:(disposable) {
-                  if(disposable?.firestoreUser?.value?.uid == null) {
+                builder: (disposable) {
+                  if (disposable?.firestoreUser?.value?.uid == null) {
                     return Container(
                       child: Center(child: CircularProgressIndicator()),
                     );
+                  } else {
+                    fx.cardUserModel.value.key = disposable?.firestoreUser?.value?.uid;
                   }
-                /*  else {
-                    cardModel.name = TextEditingController(
-                      text: disposable.firestoreUser.value.name,
-                    ).text;
-                  }*/
                   return Form(
                     key: _formKey,
                     child: Padding(
@@ -70,9 +66,9 @@ class CreateACardUi extends StatelessWidget {
                                 labelText: labels?.auth?.nameFormField,
                                 validator: Validator(labels).name,
                                 keyboardType: TextInputType.name,
-                                onChanged: (value) => null,
+                                onChanged: (value) => fx.jobTitle.value,
                                 onSaved: (value) =>
-                                fx.jobTitle.value.text = value,
+                                    fx.cardUserModel.value.job = value,
                                 maxLines: 1,
                               ),
                               FormVerticalSpace(),
@@ -86,7 +82,7 @@ class CreateACardUi extends StatelessWidget {
                                 keyboardType: TextInputType.streetAddress,
                                 onChanged: (value) => fx.jobAddress.value,
                                 onSaved: (value) =>
-                                fx.jobLocation.value.text = value,
+                                    fx.cardUserModel.value.location = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -97,11 +93,11 @@ class CreateACardUi extends StatelessWidget {
                                 controller: fx.jobDesc.value,
                                 iconPrefix: Icons.description,
                                 labelText: labels?.auth?.nameFormField,
-                                // validator: Validator(labels).name,
+                                validator: Validator(labels).name,
                                 keyboardType: TextInputType.multiline,
                                 onChanged: (value) => fx.jobDesc.value,
                                 onSaved: (value) =>
-                                fx.jobDesc.value.text = value,
+                                    fx.cardUserModel.value.description = value,
                                 maxLines: 5,
                               ),
                               FormVerticalSpace(),
@@ -112,11 +108,11 @@ class CreateACardUi extends StatelessWidget {
                                 controller: fx.jobContact.value,
                                 iconPrefix: Icons.contact_page,
                                 labelText: labels?.auth?.emailFormField,
-                                // validator: Validator(labels).name,
+                                validator: Validator(labels).email,
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (value) => fx.jobContact.value,
                                 onSaved: (value) =>
-                                fx.jobContact.value.text = value,
+                                    fx.cardUserModel.value.contact = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -124,12 +120,12 @@ class CreateACardUi extends StatelessWidget {
                               //TODO DisponibilityFormField translate to labels on card
                               //TODO Disponibility to validator list
                               FormInputFieldWithIcon(
-                                controller: null,
+                                controller: fx.jobSchedules.value,
                                 iconPrefix: Icons.event_busy,
                                 labelText: labels?.auth?.nameFormField,
                                 onChanged: (value) => fx.jobSchedules.value,
                                 onSaved: (value) =>
-                                fx.jobSchedules.value.text = value,
+                                    fx.cardUserModel.value.dateCreated = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -137,14 +133,14 @@ class CreateACardUi extends StatelessWidget {
                               //TODO HoraireFormField translate to labels on card
                               //TODO Horaire to validator list
                               FormInputFieldWithIcon(
-                                controller: fx.jobSchedules.value,
-                                iconPrefix: Icons.lock_clock,
+                                controller: fx.jobNumber.value,
+                                iconPrefix: Icons.call,
                                 labelText: labels?.auth?.nameFormField,
-                                // validator: Validator(labels).name,
+                                validator: Validator(labels).number,
                                 keyboardType: TextInputType.datetime,
-                                onChanged: (value) => fx.jobSchedules.value,
+                                onChanged: (value) => fx.jobNumber.value,
                                 onSaved: (value) =>
-                                fx.jobSchedules.value.text = value,
+                                    fx.cardUserModel.value.number = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
@@ -157,20 +153,24 @@ class CreateACardUi extends StatelessWidget {
                                 labelText: labels?.auth?.nameFormField,
                                 keyboardType: TextInputType.url,
                                 // onChanged: (value) => cardController.updateCard(context),
-                                onSaved: (value) =>
-                                null,
+                                onSaved: (value) => null,
                                 maxLines: 2,
                               ),
                               Obx(
-                                    () => fx.jobAvailability.value
+                                () => fx.jobAvailability.value
                                     ? Container(
-                                  child: Center(
-                                      child: CircularProgressIndicator(
-                                        backgroundColor: Colors.green,
-                                      )),
-                                )
+                                        child: Center(
+                                            child: CircularProgressIndicator(
+                                          backgroundColor: Colors.green,
+                                        )),
+                                      )
                                     : FlatButton(
-                                        onPressed: () => fx.submitFunc.value,
+                                        onPressed: () async {
+                                          if (_formKey.currentState.validate()) {
+                                            fx.submitFunc.value;
+                                            Database().saveACard(fx.cardUserModel.value);
+                                          }
+                                        },
                                         child: Text(
                                           "Change the value",
                                           style: TextStyle(color: Colors.white),
@@ -185,8 +185,7 @@ class CreateACardUi extends StatelessWidget {
                 },
               ),
             ),
-          )
-      ),
+          )),
     );
   }
 }

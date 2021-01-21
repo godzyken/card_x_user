@@ -1,4 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:card_x_user/core/models/models.dart';
+import 'package:card_x_user/core/services/services.dart';
+import 'package:card_x_user/localizations.dart';
+import 'package:card_x_user/ui/components/components.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
@@ -11,6 +15,9 @@ class FormXController extends GetxController {
   final jobActivitySector = TextEditingController().obs;
   final jobSchedules = TextEditingController().obs;
   final jobContact = TextEditingController().obs;
+  final jobNumber = TextEditingController().obs;
+
+  final cardUserModel = CardUserModel().obs;
 
   RxString errorText = RxString(null);
   RxBool jobAvailability = false.obs;
@@ -62,13 +69,18 @@ class FormXController extends GetxController {
     };
   }
 
-/*  debounce(jobTitle, validations, time: Duration(milliseconds: 500));
-  debounce(jobLocation, validations, time: Duration(milliseconds: 500));
-  debounce(jobContact, validations, time: Duration(milliseconds: 500));
-  debounce(jobAddress, validations, time: Duration(milliseconds: 500));
-  debounce(jobActivitySector, validations, time: Duration(milliseconds: 500));
-  debounce(jobSchedules, validations, time: Duration(milliseconds: 500));
-  debounce(jobDesc, validations, time: Duration(milliseconds: 500));*/
+  addCardCompleted(BuildContext context) async {
+    final labels = AppLocalizations.of(context);
+    showLoadingIndicator();
+    try {
+      await Database().saveACard(cardUserModel.call());
+      hideLoadingIndicator();
+    } catch (error) {
+      hideLoadingIndicator();
+      print(error);
+      rethrow;
+    }
+  }
 
   @override
   void onClose() {
@@ -80,5 +92,6 @@ class FormXController extends GetxController {
     jobActivitySector?.value?.dispose();
     jobSchedules?.value?.dispose();
     jobContact?.value?.dispose();
+    jobNumber?.value?.dispose();
   }
 }
