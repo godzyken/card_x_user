@@ -168,7 +168,8 @@ class CreateACardUi extends StatelessWidget {
                                         onPressed: () async {
                                           if (_formKey.currentState.validate()) {
                                             fx.submitFunc.value;
-                                            Database().saveACard(fx.cardUserModel.value);
+                                            fx.updateTheValues();
+                                            Database().saveACard(fx.cardUserModel.value, disposable?.firestoreUser?.value?.uid);
                                           }
                                         },
                                         child: Text(

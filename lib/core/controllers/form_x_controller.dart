@@ -1,7 +1,4 @@
 import 'package:card_x_user/core/models/models.dart';
-import 'package:card_x_user/core/services/services.dart';
-import 'package:card_x_user/localizations.dart';
-import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +13,7 @@ class FormXController extends GetxController {
   final jobSchedules = TextEditingController().obs;
   final jobContact = TextEditingController().obs;
   final jobNumber = TextEditingController().obs;
+  final jobImage = TextEditingController().obs;
 
   final cardUserModel = CardUserModel().obs;
 
@@ -23,10 +21,23 @@ class FormXController extends GetxController {
   RxBool jobAvailability = false.obs;
   Rx<Function> submitFunc = Rx<Function>(null);
 
+  updateTheValues() {
+    cardUserModel.update((model) {
+      model.job = jobTitle.value.text;
+      // model.status = jobAvailability.value;
+      model.location = jobLocation.value.text;
+      model.number = jobNumber.value.text;
+      model.schedules = jobSchedules.value.text;
+      model.contact = jobContact.value.text;
+      model.description = jobDesc.value.text;
+      model.activity = jobActivitySector.value.text;
+      model.image = jobImage.value.text;
+    });
+  }
+
   @override
   void onInit() {
     super.onInit();
-
   }
 
   void validations(String val) async {
@@ -69,18 +80,6 @@ class FormXController extends GetxController {
     };
   }
 
-  addCardCompleted(BuildContext context) async {
-    final labels = AppLocalizations.of(context);
-    showLoadingIndicator();
-    try {
-      await Database().saveACard(cardUserModel.call());
-      hideLoadingIndicator();
-    } catch (error) {
-      hideLoadingIndicator();
-      print(error);
-      rethrow;
-    }
-  }
 
   @override
   void onClose() {

@@ -55,7 +55,7 @@ class Global {
 
 class RxCardModel {
   final id = ''.obs;
-  final name = ''.obs;
+  final name = 'name'.obs;
   final dateCreated = Timestamp.now().obs;
   final done = false.obs;
   final cardUserModel = CardUserModel().obs;
@@ -94,7 +94,7 @@ class CardModelu {
   CardModelu.fromJson(dynamic, json) {
     id = json['id'];
     name = json['name'];
-    dateCreated = json['dateCreated'];
+    dateCreated = json['dateCreated'] as Timestamp;
     done = json['done'];
     cardUserModel = json['cardUserModel'];
     global = json['global'];

@@ -11,7 +11,7 @@ class RxCardUserModel {
   final number = ''.obs;
   final schedules = ''.obs;
   final status = ''.obs;
-  final dateCreated = ''.obs;
+  final dateCreated = Timestamp.now().obs;
   final activity = ''.obs;
   final image = ''.obs;
 }
@@ -108,7 +108,7 @@ class CardUserModel {
     status = documentSnapshot["status"];
     image = documentSnapshot["image"];
     location = documentSnapshot["location"];
-    dateCreated = documentSnapshot["dateCreated"];
+    dateCreated = documentSnapshot["dateCreated"] as Timestamp;
     activity = documentSnapshot["activity"];
     contact = documentSnapshot["contact"];
     number = documentSnapshot["number"];
@@ -138,7 +138,7 @@ class CardUserModel {
         image: json["image"] == null ? null : json["image"] as String,
         location: json["location"] == null ? null : json["location"] as String,
         dateCreated:
-            json["dateCreated"] == null ? null : json["dateCreated"] as String,
+            json["dateCreated"] == null ? null : json["dateCreated"] as Timestamp,
         activity: json["activity"] == null ? null : json["activity"] as String,
         contact: json["contact"] == null ? null : json["contact"] as String,
         number: json["number"] == null ? null : json["number"] as String,

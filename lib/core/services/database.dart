@@ -5,6 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  final cardUserModel = CardUserModel();
+
   Future<bool> createNewCar(CardModelu cardModel) async {
     try {
       await _firestore.collection("cardUser").doc(cardModel.id).set({
@@ -59,20 +61,20 @@ class Database {
     }
   }
 
-  Future<void> saveACard(CardUserModel cardModel) async {
+  Future<void> saveACard(CardUserModel cardUserModel, String uid) async {
     try {
-      await _firestore.collection('cardUser').doc(cardModel.key).collection("card").add({
-        "key": cardModel.key,
-        "job": cardModel.job,
-        "description": cardModel.description,
-        "status": cardModel.status,
-        "image": cardModel.image,
-        "location": cardModel.location,
-        "dateCreated": cardModel.dateCreated,
-        "activity": cardModel.activity,
-        "contact": cardModel.contact,
-        "number": cardModel.number,
-        "schedules": cardModel.schedules,
+      await _firestore.collection('cardUser').doc(uid).collection("card").add({
+        "key": cardUserModel.key,
+        "job": cardUserModel.job,
+        "description": cardUserModel.description,
+        "status": cardUserModel.status,
+        "image": cardUserModel.image,
+        "location": cardUserModel.location,
+        "dateCreated": Timestamp.now(),
+        "activity": cardUserModel.activity,
+        "contact": cardUserModel.contact,
+        "number": cardUserModel.number,
+        "schedules": cardUserModel.schedules,
       });
 
     } catch (e) {

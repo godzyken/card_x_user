@@ -22,8 +22,19 @@ class CardList extends GetWidget<AuthController> {
               },
             ),
           );
-        } else {
-          return Text("loading...");
+        } else if(todoController != null && todoController.cardUsers != null) {
+          return Expanded(
+            child: ListView.builder(
+              itemCount: todoController.cardUsers.length,
+              itemBuilder: (_, index) {
+                return AddUserCard(
+                    uid: controller.firebaseUser.value.uid,
+                    cardModel: todoController.cardUsers[index]);
+              },
+            ),
+          );
+        } else  {
+        return Text("loading...");
         }
       },
     );

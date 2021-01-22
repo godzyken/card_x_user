@@ -4,11 +4,11 @@ import 'package:card_x_user/localizations.dart';
 import 'package:flutter/material.dart';
 
 
-class AddCard extends StatelessWidget {
+class AddUserCard extends StatelessWidget {
   final String uid;
-  final CardModelu cardModel;
+  final CardUserModel cardModel;
 
-  const AddCard({Key key, this.uid, this.cardModel}) : super(key: key);
+  const AddUserCard({Key key, this.uid, this.cardModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AddCard extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                cardModel.name,
+                cardModel.job,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -30,9 +30,9 @@ class AddCard extends StatelessWidget {
               ),
             ),
             Checkbox(
-              value: cardModel.done,
+              value: cardModel.status,
               onChanged: (newValue) {
-                Database().updateCard(newValue, uid, cardModel.id);
+                Database().updateCard(newValue, uid, cardModel.key);
               },
             ),
           ],
