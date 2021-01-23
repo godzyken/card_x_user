@@ -83,7 +83,6 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.star),
                       onTap: () {
                         print("Clicked");
-                        Get.to(CreateACardUi());
                       },
                     ),
                     ListTile(
@@ -124,40 +123,11 @@ class _HomeUIState extends State<HomeUI> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      "Add a Card just here cowboy : ",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Card(
-                      margin: EdgeInsets.all(20),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                                child: TextFormField(
-                              controller: _editingController,
-                            )),
-                            IconButton(
-                                icon: Icon(Icons.add),
-                                onPressed: () {
-                                  Database().addCard(_editingController.text,
-                                      controller.firebaseUser.value.uid);
-                                  _editingController.clear();
-                                }),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "Your Cards",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    CardList(),
+                    Image(
+                        image: AssetImage('assets/img/marlonW.jpg'),
+                        width: MediaQuery.of(context).size.width,
+                        height: 600),
+
                   ],
                 ),
               ),

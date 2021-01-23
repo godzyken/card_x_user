@@ -10,7 +10,7 @@ class RxCardUserModel {
   final contact = ''.obs;
   final number = ''.obs;
   final schedules = ''.obs;
-  final status = ''.obs;
+  final status = false.obs;
   final dateCreated = Timestamp.now().obs;
   final activity = ''.obs;
   final image = ''.obs;
@@ -43,7 +43,7 @@ class CardUserModel {
 
   get status => rx.status.value;
 
-  set status(value) => rx.status.value = value;
+  set status(value) => rx.status.value = false;
 
   get description => rx.description.value;
 
@@ -77,6 +77,29 @@ class CardUserModel {
 
   set number(value) => rx.number.value = value;
 
+
+  String toRawJson() => json.encode(toJson());
+
+  static CardUserModel fromRawJson(String str) =>
+      CardUserModel.fromJson(json.decode(str) as Map<String, dynamic>);
+
+  static CardUserModel fromJson2(dynamic json) => CardUserModel();
+
+  CardUserModel.fromDocumentSnapshot(DocumentSnapshot snapshot,
+      {DocumentSnapshot documentSnapshot}) {
+    key = documentSnapshot['key'];
+    job = documentSnapshot["job"];
+    description = documentSnapshot["description"];
+    status = documentSnapshot["status"];
+    image = documentSnapshot["image"];
+    location = documentSnapshot["location"];
+    dateCreated = documentSnapshot["dateCreated"] as Timestamp;
+    activity = documentSnapshot["activity"];
+    contact = documentSnapshot["contact"];
+    number = documentSnapshot["number"];
+    schedules = documentSnapshot["schedules"];
+  }
+
   factory CardUserModel.fromMap(Map data) {
     return CardUserModel(
       key: data['key'],
@@ -93,26 +116,41 @@ class CardUserModel {
     );
   }
 
-  String toRawJson() => json.encode(toJson());
+  factory CardUserModel.fromJson(Map<String, dynamic> json) => CardUserModel(
+    key: json["Key"] == null ? null : json["Key"] as String,
+    job: json["job"] == null ? null : json["job"] as String,
+    description:
+    json["description"] == null ? null : json["description"] as String,
+    status: json["status"] == null ? null : json["status"] as String,
+    image: json["image"] == null ? null : json["image"] as String,
+    location: json["location"] == null ? null : json["location"] as String,
+    dateCreated:
+    json["dateCreated"] == null ? null : json["dateCreated"] as Timestamp,
+    activity: json["activity"] == null ? null : json["activity"] as String,
+    contact: json["contact"] == null ? null : json["contact"] as String,
+    number: json["number"] == null ? null : json["number"] as String,
+    schedules:
+    json["schedules"] == null ? null : json["schedules"] as String,
+  );
 
-  static CardUserModel fromRawJson(String str) =>
-      CardUserModel.fromJson(json.decode(str) as Map<String, dynamic>);
-
-  static CardUserModel fromJson2(dynamic json) => CardUserModel();
-
-  CardUserModel.fromDocumentSnapshot(DocumentSnapshot documentSnapshot,
-      {DocumentSnapshot snapshots}) {
-    key = documentSnapshot['key'];
-    job = documentSnapshot["job"];
-    description = documentSnapshot["description"];
-    status = documentSnapshot["status"];
-    image = documentSnapshot["image"];
-    location = documentSnapshot["location"];
-    dateCreated = documentSnapshot["dateCreated"] as Timestamp;
-    activity = documentSnapshot["activity"];
-    contact = documentSnapshot["contact"];
-    number = documentSnapshot["number"];
-    schedules = documentSnapshot["schedules"];
+  factory CardUserModel.fromSnapshot(DocumentSnapshot snap) {
+    Map<String, dynamic> map = snap.data();
+    if(map.containsKey('key')) {
+      return CardUserModel.fromMap(map,);
+    }
+    return CardUserModel(
+      key: snap.id,
+      job: snap.reference.path,
+      schedules: snap.reference.path,
+      description: snap.reference.path,
+      number: snap.reference.path,
+      contact: snap.reference.path,
+      activity: snap.reference.path,
+      dateCreated: snap.reference.path,
+      image: snap.reference.path,
+      status: snap.reference.path,
+      location: snap.reference.path,
+    );
   }
 
   Map<String, dynamic> toJson() => {
@@ -129,20 +167,4 @@ class CardUserModel {
         'schedules': schedules,
       };
 
-  static CardUserModel fromJson(dynamic json) => CardUserModel(
-        key: json["Key"] == null ? null : json["Key"] as String,
-        job: json["job"] == null ? null : json["job"] as String,
-        description:
-            json["description"] == null ? null : json["description"] as String,
-        status: json["status"] == null ? null : json["status"] as String,
-        image: json["image"] == null ? null : json["image"] as String,
-        location: json["location"] == null ? null : json["location"] as String,
-        dateCreated:
-            json["dateCreated"] == null ? null : json["dateCreated"] as Timestamp,
-        activity: json["activity"] == null ? null : json["activity"] as String,
-        contact: json["contact"] == null ? null : json["contact"] as String,
-        number: json["number"] == null ? null : json["number"] as String,
-        schedules:
-            json["schedules"] == null ? null : json["schedules"] as String,
-      );
 }

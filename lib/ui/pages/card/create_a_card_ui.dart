@@ -86,6 +86,18 @@ class CreateACardUi extends StatelessWidget {
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
+                              FormInputFieldWithIcon(
+                                controller: fx.jobActivitySector.value,
+                                iconPrefix: Icons.local_activity,
+                                labelText: labels?.auth?.nameFormField,
+                                // validator: Validator(labels).streetAdress,
+                                keyboardType: TextInputType.name,
+                                onChanged: (value) => fx.jobActivitySector.value,
+                                onSaved: (value) =>
+                                fx.cardUserModel.value.activity = value,
+                                maxLines: 2,
+                              ),
+                              FormVerticalSpace(),
                               //TODO Description pro
                               //TODO DescriptionFormField translate to labels on card
                               //TODO Description to validator list
@@ -116,19 +128,6 @@ class CreateACardUi extends StatelessWidget {
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
-                              //TODO Disponibility pro
-                              //TODO DisponibilityFormField translate to labels on card
-                              //TODO Disponibility to validator list
-                              FormInputFieldWithIcon(
-                                controller: fx.jobSchedules.value,
-                                iconPrefix: Icons.event_busy,
-                                labelText: labels?.auth?.nameFormField,
-                                onChanged: (value) => fx.jobSchedules.value,
-                                onSaved: (value) =>
-                                    fx.cardUserModel.value.dateCreated = value,
-                                maxLines: 2,
-                              ),
-                              FormVerticalSpace(),
                               //TODO Horaire pro
                               //TODO HoraireFormField translate to labels on card
                               //TODO Horaire to validator list
@@ -149,13 +148,27 @@ class CreateACardUi extends StatelessWidget {
                               //TODO Reference to validator list
                               FormInputFieldWithIcon(
                                 controller: null,
-                                iconPrefix: Icons.room_preferences,
+                                iconPrefix: Icons.image,
                                 labelText: labels?.auth?.nameFormField,
                                 keyboardType: TextInputType.url,
                                 // onChanged: (value) => cardController.updateCard(context),
                                 onSaved: (value) => null,
                                 maxLines: 2,
                               ),
+                              FormVerticalSpace(),
+                              //TODO Disponibility pro
+                              //TODO DisponibilityFormField translate to labels on card
+                              //TODO Disponibility to validator list
+                              FormInputFieldWithIcon(
+                                controller: fx.jobSchedules.value,
+                                iconPrefix: Icons.event_busy,
+                                labelText: labels?.auth?.nameFormField,
+                                onChanged: (value) => fx.jobSchedules.value,
+                                onSaved: (value) =>
+                                fx.cardUserModel.value.dateCreated = value,
+                                maxLines: 2,
+                              ),
+                              FormVerticalSpace(),
                               Obx(
                                 () => fx.jobAvailability.value
                                     ? Container(

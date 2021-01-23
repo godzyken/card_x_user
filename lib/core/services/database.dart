@@ -115,4 +115,17 @@ class Database {
     });
   }
 
+  Stream<CardUserModel> streamCard(String uid) {
+
+    print('streamCard()');
+    if (cardUserModel?.key != null) {
+      return _firestore
+          .collection("cardUser")
+          .doc(uid)
+          .snapshots()
+          .map((snapshot) => CardUserModel.fromMap(snapshot.data()));
+    }
+
+    return null;
+  }
 }

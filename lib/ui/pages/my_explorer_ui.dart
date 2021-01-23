@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:card_x_user/ui/components/components.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
 
   void _clearCachedFiles() {
     FilePicker.platform.clearTemporaryFiles().then((result) {
-      _scaffoldKey.currentState.showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: result ? Colors.green : Colors.red,
           content: Text((result
@@ -198,18 +199,21 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
                     padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
                     child: Column(
                       children: <Widget>[
-                        RaisedButton(
-                          onPressed: () => _openFileExplorer(),
-                          child: Text("Open file picker"),
+                        IconOpenFilePicker(
+                          func: _openFileExplorer,
+                          text: 'Open file picker',
                         ),
-                        RaisedButton(
-                          onPressed: () => _selectFolder(),
-                          child: Text("Pick folder"),
+
+                        IconPickFolder(
+                          func: _selectFolder,
+                          text: 'Pick folder',
                         ),
-                        RaisedButton(
-                          onPressed: () => _clearCachedFiles(),
-                          child: Text("Clear temporary files"),
+
+                        IconClearTempFiles(
+                          func: _clearCachedFiles,
+                          text: 'Clear temporary files',
                         ),
+
                       ],
                     ),
                   ),
@@ -286,21 +290,4 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
       ),
     );
   }
-
-/*
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<AuthController>(
-      init: AuthController(),
-      builder: (controller) => controller?.firestoreUser?.value?.uid == null
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : Scaffold(
-              key: _scaffoldKey,
-
-            ),
-    );
-  }
-*/
 }

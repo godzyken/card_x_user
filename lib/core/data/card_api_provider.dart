@@ -16,7 +16,7 @@ class CardProvider extends GetConnect implements ICardProvider{
   }
 
   void onReady() {
-    httpClient.defaultDecoder = CardUserModel.fromJson;
+    httpClient.defaultDecoder = CardUserModel.fromJson2;
     httpClient.baseUrl = 'https://api.cardxuser.com/me';
     httpClient.userAgent = 'https://api.cardxuser.com/userprofile';
   }

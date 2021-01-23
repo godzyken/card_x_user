@@ -11,15 +11,6 @@ class UserModel {
 
   UserModel({this.uid, this.email, this.name, this.photoUrl});
 
-  factory UserModel.fromMap(Map data) {
-    return UserModel(
-      uid: data['uid'],
-      email: data['email'] ?? '',
-      name: data['name'] ?? '',
-      photoUrl: data['photoUrl'] ?? '',
-    );
-  }
-
   static UserModel fromRawJson(String str) =>
       UserModel.fromJson(json.decode(str) as Map<String, dynamic>);
 
@@ -30,6 +21,15 @@ class UserModel {
     name = documentSnapshot["name"];
     email = documentSnapshot["email"];
     photoUrl = documentSnapshot["photoUrl"];
+  }
+
+  factory UserModel.fromMap(Map data) {
+    return UserModel(
+      uid: data['uid'],
+      email: data['email'] ?? '',
+      name: data['name'] ?? '',
+      photoUrl: data['photoUrl'] ?? '',
+    );
   }
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
