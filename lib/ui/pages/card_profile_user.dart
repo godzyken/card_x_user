@@ -1,9 +1,8 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/models/models.dart';
-import 'package:card_x_user/ui/components/avatar_card.dart';
+import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/localizations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +49,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
                     onTap: () {
                       print('Card tapped.');
                     },
-                    child: UserCard(),
+                    child: UserCard(controller?.firestoreUser?.value),
                   ),
                 ),
               ),
@@ -59,61 +58,63 @@ class _CardProfileUserState extends State<CardProfileUser> {
   }
 }
 
-class UserCard extends StatelessWidget {
-  final UserModel userModel;
-  final CardUserModel cardUserModel;
+class UserCard extends GetWidget<AuthController> {
 
-  const UserCard({Key key, this.userModel, this.cardUserModel})
-      : super(key: key);
+  final UserModel userModel;
+
+  UserCard(this.userModel);
+
 
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    return GetBuilder<CardController>(
-      init: CardController(),
-      builder: (controller) => controller?.userCard?.value?.key == null
-          ? Center(
-              child: cardModel(context),
-            )
-          : Container(
-              width: 300,
-              height: 150,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  ListTile(
-                    leading: AvatarCard(controller.userCard.value),
-                    title: Text(
-                      controller.userCard.value.job,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ),
-                    subtitle: Text(
-                      controller.userCard.value.description,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ),
+    return GetX<FormXController>(
+      init: Get.put<FormXController>(FormXController()),
+      builder: (FormXController controller) {
+        if ((controller != null && controller.cardUserModel != null) || (controller.cardUserModel.value.id == userModel.uid)) {
+
+          return Container(
+            width: 300,
+            height: 150,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                ListTile(
+                  leading: AvatarCard(controller.cardUserModel.value),
+                  title: Text('Job Title :${controller.cardUserModel.value.job}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 15.0),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      TextButton(
-                        child: const Text('Activer'),
-                        onPressed: () {},
-                      ),
-                      SizedBox(width: 8),
-                      TextButton(
-                        child: const Text('Modifier'),
-                        onPressed: () {
-                          Get.to(AddCard());
-                        },
-                      ),
-                      SizedBox(width: 8),
-                    ],
+                  subtitle: Text(
+                    'description : ${controller.cardUserModel.value.description}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 11.0),
                   ),
-                ],
-              ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextButton(
+                      child: const Text('Activer'),
+                      onPressed: () {},
+                    ),
+                    SizedBox(width: 8),
+                    TextButton(
+                      child: const Text('Modifier'),
+                      onPressed: () {
+                        Get.to(CreateACardUi());
+                      },
+                    ),
+                    SizedBox(width: 8),
+                  ],
+                ),
+              ],
             ),
+          );
+        } else {
+          return cardModel(context);
+        }
+      }
     );
   }
 }
@@ -122,6 +123,7 @@ Widget cardModel(BuildContext context) {
   return Container(
     width: 300,
     height: 150,
+    color: Colors.amber[50],
     child: Column(
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[

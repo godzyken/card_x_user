@@ -24,7 +24,6 @@ class FormXController extends GetxController {
   updateTheValues() {
     cardUserModel.update((model) {
       model.job = jobTitle.value.text;
-      model.status = jobAvailability;
       model.location = jobLocation.value.text;
       model.number = jobNumber.value.text;
       model.schedules = jobSchedules.value.text;
@@ -32,6 +31,7 @@ class FormXController extends GetxController {
       model.description = jobDesc.value.text;
       model.activity = jobActivitySector.value.text;
       model.image = jobImage.value.text;
+      model.status = jobAvailability;
     });
   }
 

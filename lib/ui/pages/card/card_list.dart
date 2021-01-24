@@ -11,18 +11,7 @@ class CardList extends GetWidget<AuthController> {
     return GetX<CardController>(
       init: Get.put<CardController>(CardController()),
       builder: (CardController todoController) {
-        if (todoController != null && todoController.cards != null) {
-          return Expanded(
-            child: ListView.builder(
-              itemCount: todoController.cards.length,
-              itemBuilder: (_, index) {
-                return AddCard(
-                    uid: controller.firebaseUser.value.uid,
-                    cardModel: todoController.cards[index]);
-              },
-            ),
-          );
-        } else if(todoController != null && todoController.cardUsers != null) {
+        if (todoController != null && todoController.cardUsers != null) {
           return Expanded(
             child: ListView.builder(
               itemCount: todoController.cardUsers.length,
@@ -33,8 +22,8 @@ class CardList extends GetWidget<AuthController> {
               },
             ),
           );
-        } else  {
-        return Text("loading...");
+        } else {
+          return Text("loading...");
         }
       },
     );

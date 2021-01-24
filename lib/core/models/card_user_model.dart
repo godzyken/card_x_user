@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class RxCardUserModel {
-  final key = ''.obs;
+  final id = ''.obs;
   final job = ''.obs;
   final location = ''.obs;
   final description = ''.obs;
@@ -18,7 +18,7 @@ class RxCardUserModel {
 
 class CardUserModel {
   CardUserModel({
-    key,
+    id,
     job,
     status,
     description,
@@ -33,9 +33,9 @@ class CardUserModel {
 
   final rx = RxCardUserModel();
 
-  get key => rx.key.value;
+  get id => rx.id.value;
 
-  set key(value) => rx.key.value = value;
+  set id(value) => rx.id.value = value;
 
   get job => rx.job.value;
 
@@ -85,9 +85,9 @@ class CardUserModel {
 
   static CardUserModel fromJson2(dynamic json) => CardUserModel();
 
-  CardUserModel.fromDocumentSnapshot(DocumentSnapshot snapshot,
-      {DocumentSnapshot documentSnapshot}) {
-    key = documentSnapshot['key'];
+  CardUserModel.fromDocumentSnapshot(DocumentSnapshot documentSnapshot,
+      ) {
+    id = documentSnapshot.id;
     job = documentSnapshot["job"];
     description = documentSnapshot["description"];
     status = documentSnapshot["status"];
@@ -102,7 +102,7 @@ class CardUserModel {
 
   factory CardUserModel.fromMap(Map data) {
     return CardUserModel(
-      key: data['key'],
+      id: data['id'],
       job: data['job'] ?? '',
       description: data['description'] ?? '',
       status: data['status'] ?? '',
@@ -117,7 +117,7 @@ class CardUserModel {
   }
 
   factory CardUserModel.fromJson(Map<String, dynamic> json) => CardUserModel(
-    key: json["Key"] == null ? null : json["Key"] as String,
+    id: json["id"] == null ? null : json["id"] as String,
     job: json["job"] == null ? null : json["job"] as String,
     description:
     json["description"] == null ? null : json["description"] as String,
@@ -135,11 +135,11 @@ class CardUserModel {
 
   factory CardUserModel.fromSnapshot(DocumentSnapshot snap) {
     Map<String, dynamic> map = snap.data();
-    if(map.containsKey('key')) {
+    if(map.containsKey('id')) {
       return CardUserModel.fromMap(map,);
     }
     return CardUserModel(
-      key: snap.id,
+      id: snap.id,
       job: snap.reference.path,
       schedules: snap.reference.path,
       description: snap.reference.path,
@@ -154,7 +154,7 @@ class CardUserModel {
   }
 
   Map<String, dynamic> toJson() => {
-        'key': key,
+        'id': id,
         'job': job,
         'description': description,
         'status': status,

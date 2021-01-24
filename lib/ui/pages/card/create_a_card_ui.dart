@@ -1,5 +1,6 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
@@ -7,10 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CreateACardUi extends StatelessWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final String uid;
+  final CardUserModel cardUserModel;
+
+  const CreateACardUi({Key key, this.uid, this.cardUserModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     final labels = AppLocalizations.of(context);
     final fx = Get.put(FormXController());
 
@@ -43,7 +49,7 @@ class CreateACardUi extends StatelessWidget {
                       child: Center(child: CircularProgressIndicator()),
                     );
                   } else {
-                    fx.cardUserModel.value.key = disposable?.firestoreUser?.value?.uid;
+                    fx.cardUserModel.value.id = disposable?.firestoreUser?.value?.uid;
                   }
                   return Form(
                     key: _formKey,
@@ -55,7 +61,7 @@ class CreateACardUi extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
-                              LogoGraphicHeader(),
+                              AvatarCard(cardUserModel),
                               SizedBox(height: 48.0),
                               //TODO titre pro link to elasticsearch
                               //TODO titreFormField translate to labels on card

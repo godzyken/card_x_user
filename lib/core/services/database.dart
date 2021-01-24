@@ -64,7 +64,7 @@ class Database {
   Future<void> saveACard(CardUserModel cardUserModel, String uid) async {
     try {
       await _firestore.collection('cardUser').doc(uid).collection("card").add({
-        "key": cardUserModel.key,
+        "id": cardUserModel.id,
         "job": cardUserModel.job,
         "description": cardUserModel.description,
         "status": cardUserModel.status,
@@ -106,10 +106,10 @@ class Database {
         .collection("card")
         .orderBy("dateCreated", descending: true)
         .snapshots()
-        .map((querySnapshot) {
+        .map((QuerySnapshot query) {
       List<CardUserModel> retVal = [];
-      querySnapshot.docs.forEach((element) {
-        retVal.add(CardUserModel.fromMap(element.data()));
+      query.docs.forEach((element) {
+        retVal.add(CardUserModel.fromDocumentSnapshot(element));
       });
       return retVal;
     });
@@ -118,12 +118,12 @@ class Database {
   Stream<CardUserModel> streamCard(String uid) {
 
     print('streamCard()');
-    if (cardUserModel?.key != null) {
+    if (cardUserModel?.id != null) {
       return _firestore
           .collection("cardUser")
           .doc(uid)
           .snapshots()
-          .map((snapshot) => CardUserModel.fromMap(snapshot.data()));
+          .map((snapshot) => CardUserModel.fromSnapshot(snapshot));
     }
 
     return null;

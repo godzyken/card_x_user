@@ -16,7 +16,7 @@ class LanguageController extends GetxController {
   @override
   void onReady() async {
     setInitialLocalLanguage();
-    super.onInit();
+    super.onReady();
   }
 
   // Retrieves and Sets language based on device settings

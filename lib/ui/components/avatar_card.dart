@@ -22,8 +22,8 @@ class AvatarCard extends StatelessWidget {
           child: Image.network(
             cardUserModel?.image,
             fit: BoxFit.cover,
-            width: 100.0,
-            height: 200.0,
+            width: 120.0,
+            height: 120.0,
           ),
         ),
       ),

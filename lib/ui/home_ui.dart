@@ -1,11 +1,9 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
-import 'package:card_x_user/ui/pages/card/card_ui.dart';
+import 'package:card_x_user/ui/pages/card/card_list.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -117,18 +115,25 @@ class _HomeUIState extends State<HomeUI> {
                   ],
                 ),
               ),
-              body: Center(
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Image(
-                        image: AssetImage('assets/img/marlonW.jpg'),
-                        width: MediaQuery.of(context).size.width,
-                        height: 600),
+              body: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/img/marlonW.jpg'),
+                      fit: BoxFit.cover,
+                    )
+                ),
+                child: Center(
+                  child: Column(
+                    verticalDirection: VerticalDirection.up,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20,
+                      ),
 
-                  ],
+                      CardList(),
+
+                    ],
+                  ),
                 ),
               ),
             ),
