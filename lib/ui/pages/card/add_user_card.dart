@@ -2,7 +2,6 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AddUserCard extends StatelessWidget {

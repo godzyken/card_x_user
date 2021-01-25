@@ -1,5 +1,4 @@
 export 'avatar.dart';
-export 'avatar_card.dart';
 export 'dropdown_picker.dart';
 export 'dropdown_picker_with_icon.dart';
 export 'form_input_field.dart';

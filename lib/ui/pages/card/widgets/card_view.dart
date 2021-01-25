@@ -1,115 +1,69 @@
-import 'package:card_x_user/core/controllers/card_controller.dart';
-import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-/*class CardView extends GetView<CardUserController> {
+class CardView extends StatelessWidget {
+
+  final String uid;
+  final CardUserModel cardUserModel;
+
+  const CardView({Key key, this.uid, this.cardUserModel}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.linearToSrgbGamma(),
-            image: NetworkImage(
-                "https://images.pexels.com/photos/3902882/pexels-photo-3902882.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
-          ),
+      width: 350,
+      height: 250,
+      /*decoration: BoxDecoration(
+        image: new DecorationImage(
+          image: NetworkImage(cardUserModel?.image),
+          fit: BoxFit.cover,
         ),
-        child: Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              title: Text('covid'.tr),
-              backgroundColor: Colors.white10,
-              elevation: 0,
-              centerTitle: true,
-            ),
-            body: Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
+      ),*/
+      child: Expanded(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+                child: Container(
+                  width: 340,
                   height: 100,
-                ),
-                GetX<CardUserController>(
-                  init: CardUserController(),
-                  builder: (_) {
-                    return Column(
+                  child: Card(
+                    color: Colors.transparent,
+                    shadowColor: Colors.amber[50],
+                    child: ListView(
+                      shrinkWrap: true,
                       children: [
-                        Text(
-                          'Card_Name: ${_.cardUsers.value.name}'.tr,
-                          style: TextStyle(
-                            fontSize: 30,
+                        ListTile(
+                          title: Text(
+                            'Job title: ${cardUserModel.job}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15.0),
+                          ),
+                          subtitle: Text(
+                            'description: ${cardUserModel.description}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15.0),
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Create_at_: ${_.cardUsers.value.dateCreated}.printError()'
-                              .tr,
-                          style: TextStyle(
-                              fontSize: 45, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Card_Id: ${_.cardUsers.value.id}'.tr,
-                          style: TextStyle(
-                            fontSize: 30,
+                        ListTile(
+                          title: Text(
+                            'Activity: ${cardUserModel.activity}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15.0),
                           ),
-                        ),
-                        Text(
-                          'Card_Status :${_.cardUsers.value.done}'.tr,
-                          style: TextStyle(
-                              fontSize: 45, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Card_User :${_.cardUsers.value.cardUserModel}'
-                              .tr,
-                          style: TextStyle(
-                              fontSize: 45, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
+                          subtitle: Text(
+                            'Status: ${cardUserModel.status}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15.0),
+                          ),
                         ),
                       ],
-                    );
-                  },
-                ),
-                Obx(() => Text(
-                      'this the status on card: ${Get.find<CardUserController>().cardUsers.value.done}',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                FlatButton(
-                    onPressed: () {
-                      Get.find<CardUserController>()
-                          .updateTheCardUserValues(1, "", false);
-                    },
-                    child: Text(
-                      "Change the value",
-                      style: TextStyle(color: Colors.white),
-                    )),
-                OutlineButton(
-                  borderSide: BorderSide(
-                    color: Colors.deepPurple,
-                    width: 3,
+                    ),
                   ),
-                  shape: StadiumBorder(),
-                  onPressed: () {
-                    Get.toNamed('/Card/name');
-                  },
-                  child: Text(
-                    'fetch_name'.tr,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            )))
+                )),
+          ],
+        ),
+      ),
     );
   }
-}*/
+}

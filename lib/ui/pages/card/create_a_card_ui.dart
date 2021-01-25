@@ -48,8 +48,6 @@ class CreateACardUi extends StatelessWidget {
                     return Container(
                       child: Center(child: CircularProgressIndicator()),
                     );
-                  } else {
-                    fx.cardUserModel.value.id = disposable?.firestoreUser?.value?.uid;
                   }
                   return Form(
                     key: _formKey,
@@ -61,7 +59,7 @@ class CreateACardUi extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
-                              AvatarCard(cardUserModel),
+                              Avatar(disposable.firestoreUser.value),
                               SizedBox(height: 48.0),
                               //TODO titre pro link to elasticsearch
                               //TODO titreFormField translate to labels on card
@@ -79,6 +77,7 @@ class CreateACardUi extends StatelessWidget {
                               ),
                               FormVerticalSpace(),
                               //TODO lieu controller link to elasticsearch
+                              //TODO lieuFormField translate to labels on card
                               //TODO lieu translate to labels on card
                               FormInputFieldWithIcon(
                                 controller: fx.jobLocation.value,
@@ -86,12 +85,15 @@ class CreateACardUi extends StatelessWidget {
                                 labelText: labels?.auth?.nameFormField,
                                 // validator: Validator(labels).streetAdress,
                                 keyboardType: TextInputType.streetAddress,
-                                onChanged: (value) => fx.jobAddress.value,
+                                onChanged: (value) => fx.jobLocation.value,
                                 onSaved: (value) =>
                                     fx.cardUserModel.value.location = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
+                              //TODO activity controller link to elasticsearch
+                              //TODO activityFormField translate to labels on card
+                              //TODO activity translate to labels on card
                               FormInputFieldWithIcon(
                                 controller: fx.jobActivitySector.value,
                                 iconPrefix: Icons.local_activity,
@@ -111,7 +113,7 @@ class CreateACardUi extends StatelessWidget {
                                 controller: fx.jobDesc.value,
                                 iconPrefix: Icons.description,
                                 labelText: labels?.auth?.nameFormField,
-                                validator: Validator(labels).name,
+                                // validator: Validator(labels).name,
                                 keyboardType: TextInputType.multiline,
                                 onChanged: (value) => fx.jobDesc.value,
                                 onSaved: (value) =>
@@ -126,7 +128,7 @@ class CreateACardUi extends StatelessWidget {
                                 controller: fx.jobContact.value,
                                 iconPrefix: Icons.contact_page,
                                 labelText: labels?.auth?.emailFormField,
-                                validator: Validator(labels).email,
+                                // validator: Validator(labels).name,
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (value) => fx.jobContact.value,
                                 onSaved: (value) =>
@@ -134,9 +136,9 @@ class CreateACardUi extends StatelessWidget {
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
-                              //TODO Horaire pro
-                              //TODO HoraireFormField translate to labels on card
-                              //TODO Horaire to validator list
+                              //TODO number pro
+                              //TODO numberFormField translate to labels on card
+                              //TODO number to validator list
                               FormInputFieldWithIcon(
                                 controller: fx.jobNumber.value,
                                 iconPrefix: Icons.call,
@@ -149,29 +151,28 @@ class CreateACardUi extends StatelessWidget {
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),
-                              //TODO Reference pro
-                              //TODO ReferenceFormField translate to labels on card
-                              //TODO Reference to validator list
+                              //TODO image pro
+                              //TODO imageFormField translate to labels on card
+                              //TODO image to validator list
                               FormInputFieldWithIcon(
-                                controller: null,
+                                controller: fx.jobImage.value,
                                 iconPrefix: Icons.image,
                                 labelText: labels?.auth?.nameFormField,
                                 keyboardType: TextInputType.url,
-                                // onChanged: (value) => cardController.updateCard(context),
-                                onSaved: (value) => null,
-                                maxLines: 2,
+                                onChanged: (value) => fx.cardUserModel.value,
+                                onSaved: (value) => fx.cardUserModel.value.image = value,
                               ),
                               FormVerticalSpace(),
-                              //TODO Disponibility pro
-                              //TODO DisponibilityFormField translate to labels on card
-                              //TODO Disponibility to validator list
+                              //TODO dateCreated pro
+                              //TODO jobSchedulesFormField translate to labels on card
+                              //TODO dateCreated to validator list
                               FormInputFieldWithIcon(
                                 controller: fx.jobSchedules.value,
-                                iconPrefix: Icons.event_busy,
+                                iconPrefix: Icons.today,
                                 labelText: labels?.auth?.nameFormField,
                                 onChanged: (value) => fx.jobSchedules.value,
                                 onSaved: (value) =>
-                                fx.cardUserModel.value.dateCreated = value,
+                                fx.cardUserModel.value.schedules = value,
                                 maxLines: 2,
                               ),
                               FormVerticalSpace(),

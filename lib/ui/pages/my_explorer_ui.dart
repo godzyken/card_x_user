@@ -122,7 +122,6 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
               }),
         ],
       ),
-      drawer: Drawer(),
       body: Center(
           child: Padding(
             padding: const EdgeInsets.only(left: 10.0, right: 10.0),

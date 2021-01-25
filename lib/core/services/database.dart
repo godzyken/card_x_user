@@ -64,7 +64,7 @@ class Database {
   Future<void> saveACard(CardUserModel cardUserModel, String uid) async {
     try {
       await _firestore.collection('cardUser').doc(uid).collection("card").add({
-        "id": cardUserModel.id,
+        "id": uid,
         "job": cardUserModel.job,
         "description": cardUserModel.description,
         "status": cardUserModel.status,

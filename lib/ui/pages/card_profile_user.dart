@@ -1,11 +1,11 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/models/models.dart';
+import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
-import 'package:card_x_user/localizations.dart';
+import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class CardProfileUser extends StatefulWidget {
   @override
@@ -43,12 +43,17 @@ class _CardProfileUserState extends State<CardProfileUser> {
               body: Center(
                 child: Card(
                   borderOnForeground: true,
-                  shadowColor: Colors.blue,
+                  shadowColor: Colors.transparent,
+                  color: Colors.red[50],
                   child: InkWell(
                     splashColor: Colors.blue.withAlpha(30),
                     onTap: () {
                       print('Card tapped.');
+                      Get.to(CardDetailsView(
+                        userModel: controller?.firestoreUser?.value,
+                      ));
                     },
+                    // child: cardModel(context),
                     child: UserCard(controller?.firestoreUser?.value),
                   ),
                 ),
@@ -59,63 +64,114 @@ class _CardProfileUserState extends State<CardProfileUser> {
 }
 
 class UserCard extends GetWidget<AuthController> {
-
   final UserModel userModel;
 
   UserCard(this.userModel);
 
-
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    return GetX<FormXController>(
-      init: Get.put<FormXController>(FormXController()),
-      builder: (FormXController controller) {
-        if ((controller != null && controller.cardUserModel != null) || (controller.cardUserModel.value.id == userModel.uid)) {
 
-          return Container(
-            width: 300,
-            height: 150,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                ListTile(
-                  leading: AvatarCard(controller.cardUserModel.value),
-                  title: Text('Job Title :${controller.cardUserModel.value.job}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 15.0),
-                  ),
-                  subtitle: Text(
-                    'description : ${controller.cardUserModel.value.description}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 11.0),
-                  ),
+    return GetX<FormXController>(
+        init: Get.put<FormXController>(FormXController()),
+        builder: (FormXController controller) {
+          if ((controller != null && controller.cardUserModel != null) ||
+              (controller.cardUserModel.value.id != null &&
+                  controller.cardUserModel.value.id == userModel.uid)) {
+            return Container(
+              width: 350,
+              height: 250,
+              decoration: BoxDecoration(
+                image: new DecorationImage(
+                  image: NetworkImage('${controller.cardUserModel.value.image}', scale: 1.0),
+                  fit: BoxFit.cover,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    TextButton(
-                      child: const Text('Activer'),
-                      onPressed: () {},
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  ListTile(
+                    leading: Avatar(userModel),
+                    title: Text(
+                      'Author: ${userModel.name}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15.0),
                     ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      child: const Text('Modifier'),
-                      onPressed: () {
-                        Get.to(CreateACardUi());
-                      },
+                    subtitle: Text(
+                      'mailto: ${userModel.email}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 11.0),
                     ),
-                    SizedBox(width: 8),
-                  ],
-                ),
-              ],
-            ),
-          );
-        } else {
-          return cardModel(context);
-        }
-      }
-    );
+                  ),
+                  Expanded(
+                      child: Container(
+                    width: 340,
+                    height: 100,
+                        child: Card(
+                          color: Colors.transparent,
+                          shadowColor: Colors.amber[50],
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  'Job title: ${controller.cardUserModel.value.job}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 15.0),
+                                ),
+                                subtitle: Text(
+                                  'description: ${controller.cardUserModel.value.description}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 15.0),
+                                ),
+                              ),
+                              ListTile(
+                                title: Text(
+                                  'Activity: ${controller.cardUserModel.value.activity}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 15.0),
+                                ),
+                                subtitle: Text(
+                                  'Status: ${controller.cardUserModel.value.status}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 15.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                  )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('Activer'),
+                        onPressed: () {
+                          return StreamBuilder<CardController>(
+                            stream: controller.updateTheValues(),
+                            builder: (context, snapshot) {
+                              return CardView(uid: userModel.uid, cardUserModel: controller.cardUserModel.value);
+                            }
+                          );
+                        },
+                      ),
+                      SizedBox(width: 8),
+                      TextButton(
+                        child: const Text('Modifier'),
+                        onPressed: () {
+                          Get.to(CreateACardUi());
+                        },
+                      ),
+                      SizedBox(width: 8),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return cardModel(context);
+          }
+        });
   }
 }
 
@@ -128,7 +184,10 @@ Widget cardModel(BuildContext context) {
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         const ListTile(
-          leading: Icon(Icons.album),
+          leading: Icon(
+            Icons.account_circle,
+            size: 75,
+          ),
           title: Text('Create your card'),
           subtitle: Text('This is a demo card: '),
         ),

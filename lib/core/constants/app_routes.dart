@@ -3,6 +3,7 @@ import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
+import 'package:card_x_user/ui/pages/conference/conference.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -18,6 +19,8 @@ class AppRoutes {
     GetPage(name: '/card-profile/:id/me', page: () => CardProfileUser()),
     GetPage(name: '/create-a-card/:id/edit', page: () => CreateACardUi()),
     GetPage(name: '/explorer', page: () => MyExplorerUi()),
-    // GetPage(name: '/view-card', page: () => CardView()),
+    GetPage(name: '/view-card-user', page: () => CardDetailsView()),
+    GetPage(name: '/room', page: () => RoomPage()),
+    GetPage(name: '/call', page: () => CallPage()),
   ];
 }

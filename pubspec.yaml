@@ -55,6 +55,9 @@ dependencies:
   flutter_sheet_localization: ^2.0.1
   simple_gravatar:
 
+  agora_rtc_engine: ^3.2.1
+  permission_handler: ^5.0.1+1
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

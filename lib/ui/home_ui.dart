@@ -1,7 +1,8 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
-import 'package:card_x_user/ui/pages/card/card_list.dart';
+import 'package:card_x_user/ui/pages/card/card_ui.dart';
+import 'package:card_x_user/ui/pages/conference/conference.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -91,9 +92,9 @@ class _HomeUIState extends State<HomeUI> {
                       },
                     ),
                     ListTile(
-                      title: Text('take a picture'),
-                      leading: Icon(Icons.camera_alt),
-                      // onTap: () => Get.to(UploadingImageToFirebaseUi()),
+                      title: Text('Video Calling'),
+                      leading: Icon(Icons.video_call),
+                      onTap: () => Get.to(RoomPage()),
                     ),
                     ListTile(
                       title: Text('Uploads'),
