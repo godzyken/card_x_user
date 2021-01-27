@@ -96,6 +96,7 @@ flutter:
     - assets/img/defaultDark.png
     - assets/img/google_logo.png
     - assets/img/marlonW.jpg
+    - assets/img/nunchaku.png
     - assets/avatar/gaïmaito.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see

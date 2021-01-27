@@ -54,7 +54,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
                       ));
                     },
                     // child: cardModel(context),
-                    child: UserCard(controller?.firestoreUser?.value),
+                    child: UserCardCreate(controller?.firestoreUser?.value),
                   ),
                 ),
               ),
@@ -63,10 +63,10 @@ class _CardProfileUserState extends State<CardProfileUser> {
   }
 }
 
-class UserCard extends GetWidget<AuthController> {
+class UserCardCreate extends GetWidget<AuthController> {
   final UserModel userModel;
 
-  UserCard(this.userModel);
+  UserCardCreate(this.userModel);
 
   @override
   Widget build(BuildContext context) {
@@ -146,14 +146,7 @@ class UserCard extends GetWidget<AuthController> {
                     children: <Widget>[
                       TextButton(
                         child: const Text('Activer'),
-                        onPressed: () {
-                          return StreamBuilder<CardController>(
-                            stream: controller.updateTheValues(),
-                            builder: (context, snapshot) {
-                              return CardView(uid: userModel.uid, cardUserModel: controller.cardUserModel.value);
-                            }
-                          );
-                        },
+                        onPressed: () {},
                       ),
                       SizedBox(width: 8),
                       TextButton(

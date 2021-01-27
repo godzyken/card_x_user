@@ -1,8 +1,8 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
-import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/ui/pages/conference/conference.dart';
+import 'package:card_x_user/ui/pages/favories/favories.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -71,11 +71,9 @@ class _HomeUIState extends State<HomeUI> {
                       onTap: () => Get.to(MyExplorerUi()),
                     ),
                     ListTile(
-                      title: Text('Shared with me'),
+                      title: Text('Contact list'),
                       leading: Icon(Icons.people),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      onTap: () => Get.to(FavoriesList()),
                     ),
                     ListTile(
                       title: Text('Starred'),
@@ -130,9 +128,6 @@ class _HomeUIState extends State<HomeUI> {
                       SizedBox(
                         height: 20,
                       ),
-
-                      CardList(),
-
                     ],
                   ),
                 ),

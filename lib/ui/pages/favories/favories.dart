@@ -1,0 +1,1 @@
+export 'favories_list.dart';

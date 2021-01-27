@@ -1,9 +1,7 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
-
-import 'card_ui.dart';
 
 class CardList extends GetWidget<AuthController> {
   @override

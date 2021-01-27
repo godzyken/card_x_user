@@ -1,17 +1,18 @@
 import 'dart:ui';
 
+import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:card_x_user/core/models/models.dart';
 import 'package:get/get.dart';
 
 class CardDetailsView extends StatelessWidget {
   final UserModel userModel;
   final CardUserModel cardUserModel;
 
-  const CardDetailsView({Key key, this.userModel, this.cardUserModel}) : super(key: key);
+  const CardDetailsView({Key key, this.userModel, this.cardUserModel})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CardDetailsView extends StatelessWidget {
                 borderOnForeground: true,
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
                       Expanded(
@@ -43,6 +44,7 @@ class CardDetailsView extends StatelessWidget {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       FormVerticalSpace(),
@@ -62,7 +64,8 @@ class CardDetailsView extends StatelessWidget {
                 ),
               ),
               Expanded(
-                 child: CardView(uid: userModel.uid, cardUserModel: cardUserModel),
+                flex: 1,
+                child: CardView(),
               ),
             ],
           ),
