@@ -1,7 +1,6 @@
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class SplashUI extends StatefulWidget {
@@ -11,20 +10,11 @@ class SplashUI extends StatefulWidget {
 
 class _SplashUIState extends State<SplashUI> {
 
-  @override
-  bool get mounted {
-    if (mounted) {
-      setState(() {
-        SplashUI();
-      });
-    }
-    return mounted;
-  }
 
   @override
   void initState() {
     super.initState();
-    SplashUI();
+    if (mounted) SplashUI();
   }
 
 

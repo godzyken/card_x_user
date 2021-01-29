@@ -3,19 +3,26 @@ import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CardView extends GetWidget<AuthController> {
+class CardView extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CardController>(
-      id: controller.firestoreUser.value.uid,
+    return GetX<CardController>(
       init: Get.put<CardController>(CardController()),
       builder: (CardController cardController) {
-        return Builder(builder: (BuildContext context) {
-          return UserCard(
-            uid: controller.firestoreUser.value.uid,
-            cardUserModel: cardController.userCard.value,
+        if (cardController != null && cardController.cardUsers != null) {
+          return Expanded(
+            child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (_, index) {
+                return AddUserCard(
+                    uid: controller.firestoreUser.value.uid,
+                    cardModel: cardController.cardUsers[index]);
+              },
+            ),
           );
-        });
+        } else {
+          return Text("loading...");
+        }
       },
     );
   }

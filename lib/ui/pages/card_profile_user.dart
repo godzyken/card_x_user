@@ -81,12 +81,12 @@ class UserCardCreate extends GetWidget<AuthController> {
             return Container(
               width: 350,
               height: 250,
-              decoration: BoxDecoration(
+        /*      decoration: BoxDecoration(
                 image: new DecorationImage(
                   image: NetworkImage('${controller.cardUserModel.value.image}', scale: 1.0),
                   fit: BoxFit.cover,
                 ),
-              ),
+              ),*/
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[

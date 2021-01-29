@@ -117,13 +117,15 @@ class Database {
 
   Stream<CardUserModel> streamCard(String uid) {
 
+    UserModel userModel;
+
     print('streamCard()');
-    if (cardUserModel?.id != null) {
+    if ((cardUserModel?.id != null && userModel.uid != null) || (userModel.uid == cardUserModel.id)) {
       return _firestore
           .collection("cardUser")
           .doc(uid)
           .snapshots()
-          .map((snapshot) => CardUserModel.fromSnapshot(snapshot));
+          .map((DocumentSnapshot snapshot) => CardUserModel.fromSnapshot(snapshot));
     }
 
     return null;

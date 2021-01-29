@@ -18,116 +18,118 @@ class UserCard extends StatelessWidget {
       color: Colors.transparent,
       borderOnForeground: true,
       margin: EdgeInsets.all(10),
-      child: ListView(
-        shrinkWrap: true,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.job ?? 'Job Title default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.redAccent,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text('test'+
+                    cardUserModel.job,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.activity ?? 'Activity default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.activity,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.location ?? 'location default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.location,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.description ?? 'description default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.description,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.contact ?? 'contact default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.contact,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.schedules ?? 'schedules default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.schedules,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  cardUserModel?.dateCreated ?? 'date created default',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    cardUserModel.dateCreated.toString(),
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
-          ),
-          FormVerticalSpace(),
-        ],
+              ],
+            ),
+            FormVerticalSpace(),
+          ],
+        ),
       ),
     );
   }

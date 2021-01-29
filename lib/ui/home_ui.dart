@@ -3,6 +3,7 @@ import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/conference/conference.dart';
 import 'package:card_x_user/ui/pages/favories/favories.dart';
+import 'package:card_x_user/ui/pages/locations/locations.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -83,11 +84,9 @@ class _HomeUIState extends State<HomeUI> {
                       },
                     ),
                     ListTile(
-                      title: Text('Recent'),
-                      leading: Icon(Icons.timer),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      title: Text('location'),
+                      leading: Icon(Icons.location_on),
+                      onTap: () => Get.to(AddressTarget()),
                     ),
                     ListTile(
                       title: Text('Video Calling'),

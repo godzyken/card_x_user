@@ -11,6 +11,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:maps/maps.dart';
+
+import 'core/helpers/helpers.dart';
 
 Future<void> main() async {
 
@@ -18,6 +21,7 @@ Future<void> main() async {
   Get.put<AuthController>(AuthController());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
+  MapAdapter.defaultInstance = const GoogleMapsStaticAdapter(apiKey: API_KEY);
   await GetStorage.init();
   await Firebase.initializeApp();
   // FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);

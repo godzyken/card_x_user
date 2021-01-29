@@ -17,6 +17,11 @@ class CardController extends GetxController {
 
   Rx<CardUserModel> userCard = Rx<CardUserModel>();
 
+  Future getData(String collection) async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance.collection(collection).get();
+    return snapshot.docs;
+  }
+
   @override
   void onInit() {
     super.onInit();

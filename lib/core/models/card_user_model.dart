@@ -134,10 +134,6 @@ class CardUserModel {
   );
 
   factory CardUserModel.fromSnapshot(DocumentSnapshot snap) {
-    Map<String, dynamic> map = snap.data();
-    if(map.containsKey('id')) {
-      return CardUserModel.fromMap(map,);
-    }
     return CardUserModel(
       id: snap.id,
       job: snap.reference.path,

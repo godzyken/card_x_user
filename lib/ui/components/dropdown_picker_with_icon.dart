@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-/*
-DropdownPickerWithIcon(
-                menuOptions: list of dropdown options in key value pairs,
-                selectedOption: menu option string value,
-                onChanged: (value) => print('changed'),
-              ),
-*/
 class DropdownPickerWithIcon extends StatelessWidget {
   DropdownPickerWithIcon(
       {this.menuOptions, this.selectedOption, this.onChanged});

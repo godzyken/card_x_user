@@ -1,6 +1,7 @@
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:card_x_user/ui/pages/favories/favories.dart';
+import 'package:card_x_user/ui/pages/locations/locations.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
@@ -20,9 +21,11 @@ class AppRoutes {
     GetPage(name: '/card-profile/:id/me', page: () => CardProfileUser()),
     GetPage(name: '/create-a-card/:id/edit', page: () => CreateACardUi()),
     GetPage(name: '/explorer', page: () => MyExplorerUi()),
-    GetPage(name: '/view-card-user', page: () => CardDetailsView()),
+    GetPage(name: '/card-details-view/me/:id', page: () => CardDetailsView()),
+    GetPage(name: '/card-user-view/me/:id', page: () => UserCard()),
     GetPage(name: '/room', page: () => RoomPage()),
     GetPage(name: '/call', page: () => CallPage()),
     GetPage(name: '/connection', page: () => FavoriesList()),
+    GetPage(name: '/location', page: () => AddressTarget()),
   ];
 }
