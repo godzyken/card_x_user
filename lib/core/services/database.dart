@@ -117,10 +117,8 @@ class Database {
 
   Stream<CardUserModel> streamCard(String uid) {
 
-    UserModel userModel;
-
     print('streamCard()');
-    if ((cardUserModel?.id != null && userModel.uid != null) || (userModel.uid == cardUserModel.id)) {
+    if ((cardUserModel?.id != null && cardStream(uid) != null) || (cardStream(uid) == cardUserModel.id)) {
       return _firestore
           .collection("cardUser")
           .doc(uid)

@@ -1,9 +1,14 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CardView extends GetView<AuthController> {
+  final UserModel userModel;
+  final CardUserModel cardUserModel;
+
+  CardView(this.userModel, this.cardUserModel);
   @override
   Widget build(BuildContext context) {
     return GetX<CardController>(
@@ -14,9 +19,9 @@ class CardView extends GetView<AuthController> {
             child: ListView.builder(
               itemCount: 1,
               itemBuilder: (_, index) {
-                return AddUserCard(
+                return UserCard(
                     uid: controller.firestoreUser.value.uid,
-                    cardModel: cardController.cardUsers[index]);
+                    cardUserModel: cardController.cardUsers[index]);
               },
             ),
           );
