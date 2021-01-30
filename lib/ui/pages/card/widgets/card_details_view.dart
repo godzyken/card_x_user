@@ -6,6 +6,7 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maps/maps.dart';
 
 class CardDetailsView extends StatelessWidget {
   final UserModel userModel;
@@ -23,10 +24,11 @@ class CardDetailsView extends StatelessWidget {
       child: Center(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height / 2,
+          height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              FormVerticalSpace(),
               Avatar(userModel),
               Card(
                 shadowColor: Colors.lightBlue[800],
@@ -63,9 +65,8 @@ class CardDetailsView extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: CardView(),
+              Container(
+                child: CardView(userModel, cardUserModel),
               ),
             ],
           ),

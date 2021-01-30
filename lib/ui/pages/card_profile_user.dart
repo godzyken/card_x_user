@@ -22,6 +22,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);
+    final cardController = Get.put(CardController());
 
     return GetBuilder<AuthController>(
       init: AuthController(),
@@ -51,6 +52,7 @@ class _CardProfileUserState extends State<CardProfileUser> {
                       print('Card tapped.');
                       Get.to(CardDetailsView(
                         userModel: controller?.firestoreUser?.value,
+                        cardUserModel: cardController.userCard.value,
                       ));
                     },
                     // child: cardModel(context),
@@ -81,12 +83,13 @@ class UserCardCreate extends GetWidget<AuthController> {
             return Container(
               width: 350,
               height: 250,
-        /*      decoration: BoxDecoration(
+              decoration: BoxDecoration(
                 image: new DecorationImage(
-                  image: NetworkImage('${controller.cardUserModel.value.image}', scale: 1.0),
+                  image: NetworkImage('${controller.cardUserModel.value.image}',
+                      scale: 1.0),
                   fit: BoxFit.cover,
                 ),
-              ),*/
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
@@ -107,39 +110,39 @@ class UserCardCreate extends GetWidget<AuthController> {
                       child: Container(
                     width: 340,
                     height: 100,
-                        child: Card(
-                          color: Colors.transparent,
-                          shadowColor: Colors.amber[50],
-                          child: ListView(
-                            shrinkWrap: true,
-                            children: [
-                              ListTile(
-                                title: Text(
-                                  'Job title: ${controller.cardUserModel.value.job}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 15.0),
-                                ),
-                                subtitle: Text(
-                                  'description: ${controller.cardUserModel.value.description}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 15.0),
-                                ),
-                              ),
-                              ListTile(
-                                title: Text(
-                                  'Activity: ${controller.cardUserModel.value.activity}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 15.0),
-                                ),
-                                subtitle: Text(
-                                  'Status: ${controller.cardUserModel.value.status}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 15.0),
-                                ),
-                              ),
-                            ],
+                    child: Card(
+                      color: Colors.transparent,
+                      shadowColor: Colors.amber[50],
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          ListTile(
+                            title: Text(
+                              'Job title: ${controller.cardUserModel.value.job}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15.0),
+                            ),
+                            subtitle: Text(
+                              'description: ${controller.cardUserModel.value.description}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15.0),
+                            ),
                           ),
-                        ),
+                          ListTile(
+                            title: Text(
+                              'Activity: ${controller.cardUserModel.value.activity}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15.0),
+                            ),
+                            subtitle: Text(
+                              'Status: ${controller.cardUserModel.value.status}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   )),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

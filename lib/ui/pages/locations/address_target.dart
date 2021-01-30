@@ -1,6 +1,8 @@
 import 'package:card_x_user/core/helpers/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:maps/maps.dart';
+import 'package:maps_adapter_google_maps/maps_adapter_google_maps.dart';
+
 
 class AddressTarget extends StatefulWidget {
 
@@ -8,66 +10,279 @@ class AddressTarget extends StatefulWidget {
   _AddressTargetState createState() => _AddressTargetState();
 }
 
+const parisGeoPoint = GeoPoint(48.856613, 2.352222);
+
 class _AddressTargetState extends State<AddressTarget> {
 
   // Construct a map widget
-  static const parisMap = MapWidget(
-    location: MapLocation(
-      query: 'Paris',
-    ),
+  static const defaultMapAdapter = MapAdapter.platformSpecific(
+    ios: appleMapsNative,
+    otherwise: bingMapsIframe,
   );
+  static const AppleMapsJsAdapter appleMapsJs = null;
+  static const AppleMapsNativeAdapter appleMapsNative =
+  AppleMapsNativeAdapter();
+  static const AppleMapsStaticAdapter appleMapsStatic = null;
+  static const bingMapsIframe = BingMapsIframeAdapter();
+  static const bingMapsJs = BingMapsJsAdapter(apiKey: Map_API_KEY);
+  static const bingMapsStatic = BingMapsStaticAdapter(apiKey: Map_API_KEY);
+  static const googleMapsIframe = GoogleMapsIframeAdapter(apiKey: Map_API_KEY);
+  static const googleMapsJs = GoogleMapsJsAdapter(apiKey: Map_API_KEY);
+  static const googleMapsNative = GoogleMapsNativeAdapter();
+  static const googleMapsStatic = GoogleMapsStaticAdapter(apiKey: Map_API_KEY);
+  var _tab = 0;
+  MapAdapter selectedAdapter = defaultMapAdapter;
 
-  Size _size = Size(650, 450);
+  String query;
 
+  GeoPoint geoPoint = parisGeoPoint;
+
+  double zoom = 11.0;
+
+  // Paris
+  final _key = GlobalKey();
+
+  double _width = 500.0;
+
+  double _height = 300.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: buildMapWidget(parisMap, _size),
-      ),
+        body: SafeArea(
+          child: buildTab(context, _tab),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _tab,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.launch),
+              label: 'MapLauncher',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'MapWidget',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          onTap: (i) {
+            setState(() {
+              _tab = i;
+            });
+          },
+        ),
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
+  Widget buildMapLauncherDemo(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: <Widget>[
+        MaterialButton(
+          child: Text('Apple Maps'),
+          onPressed: () {
+            const AppleMapsLauncher().launch(
+              query: query,
+              geoPoint: geoPoint,
+            );
+          },
+        ),
+        MaterialButton(
+          child: Text('Bing Maps'),
+          onPressed: () {
+            const BingMapsApp().launch(
+              query: query,
+              geoPoint: geoPoint,
+            );
+          },
+        ),
+        MaterialButton(
+          child: Text('Google Maps'),
+          onPressed: () {
+            const GoogleMapsLauncher().launch(
+              query: query,
+              geoPoint: geoPoint,
+            );
+          },
+        ),
+      ],
+    );
   }
 
-  Widget buildMapWidget(MapWidget mapWidget, Size size) {
-
-    // Base URL
-    final sb = StringBuffer();
-    sb.write('https://maps.googleapis.com/maps/api/staticmap');
-
-    // Size
-    sb.write('?size=');
-    sb.write(size.width.toInt());
-    sb.write('x');
-    sb.write(size.height.toInt());
-
-    // Location
-    final location = mapWidget.location;
-    final geoPoint = location.geoPoint;
-    if (geoPoint != null && geoPoint.isValid) {
-      sb.write('&center=');
-      sb.write(geoPoint.latitude.toString());
-      sb.write(',');
-      sb.write(geoPoint.longitude.toString());
+  Widget buildMapWidgetDemo(BuildContext context) {
+    final radioButtonRows = <Row>[];
+    void f(String name, MapAdapter value) {
+      if (value == null) {
+        return;
+      }
+      radioButtonRows.add(Row(
+        children: [
+          Radio<MapAdapter>(
+            value: value,
+            groupValue: selectedAdapter,
+            onChanged: (newValue) {
+              setState(() {
+                selectedAdapter = newValue;
+              });
+            },
+          ),
+          Text(
+            name,
+          ),
+        ],
+      ));
     }
 
-    // Zoom
-    final zoom = location.zoom;
-    if (zoom != null) {
-      sb.write('&zoom=');
-      sb.write(zoom.value.toInt().clamp(1, 20));
+    f('Platform specific', defaultMapAdapter);
+    f('Apple Maps (js)', appleMapsJs);
+    f('Apple Maps (native)', appleMapsNative);
+    f('Apple Maps (static)', appleMapsStatic);
+    f('Bing Maps (iframe)', bingMapsIframe);
+    f('Bing Maps (js)', bingMapsJs);
+    f('Bing Maps (static)', bingMapsStatic);
+    f('Google Maps (iframe)', googleMapsIframe);
+    f('Google Maps (js)', googleMapsJs);
+    f('Google Maps (native)', googleMapsNative);
+    f('Google Maps (static)', googleMapsStatic);
+
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: <Widget>[
+        Center(
+          child: SizedBox(
+            width: _width,
+            height: _height,
+            child: MapWidget(
+              key: _key,
+              adapter: selectedAdapter,
+              location: MapLocation(
+                query: query,
+                geoPoint: geoPoint,
+                zoom: Zoom(zoom),
+              ),
+              markers: {
+                MapMarker(
+                  geoPoint: GeoPoint(48.8606, 2.3376),
+                  details: MapMarkerDetails(
+                    title: 'Louvre',
+                    snippet: 'A popular museum.',
+                  ),
+                ),
+                MapMarker(
+                  geoPoint: GeoPoint(48.8539, 2.2913),
+                  details: MapMarkerDetails(
+                    title: 'Eiffel Tower',
+                    snippet: 'An iconic tower.',
+                  ),
+                ),
+              },
+            ),
+          ),
+        ),
+        Text(
+          'Choose adapter:',
+          textScaleFactor: 1.5,
+          textAlign: TextAlign.left,
+        ),
+        ...radioButtonRows,
+        Text('Width (${_width.toInt()} px)'),
+        Slider(
+          min: 100,
+          max: 1000,
+          value: _width.toDouble(),
+          onChanged: (newValue) {
+            setState(() {
+              _width = newValue;
+            });
+          },
+        ),
+        Text('Height (${_height.toInt()} px)'),
+        Slider(
+          min: 100,
+          max: 1000,
+          value: _height.toDouble(),
+          onChanged: (newValue) {
+            setState(() {
+              _height = newValue;
+            });
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget buildSettings(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: <Widget>[
+        MaterialButton(
+          child: Text('No geopoint'),
+          onPressed: () {
+            setState(() {
+              geoPoint = null;
+            });
+          },
+        ),
+        MaterialButton(
+          child: Text('Paris geopoint'),
+          onPressed: () {
+            setState(() {
+              geoPoint = parisGeoPoint;
+            });
+          },
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text('Query:'),
+            MaterialButton(
+              child: Text('None'),
+              onPressed: () {
+                setState(() {
+                  query = '';
+                });
+              },
+            ),
+            MaterialButton(
+              child: Text('Tokyo'),
+              onPressed: () {
+                setState(() {
+                  query = 'Tokyo';
+                });
+              },
+            ),
+            MaterialButton(
+              child: Text('New York'),
+              onPressed: () {
+                setState(() {
+                  query = 'New York';
+                });
+              },
+            ),
+          ],
+        ),
+        TextField(
+          controller: TextEditingController()..text = query,
+          maxLength: 30,
+          onChanged: (newValue) {
+            query = newValue;
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget buildTab(BuildContext context, int i) {
+    switch (i) {
+      case 0:
+        return buildMapLauncherDemo(context);
+      case 1:
+        return buildMapWidgetDemo(context);
+      default:
+        return buildSettings(context);
     }
-
-    // API key
-    sb.write('&key=');
-    sb.write(Uri.encodeQueryComponent(API_KEY));
-    final url = sb.toString();
-
-    return Image.network(url, width: size.width, height: size.height);
   }
 }

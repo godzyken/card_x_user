@@ -49,7 +49,7 @@ class CardUserModel {
 
   set description(value) => rx.description.value = value;
 
-  get dateCreated => rx.dateCreated.value;
+  get dateCreated => rx.dateCreated.value.toDate();
 
   set dateCreated(value) => rx.dateCreated.value = value;
 

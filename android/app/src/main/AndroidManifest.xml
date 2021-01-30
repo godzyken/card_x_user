@@ -34,7 +34,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.flash" />
 
-    <permission android:name="com.companyname.xamaringooglemap.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+    <permission android:name="com.godzy.card_x_user.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -42,6 +42,10 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         tools:targetApi="m">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBDYM_AvQreYzen2AziohcvbF0RwrjUfO4" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

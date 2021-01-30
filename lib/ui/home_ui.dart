@@ -89,7 +89,7 @@ class _HomeUIState extends State<HomeUI> {
                       onTap: () => Get.to(AddressTarget()),
                     ),
                     ListTile(
-                      title: Text('Video Calling'),
+                      title: Text('Video Call'),
                       leading: Icon(Icons.video_call),
                       onTap: () => Get.to(RoomPage()),
                     ),
