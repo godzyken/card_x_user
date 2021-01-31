@@ -1,4 +1,5 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,16 +15,20 @@ class CardList extends GetWidget<AuthController> {
             child: ListView.builder(
               itemCount: todoController.cardUsers.length,
               itemBuilder: (_, index) {
-                return AddUserCard(
-                    uid: controller.firebaseUser.value.uid,
-                    cardModel: todoController.cardUsers[index]);
+                return buildAddUserCard(todoController, index);
               },
             ),
           );
         } else {
-          return Text("loading...");
+          return Loading();
         }
       },
     );
+  }
+
+  AddUserCard buildAddUserCard(CardController todoController, int index) {
+    return AddUserCard(
+                  uid: controller.firebaseUser.value.uid,
+                  cardModel: todoController.cardUsers[index]);
   }
 }

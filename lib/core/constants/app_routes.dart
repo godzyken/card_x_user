@@ -26,5 +26,6 @@ class AppRoutes {
     GetPage(name: '/room', page: () => RoomPage()),
     GetPage(name: '/call', page: () => CallPage()),
     GetPage(name: '/connection', page: () => FavoriesList()),
+    GetPage(name: '/maps', page: () => AddressTarget()),
   ];
 }

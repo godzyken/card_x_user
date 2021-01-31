@@ -85,11 +85,10 @@ class RoomState extends State<RoomPage> {
                 child: Row(
                   children: <Widget>[
                     Expanded(
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: onJoin,
-                        child: Text('Join'),
-                        color: Colors.blueAccent,
-                        textColor: Colors.white,
+                        child: Text('Join', style: TextStyle(color: Colors.white),),
+                        style: TextButton.styleFrom(primary: Colors.blueAccent),
                       ),
                     )
                   ],

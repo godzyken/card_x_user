@@ -1,7 +1,9 @@
+/*
 import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+*/
 
 /*class CardItem extends StatelessWidget {
   final CardModel cardModel;

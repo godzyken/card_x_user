@@ -32,7 +32,7 @@ class AppLocalizations {
         signInLabelButton: "Have an Account? Sign In.",
         resetPasswordNoticeTitle: "Password Reset Email Sent",
         resetPasswordNotice:
-        "Check your email and follow the instructions to reset your password.",
+            "Check your email and follow the instructions to reset your password.",
         resetPasswordFailed: "Password Reset Email Failed",
         signInonResetPasswordLabelButton: "Sign In",
         updateUser: "Update Profile",
@@ -76,10 +76,20 @@ class AppLocalizations {
         number: "Please enter a number.",
         notEmpty: "This is a required field.",
         amount:
-        "Please enter a number i.e. 250 - no dollar symbol and no cents",
+            "Please enter a number i.e. 250 - no dollar symbol and no cents",
       ),
-      splash: AppLocalizations_Labels_Splash(
-        welcome: "Welcome In Card X User"
+      splash: AppLocalizations_Labels_Splash(welcome: "Welcome In Card X User"),
+      card: AppLocalizations_Labels_Card(
+        title: "Job Title",
+        description: "Description",
+        dateCreated: "Date Created",
+        createACard: "Create a Card",
+        image: "Image",
+        activity: "Activity",
+        schedules: "Schedules",
+        contact: "Contact",
+        location: "Location",
+        phoneNumber: "Phone Number"
       ),
     ),
     Locale.fromSubtags(languageCode: "fr"): AppLocalizations_Labels(
@@ -97,17 +107,17 @@ class AppLocalizations {
         signUpLabelButton: "Créer un compte",
         signUpErrorTitle: "Échec de l'inscription.",
         signUpError:
-        "Il y avait un problème de signer. Veuillez réessayer plus tard.",
+            "Il y avait un problème de signer. Veuillez réessayer plus tard.",
         signInLabelButton: "Avoir un compte? Se connecter.",
         resetPasswordNoticeTitle: "Réinitialiser le mot de passe e-mail envoyé",
         resetPasswordNotice:
-        "Vérifiez votre e-mail et suivez les instructions pour réinitialiser votre mot de passe.",
+            "Vérifiez votre e-mail et suivez les instructions pour réinitialiser votre mot de passe.",
         resetPasswordFailed: "Réinitialiser le mot de passe Email Échec",
         signInonResetPasswordLabelButton: "Se connecter",
         updateUser: "Mettre à jour le profil",
         updateUserSuccessNoticeTitle: "Mise à jour l'utilisateur",
         updateUserSuccessNotice:
-        "Informations sur l'utilisateur mis à jour avec succès.",
+            "Informations sur l'utilisateur mis à jour avec succès.",
         updateUserFailNotice: "Impossible de mettre à jour l'utilisateur",
         enterPassword: "Tapez votre mot de passe",
         cancel: "Annuler",
@@ -117,7 +127,7 @@ class AppLocalizations {
         updateProfileTitle: "Mettre à jour le profil",
         wrongPasswordNoticeTitle: "Échec de la connexion",
         wrongPasswordNotice:
-        "Le mot de passe ne correspond pas à nos dossiers.",
+            "Le mot de passe ne correspond pas à nos dossiers.",
         unknownError: "Erreur inconnue",
       ),
       settings: AppLocalizations_Labels_Settings(
@@ -147,10 +157,21 @@ class AppLocalizations {
         number: "S'il vous plaît entrer un numéro.",
         notEmpty: "Ceci est un champ obligatoire.",
         amount:
-        "S'il vous plaît entrer un numéro à savoir 250 - aucun symbole du dollar et pas cents",
+            "S'il vous plaît entrer un numéro à savoir 250 - aucun symbole du dollar et pas cents",
       ),
       splash: AppLocalizations_Labels_Splash(
-        welcome: "Bienvenue dans la carte utilisateur X"
+          welcome: "Bienvenue dans la carte utilisateur X"),
+      card: AppLocalizations_Labels_Card(
+        title: "Profession",
+        description: "La description",
+        dateCreated: "date créée",
+        createACard: "Créer une carte",
+        image: "Image",
+        activity: "Activité",
+        schedules: "Des horaires",
+        contact: "Contact",
+        location: "Emplacement",
+        phoneNumber: "Numéro de téléphone",
       ),
     ),
     Locale.fromSubtags(languageCode: "es"): AppLocalizations_Labels(
@@ -164,24 +185,24 @@ class AppLocalizations {
         nameFormField: "Nombre",
         signInErrorTitle: "Error al iniciar sesión",
         signInError:
-        "La conexión falló: correo electrónico o contraseña incorrecta.",
+            "La conexión falló: correo electrónico o contraseña incorrecta.",
         resetPasswordLabelButton: "¿Se te olvidó tu contraseña?",
         signUpLabelButton: "Crea una cuenta",
         signUpErrorTitle: "Registro fallido.",
         signUpError:
-        "Hubo un problema al inscribirse. Por favor, inténtelo de nuevo más tarde.",
+            "Hubo un problema al inscribirse. Por favor, inténtelo de nuevo más tarde.",
         signInLabelButton: "¿Tener una cuenta? Registrarse.",
         resetPasswordNoticeTitle:
-        "Restablecer contraseña de correo electrónico enviados",
+            "Restablecer contraseña de correo electrónico enviados",
         resetPasswordNotice:
-        "Consultar su correo electrónico y siga las instrucciones para restablecer su contraseña.",
+            "Consultar su correo electrónico y siga las instrucciones para restablecer su contraseña.",
         resetPasswordFailed:
-        "Restablecer contraseña de correo electrónico incorrecto",
+            "Restablecer contraseña de correo electrónico incorrecto",
         signInonResetPasswordLabelButton: "Registrarse",
         updateUser: "Actualización del perfil",
         updateUserSuccessNoticeTitle: "Actualización de usuario",
         updateUserSuccessNotice:
-        "La información de usuario actualizada correctamente.",
+            "La información de usuario actualizada correctamente.",
         updateUserFailNotice: "Error al usuario la actualización",
         enterPassword: "Ingresa tu contraseña",
         cancel: "Cancelar",
@@ -191,7 +212,7 @@ class AppLocalizations {
         updateProfileTitle: "Actualización del perfil",
         wrongPasswordNoticeTitle: "Error de inicio de sesion",
         wrongPasswordNotice:
-        "La contraseña no coincide con nuestros registros.",
+            "La contraseña no coincide con nuestros registros.",
         unknownError: "Error desconocido",
       ),
       settings: AppLocalizations_Labels_Settings(
@@ -216,16 +237,27 @@ class AppLocalizations {
       ),
       validator: AppLocalizations_Labels_Validator(
         email:
-        "Por favor, introduce una dirección de correo electrónico válida.",
+            "Por favor, introduce una dirección de correo electrónico válida.",
         password: "La contraseña debe tener al menos 6 caracteres.",
         name: "Por favor, introduzca un nombre.",
         number: "Por favor, introduzca un número.",
         notEmpty: "Este es un campo obligatorio.",
         amount:
-        "Por favor, introduzca un número, es decir 250 - ningún símbolo del dólar y sin centavos",
+            "Por favor, introduzca un número, es decir 250 - ningún símbolo del dólar y sin centavos",
       ),
       splash: AppLocalizations_Labels_Splash(
-        welcome: "Bienvenido en la carta X utilisateur"
+          welcome: "Bienvenido en la carta X utilisateur"),
+      card: AppLocalizations_Labels_Card(
+        title: "Título profesional",
+        description: "Descripción",
+        dateCreated: "fecha de creacion",
+        createACard: "Crear una tarjeta",
+        image: "Imagen",
+        activity: "Actividad",
+        schedules: "horarios",
+        contact: "Contacto",
+        location: "Ubicación",
+        phoneNumber: "Número de teléfono",
       ),
     ),
     Locale.fromSubtags(languageCode: "de"): AppLocalizations_Labels(
@@ -243,17 +275,17 @@ class AppLocalizations {
         signUpLabelButton: "Ein Konto erstellen",
         signUpErrorTitle: "Anmeldung gescheitert.",
         signUpError:
-        "Es gab ein Problem anmeldest. Bitte versuchen Sie es später noch einmal.",
+            "Es gab ein Problem anmeldest. Bitte versuchen Sie es später noch einmal.",
         signInLabelButton: "Ein Konto haben? Anmelden.",
         resetPasswordNoticeTitle: "Passwort zurücksetzen E-Mail gesendet",
         resetPasswordNotice:
-        "Überprüfen Sie Ihre E-Mail und folgen Sie den Anweisungen, um Ihr Passwort zurücksetzen können.",
+            "Überprüfen Sie Ihre E-Mail und folgen Sie den Anweisungen, um Ihr Passwort zurücksetzen können.",
         resetPasswordFailed: "Passwort zurücksetzen E-Mail fehlgeschlagen",
         signInonResetPasswordLabelButton: "Anmelden",
         updateUser: "Profil aktualisieren",
         updateUserSuccessNoticeTitle: "Benutzer Aktualisiert",
         updateUserSuccessNotice:
-        "Benutzerinformationen erfolgreich aktualisiert.",
+            "Benutzerinformationen erfolgreich aktualisiert.",
         updateUserFailNotice: "Fehler beim Update Benutzer",
         enterPassword: "Geben Sie Ihr Passwort",
         cancel: "Stornieren",
@@ -263,7 +295,7 @@ class AppLocalizations {
         updateProfileTitle: "Profil aktualisieren",
         wrongPasswordNoticeTitle: "Login fehlgeschlagen",
         wrongPasswordNotice:
-        "Das Passwort nicht unsere entsprechenden Datensätze gefunden.",
+            "Das Passwort nicht unsere entsprechenden Datensätze gefunden.",
         unknownError: "Unbekannter Fehler",
       ),
       settings: AppLocalizations_Labels_Settings(
@@ -293,80 +325,101 @@ class AppLocalizations {
         number: "Bitte gebe eine Nummer ein.",
         notEmpty: "Dies ist ein Pflichtfeld.",
         amount:
-        "Bitte geben Sie eine Zahl das heißt 250 - kein Dollar-Symbol und keinen Cent",
+            "Bitte geben Sie eine Zahl das heißt 250 - kein Dollar-Symbol und keinen Cent",
       ),
       splash: AppLocalizations_Labels_Splash(
-        welcome: "Willkommen in Karte X Benutzer"
+          welcome: "Willkommen in Karte X Benutzer"),
+      card: AppLocalizations_Labels_Card(
+        title: "Berufsbezeichnung",
+        description: "Beschreibung",
+        dateCreated: "Datum erstellt",
+        createACard: "Erstellen Sie eine Karte",
+        image: "Bild",
+        activity: "Aktivität",
+        schedules: "Termine",
+        contact: "Kontakt",
+        location: "Ort",
+        phoneNumber: "Telefonnummer",
       ),
     ),
     Locale.fromSubtags(languageCode: "hi"): AppLocalizations_Labels(
-      auth: AppLocalizations_Labels_Auth(
-        signInButton: "साइन इन करें",
-        signUpButton: "साइन अप करें",
-        googleSignInButton: "साइन Google के साथ",
-        resetPasswordButton: "भेजें पासवर्ड रीसेट",
-        emailFormField: "ईमेल",
-        passwordFormField: "कुंजिका",
-        nameFormField: "नाम",
-        signInErrorTitle: "साइन इन त्रुटि",
-        signInError: "लॉगइन असफल: ईमेल या पासवर्ड गलत है।",
-        resetPasswordLabelButton: "पासवर्ड भूल गए?",
-        signUpLabelButton: "खाता बनाएं",
-        signUpErrorTitle: "साइन अप करने में विफल रहा।",
-        signUpError:
-        "साइन अप करने में समस्या हुई थी। बाद में पुन: प्रयास करें।",
-        signInLabelButton: "खाता होना? साइन इन करें।",
-        resetPasswordNoticeTitle: "पासवर्ड रीसेट ईमेल भेजा",
-        resetPasswordNotice:
-        "अपने ईमेल की जाँच करें और निर्देशों का अपना पासवर्ड रीसेट करने का पालन करें।",
-        resetPasswordFailed: "पासवर्ड रीसेट ईमेल में विफल",
-        signInonResetPasswordLabelButton: "साइन इन करें",
-        updateUser: "प्रोफ़ाइल अपडेट करें",
-        updateUserSuccessNoticeTitle: "उपयोगकर्ता अपडेट किया गया",
-        updateUserSuccessNotice: "उपयोगकर्ता जानकारी सफलतापूर्वक अपडेट।",
-        updateUserFailNotice: "उपयोगकर्ता अद्यतन करने में विफल",
-        enterPassword: "अपना पासवर्ड डालें",
-        cancel: "रद्द करना",
-        submit: "प्रस्तुत",
-        changePasswordLabelButton: "पासवर्ड बदलें",
-        resetPasswordTitle: "पासवर्ड रीसेट",
-        updateProfileTitle: "प्रोफ़ाइल अपडेट करें",
-        wrongPasswordNoticeTitle: "लॉगिन विफल",
-        wrongPasswordNotice: "पासवर्ड हमारे रिकॉर्ड से मेल नहीं खाता।",
-        unknownError: "अज्ञात त्रुटि",
-      ),
-      settings: AppLocalizations_Labels_Settings(
-        title: "समायोजन",
-        language: "भाषा: हिन्दी",
-        theme: "विषय",
-        signOut: "प्रस्थान करें",
-        dark: "अंधेरा",
-        light: "रोशनी",
-        system: "प्रणाली",
-        updateProfile: "प्रोफ़ाइल अपडेट करें",
-      ),
-      home: AppLocalizations_Labels_Home(
-        title: "घर",
-        nameLabel: "नाम",
-        uidLabel: "यूआईडी",
-        emailLabel: "ईमेल",
-        adminUserLabel: "व्यवस्थापक उपयोगकर्ता",
-      ),
-      app: AppLocalizations_Labels_App(
-        title: "स्पंदन स्टार्टर परियोजना",
-      ),
-      validator: AppLocalizations_Labels_Validator(
-        email: "कृपया एक वैध ई - मेल एड्रेस डालें।",
-        password: "पासवर्ड कम से कम 6 अंकों का होना चाहिए।",
-        name: "एक नाम दर्ज करें।",
-        number: "एक संख्या दर्ज करें।",
-        notEmpty: "यह एक ज़रूरी जगह हैं।",
-        amount: "कोई डॉलर प्रतीक और कोई सेंट - एक नंबर अर्थात 250 दर्ज करें",
-      ),
-      splash: AppLocalizations_Labels_Splash(
-        welcome: "आपका स्वागत है में कार्ड एक्स उपयोगकर्ता"
-      ),
-    ),
+        auth: AppLocalizations_Labels_Auth(
+          signInButton: "साइन इन करें",
+          signUpButton: "साइन अप करें",
+          googleSignInButton: "साइन Google के साथ",
+          resetPasswordButton: "भेजें पासवर्ड रीसेट",
+          emailFormField: "ईमेल",
+          passwordFormField: "कुंजिका",
+          nameFormField: "नाम",
+          signInErrorTitle: "साइन इन त्रुटि",
+          signInError: "लॉगइन असफल: ईमेल या पासवर्ड गलत है।",
+          resetPasswordLabelButton: "पासवर्ड भूल गए?",
+          signUpLabelButton: "खाता बनाएं",
+          signUpErrorTitle: "साइन अप करने में विफल रहा।",
+          signUpError:
+              "साइन अप करने में समस्या हुई थी। बाद में पुन: प्रयास करें।",
+          signInLabelButton: "खाता होना? साइन इन करें।",
+          resetPasswordNoticeTitle: "पासवर्ड रीसेट ईमेल भेजा",
+          resetPasswordNotice:
+              "अपने ईमेल की जाँच करें और निर्देशों का अपना पासवर्ड रीसेट करने का पालन करें।",
+          resetPasswordFailed: "पासवर्ड रीसेट ईमेल में विफल",
+          signInonResetPasswordLabelButton: "साइन इन करें",
+          updateUser: "प्रोफ़ाइल अपडेट करें",
+          updateUserSuccessNoticeTitle: "उपयोगकर्ता अपडेट किया गया",
+          updateUserSuccessNotice: "उपयोगकर्ता जानकारी सफलतापूर्वक अपडेट।",
+          updateUserFailNotice: "उपयोगकर्ता अद्यतन करने में विफल",
+          enterPassword: "अपना पासवर्ड डालें",
+          cancel: "रद्द करना",
+          submit: "प्रस्तुत",
+          changePasswordLabelButton: "पासवर्ड बदलें",
+          resetPasswordTitle: "पासवर्ड रीसेट",
+          updateProfileTitle: "प्रोफ़ाइल अपडेट करें",
+          wrongPasswordNoticeTitle: "लॉगिन विफल",
+          wrongPasswordNotice: "पासवर्ड हमारे रिकॉर्ड से मेल नहीं खाता।",
+          unknownError: "अज्ञात त्रुटि",
+        ),
+        settings: AppLocalizations_Labels_Settings(
+          title: "समायोजन",
+          language: "भाषा: हिन्दी",
+          theme: "विषय",
+          signOut: "प्रस्थान करें",
+          dark: "अंधेरा",
+          light: "रोशनी",
+          system: "प्रणाली",
+          updateProfile: "प्रोफ़ाइल अपडेट करें",
+        ),
+        home: AppLocalizations_Labels_Home(
+          title: "घर",
+          nameLabel: "नाम",
+          uidLabel: "यूआईडी",
+          emailLabel: "ईमेल",
+          adminUserLabel: "व्यवस्थापक उपयोगकर्ता",
+        ),
+        app: AppLocalizations_Labels_App(
+          title: "स्पंदन स्टार्टर परियोजना",
+        ),
+        validator: AppLocalizations_Labels_Validator(
+          email: "कृपया एक वैध ई - मेल एड्रेस डालें।",
+          password: "पासवर्ड कम से कम 6 अंकों का होना चाहिए।",
+          name: "एक नाम दर्ज करें।",
+          number: "एक संख्या दर्ज करें।",
+          notEmpty: "यह एक ज़रूरी जगह हैं।",
+          amount: "कोई डॉलर प्रतीक और कोई सेंट - एक नंबर अर्थात 250 दर्ज करें",
+        ),
+        splash: AppLocalizations_Labels_Splash(
+            welcome: "आपका स्वागत है में कार्ड एक्स उपयोगकर्ता"),
+        card: AppLocalizations_Labels_Card(
+          title: "नौकरी का नाम",
+          description: "विवरण",
+          dateCreated: "बनाया गया दिनांक",
+          createACard: "एक कार्ड बनाने के",
+          image: "छवि",
+          activity: "गतिविधि",
+          schedules: "अनुसूचियों",
+          contact: "संपर्क करें",
+          location: "स्थान",
+          phoneNumber: "फ़ोन नंबर",
+        )),
     Locale.fromSubtags(languageCode: "pt"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
         signInButton: "Assinar em",
@@ -382,17 +435,17 @@ class AppLocalizations {
         signUpLabelButton: "Crie a sua conta aqui",
         signUpErrorTitle: "Registre-se Falhou.",
         signUpError:
-        "Houve um problema se inscrever. Por favor, tente novamente mais tarde.",
+            "Houve um problema se inscrever. Por favor, tente novamente mais tarde.",
         signInLabelButton: "Ter uma conta? Assinar em.",
         resetPasswordNoticeTitle: "Senha enviada uma reinicialização",
         resetPasswordNotice:
-        "Verifique se o seu e-mail e siga as instruções para redefinir sua senha.",
+            "Verifique se o seu e-mail e siga as instruções para redefinir sua senha.",
         resetPasswordFailed: "Password Reset-mail Falha",
         signInonResetPasswordLabelButton: "Assinar em",
         updateUser: "Atualizar perfil",
         updateUserSuccessNoticeTitle: "do usuário atualizada",
         updateUserSuccessNotice:
-        "informações do usuário atualizado com sucesso.",
+            "informações do usuário atualizado com sucesso.",
         updateUserFailNotice: "Falha ao usuário de atualização",
         enterPassword: "Coloque sua senha",
         cancel: "Cancelar",
@@ -431,10 +484,21 @@ class AppLocalizations {
         number: "Por favor, coloque um numero.",
         notEmpty: "Este é um campo obrigatório.",
         amount:
-        "Por favor insira um número ou seja 250 - nenhum símbolo dólar e há centavos",
+            "Por favor insira um número ou seja 250 - nenhum símbolo dólar e há centavos",
       ),
       splash: AppLocalizations_Labels_Splash(
-        welcome: "Bem-vindo no cartão X Usuário"
+          welcome: "Bem-vindo no cartão X Usuário"),
+      card: AppLocalizations_Labels_Card(
+        title: "Cargo",
+        description: "Descrição",
+        dateCreated: "Data Criada",
+        createACard: "Criar um cartão",
+        image: "Imagem",
+        activity: "Atividade",
+        schedules: "horários",
+        contact: "Contato",
+        location: "Localização",
+        phoneNumber: "Número de telefone",
       ),
     ),
     Locale.fromSubtags(languageCode: "zh"): AppLocalizations_Labels(
@@ -499,76 +563,97 @@ class AppLocalizations {
         notEmpty: "这是一个必填字段。",
         amount: "请输入一个数，即250  - 没有美元符号和无分",
       ),
-      splash: AppLocalizations_Labels_Splash(
-        welcome: "贝姆 -  vindo没有卡唐XUsuário"
+      splash:
+          AppLocalizations_Labels_Splash(welcome: "贝姆 -  vindo没有卡唐XUsuário"),
+      card: AppLocalizations_Labels_Card(
+        title: "职称",
+        description: "描述",
+        dateCreated: "创建日期",
+        createACard: "创建卡",
+        image: "图片",
+        activity: "活动",
+        schedules: "时间表",
+        contact: "联系",
+        location: "地点",
+        phoneNumber: "电话号码",
       ),
     ),
     Locale.fromSubtags(languageCode: "ja"): AppLocalizations_Labels(
-      auth: AppLocalizations_Labels_Auth(
-        signInButton: "サインイン",
-        signUpButton: "サインアップ",
-        googleSignInButton: "でGoogleにログイン",
-        resetPasswordButton: "送信パスワードリセット",
-        emailFormField: "Eメール",
-        passwordFormField: "パスワード",
-        nameFormField: "名前",
-        signInErrorTitle: "エラーサインイン",
-        signInError: "ログインに失敗しました：電子メールまたはパスワードが正しくありません。",
-        resetPasswordLabelButton: "パスワードをお忘れですか？",
-        signUpLabelButton: "アカウントを作成する",
-        signUpErrorTitle: "サインアップは失敗しました。",
-        signUpError: "サインアップする問題が発生しました。後ほど再度お試しください。",
-        signInLabelButton: "アカウントを持っています？サインイン。",
-        resetPasswordNoticeTitle: "パスワードリセットのメール送信され",
-        resetPasswordNotice: "あなたの電子メールをチェックして、あなたのパスワードをリセットするための指示に従ってください。",
-        resetPasswordFailed: "パスワードリセットのメールが失敗しました。",
-        signInonResetPasswordLabelButton: "サインイン",
-        updateUser: "プロフィールを更新",
-        updateUserSuccessNoticeTitle: "ユーザーの更新",
-        updateUserSuccessNotice: "ユーザー情報が正常に更新します。",
-        updateUserFailNotice: "更新ユーザーに失敗しました。",
-        enterPassword: "パスワードを入力してください",
-        cancel: "キャンセル",
-        submit: "参加する",
-        changePasswordLabelButton: "パスワードを変更する",
-        resetPasswordTitle: "パスワードを再設定する",
-        updateProfileTitle: "プロフィールを更新",
-        wrongPasswordNoticeTitle: "ログインに失敗しました",
-        wrongPasswordNotice: "パスワードは我々の記録と一致しません。",
-        unknownError: "不明なエラー",
-      ),
-      settings: AppLocalizations_Labels_Settings(
-        title: "設定",
-        language: "言語",
-        theme: "テーマ",
-        signOut: "サインアウト",
-        dark: "闇",
-        light: "光",
-        system: "システム",
-        updateProfile: "プロフィールを更新",
-      ),
-      home: AppLocalizations_Labels_Home(
-        title: "家",
-        nameLabel: "名前",
-        uidLabel: "UID",
-        emailLabel: "Eメール",
-        adminUserLabel: "管理者ユーザー",
-      ),
-      app: AppLocalizations_Labels_App(
-        title: "フラッタースタータープロジェクト",
-      ),
-      validator: AppLocalizations_Labels_Validator(
-        email: "有効なメールアドレスを入力してください。",
-        password: "パスワードは少なくとも6文字でなければなりません。",
-        name: "名前を入力してください。",
-        number: "番号を入力してください。",
-        notEmpty: "これは必要項目です。",
-        amount: "ノードル記号なしセント - すなわち、250番号を入力してください。",
-      ),
-      splash: AppLocalizations_Labels_Splash(
-          welcome: "カードXユーザーにようこそ"
-      ),
-    ),
+        auth: AppLocalizations_Labels_Auth(
+          signInButton: "サインイン",
+          signUpButton: "サインアップ",
+          googleSignInButton: "でGoogleにログイン",
+          resetPasswordButton: "送信パスワードリセット",
+          emailFormField: "Eメール",
+          passwordFormField: "パスワード",
+          nameFormField: "名前",
+          signInErrorTitle: "エラーサインイン",
+          signInError: "ログインに失敗しました：電子メールまたはパスワードが正しくありません。",
+          resetPasswordLabelButton: "パスワードをお忘れですか？",
+          signUpLabelButton: "アカウントを作成する",
+          signUpErrorTitle: "サインアップは失敗しました。",
+          signUpError: "サインアップする問題が発生しました。後ほど再度お試しください。",
+          signInLabelButton: "アカウントを持っています？サインイン。",
+          resetPasswordNoticeTitle: "パスワードリセットのメール送信され",
+          resetPasswordNotice:
+              "あなたの電子メールをチェックして、あなたのパスワードをリセットするための指示に従ってください。",
+          resetPasswordFailed: "パスワードリセットのメールが失敗しました。",
+          signInonResetPasswordLabelButton: "サインイン",
+          updateUser: "プロフィールを更新",
+          updateUserSuccessNoticeTitle: "ユーザーの更新",
+          updateUserSuccessNotice: "ユーザー情報が正常に更新します。",
+          updateUserFailNotice: "更新ユーザーに失敗しました。",
+          enterPassword: "パスワードを入力してください",
+          cancel: "キャンセル",
+          submit: "参加する",
+          changePasswordLabelButton: "パスワードを変更する",
+          resetPasswordTitle: "パスワードを再設定する",
+          updateProfileTitle: "プロフィールを更新",
+          wrongPasswordNoticeTitle: "ログインに失敗しました",
+          wrongPasswordNotice: "パスワードは我々の記録と一致しません。",
+          unknownError: "不明なエラー",
+        ),
+        settings: AppLocalizations_Labels_Settings(
+          title: "設定",
+          language: "言語",
+          theme: "テーマ",
+          signOut: "サインアウト",
+          dark: "闇",
+          light: "光",
+          system: "システム",
+          updateProfile: "プロフィールを更新",
+        ),
+        home: AppLocalizations_Labels_Home(
+          title: "家",
+          nameLabel: "名前",
+          uidLabel: "UID",
+          emailLabel: "Eメール",
+          adminUserLabel: "管理者ユーザー",
+        ),
+        app: AppLocalizations_Labels_App(
+          title: "フラッタースタータープロジェクト",
+        ),
+        validator: AppLocalizations_Labels_Validator(
+          email: "有効なメールアドレスを入力してください。",
+          password: "パスワードは少なくとも6文字でなければなりません。",
+          name: "名前を入力してください。",
+          number: "番号を入力してください。",
+          notEmpty: "これは必要項目です。",
+          amount: "ノードル記号なしセント - すなわち、250番号を入力してください。",
+        ),
+        splash: AppLocalizations_Labels_Splash(welcome: "カードXユーザーにようこそ"),
+        card: AppLocalizations_Labels_Card(
+          title: "職名",
+          description: "説明",
+          dateCreated: "作成日",
+          createACard: "カードを作成します。",
+          image: "画像",
+          activity: "アクティビティ",
+          schedules: "スケジュール",
+          contact: "連絡先",
+          location: "ロケーション",
+          phoneNumber: "電話番号",
+        )),
     Locale.fromSubtags(languageCode: "ru"): AppLocalizations_Labels(
       auth: AppLocalizations_Labels_Auth(
         signInButton: "Войти в систему",
@@ -580,7 +665,7 @@ class AppLocalizations {
         nameFormField: "название",
         signInErrorTitle: "Ошибка входа",
         signInError:
-        "Войти не удалось: адрес электронной почты или пароль неверен.",
+            "Войти не удалось: адрес электронной почты или пароль неверен.",
         resetPasswordLabelButton: "Забыли пароль?",
         signUpLabelButton: "Завести аккаунт",
         signUpErrorTitle: "Регистрация прошла неудачно.",
@@ -588,7 +673,7 @@ class AppLocalizations {
         signInLabelButton: "Иметь аккаунт? Войти в систему.",
         resetPasswordNoticeTitle: "Сброс пароля Email Sent",
         resetPasswordNotice:
-        "Проверьте электронную почту и следуйте инструкциям, чтобы сбросить пароль.",
+            "Проверьте электронную почту и следуйте инструкциям, чтобы сбросить пароль.",
         resetPasswordFailed: "Сброс пароля Email Failed",
         signInonResetPasswordLabelButton: "Войти в систему",
         updateUser: "Обновить профиль",
@@ -632,10 +717,21 @@ class AppLocalizations {
         number: "Пожалуйста, введите номер.",
         notEmpty: "Это обязательное поле.",
         amount:
-        "Пожалуйста, введите номер 250 - т.е. без символа доллара и ни цента",
+            "Пожалуйста, введите номер 250 - т.е. без символа доллара и ни цента",
       ),
       splash: AppLocalizations_Labels_Splash(
-        welcome: "Добро пожаловать в карты X Пользователь"
+          welcome: "Добро пожаловать в карты X Пользователь"),
+      card: AppLocalizations_Labels_Card(
+        title: "Название работы",
+        description: "Описание",
+        dateCreated: "Дата создания",
+        createACard: "Создание карты",
+        image: "Образ",
+        activity: "Деятельность",
+        schedules: "Расписание",
+        contact: "контакт",
+        location: "Расположение",
+        phoneNumber: "Телефонный номер",
       ),
     ),
   };
@@ -643,43 +739,42 @@ class AppLocalizations {
   final AppLocalizations_Labels labels;
 
   static AppLocalizations_Labels of(BuildContext context) =>
-      Localizations
-          .of<AppLocalizations>(context, AppLocalizations)
-          ?.labels;
+      Localizations.of<AppLocalizations>(context, AppLocalizations)?.labels;
 }
 
 class AppLocalizations_Labels_Auth {
-  const AppLocalizations_Labels_Auth({this.signInButton,
-    this.signUpButton,
-    this.googleSignInButton,
-    this.resetPasswordButton,
-    this.emailFormField,
-    this.passwordFormField,
-    this.nameFormField,
-    this.signInErrorTitle,
-    this.signInError,
-    this.resetPasswordLabelButton,
-    this.signUpLabelButton,
-    this.signUpErrorTitle,
-    this.signUpError,
-    this.signInLabelButton,
-    this.resetPasswordNoticeTitle,
-    this.resetPasswordNotice,
-    this.resetPasswordFailed,
-    this.signInonResetPasswordLabelButton,
-    this.updateUser,
-    this.updateUserSuccessNoticeTitle,
-    this.updateUserSuccessNotice,
-    this.updateUserFailNotice,
-    this.enterPassword,
-    this.cancel,
-    this.submit,
-    this.changePasswordLabelButton,
-    this.resetPasswordTitle,
-    this.updateProfileTitle,
-    this.wrongPasswordNoticeTitle,
-    this.wrongPasswordNotice,
-    this.unknownError});
+  const AppLocalizations_Labels_Auth(
+      {this.signInButton,
+      this.signUpButton,
+      this.googleSignInButton,
+      this.resetPasswordButton,
+      this.emailFormField,
+      this.passwordFormField,
+      this.nameFormField,
+      this.signInErrorTitle,
+      this.signInError,
+      this.resetPasswordLabelButton,
+      this.signUpLabelButton,
+      this.signUpErrorTitle,
+      this.signUpError,
+      this.signInLabelButton,
+      this.resetPasswordNoticeTitle,
+      this.resetPasswordNotice,
+      this.resetPasswordFailed,
+      this.signInonResetPasswordLabelButton,
+      this.updateUser,
+      this.updateUserSuccessNoticeTitle,
+      this.updateUserSuccessNotice,
+      this.updateUserFailNotice,
+      this.enterPassword,
+      this.cancel,
+      this.submit,
+      this.changePasswordLabelButton,
+      this.resetPasswordTitle,
+      this.updateProfileTitle,
+      this.wrongPasswordNoticeTitle,
+      this.wrongPasswordNotice,
+      this.unknownError});
 
   final String signInButton;
 
@@ -745,14 +840,15 @@ class AppLocalizations_Labels_Auth {
 }
 
 class AppLocalizations_Labels_Settings {
-  const AppLocalizations_Labels_Settings({this.title,
-    this.language,
-    this.theme,
-    this.signOut,
-    this.dark,
-    this.light,
-    this.system,
-    this.updateProfile});
+  const AppLocalizations_Labels_Settings(
+      {this.title,
+      this.language,
+      this.theme,
+      this.signOut,
+      this.dark,
+      this.light,
+      this.system,
+      this.updateProfile});
 
   final String title;
 
@@ -772,11 +868,12 @@ class AppLocalizations_Labels_Settings {
 }
 
 class AppLocalizations_Labels_Home {
-  const AppLocalizations_Labels_Home({this.title,
-    this.nameLabel,
-    this.uidLabel,
-    this.emailLabel,
-    this.adminUserLabel});
+  const AppLocalizations_Labels_Home(
+      {this.title,
+      this.nameLabel,
+      this.uidLabel,
+      this.emailLabel,
+      this.adminUserLabel});
 
   final String title;
 
@@ -796,12 +893,13 @@ class AppLocalizations_Labels_App {
 }
 
 class AppLocalizations_Labels_Validator {
-  const AppLocalizations_Labels_Validator({this.email,
-    this.password,
-    this.name,
-    this.number,
-    this.notEmpty,
-    this.amount});
+  const AppLocalizations_Labels_Validator(
+      {this.email,
+      this.password,
+      this.name,
+      this.number,
+      this.notEmpty,
+      this.amount});
 
   final String email;
 
@@ -822,9 +920,40 @@ class AppLocalizations_Labels_Splash {
   final String welcome;
 }
 
+class AppLocalizations_Labels_Card {
+  const AppLocalizations_Labels_Card(
+      {this.title,
+      this.activity,
+      this.location,
+      this.dateCreated,
+      this.schedules,
+      this.contact,
+      this.description,
+      this.image,
+      this.createACard,
+      this.phoneNumber});
+
+  final String title;
+  final String activity;
+  final String location;
+  final String description;
+  final String contact;
+  final String schedules;
+  final String dateCreated;
+  final String createACard;
+  final String image;
+  final String phoneNumber;
+}
+
 class AppLocalizations_Labels {
   const AppLocalizations_Labels(
-      {this.auth, this.settings, this.home, this.app, this.validator, this.splash});
+      {this.auth,
+      this.settings,
+      this.home,
+      this.app,
+      this.validator,
+      this.splash,
+      this.card});
 
   final AppLocalizations_Labels_Auth auth;
 
@@ -837,4 +966,6 @@ class AppLocalizations_Labels {
   final AppLocalizations_Labels_Validator validator;
 
   final AppLocalizations_Labels_Splash splash;
+
+  final AppLocalizations_Labels_Card card;
 }

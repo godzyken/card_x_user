@@ -104,8 +104,8 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
     });
   }
 
-  String _bytesTransferred(TaskSnapshot snaphot) {
-    return '${snaphot.bytesTransferred}/${snaphot.totalBytes}';
+  String _bytesTransferred(TaskSnapshot snapshot) {
+    return '${snapshot.bytesTransferred}/${snapshot.totalBytes}';
   }
 
   @override

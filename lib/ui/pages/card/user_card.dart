@@ -2,8 +2,7 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:maps/maps.dart';
+
 
 class UserCard extends StatelessWidget {
   final String uid;
@@ -22,15 +21,11 @@ class UserCard extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
-        children: [
-          buildCard,
-        ],
-      ),
+      child: buildCard(labels),
     );
   }
 
-  Card get buildCard {
+  Card buildCard(AppLocalizations_Labels labels) {
     return Card(
       shadowColor: Colors.lightBlue[800],
       color: Colors.transparent,
@@ -43,7 +38,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text('Job Title : ${cardUserModel.job}',
+                  child: Text(labels.card.title + ': ${cardUserModel.job}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -58,7 +53,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text('Activity : ${cardUserModel.activity}',
+                  child: Text(labels.card.activity + ': ${cardUserModel.activity}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -72,7 +67,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text('Location : ${cardUserModel.location}',
+                  child: Text(labels.card.location + ': ${cardUserModel.location}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -86,22 +81,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text('Description : ${cardUserModel.description}',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            FormVerticalSpace(),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'Contact : ${cardUserModel.contact}',
+                  child: Text(labels.card.description + ': ${cardUserModel.description}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -116,7 +96,7 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Schedules : ${cardUserModel.schedules}',
+                    labels.card.phoneNumber + ': ${cardUserModel.number}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -131,7 +111,37 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Date Created : ${cardUserModel.dateCreated}',
+                    labels.card.contact + ': ${cardUserModel.contact}',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    labels.card.schedules + ': ${cardUserModel.schedules}',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            FormVerticalSpace(),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    labels.card.dateCreated + ': ${cardUserModel.dateCreated}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,

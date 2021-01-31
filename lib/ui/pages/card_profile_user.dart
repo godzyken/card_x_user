@@ -21,7 +21,6 @@ class _CardProfileUserState extends State<CardProfileUser> {
 
   @override
   Widget build(BuildContext context) {
-    final labels = AppLocalizations.of(context);
     final cardController = Get.put(CardController());
 
     return GetBuilder<AuthController>(
@@ -101,7 +100,7 @@ class UserCardCreate extends GetWidget<AuthController> {
                           fontWeight: FontWeight.bold, fontSize: 15.0),
                     ),
                     subtitle: Text(
-                      'mailto: ${userModel.email}',
+                      labels.auth.emailFormField + ': ' + userModel.email,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 11.0),
                     ),
@@ -118,24 +117,24 @@ class UserCardCreate extends GetWidget<AuthController> {
                         children: [
                           ListTile(
                             title: Text(
-                              'Job title: ${controller.cardUserModel.value.job}',
+                              labels.card.title + ': ${controller.cardUserModel.value.job}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15.0),
                             ),
                             subtitle: Text(
-                              'description: ${controller.cardUserModel.value.description}',
+                              labels.card.description + ': ${controller.cardUserModel.value.description}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15.0),
                             ),
                           ),
                           ListTile(
                             title: Text(
-                              'Activity: ${controller.cardUserModel.value.activity}',
+                              labels.card.activity + ': ${controller.cardUserModel.value.activity}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15.0),
                             ),
                             subtitle: Text(
-                              'Status: ${controller.cardUserModel.value.status}',
+                              /*TODO: labels.card.status + */': ${controller.cardUserModel.value.status}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15.0),
                             ),
@@ -184,7 +183,7 @@ Widget cardModel(BuildContext context) {
             Icons.account_circle,
             size: 75,
           ),
-          title: Text('Create your card'),
+          title: Text('{labels.card.createACard}'),
           subtitle: Text('This is a demo card: '),
         ),
         Row(

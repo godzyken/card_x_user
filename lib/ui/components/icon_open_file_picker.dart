@@ -15,13 +15,15 @@ class IconOpenFilePicker extends StatelessWidget {
         padding: EdgeInsets.zero,
         color: Colors.white,
         alignment: Alignment.topLeft,
-        child: RaisedButton(
-          padding: EdgeInsets.zero,
-          color: Colors.white,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            elevation: 1,
+            padding: EdgeInsets.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
           clipBehavior: Clip.none,
-          elevation: 1,
           autofocus: true,
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           child:  Icon(
             IconData(60400, fontFamily: 'MaterialIcons', matchTextDirection: true),
             size: 110.0, color: Colors.indigo[900], semanticLabel: text,

@@ -8,9 +8,14 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: onPressed,
-      padding: EdgeInsets.all(22),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.blueAccent,
+        elevation: 1,
+        padding: EdgeInsets.all(22),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
       child: Text(
         labelText.toUpperCase(),
         style: TextStyle(fontWeight: FontWeight.bold),

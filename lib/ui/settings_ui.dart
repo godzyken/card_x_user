@@ -31,7 +31,7 @@ class SettingsUI extends StatelessWidget {
         themeListTile(context),
         ListTile(
             title: Text(labels.settings.updateProfile),
-            trailing: RaisedButton(
+            trailing: ElevatedButton(
               onPressed: () async {
                 Get.to(UpdateProfileUI());
               },
@@ -41,7 +41,7 @@ class SettingsUI extends StatelessWidget {
             )),
         ListTile(
           title: Text(labels.settings.signOut),
-          trailing: RaisedButton(
+          trailing: ElevatedButton(
             onPressed: () {
               AuthController.to.signOut();
             },

@@ -1,7 +1,7 @@
-import 'package:card_x_user/ui/pages/card/card_ui.dart';
+/*import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/ui/pages/card/widgets/card_item.dart';
 import 'package:card_x_user/ui/pages/card_profile_user.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';*/
 
 /*
 class SnapSell extends StatefulWidget {

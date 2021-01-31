@@ -95,7 +95,7 @@ class _UploadingImageToFirebaseUiState
                           borderRadius: BorderRadius.circular(30.0),
                           child: _imageFile != null
                               ? Image.file(_imageFile)
-                              : FlatButton(
+                              : TextButton(
                                   child: Icon(
                                     Icons.add_a_photo,
                                     size: 50,
@@ -205,7 +205,7 @@ class _UploadingImageToFirebaseUiState
                   colors: [Colors.yellow, Colors.orange],
                 ),
                 borderRadius: BorderRadius.circular(30.0)),
-            child: FlatButton(
+            child: TextButton(
               onPressed: () => uploadImageToFirebase(context),
               child: Text(
                 "Upload Image",

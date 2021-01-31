@@ -17,7 +17,6 @@ class HomeUI extends StatefulWidget {
 }
 
 class _HomeUIState extends State<HomeUI> {
-  final TextEditingController _editingController = TextEditingController();
 
   @override
   void initState() {
