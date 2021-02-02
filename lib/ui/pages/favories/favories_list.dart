@@ -32,7 +32,6 @@ class _FavoriesListState extends State<FavoriesList> {
                 height: 20,
               ),
               CardList(),
-
             ],
           ),
         ),

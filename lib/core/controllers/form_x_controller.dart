@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 
 class FormXController extends GetxController {
+  static FormXController to = Get.find();
 
   final jobTitle = TextEditingController().obs;
   final jobLocation = TextEditingController().obs;

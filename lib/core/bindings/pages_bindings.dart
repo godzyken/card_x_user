@@ -11,7 +11,7 @@ class PageBindings extends Bindings {
     Get.lazyPut(() => CardController(), tag: "create-a-card");
     Get.lazyPut<ICardProvider>(() => CardProvider());
     Get.lazyPut<ICardRepository>(() => CardRepository(provider: Get.find()));
-    // Get.lazyPut(() => CardController(cardRepository: Get.find()));
+    Get.lazyPut<CardController>(() => CardController());
 
 
 

@@ -38,39 +38,39 @@ class CardDetailsView extends StatelessWidget {
 
   Card get buildUserInfoCard {
     return Card(
-              shadowColor: Colors.lightBlue[800],
-              color: Colors.transparent,
-              borderOnForeground: true,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        userModel.email,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    FormVerticalSpace(),
-                    Expanded(
-                      child: Text(
-                        userModel.name,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.redAccent,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
+      shadowColor: Colors.lightBlue[800],
+      color: Colors.transparent,
+      borderOnForeground: true,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                userModel.email,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
-            );
+            ),
+            FormVerticalSpace(),
+            Expanded(
+              child: Text(
+                userModel.name,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.redAccent,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

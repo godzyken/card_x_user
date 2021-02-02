@@ -1,8 +1,6 @@
-import 'package:card_x_user/core/constants/globals.dart';
-import 'package:card_x_user/core/controllers/auth_controller.dart';
-import 'package:card_x_user/core/controllers/language_controller.dart';
-import 'package:card_x_user/core/controllers/theme_controller.dart';
-import 'package:card_x_user/core/models/menu_option_model.dart';
+import 'package:card_x_user/core/constants/constants.dart';
+import 'package:card_x_user/core/controllers/controllers.dart';
+import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';

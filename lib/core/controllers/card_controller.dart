@@ -28,7 +28,7 @@ class CardController extends GetxController {
     String uid = Get.find<AuthController>().firestoreUser.value.uid;
     cardList.bindStream(Database().cardStream(uid)); //stream coming from firebase
     cardUserList.bindStream(Database().cardUserStream(uid)); //stream coming from firebase
-    userCard.bindStream(Database().streamCard(uid));
+    userCard.bindStream(Database().streamCard(uid)); //stream coming from firebase
   }
 
   @override

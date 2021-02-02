@@ -18,7 +18,7 @@ class CreateACardUi extends StatelessWidget {
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     final labels = AppLocalizations.of(context);
-    final fx = Get.put(FormXController());
+    final FormXController fx = FormXController.to;
 
     return Container(
       decoration: BoxDecoration(
@@ -42,7 +42,7 @@ class CreateACardUi extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               child: GetX<AuthController>(
-                initState: (state) => AuthController(),
+                initState: (state) => AuthController.to,
                 builder: (disposable) {
                   if (disposable?.firestoreUser?.value?.uid == null) {
                     return Container(
@@ -182,10 +182,12 @@ class CreateACardUi extends StatelessWidget {
                                           fx.submitFunc.value;
                                           fx.updateTheValues();
                                           Database().saveACard(fx.cardUserModel.value, disposable?.firestoreUser?.value?.uid);
+                                        } else {
+                                          return print("erreur d'enregistrement");
                                         }
                                       },
                                       child: Text(
-                                        "Change the value",
+                                        "Save the Card",
                                         style: TextStyle(color: Colors.white),
                                       )),
                             )
