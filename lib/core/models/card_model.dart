@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:card_x_user/core/models/card_user_model.dart';
 import 'package:card_x_user/core/models/models.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 

@@ -1,15 +1,10 @@
+import 'package:card_x_user/core/models/models.dart';
 import 'package:flutter/material.dart';
 
 class Rows extends StatelessWidget {
-  final String job;
-  final String activity;
-  final String description;
-  final String contact;
-  final String status;
-  final String date;
-  final String location;
+  final List<CardUserModel> cardUserModel;
+  const Rows({Key key, this.cardUserModel}) : super(key: key);
 
-  const Rows({Key key, this.job, this.activity, this.description, this.contact, this.status, this.date, this.location}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container();

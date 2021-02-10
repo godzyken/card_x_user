@@ -1,5 +1,4 @@
 import 'package:card_x_user/core/models/models.dart';
-import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +12,11 @@ class AddUserCard extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Card(
-      // shadowColor: Colors.lightBlue[800],
-      // color: Colors.transparent,
+      shadowColor: Colors.lightBlue[800],
+      color: Colors.transparent,
       borderOnForeground: true,
+      elevation: 2,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -33,6 +34,7 @@ class AddUserCard extends StatelessWidget {
                       color: Colors.redAccent,
                     ),
                     textAlign: TextAlign.center,
+                    maxLines: 2,
                   ),
                 ),
                 FormVerticalSpace(),
@@ -43,6 +45,7 @@ class AddUserCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent
                     ),
                   ),
                 ),
@@ -54,6 +57,7 @@ class AddUserCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      color: Colors.yellowAccent
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -69,7 +73,7 @@ class AddUserCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: Colors.redAccent,
+                      color: Colors.lightBlueAccent,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -82,6 +86,7 @@ class AddUserCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      color: Colors.brown
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -93,6 +98,7 @@ class AddUserCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent
                     ),
                   ),
                 ),

@@ -1,4 +1,4 @@
-import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:flutter/material.dart';
 import 'package:maps/maps.dart';
 import 'package:maps_adapter_google_maps/maps_adapter_google_maps.dart';
@@ -24,12 +24,12 @@ class _AddressTargetState extends State<AddressTarget> {
   AppleMapsNativeAdapter();
   static const AppleMapsStaticAdapter appleMapsStatic = null;
   static const bingMapsIframe = BingMapsIframeAdapter();
-  static const bingMapsJs = BingMapsJsAdapter(apiKey: Map_API_KEY);
-  static const bingMapsStatic = BingMapsStaticAdapter(apiKey: Map_API_KEY);
-  static const googleMapsIframe = GoogleMapsIframeAdapter(apiKey: Map_API_KEY);
-  static const googleMapsJs = GoogleMapsJsAdapter(apiKey: Map_API_KEY);
+  static const bingMapsJs = BingMapsJsAdapter(apiKey: helpers.Map_API_KEY);
+  static const bingMapsStatic = BingMapsStaticAdapter(apiKey: helpers.Map_API_KEY);
+  static const googleMapsIframe = GoogleMapsIframeAdapter(apiKey: helpers.Map_API_KEY);
+  static const googleMapsJs = GoogleMapsJsAdapter(apiKey: helpers.Map_API_KEY);
   static const googleMapsNative = GoogleMapsNativeAdapter();
-  static const googleMapsStatic = GoogleMapsStaticAdapter(apiKey: Map_API_KEY);
+  static const googleMapsStatic = GoogleMapsStaticAdapter(apiKey: helpers.Map_API_KEY);
   var _tab = 0;
   MapAdapter selectedAdapter = defaultMapAdapter;
 

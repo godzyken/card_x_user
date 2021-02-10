@@ -1,5 +1,5 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
@@ -31,7 +31,7 @@ class ResetPasswordUI extends StatelessWidget {
                     controller: authController.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
-                    validator: Validator(labels).email,
+                    validator: helpers.Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>

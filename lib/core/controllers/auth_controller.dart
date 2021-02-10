@@ -124,7 +124,7 @@ class AuthController extends GetxController {
 
     await getUser.then((user) async {
       DocumentSnapshot adminRef =
-      await FirebaseFirestore.instance.collection('admin').doc(user?.uid).get();
+      await FirebaseFirestore.instance.collection('admin').doc(user.uid).get();
       if (adminRef.exists) {
         admin.value = true;
       } else {
@@ -183,7 +183,7 @@ class AuthController extends GetxController {
   //get the firestore user from the firestore collection
   Future<UserModel> getFirestoreUser() {
 
-    if (firebaseUser?.value?.uid != null) {
+    if (firebaseUser.value?.uid != null) {
       return FirebaseFirestore.instance.doc('/users/${firebaseUser.value.uid}').get().then(
               (documentSnapshot) => UserModel.fromMap(documentSnapshot.data()));
     }
@@ -297,9 +297,9 @@ class AuthController extends GetxController {
 
   @override
   void onClose() {
-    nameController?.value?.dispose();
-    emailController?.value?.dispose();
-    passwordController?.value?.dispose();
+    nameController.value?.dispose();
+    emailController.value?.dispose();
+    passwordController.value?.dispose();
     super.onClose();
   }
 

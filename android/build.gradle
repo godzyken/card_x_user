@@ -1,15 +1,17 @@
 buildscript {
-    ext.kotlin_version = '1.4.21'
+    ext.kotlin_version = '1.4.30'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.android.tools.build:gradle:4.2.0-beta04'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.4'
+        classpath 'com.google.gms:google-services:4.3.5'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1'
+        classpath 'com.dynatrace.tools.android:gradle-plugin:8.207.1.1004'
+        classpath 'com.google.ar.sceneform:plugin:1.17.1'
     }
 }
 

@@ -1,5 +1,5 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
@@ -38,7 +38,7 @@ class UpdateProfileUI extends StatelessWidget {
                     controller: authController.nameController.value,
                     iconPrefix: Icons.person,
                     labelText: labels.auth.nameFormField,
-                    validator: Validator(labels).name,
+                    validator: helpers.Validator(labels).name,
                     onChanged: (value) => null,
                     onSaved: (value) =>
                     authController.nameController.value.text = value,
@@ -48,7 +48,7 @@ class UpdateProfileUI extends StatelessWidget {
                     controller: authController.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
-                    validator: Validator(labels).email,
+                    validator: helpers.Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>
@@ -100,7 +100,7 @@ class UpdateProfileUI extends StatelessWidget {
         controller: _password,
         iconPrefix: Icons.lock,
         labelText: labels.auth.passwordFormField,
-        validator: Validator(labels).password,
+        validator: helpers.Validator(labels).password,
         obscureText: true,
         onChanged: (value) => null,
         onSaved: (value) => _password.text = value,

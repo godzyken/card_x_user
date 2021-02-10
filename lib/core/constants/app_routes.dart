@@ -1,6 +1,7 @@
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/pages/favories/favories.dart';
 import 'package:card_x_user/ui/pages/locations/locations.dart';
+import 'package:card_x_user/ui/pages/tableau/tableau_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
@@ -24,7 +25,11 @@ class AppRoutes {
     GetPage(name: '/card-user-view/me/:id', page: () => UserCard()),
     GetPage(name: '/room', page: () => RoomPage()),
     GetPage(name: '/call', page: () => CallPage()),
+    GetPage(name: '/camera', page: () => TestAr()),
     GetPage(name: '/contact', page: () => FavoriesList()),
     GetPage(name: '/maps', page: () => AddressTarget()),
+    GetPage(name: '/edit-table', page: () => EditTable()),
+    GetPage(name: '/ar-core-view', page: () => ArCoreView()),
+    GetPage(name: '/ar-core-view/test', page: () => ArCoreTest()),
   ];
 }

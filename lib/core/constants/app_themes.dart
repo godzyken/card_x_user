@@ -1,3 +1,6 @@
+import 'package:card_x_user/core/constants/app_routes.dart';
+import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/models/card_user_model.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -12,8 +15,13 @@ class AppThemes {
   static const Color nevada = Color.fromRGBO(105, 109, 119, 1);
   static const Color ebonyClay = Color.fromRGBO(40, 42, 58, 1);
 
+  static Color brandColor = HexColor.fromHex('#002B5C');
+  static Color navColor = HexColor.fromHex('#2d545e');
+  static Color bgColor = HexColor.fromHex('#494d5f');
+
   static String font1 = "ProductSans";
   static String font2 = "Roboto";
+  static const String fontFamily = 'Montserrat';
   //constants color range for light theme
   //main color
   static const Color _lightPrimaryColor = dodgerBlue;
@@ -238,4 +246,45 @@ class AppThemes {
       //focusColor: _darkBorderActiveColor,
     ),
   );
+}
+
+class DrawerOptions {
+  DrawerOptions._();
+
+  static const String info = 'About Website';
+  static const String youtube = 'See on Youtube';
+  static const String website = 'View on Website';
+  static const String medium = 'Read on Medium';
+  static const String legalese = 'Experiments with Flutter Web';
+}
+
+class OptionsModel {
+  OptionsModel._();
+
+  static List<CardUserModel> options() {
+    var _favModelList = <CardUserModel>[];
+
+    final _optionRoutes = AppRoutes.routes;
+    final _linkRoutes = AppRoutes.routes;
+
+    for (var _optionRoute in _optionRoutes.reversed) {
+      final _favModel = CardUserModel();
+
+      _favModel.job = _optionRoute.name;
+      _favModel.number = _optionRoute.bindings;
+      _favModel.location = _optionRoute.children;
+      _favModel.contact = _optionRoute.binding;
+      _favModel.status = false;
+
+      _favModelList.add(_favModel);
+    }
+    return _favModelList;
+  }
+}
+
+class HiveBoxes {
+  HiveBoxes._();
+
+  static const String favBox = 'favorites';
+  static const String searchesBox = 'searches';
 }

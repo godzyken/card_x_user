@@ -1,5 +1,5 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/core/services/services.dart';
 import 'package:card_x_user/localizations.dart';
@@ -75,7 +75,7 @@ class CreateACardUi extends StatelessWidget {
                               controller: fx.jobTitle.value,
                               iconPrefix: Icons.business,
                               labelText: labels?.card?.title,
-                              validator: Validator(labels).name,
+                              validator: helpers.Validator(labels).name,
                               keyboardType: TextInputType.name,
                               onChanged: (value) => fx.jobTitle.value,
                               onSaved: (value) =>
@@ -139,7 +139,7 @@ class CreateACardUi extends StatelessWidget {
                               controller: fx.jobNumber.value,
                               iconPrefix: Icons.call,
                               labelText: labels?.card?.phoneNumber,
-                              validator: Validator(labels).number,
+                              validator: helpers.Validator(labels).number,
                               keyboardType: TextInputType.datetime,
                               onChanged: (value) => fx.jobNumber.value,
                               onSaved: (value) =>

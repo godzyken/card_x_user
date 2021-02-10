@@ -2,7 +2,7 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
-import 'package:card_x_user/core/helpers/helpers.dart';
+import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:flutter/material.dart';
 
 class CallPage extends StatefulWidget {
@@ -43,7 +43,7 @@ class _CallPageState extends State<CallPage> {
   }
 
   Future<void> initialize() async {
-    if (APP_ID.isEmpty) {
+    if (helpers.APP_ID.isEmpty) {
       setState(() {
         _infoStrings.add(
           'APP_ID missing, please provide your APP_ID in settings.dart',
@@ -58,12 +58,12 @@ class _CallPageState extends State<CallPage> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    await _engine.joinChannel(Token, widget.channelName, null, 0);
+    await _engine.joinChannel(helpers.Token, widget.channelName, null, 0);
   }
 
   /// Create agora sdk instance and initialize
   Future<void> _initAgoraRtcEngine() async {
-    _engine = await RtcEngine.create(APP_ID);
+    _engine = await RtcEngine.create(helpers.APP_ID);
     await _engine.enableVideo();
     await _engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     await _engine.setClientRole(widget.role);

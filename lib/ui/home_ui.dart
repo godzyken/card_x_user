@@ -4,12 +4,14 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/conference/conference.dart';
 import 'package:card_x_user/ui/pages/favories/favories.dart';
 import 'package:card_x_user/ui/pages/locations/locations.dart';
+import 'package:card_x_user/ui/pages/pages_ui.dart';
+import 'package:card_x_user/ui/pages/tableau/tableau_ui.dart';
 import 'package:card_x_user/ui/settings_ui.dart';
 import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'pages/pages_ui.dart';
+// import 'pages/pages_ui.dart';
 
 class HomeUI extends StatefulWidget {
   @override
@@ -43,6 +45,7 @@ class _HomeUIState extends State<HomeUI> {
                         Get.to(SettingsUI());
                       }),
                 ],
+                automaticallyImplyLeading: true,
               ),
               drawer: Drawer(
                 child: ListView(
@@ -80,6 +83,7 @@ class _HomeUIState extends State<HomeUI> {
                       leading: Icon(Icons.star),
                       onTap: () {
                         print("Clicked");
+                        Get.to(EditTable());
                       },
                     ),
                     ListTile(
@@ -90,7 +94,8 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('Video Call'),
                       leading: Icon(Icons.video_call),
-                      onTap: () => Get.to(RoomPage()),
+                      onTap: (){},
+                      // onTap: () => Get.to(TestAr()),
                     ),
                     ListTile(
                       title: Text('Uploads'),
@@ -100,9 +105,7 @@ class _HomeUIState extends State<HomeUI> {
                     ListTile(
                       title: Text('Backups'),
                       leading: Icon(Icons.backup),
-                      onTap: () {
-                        print("Clicked");
-                      },
+                      onTap: () => Get.to(ArCoreView()),
                     ),
                     ListTile(
                       title: Text('My Card'),
@@ -124,8 +127,9 @@ class _HomeUIState extends State<HomeUI> {
                     verticalDirection: VerticalDirection.up,
                     children: <Widget>[
                       SizedBox(
-                        height: 20,
+                        height: 8,
                       ),
+
                     ],
                   ),
                 ),
