@@ -10,7 +10,7 @@ class AddressTarget extends StatefulWidget {
   _AddressTargetState createState() => _AddressTargetState();
 }
 
-const parisGeoPoint = GeoPoint(48.856613, 2.352222);
+final parisGeoPoint = GeoPoint(48.856613, 2.352222);
 
 class _AddressTargetState extends State<AddressTarget> {
 
@@ -19,10 +19,10 @@ class _AddressTargetState extends State<AddressTarget> {
     ios: appleMapsNative,
     otherwise: bingMapsIframe,
   );
-  static const AppleMapsJsAdapter appleMapsJs = null;
+  static const AppleMapsJsAdapter? appleMapsJs = null;
   static const AppleMapsNativeAdapter appleMapsNative =
   AppleMapsNativeAdapter();
-  static const AppleMapsStaticAdapter appleMapsStatic = null;
+  static const AppleMapsStaticAdapter? appleMapsStatic = null;
   static const bingMapsIframe = BingMapsIframeAdapter();
   static const bingMapsJs = BingMapsJsAdapter(apiKey: helpers.Map_API_KEY);
   static const bingMapsStatic = BingMapsStaticAdapter(apiKey: helpers.Map_API_KEY);
@@ -31,11 +31,11 @@ class _AddressTargetState extends State<AddressTarget> {
   static const googleMapsNative = GoogleMapsNativeAdapter();
   static const googleMapsStatic = GoogleMapsStaticAdapter(apiKey: helpers.Map_API_KEY);
   var _tab = 0;
-  MapAdapter selectedAdapter = defaultMapAdapter;
+  MapAdapter? selectedAdapter = defaultMapAdapter;
 
-  String query;
+  late String query;
 
-  GeoPoint geoPoint = parisGeoPoint;
+  GeoPoint? geoPoint = parisGeoPoint;
 
   double zoom = 11.0;
 
@@ -86,7 +86,7 @@ class _AddressTargetState extends State<AddressTarget> {
           onPressed: () {
             const AppleMapsLauncher().launch(
               query: query,
-              geoPoint: geoPoint,
+              geoPoint: geoPoint!,
             );
           },
         ),
@@ -95,7 +95,7 @@ class _AddressTargetState extends State<AddressTarget> {
           onPressed: () {
             const BingMapsApp().launch(
               query: query,
-              geoPoint: geoPoint,
+              geoPoint: geoPoint!,
             );
           },
         ),
@@ -104,7 +104,7 @@ class _AddressTargetState extends State<AddressTarget> {
           onPressed: () {
             const GoogleMapsLauncher().launch(
               query: query,
-              geoPoint: geoPoint,
+              geoPoint: geoPoint!,
             );
           },
         ),
@@ -114,7 +114,7 @@ class _AddressTargetState extends State<AddressTarget> {
 
   Widget buildMapWidgetDemo(BuildContext context) {
     final radioButtonRows = <Row>[];
-    void f(String name, MapAdapter value) {
+    void f(String name, MapAdapter? value) {
       if (value == null) {
         return;
       }
@@ -157,10 +157,10 @@ class _AddressTargetState extends State<AddressTarget> {
             height: _height,
             child: MapWidget(
               key: _key,
-              adapter: selectedAdapter,
+              adapter: selectedAdapter!,
               location: MapLocation(
                 query: query,
-                geoPoint: geoPoint,
+                geoPoint: geoPoint!,
                 zoom: Zoom(zoom),
               ),
               markers: {

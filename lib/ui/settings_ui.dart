@@ -5,46 +5,47 @@ import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class SettingsUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labels = AppLocalizations.of(context);
+    final labels = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(labels.settings.title),
+        title: Text(labels.settings!.title!),
       ),
       body: _buildLayoutSection(context),
     );
   }
 
   Widget _buildLayoutSection(BuildContext context) {
-    final labels = AppLocalizations.of(context);
+    final labels = AppLocalizations.of(context)!;
 
     return ListView(
       children: <Widget>[
         languageListTile(context),
         themeListTile(context),
         ListTile(
-            title: Text(labels.settings.updateProfile),
+            title: Text(labels.settings!.updateProfile!),
             trailing: ElevatedButton(
               onPressed: () async {
-                Get.to(UpdateProfileUI());
+                Get.toNamed('/update-profile');
               },
               child: Text(
-                labels.settings.updateProfile,
+                labels.settings!.updateProfile!,
               ),
             )),
         ListTile(
-          title: Text(labels.settings.signOut),
+          title: Text(labels.settings!.signOut!),
           trailing: ElevatedButton(
             onPressed: () {
-              AuthController.to.signOut();
+              AuthController.to!.signOut();
             },
             child: Text(
-              labels.settings.signOut,
+              labels.settings!.signOut!,
             ),
           ),
         )
@@ -56,12 +57,12 @@ class SettingsUI extends StatelessWidget {
     final labels = AppLocalizations.of(context);
     return GetBuilder<LanguageController>(
       builder: (controller) => ListTile(
-        title: Text(labels.settings.language),
+        title: Text(labels!.settings!.language!),
         trailing: DropdownPicker(
           menuOptions: Globals.languageOptions,
           selectedOption: controller.currentLanguage,
           onChanged: (value) async {
-            await controller.updateLanguage(value);
+            await controller.updateLanguage(value!);
             Get.forceAppUpdate();
           },
         ),
@@ -70,22 +71,22 @@ class SettingsUI extends StatelessWidget {
   }
 
   themeListTile(BuildContext context) {
-    final labels = AppLocalizations.of(context);
+    final labels = AppLocalizations.of(context)!;
     final List<MenuOptionsModel> themeOptions = [
       MenuOptionsModel(
           key: "system",
-          value: labels.settings.system,
+          value: labels.settings!.system,
           icon: Icons.brightness_4),
       MenuOptionsModel(
           key: "light",
-          value: labels.settings.light,
+          value: labels.settings!.light,
           icon: Icons.brightness_low),
       MenuOptionsModel(
-          key: "dark", value: labels.settings.dark, icon: Icons.brightness_3)
+          key: "dark", value: labels.settings!.dark, icon: Icons.brightness_3)
     ];
     return GetBuilder<ThemeController>(
       builder: (controller) => ListTile(
-        title: Text(labels.settings.theme),
+        title: Text(labels.settings!.theme!),
         trailing: SegmentedSelector(
           selectedOption: controller.currentTheme,
           menuOptions: themeOptions,

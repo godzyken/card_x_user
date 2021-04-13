@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class IconClearTempFiles extends StatelessWidget {
   final func;
-  final String text;
+  final String? text;
 
-  const IconClearTempFiles({Key key, this.func, this.text}) : super(key: key);
+  const IconClearTempFiles({Key? key, this.func, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

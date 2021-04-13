@@ -18,13 +18,13 @@ class FormXController extends GetxController {
 
   final cardUserModel = CardUserModel().obs;
 
-  RxString errorText = RxString(null);
+  RxString errorText = RxString('');
   RxBool jobAvailability = false.obs;
-  Rx<Function> submitFunc = Rx<Function>(null);
+  Rxn<Function?> submitFunc = Rxn<Function?>(null);
 
   updateTheValues() {
     cardUserModel.update((model) {
-      model.job = jobTitle.value.text;
+      model!.job = jobTitle.value.text;
       model.location = jobLocation.value.text;
       model.number = jobNumber.value.text;
       model.schedules = jobSchedules.value.text;
@@ -41,14 +41,14 @@ class FormXController extends GetxController {
     super.onInit();
   }
 
-  void validations(String val) async {
-    errorText.value = null;
+  void validations(String? val) async {
+    errorText.value;
     submitFunc.value = null;
-    if (val.isNotEmpty) {
+    if (val!.isNotEmpty) {
       if (lengthOk(val) && await available(val)) {
         print('All validations passed, enable submit form...');
         submitFunc.value = submitFunction();
-        errorText.value = null;
+        errorText.value;
       }
     }
   }
@@ -85,14 +85,14 @@ class FormXController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    jobTitle?.value?.dispose();
-    jobLocation?.value?.dispose();
-    jobAddress?.value?.dispose();
-    jobDesc?.value?.dispose();
-    jobActivitySector?.value?.dispose();
-    jobSchedules?.value?.dispose();
-    jobContact?.value?.dispose();
-    jobNumber?.value?.dispose();
-    jobImage?.value?.dispose();
+    jobTitle.value.dispose();
+    jobLocation.value.dispose();
+    jobAddress.value.dispose();
+    jobDesc.value.dispose();
+    jobActivitySector.value.dispose();
+    jobSchedules.value.dispose();
+    jobContact.value.dispose();
+    jobNumber.value.dispose();
+    jobImage.value.dispose();
   }
 }

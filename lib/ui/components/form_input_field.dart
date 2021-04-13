@@ -11,14 +11,14 @@ class FormInputField extends StatelessWidget {
         this.onChanged,
         this.onSaved});
 
-  final TextEditingController controller;
-  final String labelText;
-  final String Function(String) validator;
+  final TextEditingController? controller;
+  final String? labelText;
+  final String Function(String?)? validator;
   final TextInputType keyboardType;
   final bool obscureText;
   final int minLines;
-  final void Function(String) onChanged;
-  final void Function(String) onSaved;
+  final void Function(String)? onChanged;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {

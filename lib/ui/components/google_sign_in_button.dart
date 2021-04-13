@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class GoogleSignInButton extends StatelessWidget {
   GoogleSignInButton({this.labelText, this.onPressed});
 
-  final String labelText;
-  final void Function() onPressed;
+  final String? labelText;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class GoogleSignInButton extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
-                    labelText.toUpperCase(),
+                    labelText!.toUpperCase(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
               )

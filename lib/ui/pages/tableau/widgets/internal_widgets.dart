@@ -4,14 +4,15 @@ import 'package:card_x_user/core/data/data_shared.dart';
 import 'package:card_x_user/core/models/models.dart';
 import 'package:card_x_user/ui/pages/tableau/widgets/card_table_wiedgets.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class InternalWidget extends StatelessWidget {
-  const InternalWidget({Key key}) : super(key: key);
+  const InternalWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //
+
     final _provider = Get.put(CardController());
     final _model = _provider.cardUserModel;
 
@@ -36,7 +37,7 @@ class InternalWidget extends StatelessWidget {
       ],
       dataColumns: _colGen(_dtSource, _provider),
       header: const Text(DataTableConstants.users),
-      onRowChanged: (index) => _provider.rowsPerPage = index,
+      onRowChanged: (index) => _provider.rowsPerPage = index!,
       rowsPerPage: _provider.rowsPerPage,
       showActions: true,
       source: _dtSource,
@@ -100,7 +101,7 @@ class InternalWidget extends StatelessWidget {
   }
 
   void _showSBar(BuildContext c, String textToShow) {
-    Scaffold.of(c).showSnackBar(
+    ScaffoldMessenger.of(c).showSnackBar(
       SnackBar(
         content: Text(textToShow),
         duration: const Duration(milliseconds: 2000),

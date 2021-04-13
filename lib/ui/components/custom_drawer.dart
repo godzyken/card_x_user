@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
-    Key key,
-    @required this.medium,
-    @required this.website,
-    @required this.youtubeLink,
+    Key? key,
+    required this.medium,
+    required this.website,
+    required this.youtubeLink,
   })  : assert(
   youtubeLink != null,
   website != null,
@@ -82,9 +82,9 @@ class CustomDrawer extends StatelessWidget {
 
 class _LinkButton extends StatelessWidget {
   const _LinkButton({
-    Key key,
-    @required this.link,
-    @required this.iconData,
+    Key? key,
+    required this.link,
+    required this.iconData,
   }) : super(key: key);
 
   final String link;

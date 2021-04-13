@@ -6,6 +6,7 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/card/card_ui.dart';
 import 'package:card_x_user/ui/pages/card/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class CardProfileUser extends StatefulWidget {
@@ -27,13 +28,13 @@ class _CardProfileUserState extends State<CardProfileUser> {
 
     return GetBuilder<AuthController>(
       init: AuthController(),
-      builder: (controller) => controller?.firestoreUser?.value?.uid == null
+      builder: (controller) => controller.firestoreUser!.value?.uid == null
           ? Center(
               child: cardModel(context),
             )
           : Scaffold(
               appBar: AppBar(
-                title: Text(labels?.card?.title),
+                title: Text(labels!.card!.title!),
                 actions: [
                   IconButton(
                       icon: Icon(Icons.add),
@@ -59,19 +60,19 @@ class _CardProfileUserState extends State<CardProfileUser> {
                   onTap: () {
                     print('Card tapped.');
                     Get.to(CardDetailsView(
-                      userModel: controller?.firestoreUser?.value,
-                      cardUserModel: cardController.userCard.value,
+                      userModel: controller.firestoreUser!.value,
+                      cardUserModel: cardController.userCard!.value,
                     ));
                   },
                   // child: cardModel(context),
-                  child: UserCardCreate(controller?.firestoreUser?.value),
+                  child: UserCardCreate(controller.firestoreUser!.value),
                 ),
               );
   }
 }
 
 class UserCardCreate extends GetWidget<AuthController> {
-  final UserModel userModel;
+  final UserModel? userModel;
 
   UserCardCreate(this.userModel);
 
@@ -84,7 +85,7 @@ class UserCardCreate extends GetWidget<AuthController> {
         builder: (FormXController controller) {
           if ((controller != null && controller.cardUserModel != null) ||
               (controller.cardUserModel.value.id != null &&
-                  controller.cardUserModel.value.id == userModel.uid)) {
+                  controller.cardUserModel.value.id == userModel!.uid)) {
             return Container(
               width: 350,
               height: 250,
@@ -95,7 +96,7 @@ class UserCardCreate extends GetWidget<AuthController> {
               //     fit: BoxFit.cover,
               //   ),
               // ),
-              child: buildCardHeader(labels, controller),
+              child: buildCardHeader(labels!, controller),
             );
           } else {
             return cardModel(context);
@@ -110,12 +111,12 @@ class UserCardCreate extends GetWidget<AuthController> {
                 ListTile(
                   leading: Avatar(userModel),
                   title: Text(
-                    'Author: ${userModel.name}',
+                    'Author: ${userModel!.name}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 15.0),
                   ),
                   subtitle: Text(
-                    labels.auth.emailFormField + ': ' + userModel.email,
+                    labels.auth!.emailFormField! + ': ' + userModel!.email!,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 11.0),
                   ),
@@ -158,18 +159,18 @@ class UserCardCreate extends GetWidget<AuthController> {
         children: [
           ListTile(
             title: Text(
-              labels.card.title + ': ${controller.cardUserModel.value.job}',
+              labels.card!.title! + ': ${controller.cardUserModel.value.job}',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
             ),
             subtitle: Text(
-              labels.card.description +
+              labels.card!.description! +
                   ': ${controller.cardUserModel.value.description}',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
             ),
           ),
           ListTile(
             title: Text(
-              labels.card.activity +
+              labels.card!.activity! +
                   ': ${controller.cardUserModel.value.activity}',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
             ),

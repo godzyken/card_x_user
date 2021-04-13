@@ -6,9 +6,8 @@ import 'package:card_x_user/ui/pages/favories/favories.dart';
 import 'package:card_x_user/ui/pages/locations/locations.dart';
 import 'package:card_x_user/ui/pages/pages_ui.dart';
 import 'package:card_x_user/ui/pages/tableau/tableau_ui.dart';
-import 'package:card_x_user/ui/settings_ui.dart';
-import 'package:card_x_user/ui/ui.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 // import 'pages/pages_ui.dart';
@@ -31,18 +30,18 @@ class _HomeUIState extends State<HomeUI> {
 
     return GetBuilder<AuthController>(
       init: AuthController(),
-      builder: (controller) => controller?.firestoreUser?.value?.uid == null
+      builder: (controller) => controller.firestoreUser!.value?.uid == null
           ? Center(
               child: CircularProgressIndicator(),
             )
           : Scaffold(
               appBar: AppBar(
-                title: Text(labels?.home?.title),
+                title: Text(labels!.home!.title!),
                 actions: [
                   IconButton(
                       icon: Icon(Icons.settings),
                       onPressed: () {
-                        Get.to(SettingsUI());
+                        Get.toNamed('/settings');
                       }),
                 ],
                 automaticallyImplyLeading: true,
@@ -53,16 +52,16 @@ class _HomeUIState extends State<HomeUI> {
                     Container(
                       child: UserAccountsDrawerHeader(
                         currentAccountPicture:
-                            Avatar(controller.firestoreUser.value),
+                            Avatar(controller.firestoreUser!.value),
                         accountName: Text(
-                            labels.home.nameLabel +
+                            labels.home!.nameLabel! +
                                 ': ' +
-                                controller.firestoreUser.value.name,
+                                controller.firestoreUser!.value!.name!,
                             style: TextStyle(fontSize: 16)),
                         accountEmail: Text(
-                            labels.home.emailLabel +
+                            labels.home!.emailLabel! +
                                 ': ' +
-                                controller.firestoreUser.value.email,
+                                controller.firestoreUser!.value!.email!,
                             style: TextStyle(fontSize: 16)),
                       ),
                     ),

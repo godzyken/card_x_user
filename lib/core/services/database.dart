@@ -114,7 +114,7 @@ class Database {
     });
   }
 
-  Stream<CardUserModel> streamCard(String uid) {
+  Stream<CardUserModel>? streamCard(String uid) {
 
     print('streamCard()');
     if ((cardUserModel.id != null) || (cardStream(uid) == cardUserModel.id)) {

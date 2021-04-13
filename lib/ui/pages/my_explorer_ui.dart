@@ -13,14 +13,14 @@ class MyExplorerUi extends StatefulWidget {
 
 class _MyExplorerUiState extends State<MyExplorerUi> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String _fileName;
-  String _path;
-  List<PlatformFile> _paths;
-  String _directoryPath;
-  String _extension;
+  String? _fileName;
+  late String _path;
+  List<PlatformFile>? _paths;
+  String? _directoryPath;
+  String? _extension;
   bool _loadingPath = false;
   bool _multiPick = false;
-  FileType _pickingType = FileType.any;
+  FileType? _pickingType = FileType.any;
   TextEditingController _controller = TextEditingController();
   List<UploadTask> _tasks = <UploadTask>[];
   Offset _offset = Offset.zero;
@@ -38,11 +38,11 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
     try {
       _directoryPath = null;
       _paths = (await FilePicker.platform.pickFiles(
-        type: _pickingType,
+        type: _pickingType!,
         allowMultiple: _multiPick,
-        allowedExtensions: (_extension?.isNotEmpty ?? false)
-            ? _extension?.replaceAll('', '')?.split(',')
-            : null,
+        allowedExtensions: ((_extension?.isNotEmpty ?? false)
+            ? _extension?.replaceAll('', '').split(',')
+            : null)!,
       ))
           ?.files;
     } on PlatformException catch (e) {
@@ -53,7 +53,8 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
     if (!mounted) return;
     setState(() {
       _loadingPath = false;
-      _fileName = _paths != null ? _paths.map((e) => e.name).toString() : '...';
+      _fileName =
+          _paths != null ? _paths!.map((e) => e.name).toString() : '...';
     });
   }
 
@@ -61,7 +62,7 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
     FilePicker.platform.clearTemporaryFiles().then((result) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: result ? Colors.green : Colors.red,
+          backgroundColor: result! ? Colors.green : Colors.red,
           content: Text((result
               ? 'Temporary files removed with success.'
               : 'Failed to clean temporary files')),
@@ -78,7 +79,7 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
 
   upLoadToFirebase() {
     if (_multiPick) {
-      _paths.forEach(
+      _paths!.forEach(
           (platformFile) => {upload(platformFile.path, platformFile.name)});
     } else {
       String fileName = _path.split('/').last;
@@ -157,7 +158,7 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
                         value: FileType.custom,
                       ),
                     ],
-                    onChanged: (value) => setState(() {
+                    onChanged: (dynamic value) => setState(() {
                           _pickingType = value;
                           if (_pickingType != FileType.custom) {
                             _controller.text = _extension = '';
@@ -253,7 +254,7 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
                     : _directoryPath != null
                         ? ListTile(
                             title: Text('Directory path'),
-                            subtitle: Text(_directoryPath),
+                            subtitle: Text(_directoryPath!),
                           )
                         : _paths != null
                             ? Container(
@@ -262,27 +263,28 @@ class _MyExplorerUiState extends State<MyExplorerUi> {
                                     MediaQuery.of(context).size.height * 0.50,
                                 child: Scrollbar(
                                     child: ListView.separated(
-                                  itemCount: _paths != null && _paths.isNotEmpty
-                                      ? _paths.length
-                                      : 1,
+                                  itemCount:
+                                      _paths != null && _paths!.isNotEmpty
+                                          ? _paths!.length
+                                          : 1,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    final bool isMultiPath =
-                                        _paths != null && _paths.isNotEmpty;
-                                    final String name = 'File $index: ' +
-                                        (isMultiPath
-                                            ? _paths
+                                    final bool? isMultiPath =
+                                        _paths != null && _paths!.isNotEmpty;
+                                    final String? name = 'File $index: ' +
+                                        (isMultiPath!
+                                            ? _paths!
                                                 .map((e) => e.name)
                                                 .toList()[index]
-                                            : _fileName ?? '...');
-                                    final path = _paths
+                                            : _fileName ?? '...')!;
+                                    final path = _paths!
                                         .map((e) => e.path)
                                         .toList()[index]
                                         .toString();
 
                                     return ListTile(
                                       title: Text(
-                                        name,
+                                        name!,
                                       ),
                                       subtitle: Text(path),
                                     );

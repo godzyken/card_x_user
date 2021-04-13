@@ -10,7 +10,7 @@ class Matrix3DRenderingPage extends StatefulWidget {
 }
 
 class _Matrix3DRenderingPageState extends State<Matrix3DRenderingPage> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
   @override
   Widget build(BuildContext context) {

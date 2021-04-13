@@ -1,19 +1,22 @@
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:agora_rtc_engine/rtc_engine.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:flutter/material.dart';
 
 class CallPage extends StatefulWidget {
   /// non-modifiable channel name of the page
-  final String channelName;
+  final String? channelName;
 
   /// non-modifiable client role of the page
-  final ClientRole role;
+  final ClientRole? role;
 
   /// Creates a call page with given channel name.
-  const CallPage({Key key, this.channelName, this.role}) : super(key: key);
+  const CallPage({Key? key, this.channelName, this.role}) : super(key: key);
 
   @override
   _CallPageState createState() => _CallPageState();
@@ -23,7 +26,7 @@ class _CallPageState extends State<CallPage> {
   final _users = <int>[];
   final _infoStrings = <String>[];
   bool muted = false;
-  RtcEngine _engine;
+  late RtcEngine _engine;
 
   @override
   void dispose() {
@@ -58,7 +61,7 @@ class _CallPageState extends State<CallPage> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    await _engine.joinChannel(helpers.Token, widget.channelName, null, 0);
+    await _engine.joinChannel(helpers.Token, widget.channelName!, null, 0);
   }
 
   /// Create agora sdk instance and initialize
@@ -66,7 +69,7 @@ class _CallPageState extends State<CallPage> {
     _engine = await RtcEngine.create(helpers.APP_ID);
     await _engine.enableVideo();
     await _engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
-    await _engine.setClientRole(widget.role);
+    await _engine.setClientRole(widget.role!);
   }
 
   /// Add agora event handlers
@@ -233,7 +236,7 @@ class _CallPageState extends State<CallPage> {
             itemCount: _infoStrings.length,
             itemBuilder: (BuildContext context, int index) {
               if (_infoStrings.isEmpty) {
-                return null;
+                return widget;
               }
               return Padding(
                 padding: const EdgeInsets.symmetric(

@@ -1,13 +1,12 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:card_x_user/localizations.dart';
-import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class ResetPasswordUI extends StatelessWidget {
-  final AuthController authController = AuthController.to;
+  final AuthController? authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
@@ -28,21 +27,21 @@ class ResetPasswordUI extends StatelessWidget {
                   LogoGraphicHeader(),
                   SizedBox(height: 48.0),
                   FormInputFieldWithIcon(
-                    controller: authController.emailController.value,
+                    controller: authController!.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
-                    validator: helpers.Validator(labels).email,
+                    // validator: helpers.Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.emailController.value.text = value,
+                    authController!.emailController.value.text = value!,
                   ),
                   FormVerticalSpace(),
                   PrimaryButton(
                       labelText: labels?.auth?.resetPasswordButton,
                       onPressed: () async {
-                        if (_formKey.currentState.validate()) {
-                          await authController.sendPasswordResetEmail(context);
+                        if (_formKey.currentState!.validate()) {
+                          await authController!.sendPasswordResetEmail(context);
                         }
                       }),
                   FormVerticalSpace(),
@@ -58,20 +57,20 @@ class ResetPasswordUI extends StatelessWidget {
 
   appBar(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    if ((authController.emailController.value.text == '') ||
-        (authController.emailController.value.text == null)) {
+    if ((authController!.emailController.value.text == '') ||
+        (authController!.emailController.value.text == null)) {
       return null;
     }
-    return AppBar(title: Text(labels?.auth?.resetPasswordTitle));
+    return AppBar(title: Text(labels!.auth!.resetPasswordTitle!));
   }
 
   signInLink(BuildContext context) {
     final labels = AppLocalizations.of(context);
-    if ((authController.emailController.value.text == '') ||
-        (authController.emailController.value.text == null)) {
+    if ((authController!.emailController.value.text == '') ||
+        (authController!.emailController.value.text == null)) {
       return LabelButton(
         labelText: labels?.auth?.signInonResetPasswordLabelButton,
-        onPressed: () => Get.offAll(SignInUI()),
+        onPressed: () => Get.toNamed('/sign-in'),
       );
     }
     return Container(width: 0, height: 0);

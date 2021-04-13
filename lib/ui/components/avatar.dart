@@ -7,7 +7,7 @@ class Avatar extends StatelessWidget {
     this.user,
   );
 
-  final UserModel user;
+  final UserModel? user;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class Avatar extends StatelessWidget {
           radius: 70.0,
           child: ClipOval(
             child: Image.network(
-              user?.photoUrl,
+              user!.photoUrl!,
               fit: BoxFit.cover,
               width: 120.0,
               height: 120.0,

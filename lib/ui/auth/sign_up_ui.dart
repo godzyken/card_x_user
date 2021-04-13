@@ -1,14 +1,13 @@
 import 'package:card_x_user/core/controllers/controllers.dart';
-import 'package:card_x_user/core/helpers/helpers.dart' as helpers;
 import 'package:card_x_user/localizations.dart';
-import 'package:card_x_user/ui/auth/auth.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class SignUpUI extends StatelessWidget {
-  final AuthController authController = AuthController.to;
+  final AuthController? authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
@@ -28,45 +27,45 @@ class SignUpUI extends StatelessWidget {
                   LogoGraphicHeader(),
                   SizedBox(height: 48.0),
                   FormInputFieldWithIcon(
-                    controller: authController.nameController.value,
+                    controller: authController!.nameController.value,
                     iconPrefix: Icons.person,
                     labelText: labels?.auth?.nameFormField,
-                    validator: helpers.Validator(labels).name,
+                    // validator: helpers.Validator(labels).name,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.nameController.value.text = value,
+                    authController!.nameController.value.text = value!,
                   ),
                   FormVerticalSpace(),
                   FormInputFieldWithIcon(
-                    controller: authController.emailController.value,
+                    controller: authController!.emailController.value,
                     iconPrefix: Icons.email,
                     labelText: labels?.auth?.emailFormField,
-                    validator: helpers.Validator(labels).email,
+                    // validator: helpers.Validator(labels).email,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.emailController.value.text = value,
+                    authController!.emailController.value.text = value!,
                   ),
                   FormVerticalSpace(),
                   FormInputFieldWithIcon(
-                    controller: authController.passwordController.value,
+                    controller: authController!.passwordController.value,
                     iconPrefix: Icons.lock,
                     labelText: labels?.auth?.passwordFormField,
-                    validator: helpers.Validator(labels).password,
+                    // validator: helpers.Validator(labels).password,
                     obscureText: true,
                     onChanged: (value) => null,
                     onSaved: (value) =>
-                    authController.passwordController.value.text = value,
+                    authController!.passwordController.value.text = value!,
                     maxLines: 1,
                   ),
                   FormVerticalSpace(),
                   PrimaryButton(
                       labelText: labels?.auth?.signUpButton,
                       onPressed: () async {
-                        if (_formKey.currentState.validate()) {
+                        if (_formKey.currentState!.validate()) {
                           SystemChannels.textInput.invokeMethod(
                               'TextInput.hide'); //to hide the keyboard - if any
-                          authController.registerWithEmailAndPassword(context);
+                          authController!.registerWithEmailAndPassword(context);
                         }
                       }),
                   FormVerticalSpace(),
@@ -74,13 +73,13 @@ class SignUpUI extends StatelessWidget {
                     labelText: labels?.auth?.googleSignInButton,
                     onPressed: () async {
                       SystemChannels.textInput.invokeMethod('TextInput.hide');
-                      authController.googleSignIn(context);
+                      authController!.googleSignIn(context);
                     },
                   ),
                   FormVerticalSpace(),
                   LabelButton(
                     labelText: labels?.auth?.signInLabelButton,
-                    onPressed: () => Get.to(SignInUI()),
+                    onPressed: () => Get.toNamed('/sign-in'),
                   ),
                 ],
               ),

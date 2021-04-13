@@ -19,7 +19,7 @@ class _UploadingImageToFirebaseUiState
   Filters currentFilter = Filters.none;
   Masks currentMask = Masks.none;
   bool isRecording = false;*/
-  File _imageFile;
+  late File _imageFile;
   final picker = ImagePicker();
 
   @override
@@ -36,7 +36,7 @@ class _UploadingImageToFirebaseUiState
 
     setState(() {
       // show(context);
-      _imageFile = File(pickedFile.path);
+      _imageFile = File(pickedFile!.path);
     });
   }
 

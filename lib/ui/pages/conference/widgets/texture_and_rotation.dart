@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,9 +12,9 @@ class ObjectWithTextureAndRotation extends StatefulWidget {
 
 class _ObjectWithTextureAndRotationState
     extends State<ObjectWithTextureAndRotation> {
-  ArCoreController arCoreController;
+  ArCoreController? arCoreController;
 
-  ArCoreRotatingNode node;
+  ArCoreRotatingNode? node;
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +40,9 @@ class _ObjectWithTextureAndRotationState
     );
   }
 
-  void _onArCoreViewCreated(ArCoreController controller) {
-    arCoreController = controller;
-    _addSphere(arCoreController);
+  void _onArCoreViewCreated(ArCoreController? controller) {
+    arCoreController = controller!;
+    _addSphere(arCoreController!);
   }
 
   Future _addSphere(ArCoreController controller) async {
@@ -60,17 +61,17 @@ class _ObjectWithTextureAndRotationState
       position: vector.Vector3(0, 0, -1.5),
       rotation: vector.Vector4(0, 0, 0, 0),
     );
-    controller.addArCoreNode(node);
+    controller.addArCoreNode(node!);
   }
 
-  onDegreesPerSecondChange(double value) {
+  onDegreesPerSecondChange(double? value) {
     if (node == null) {
       return;
     }
     debugPrint("onDegreesPerSecondChange");
-    if (node.degreesPerSecond.value != value) {
+    if (node!.degreesPerSecond.value != value) {
       debugPrint("onDegreesPerSecondChange: $value");
-      node.degreesPerSecond.value = value;
+      node!.degreesPerSecond.value = value!;
     }
   }
 
@@ -82,11 +83,11 @@ class _ObjectWithTextureAndRotationState
 }
 
 class RotationSlider extends StatefulWidget {
-  final double degreesPerSecondInitialValue;
-  final ValueChanged<double> onDegreesPerSecondChange;
+  final double? degreesPerSecondInitialValue;
+  final ValueChanged<double?>? onDegreesPerSecondChange;
 
   const RotationSlider(
-      {Key key,
+      {Key? key,
         this.degreesPerSecondInitialValue,
         this.onDegreesPerSecondChange})
       : super(key: key);
@@ -96,7 +97,7 @@ class RotationSlider extends StatefulWidget {
 }
 
 class _RotationSliderState extends State<RotationSlider> {
-  double degreesPerSecond;
+  double? degreesPerSecond;
 
   @override
   void initState() {
@@ -111,17 +112,17 @@ class _RotationSliderState extends State<RotationSlider> {
         Text("Degrees Per Second"),
         Expanded(
           child: Slider(
-            value: degreesPerSecond,
+            value: degreesPerSecond!,
             divisions: 8,
             min: 0.0,
             max: 360.0,
             onChangeEnd: (value) {
               degreesPerSecond = value;
-              widget.onDegreesPerSecondChange(degreesPerSecond);
+              widget.onDegreesPerSecondChange!(degreesPerSecond);
             },
-            onChanged: (double value) {
+            onChanged: (double? value) {
               setState(() {
-                degreesPerSecond = value;
+                degreesPerSecond = value!;
               });
             },
           ),

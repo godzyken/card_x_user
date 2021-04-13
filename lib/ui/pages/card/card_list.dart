@@ -8,16 +8,16 @@ class CardList extends GetWidget<AuthController> {
   @override
   Widget build(BuildContext context) {
     return GetX<CardController>(
-      init: Get.put<CardController>(CardController()),
-      builder: (CardController todoController) {
+      init: CardController(),
+      builder: (todoController) {
         if (todoController != null && todoController.cardUsers != null) {
           return Expanded(
             child: ListView.builder(
-              itemCount: todoController.cardUsers.length,
+              itemCount: todoController.cardUsers!.length,
               itemBuilder: (_, index) {
                 return AddUserCard(
-                    uid: controller.firebaseUser.value.uid,
-                    cardModel: todoController.cardUsers[index]);
+                    uid: controller.firebaseUser!.value!.uid,
+                    cardModel: todoController.cardUsers![index]);
               },
             ),
           );

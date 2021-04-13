@@ -12,8 +12,8 @@ class TestAr extends StatefulWidget {
 }
 
 /// Returns a suitable camera icon for [direction].
-IconData getCameraLensIcon(CameraLensDirection direction) {
-  switch (direction) {
+IconData getCameraLensIcon(CameraLensDirection? direction) {
+  switch (direction!) {
     case CameraLensDirection.back:
       return Icons.camera_rear;
     case CameraLensDirection.front:
@@ -24,28 +24,28 @@ IconData getCameraLensIcon(CameraLensDirection direction) {
   throw ArgumentError('Unknown lens direction');
 }
 
-void logError(String code, String message) =>
+void logError(String? code, String? message) =>
     print('Error: $code\nError Message: $message');
 
 
 class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProviderStateMixin {
-  CameraController controller;
-  XFile imageFile;
-  XFile videoFile;
-  VideoPlayerController videoController;
-  VoidCallback videoPlayerListener;
+  CameraController? controller;
+  XFile? imageFile;
+  late XFile videoFile;
+  VideoPlayerController? videoController;
+  late VoidCallback videoPlayerListener;
   bool enableAudio = true;
   double _minAvailableExposureOffset = 0.0;
   double _maxAvailableExposureOffset = 0.0;
   double _currentExposureOffset = 0.0;
-  AnimationController _flashModeControlRowAnimationController;
-  Animation<double> _flashModeControlRowAnimation;
-  AnimationController _exposureModeControlRowAnimationController;
-  Animation<double> _exposureModeControlRowAnimation;
-  AnimationController _focusModeControlRowAnimationController;
-  Animation<double> _focusModeControlRowAnimation;
-  double _minAvailableZoom;
-  double _maxAvailableZoom;
+  late AnimationController _flashModeControlRowAnimationController;
+  late Animation<double> _flashModeControlRowAnimation;
+  late AnimationController _exposureModeControlRowAnimationController;
+  late Animation<double> _exposureModeControlRowAnimation;
+  late AnimationController _focusModeControlRowAnimationController;
+  late Animation<double> _focusModeControlRowAnimation;
+  late double _minAvailableZoom;
+  late double _maxAvailableZoom;
   double _currentScale = 1.0;
   double _baseScale = 1.0;
 
@@ -55,7 +55,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
     _flashModeControlRowAnimationController = AnimationController(
       duration: const Duration(milliseconds: 300),
       vsync: this,
@@ -84,7 +84,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     _flashModeControlRowAnimationController.dispose();
     _exposureModeControlRowAnimationController.dispose();
     super.dispose();
@@ -93,14 +93,14 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // App state changed before we got the chance to initialize.
-    if (controller == null || !controller.value.isInitialized) {
+    if (controller == null || !controller!.value.isInitialized) {
       return;
     }
     if (state == AppLifecycleState.inactive) {
       controller?.dispose();
     } else if (state == AppLifecycleState.resumed) {
       if (controller != null) {
-        onNewCameraSelected(controller.description);
+        onNewCameraSelected(controller!.description);
       }
     }
   }
@@ -127,7 +127,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
               decoration: BoxDecoration(
                 color: Colors.black,
                 border: Border.all(
-                  color: controller != null && controller.value.isRecordingVideo
+                  color: controller != null && controller!.value.isRecordingVideo
                       ? Colors.redAccent
                       : Colors.grey,
                   width: 3.0,
@@ -154,7 +154,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   /// Display the preview from the camera (or a message if the preview is not available).
   Widget _cameraPreviewWidget() {
-    if (controller == null || !controller.value.isInitialized) {
+    if (controller == null || !controller!.value.isInitialized) {
       return const Text(
         'Tap a camera',
         style: TextStyle(
@@ -168,7 +168,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
         onPointerDown: (_) => _pointers++,
         onPointerUp: (_) => _pointers--,
         child: CameraPreview(
-          controller,
+          controller!,
           child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
                 return GestureDetector(
@@ -196,7 +196,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
     _currentScale = (_baseScale * details.scale)
         .clamp(_minAvailableZoom, _maxAvailableZoom);
 
-    await controller.setZoomLevel(_currentScale);
+    await controller!.setZoomLevel(_currentScale);
   }
 
   /// Display the thumbnail of the captured image or video.
@@ -211,15 +211,15 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
                 ? Container()
                 : SizedBox(
               child: (videoController == null)
-                  ? Image.file(File(imageFile.path))
+                  ? Image.file(File(imageFile!.path))
                   : Container(
                 child: Center(
                   child: AspectRatio(
                       aspectRatio:
-                      videoController.value.size != null
-                          ? videoController.value.aspectRatio
+                      videoController!.value.size != null
+                          ? videoController!.value.aspectRatio
                           : 1.0,
-                      child: VideoPlayer(videoController)),
+                      child: VideoPlayer(videoController!)),
                 ),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.pink)),
@@ -263,7 +263,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
               onPressed: controller != null ? onAudioModeButtonPressed : null,
             ),
             IconButton(
-              icon: Icon(controller?.value?.isCaptureOrientationLocked ?? false
+              icon: Icon(controller?.value.isCaptureOrientationLocked ?? false
                   ? Icons.screen_lock_rotation
                   : Icons.screen_rotation),
               color: Colors.blue,
@@ -290,7 +290,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
           children: [
             IconButton(
               icon: Icon(Icons.flash_off),
-              color: controller?.value?.flashMode == FlashMode.off
+              color: controller?.value.flashMode == FlashMode.off
                   ? Colors.orange
                   : Colors.blue,
               onPressed: controller != null
@@ -299,7 +299,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
             ),
             IconButton(
               icon: Icon(Icons.flash_auto),
-              color: controller?.value?.flashMode == FlashMode.auto
+              color: controller?.value.flashMode == FlashMode.auto
                   ? Colors.orange
                   : Colors.blue,
               onPressed: controller != null
@@ -308,7 +308,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
             ),
             IconButton(
               icon: Icon(Icons.flash_on),
-              color: controller?.value?.flashMode == FlashMode.always
+              color: controller?.value.flashMode == FlashMode.always
                   ? Colors.orange
                   : Colors.blue,
               onPressed: controller != null
@@ -317,7 +317,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
             ),
             IconButton(
               icon: Icon(Icons.highlight),
-              color: controller?.value?.flashMode == FlashMode.torch
+              color: controller?.value.flashMode == FlashMode.torch
                   ? Colors.orange
                   : Colors.blue,
               onPressed: controller != null
@@ -332,12 +332,12 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   Widget _exposureModeControlRowWidget() {
     final ButtonStyle styleAuto = TextButton.styleFrom(
-      primary: controller?.value?.exposureMode == ExposureMode.auto
+      primary: controller?.value.exposureMode == ExposureMode.auto
           ? Colors.orange
           : Colors.blue,
     );
     final ButtonStyle styleLocked = TextButton.styleFrom(
-      primary: controller?.value?.exposureMode == ExposureMode.locked
+      primary: controller?.value.exposureMode == ExposureMode.locked
           ? Colors.orange
           : Colors.blue,
     );
@@ -364,7 +364,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
                         onSetExposureModeButtonPressed(ExposureMode.auto)
                         : null,
                     onLongPress: () {
-                      if (controller != null) controller.setExposurePoint(null);
+                      if (controller != null) controller!.setExposurePoint(null);
                       showInSnackBar('Resetting exposure point');
                     },
                   ),
@@ -407,13 +407,13 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   }
 
   Widget _focusModeControlRowWidget() {
-    final ButtonStyle styleAuto = TextButton.styleFrom(
-      primary: controller?.value?.focusMode == FocusMode.auto
+    final ButtonStyle? styleAuto = TextButton.styleFrom(
+      primary: controller?.value.focusMode == FocusMode.auto
           ? Colors.orange
           : Colors.blue,
     );
     final ButtonStyle styleLocked = TextButton.styleFrom(
-      primary: controller?.value?.focusMode == FocusMode.locked
+      primary: controller?.value.focusMode == FocusMode.locked
           ? Colors.orange
           : Colors.blue,
     );
@@ -439,7 +439,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
                         ? () => onSetFocusModeButtonPressed(FocusMode.auto)
                         : null,
                     onLongPress: () {
-                      if (controller != null) controller.setFocusPoint(null);
+                      if (controller != null) controller!.setFocusPoint(null);
                       showInSnackBar('Resetting focus point');
                     },
                   ),
@@ -469,8 +469,8 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
           icon: const Icon(Icons.camera_alt),
           color: Colors.blue,
           onPressed: controller != null &&
-              controller.value.isInitialized &&
-              !controller.value.isRecordingVideo
+              controller!.value.isInitialized &&
+              !controller!.value.isRecordingVideo
               ? onTakePictureButtonPressed
               : null,
         ),
@@ -478,20 +478,20 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
           icon: const Icon(Icons.videocam),
           color: Colors.blue,
           onPressed: controller != null &&
-              controller.value.isInitialized &&
-              !controller.value.isRecordingVideo
+              controller!.value.isInitialized &&
+              !controller!.value.isRecordingVideo
               ? onVideoRecordButtonPressed
               : null,
         ),
         IconButton(
-          icon: controller != null && controller.value.isRecordingPaused
+          icon: controller != null && controller!.value.isRecordingPaused
               ? Icon(Icons.play_arrow)
               : Icon(Icons.pause),
           color: Colors.blue,
           onPressed: controller != null &&
-              controller.value.isInitialized &&
-              controller.value.isRecordingVideo
-              ? (controller != null && controller.value.isRecordingPaused
+              controller!.value.isInitialized &&
+              controller!.value.isRecordingVideo
+              ? (controller != null && controller!.value.isRecordingPaused
               ? onResumeButtonPressed
               : onPauseButtonPressed)
               : null,
@@ -500,8 +500,8 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
           icon: const Icon(Icons.stop),
           color: Colors.red,
           onPressed: controller != null &&
-              controller.value.isInitialized &&
-              controller.value.isRecordingVideo
+              controller!.value.isInitialized &&
+              controller!.value.isRecordingVideo
               ? onStopButtonPressed
               : null,
         )
@@ -524,7 +524,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
               title: Icon(getCameraLensIcon(cameraDescription.lensDirection)),
               groupValue: controller?.description,
               value: cameraDescription,
-              onChanged: controller != null && controller.value.isRecordingVideo
+              onChanged: controller != null && controller!.value.isRecordingVideo
                   ? null
                   : onNewCameraSelected,
             ),
@@ -540,7 +540,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   void showInSnackBar(String message) {
     // ignore: deprecated_member_use
-    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
+    _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text(message)));
   }
 
   void onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
@@ -548,40 +548,40 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
       details.localPosition.dx / constraints.maxWidth,
       details.localPosition.dy / constraints.maxHeight,
     );
-    controller.setExposurePoint(offset);
-    controller.setFocusPoint(offset);
+    controller!.setExposurePoint(offset);
+    controller!.setFocusPoint(offset);
   }
 
-  void onNewCameraSelected(CameraDescription cameraDescription) async {
+  void onNewCameraSelected(CameraDescription? cameraDescription) async {
     if (controller != null) {
-      await controller.dispose();
+      await controller!.dispose();
     }
     controller = CameraController(
-      cameraDescription,
+      cameraDescription!,
       ResolutionPreset.medium,
       enableAudio: enableAudio,
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
     // If the controller is updated then update the UI.
-    controller.addListener(() {
+    controller!.addListener(() {
       if (mounted) setState(() {});
-      if (controller.value.hasError) {
-        showInSnackBar('Camera error ${controller.value.errorDescription}');
+      if (controller!.value.hasError) {
+        showInSnackBar('Camera error ${controller!.value.errorDescription}');
       }
     });
 
     try {
-      await controller.initialize();
+      await controller!.initialize();
       await Future.wait([
-        controller
+        controller!
             .getMinExposureOffset()
             .then((value) => _minAvailableExposureOffset = value),
-        controller
+        controller!
             .getMaxExposureOffset()
             .then((value) => _maxAvailableExposureOffset = value),
-        controller.getMaxZoomLevel().then((value) => _maxAvailableZoom = value),
-        controller.getMinZoomLevel().then((value) => _minAvailableZoom = value),
+        controller!.getMaxZoomLevel().then((value) => _maxAvailableZoom = value),
+        controller!.getMinZoomLevel().then((value) => _minAvailableZoom = value),
       ]);
     } on CameraException catch (e) {
       _showCameraException(e);
@@ -593,7 +593,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   }
 
   void onTakePictureButtonPressed() {
-    takePicture().then((XFile file) {
+    takePicture().then((XFile? file) {
       if (mounted) {
         setState(() {
           imageFile = file;
@@ -638,19 +638,19 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   void onAudioModeButtonPressed() {
     enableAudio = !enableAudio;
     if (controller != null) {
-      onNewCameraSelected(controller.description);
+      onNewCameraSelected(controller!.description);
     }
   }
 
   void onCaptureOrientationLockButtonPressed() async {
     if (controller != null) {
-      if (controller.value.isCaptureOrientationLocked) {
-        await controller.unlockCaptureOrientation();
+      if (controller!.value.isCaptureOrientationLocked) {
+        await controller!.unlockCaptureOrientation();
         showInSnackBar('Capture orientation unlocked');
       } else {
-        await controller.lockCaptureOrientation();
+        await controller!.lockCaptureOrientation();
         showInSnackBar(
-            'Capture orientation locked to ${controller.value.lockedCaptureOrientation.toString().split('.').last}');
+            'Capture orientation locked to ${controller!.value.lockedCaptureOrientation.toString().split('.').last}');
       }
     }
   }
@@ -708,31 +708,31 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   }
 
   Future<void> startVideoRecording() async {
-    if (!controller.value.isInitialized) {
+    if (!controller!.value.isInitialized) {
       showInSnackBar('Error: select a camera first.');
       return;
     }
 
-    if (controller.value.isRecordingVideo) {
+    if (controller!.value.isRecordingVideo) {
       // A recording is already started, do nothing.
       return;
     }
 
     try {
-      await controller.startVideoRecording();
+      await controller!.startVideoRecording();
     } on CameraException catch (e) {
       _showCameraException(e);
       return;
     }
   }
 
-  Future<XFile> stopVideoRecording() async {
-    if (!controller.value.isRecordingVideo) {
+  Future<XFile?> stopVideoRecording() async {
+    if (!controller!.value.isRecordingVideo) {
       return null;
     }
 
     try {
-      return controller.stopVideoRecording();
+      return controller!.stopVideoRecording();
     } on CameraException catch (e) {
       _showCameraException(e);
       return null;
@@ -740,12 +740,12 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   }
 
   Future<void> pauseVideoRecording() async {
-    if (!controller.value.isRecordingVideo) {
+    if (!controller!.value.isRecordingVideo) {
       return null;
     }
 
     try {
-      await controller.pauseVideoRecording();
+      await controller!.pauseVideoRecording();
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -753,12 +753,12 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
   }
 
   Future<void> resumeVideoRecording() async {
-    if (!controller.value.isRecordingVideo) {
+    if (!controller!.value.isRecordingVideo) {
       return null;
     }
 
     try {
-      await controller.resumeVideoRecording();
+      await controller!.resumeVideoRecording();
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -767,7 +767,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   Future<void> setFlashMode(FlashMode mode) async {
     try {
-      await controller.setFlashMode(mode);
+      await controller!.setFlashMode(mode);
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -776,7 +776,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   Future<void> setExposureMode(ExposureMode mode) async {
     try {
-      await controller.setExposureMode(mode);
+      await controller!.setExposureMode(mode);
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -788,7 +788,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
       _currentExposureOffset = offset;
     });
     try {
-      offset = await controller.setExposureOffset(offset);
+      offset = await controller!.setExposureOffset(offset);
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -797,7 +797,7 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
 
   Future<void> setFocusMode(FocusMode mode) async {
     try {
-      await controller.setFocusMode(mode);
+      await controller!.setFocusMode(mode);
     } on CameraException catch (e) {
       _showCameraException(e);
       rethrow;
@@ -808,10 +808,10 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
     final VideoPlayerController vController =
     VideoPlayerController.file(File(videoFile.path));
     videoPlayerListener = () {
-      if (videoController != null && videoController.value.size != null) {
+      if (videoController != null && videoController!.value.size != null) {
         // Refreshing the state to update video player with the correct ratio.
         if (mounted) setState(() {});
-        videoController.removeListener(videoPlayerListener);
+        videoController!.removeListener(videoPlayerListener);
       }
     };
     vController.addListener(videoPlayerListener);
@@ -827,19 +827,19 @@ class _TestArState extends State<TestAr> with WidgetsBindingObserver, TickerProv
     await vController.play();
   }
 
-  Future<XFile> takePicture() async {
-    if (!controller.value.isInitialized) {
+  Future<XFile?> takePicture() async {
+    if (!controller!.value.isInitialized) {
       showInSnackBar('Error: select a camera first.');
       return null;
     }
 
-    if (controller.value.isTakingPicture) {
+    if (controller!.value.isTakingPicture) {
       // A capture is already pending, do nothing.
       return null;
     }
 
     try {
-      XFile file = await controller.takePicture();
+      XFile file = await controller!.takePicture();
       return file;
     } on CameraException catch (e) {
       _showCameraException(e);

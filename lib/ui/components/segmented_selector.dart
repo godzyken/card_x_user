@@ -13,9 +13,9 @@ class SegmentedSelector extends StatelessWidget {
   SegmentedSelector(
       {this.menuOptions, this.selectedOption, this.onValueChanged});
 
-  final List<dynamic> menuOptions;
-  final String selectedOption;
-  final void Function(dynamic) onValueChanged;
+  final List<dynamic>? menuOptions;
+  final String? selectedOption;
+  final void Function(dynamic)? onValueChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SegmentedSelector extends StatelessWidget {
       //thumbColor: Theme.of(context).primaryColor,
         groupValue: selectedOption,
         children: Map.fromIterable(
-          menuOptions,
+          menuOptions!,
           key: (option) => option.key,
           value: (option) => Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,6 +36,6 @@ class SegmentedSelector extends StatelessWidget {
             ],
           ),
         ),
-        onValueChanged: onValueChanged);
+        onValueChanged: onValueChanged!);
   }
 }

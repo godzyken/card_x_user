@@ -5,16 +5,16 @@ typedef OnRowSelect = void Function(int index);
 
 class UserCardDataTableSource extends DataTableSource {
   UserCardDataTableSource({
-    List<CardUserModel> userData,
+    required List<CardUserModel> userData,
     this.onRowSelect,
   })  : _userData = userData,
         assert(userData != null);
 
   final List<CardUserModel> _userData;
-  final OnRowSelect onRowSelect;
+  final OnRowSelect? onRowSelect;
 
   @override
-  DataRow getRow(int index) {
+  DataRow? getRow(int index) {
     assert(index >= 0);
 
     if (index >= _userData.length) {
@@ -36,7 +36,7 @@ class UserCardDataTableSource extends DataTableSource {
             hoverColor: Colors.transparent,
             splashColor: Colors.transparent,
             icon: const Icon(Icons.details),
-            onPressed: () => onRowSelect(index),
+            onPressed: () => onRowSelect!(index),
           ),
         ),
       ],

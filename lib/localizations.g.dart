@@ -736,9 +736,9 @@ class AppLocalizations {
     ),
   };
 
-  final AppLocalizations_Labels labels;
+  final AppLocalizations_Labels? labels;
 
-  static AppLocalizations_Labels of(BuildContext context) =>
+  static AppLocalizations_Labels? of(BuildContext context) =>
       Localizations.of<AppLocalizations>(context, AppLocalizations)?.labels;
 }
 
@@ -776,67 +776,67 @@ class AppLocalizations_Labels_Auth {
       this.wrongPasswordNotice,
       this.unknownError});
 
-  final String signInButton;
+  final String? signInButton;
 
-  final String signUpButton;
+  final String? signUpButton;
 
-  final String googleSignInButton;
+  final String? googleSignInButton;
 
-  final String resetPasswordButton;
+  final String? resetPasswordButton;
 
-  final String emailFormField;
+  final String? emailFormField;
 
-  final String passwordFormField;
+  final String? passwordFormField;
 
-  final String nameFormField;
+  final String? nameFormField;
 
-  final String signInErrorTitle;
+  final String? signInErrorTitle;
 
-  final String signInError;
+  final String? signInError;
 
-  final String resetPasswordLabelButton;
+  final String? resetPasswordLabelButton;
 
-  final String signUpLabelButton;
+  final String? signUpLabelButton;
 
-  final String signUpErrorTitle;
+  final String? signUpErrorTitle;
 
-  final String signUpError;
+  final String? signUpError;
 
-  final String signInLabelButton;
+  final String? signInLabelButton;
 
-  final String resetPasswordNoticeTitle;
+  final String? resetPasswordNoticeTitle;
 
-  final String resetPasswordNotice;
+  final String? resetPasswordNotice;
 
-  final String resetPasswordFailed;
+  final String? resetPasswordFailed;
 
-  final String signInonResetPasswordLabelButton;
+  final String? signInonResetPasswordLabelButton;
 
-  final String updateUser;
+  final String? updateUser;
 
-  final String updateUserSuccessNoticeTitle;
+  final String? updateUserSuccessNoticeTitle;
 
-  final String updateUserSuccessNotice;
+  final String? updateUserSuccessNotice;
 
-  final String updateUserFailNotice;
+  final String? updateUserFailNotice;
 
-  final String enterPassword;
+  final String? enterPassword;
 
-  final String cancel;
+  final String? cancel;
 
-  final String submit;
+  final String? submit;
 
-  final String changePasswordLabelButton;
+  final String? changePasswordLabelButton;
 
-  final String resetPasswordTitle;
+  final String? resetPasswordTitle;
 
-  final String updateProfileTitle;
+  final String? updateProfileTitle;
 
-  final String wrongPasswordNoticeTitle;
+  final String? wrongPasswordNoticeTitle;
 
-  final String wrongPasswordNotice;
+  final String? wrongPasswordNotice;
 
-  final String unknownError;
+  final String? unknownError;
 }
 
 class AppLocalizations_Labels_Settings {
@@ -850,21 +850,21 @@ class AppLocalizations_Labels_Settings {
       this.system,
       this.updateProfile});
 
-  final String title;
+  final String? title;
 
-  final String language;
+  final String? language;
 
-  final String theme;
+  final String? theme;
 
-  final String signOut;
+  final String? signOut;
 
-  final String dark;
+  final String? dark;
 
-  final String light;
+  final String? light;
 
-  final String system;
+  final String? system;
 
-  final String updateProfile;
+  final String? updateProfile;
 }
 
 class AppLocalizations_Labels_Home {
@@ -875,21 +875,21 @@ class AppLocalizations_Labels_Home {
       this.emailLabel,
       this.adminUserLabel});
 
-  final String title;
+  final String? title;
 
-  final String nameLabel;
+  final String? nameLabel;
 
-  final String uidLabel;
+  final String? uidLabel;
 
-  final String emailLabel;
+  final String? emailLabel;
 
-  final String adminUserLabel;
+  final String? adminUserLabel;
 }
 
 class AppLocalizations_Labels_App {
   const AppLocalizations_Labels_App({this.title});
 
-  final String title;
+  final String? title;
 }
 
 class AppLocalizations_Labels_Validator {
@@ -901,23 +901,23 @@ class AppLocalizations_Labels_Validator {
       this.notEmpty,
       this.amount});
 
-  final String email;
+  final String? email;
 
-  final String password;
+  final String? password;
 
-  final String name;
+  final String? name;
 
-  final String number;
+  final String? number;
 
-  final String notEmpty;
+  final String? notEmpty;
 
-  final String amount;
+  final String? amount;
 }
 
 class AppLocalizations_Labels_Splash {
   const AppLocalizations_Labels_Splash({this.welcome});
 
-  final String welcome;
+  final String? welcome;
 }
 
 class AppLocalizations_Labels_Card {
@@ -933,16 +933,16 @@ class AppLocalizations_Labels_Card {
       this.createACard,
       this.phoneNumber});
 
-  final String title;
-  final String activity;
-  final String location;
-  final String description;
-  final String contact;
-  final String schedules;
-  final String dateCreated;
-  final String createACard;
-  final String image;
-  final String phoneNumber;
+  final String? title;
+  final String? activity;
+  final String? location;
+  final String? description;
+  final String? contact;
+  final String? schedules;
+  final String? dateCreated;
+  final String? createACard;
+  final String? image;
+  final String? phoneNumber;
 }
 
 class AppLocalizations_Labels {
@@ -955,17 +955,17 @@ class AppLocalizations_Labels {
       this.splash,
       this.card});
 
-  final AppLocalizations_Labels_Auth auth;
+  final AppLocalizations_Labels_Auth? auth;
 
-  final AppLocalizations_Labels_Settings settings;
+  final AppLocalizations_Labels_Settings? settings;
 
-  final AppLocalizations_Labels_Home home;
+  final AppLocalizations_Labels_Home? home;
 
-  final AppLocalizations_Labels_App app;
+  final AppLocalizations_Labels_App? app;
 
-  final AppLocalizations_Labels_Validator validator;
+  final AppLocalizations_Labels_Validator? validator;
 
-  final AppLocalizations_Labels_Splash splash;
+  final AppLocalizations_Labels_Splash? splash;
 
-  final AppLocalizations_Labels_Card card;
+  final AppLocalizations_Labels_Card? card;
 }

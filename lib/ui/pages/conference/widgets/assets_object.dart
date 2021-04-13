@@ -7,9 +7,9 @@ class AssetsObject extends StatefulWidget {
 }
 
 class _AssetsObjectState extends State<AssetsObject> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
-  String objectSelected;
+  String? objectSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,8 @@ class _AssetsObjectState extends State<AssetsObject> {
     if (objectSelected != null) {
       //"https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF/Duck.gltf"
       final toucanoNode = ArCoreReferenceNode(
-          name: objectSelected,
-          object3DFileName: objectSelected,
+          name: objectSelected!,
+          object3DFileName: objectSelected!,
           position: plane.pose.translation,
           rotation: plane.pose.rotation);
 
@@ -98,7 +98,7 @@ class _AssetsObjectState extends State<AssetsObject> {
 }
 
 class ListObjectSelection extends StatefulWidget {
-  final Function onTap;
+  final Function? onTap;
 
   ListObjectSelection({this.onTap});
 
@@ -119,7 +119,7 @@ class _ListObjectSelectionState extends State<ListObjectSelection> {
     'artic_fox.sfb',
   ];
 
-  String selected;
+  String? selected;
 
   @override
   void initState() {
@@ -138,7 +138,7 @@ class _ListObjectSelectionState extends State<ListObjectSelection> {
             onTap: () {
               setState(() {
                 selected = gifs[index];
-                widget.onTap(objectsFileName[index]);
+                widget.onTap!(objectsFileName[index]);
               });
             },
             child: Card(

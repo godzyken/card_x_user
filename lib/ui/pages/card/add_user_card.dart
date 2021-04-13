@@ -3,10 +3,10 @@ import 'package:card_x_user/ui/components/components.dart';
 import 'package:flutter/material.dart';
 
 class AddUserCard extends StatelessWidget {
-  final String uid;
-  final CardUserModel cardModel;
+  final String? uid;
+  final CardUserModel? cardModel;
 
-  const AddUserCard({Key key, this.uid, this.cardModel}) : super(key: key);
+  const AddUserCard({Key? key, this.uid, this.cardModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class AddUserCard extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Text(
-                    cardModel.job,
+                    cardModel!.job,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class AddUserCard extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Text(
-                    cardModel.activity,
+                    cardModel!.activity,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class AddUserCard extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Text(
-                    cardModel.number,
+                    cardModel!.number,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class AddUserCard extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    cardModel.contact,
+                    cardModel!.contact,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class AddUserCard extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Text(
-                    cardModel.location,
+                    cardModel!.location,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class AddUserCard extends StatelessWidget {
                 FormVerticalSpace(),
                 Expanded(
                   child: Text(
-                    cardModel.schedules,
+                    cardModel!.schedules,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,

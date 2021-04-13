@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CardView extends GetView<AuthController> {
-  final UserModel userModel;
-  final CardUserModel cardUserModel;
+  final UserModel? userModel;
+  final CardUserModel? cardUserModel;
 
   CardView(this.userModel, this.cardUserModel);
   @override
@@ -20,8 +20,8 @@ class CardView extends GetView<AuthController> {
               itemCount: 1,
               itemBuilder: (_, index) {
                 return UserCard(
-                    uid: controller.firestoreUser.value.uid,
-                    cardUserModel: cardController.cardUsers[index]);
+                    uid: controller.firestoreUser!.value!.uid,
+                    cardUserModel: cardController.cardUsers![index]);
               },
             ),
           );

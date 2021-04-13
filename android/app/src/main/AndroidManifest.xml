@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.godzy.card_x_user">
 
-    <uses-sdk
-        android:minSdkVersion="21"
-        tools:overrideLibrary="com.difrancescogianmarco.arcore_flutter_plugin" />
+    <uses-sdk tools:overrideLibrary="com.difrancescogianmarco.arcore_flutter_plugin" />
 
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />

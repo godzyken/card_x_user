@@ -9,12 +9,12 @@ import 'package:get/get.dart';
 
 
 class Global {
-  final int newConfirmed;
-  final int totalConfirmed;
-  final int newDeaths;
-  final int totalDeaths;
-  final int newRecovered;
-  final int totalRecovered;
+  final int? newConfirmed;
+  final int? totalConfirmed;
+  final int? newDeaths;
+  final int? totalDeaths;
+  final int? newRecovered;
+  final int? totalRecovered;
 
   Global(
       {this.newConfirmed,
@@ -31,18 +31,18 @@ class Global {
 
   factory Global.fromJson(Map<String, dynamic> json) => Global(
         newConfirmed:
-            json["NewConfirmed"] == null ? null : json["NewConfirmed"] as int,
+            json["NewConfirmed"] == null ? null : json["NewConfirmed"] as int?,
         totalConfirmed: json["TotalConfirmed"] == null
             ? null
-            : json["TotalConfirmed"] as int,
-        newDeaths: json["NewDeaths"] == null ? null : json["NewDeaths"] as int,
+            : json["TotalConfirmed"] as int?,
+        newDeaths: json["NewDeaths"] == null ? null : json["NewDeaths"] as int?,
         totalDeaths:
-            json["TotalDeaths"] == null ? null : json["TotalDeaths"] as int,
+            json["TotalDeaths"] == null ? null : json["TotalDeaths"] as int?,
         newRecovered:
-            json["NewRecovered"] == null ? null : json["NewRecovered"] as int,
+            json["NewRecovered"] == null ? null : json["NewRecovered"] as int?,
         totalRecovered: json["TotalRecovered"] == null
             ? null
-            : json["TotalRecovered"] as int,
+            : json["TotalRecovered"] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -96,7 +96,7 @@ class CardModelu {
   CardModelu.fromJson(dynamic, json) {
     id = json['id'];
     name = json['name'];
-    dateCreated = json['dateCreated'] as Timestamp;
+    dateCreated = json['dateCreated'] as Timestamp?;
     done = json['done'];
     cardUserModel = json['cardUserModel'];
     global = json['global'];
@@ -104,13 +104,13 @@ class CardModelu {
 
   static CardModelu fromJson2(dynamic json) => CardModelu();
 
-  CardModelu.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
-    id = documentSnapshot.id;
-    name = documentSnapshot.data()["name"];
-    dateCreated = documentSnapshot.data()["dateCreated"];
-    cardUserModel = documentSnapshot.data()["cardUserModel"];
-    global = documentSnapshot.data()["global"];
-    done = documentSnapshot.data()["done"];
+  CardModelu.fromDocumentSnapshot(DocumentSnapshot? documentSnapshot) {
+    id = documentSnapshot!.id;
+    name = documentSnapshot.data()!["name"];
+    dateCreated = documentSnapshot.data()!["dateCreated"];
+    cardUserModel = documentSnapshot.data()!["cardUserModel"];
+    global = documentSnapshot.data()!["global"];
+    done = documentSnapshot.data()!["done"];
   }
 
   Map<String, dynamic> toJson() => {

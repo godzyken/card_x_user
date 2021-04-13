@@ -3,13 +3,13 @@ import 'package:card_x_user/core/models/models.dart';
 import 'package:flutter/material.dart';
 
 class OtherDetails extends StatelessWidget {
-  const OtherDetails({Key key, @required this.data})
+  const OtherDetails({Key? key, required this.data})
       : assert(data != null),
         super(key: key);
 
   final CardUserModel data;
 
-  Iterable<MapEntry<String, String>> get _fieldValues =>
+  Iterable<MapEntry<String, String?>> get _fieldValues =>
       _onGenerateFields(data).entries;
 
   @override
@@ -36,7 +36,7 @@ class OtherDetails extends StatelessWidget {
                 SizedBox(
                   width: _width * 0.1,
                   child: Text(
-                    _fieldValue.value,
+                    _fieldValue.value!,
                     style: const TextStyle(),
                   ),
                 )
@@ -48,7 +48,7 @@ class OtherDetails extends StatelessWidget {
     );
   }
 
-  Map<String, String> _onGenerateFields(CardUserModel data) {
+  Map<String, String?> _onGenerateFields(CardUserModel data) {
     final _fieldValues = {
       DataTableConstants.colID: data.id.toString(),
       DataTableConstants.colName: data.job,
@@ -60,6 +60,6 @@ class OtherDetails extends StatelessWidget {
       '${data.location.geo.lat}, ${data.location.geo.lng}',
     };
 
-    return _fieldValues;
+    return _fieldValues as Map<String, String?>;
   }
 }

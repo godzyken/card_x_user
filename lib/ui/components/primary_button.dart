@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   PrimaryButton({this.labelText, this.onPressed});
 
-  final String labelText;
-  final void Function() onPressed;
+  final String? labelText;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class PrimaryButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(
-        labelText.toUpperCase(),
+        labelText!.toUpperCase(),
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
     );

@@ -7,9 +7,9 @@ class RemoteObject extends StatefulWidget {
 }
 
 class _RemoteObjectState extends State<RemoteObject> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
-  String objectSelected;
+  String? objectSelected;
 
   @override
   Widget build(BuildContext context) {

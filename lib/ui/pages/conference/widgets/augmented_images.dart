@@ -8,7 +8,7 @@ class AugmentedPage extends StatefulWidget {
 }
 
 class _AugmentedPageState extends State<AugmentedPage> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
   Map<int, ArCoreAugmentedImage> augmentedImagesMap = Map();
 
   @override

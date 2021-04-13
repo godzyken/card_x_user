@@ -9,7 +9,7 @@ class ImageObjectScreen extends StatefulWidget {
 }
 
 class _ImageObjectScreenState extends State<ImageObjectScreen> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
   @override
   Widget build(BuildContext context) {

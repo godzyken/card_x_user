@@ -5,14 +5,14 @@ import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/services.dart';
 
 class AugmentedFacesScreen extends StatefulWidget {
-  const AugmentedFacesScreen({Key key}) : super(key: key);
+  const AugmentedFacesScreen({Key? key}) : super(key: key);
 
   @override
   _AugmentedFacesScreenState createState() => _AugmentedFacesScreenState();
 }
 
 class _AugmentedFacesScreenState extends State<AugmentedFacesScreen> {
-  ArCoreFaceController arCoreFaceController;
+  late ArCoreFaceController arCoreFaceController;
 
   @override
   Widget build(BuildContext context) {

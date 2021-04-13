@@ -10,13 +10,13 @@ import 'package:get/get.dart';
 
 
 class CardController extends GetxController {
-  Rx<List<CardModelu>> cardList = Rx<List<CardModelu>>();
-  List<CardModelu> get cards => cardList.value;
+  Rxn<List<CardModelu>>? cardList = Rxn<List<CardModelu>>();
+  List<CardModelu>? get cards => cardList!.value;
 
-  Rx<List<CardUserModel>> cardUserList = Rx<List<CardUserModel>>();
-  List<CardUserModel> get cardUsers => cardUserList.value;
+  Rxn<List<CardUserModel>>? cardUserList = Rxn<List<CardUserModel>>();
+  List<CardUserModel>? get cardUsers => cardUserList!.value;
 
-  Rx<CardUserModel> userCard = Rx<CardUserModel>();
+  Rxn<CardUserModel>? userCard = Rxn<CardUserModel>();
 
   Future getData(String collection) async {
     QuerySnapshot snapshot = await FirebaseFirestore.instance.collection(collection).get();
@@ -27,9 +27,9 @@ class CardController extends GetxController {
 
   // SORT COLUMN INDEX...
 
-  int get sortColumnIndex => _sortColumnIndex;
+  int? get sortColumnIndex => _sortColumnIndex;
 
-  set sortColumnIndex(int sortColumnIndex) {
+  set sortColumnIndex(int? sortColumnIndex) {
     _sortColumnIndex = sortColumnIndex;
     update();
   }
@@ -54,22 +54,22 @@ class CardController extends GetxController {
 
   var _cardUserModel = <CardUserModel>[];
 
-  int _sortColumnIndex;
+  int? _sortColumnIndex;
   bool _sortAscending = true;
   int _rowsPerPage = PaginatedDataTable.defaultRowsPerPage;
 
   Future<void> fetchData() async {
-    _cardUserModel = CardController().cardUsers.obs;
+    _cardUserModel = CardController().cardUsers!;
     update();
   }
 
   @override
   void onInit() {
     super.onInit();
-    String uid = Get.find<AuthController>().firestoreUser.value.uid;
-    cardList.bindStream(Database().cardStream(uid)); //stream coming from firebase
-    cardUserList.bindStream(Database().cardUserStream(uid)); //stream coming from firebase
-    userCard.bindStream(Database().streamCard(uid)); //stream coming from firebase
+    String uid = Get.find<AuthController>().firestoreUser!.value!.uid!;
+    cardList!.bindStream(Database().cardStream(uid)); //stream coming from firebase
+    cardUserList!.bindStream(Database().cardUserStream(uid)); //stream coming from firebase
+    userCard!.bindStream(Database().streamCard(uid)!); //stream coming from firebase
   }
 
   @override

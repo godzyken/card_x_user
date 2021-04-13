@@ -1,6 +1,6 @@
 class PhotoUrlModel {
-  String id;
-  String url;
+  String? id;
+  String? url;
   PhotoUrlModel({this.id, this.url});
 
   factory PhotoUrlModel.fromJson(Map<String, dynamic> json) {

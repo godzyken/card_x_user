@@ -8,7 +8,7 @@ class ArCoreTest extends StatefulWidget {
 }
 
 class _ArCoreTestState extends State<ArCoreTest> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
   @override
   Widget build(BuildContext context) {

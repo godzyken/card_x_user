@@ -3,21 +3,21 @@ import 'package:editable/editable.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
-  final List<Cols> cols;
-  final List<Rows> rows;
+  final List<Cols>? cols;
+  final List<Rows>? rows;
 
-  const Body({Key key, this.cols, this.rows}) : super(key: key);
+  const Body({Key? key, this.cols, this.rows}) : super(key: key);
 
   Widget bodyTable() => DataTable(
         onSelectAll: (b) {},
         sortColumnIndex: 0,
         sortAscending: true,
-        columns: cols.map((col) => DataColumn(
+        columns: cols!.map((col) => DataColumn(
             label: Text('${col.cardUserModel}'),
-            onSort: (columnIndex, ascending) => cols.length,
+            onSort: (columnIndex, ascending) => cols!.length,
             numeric: false,
-            tooltip: 'display job title')),
-        rows: rows.map((e) => DataRow(
+            tooltip: 'display job title')) as List<DataColumn>,
+        rows: rows!.map((e) => DataRow(
             selected: true,
             onSelectChanged: (b) {},
             cells: [DataCell(Text('${e.cardUserModel}'))])).toList(),
@@ -30,10 +30,10 @@ class Body extends StatelessWidget {
     return Scaffold(
       body: Editable(
         key: _editableKey,
-        columns: cols,
-        rows: rows,
+        columns: cols!,
+        rows: rows!,
         zebraStripe: true,
-        stripeColor2: Colors.grey[200],
+        stripeColor2: Colors.grey[200]!,
         onRowSaved: (value) => print(value),
         borderColor: Colors.blueGrey,
         showSaveIcon: true,

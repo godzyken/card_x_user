@@ -11,7 +11,7 @@ class RxCardUserModel {
   final number = ''.obs;
   final schedules = ''.obs;
   final status = false.obs;
-  final dateCreated = Timestamp.now().obs;
+  final Rx<Timestamp?> dateCreated = Timestamp.now().obs;
   final activity = ''.obs;
   final image = ''.obs;
 }
@@ -49,7 +49,7 @@ class CardUserModel {
 
   set description(value) => rx.description.value = value;
 
-  get dateCreated => rx.dateCreated.value.toDate();
+  get dateCreated => rx.dateCreated.value!.toDate();
 
   set dateCreated(value) => rx.dateCreated.value = value;
 
@@ -93,7 +93,7 @@ class CardUserModel {
     status = documentSnapshot["status"];
     image = documentSnapshot["image"];
     location = documentSnapshot["location"];
-    dateCreated = documentSnapshot["dateCreated"] as Timestamp;
+    dateCreated = documentSnapshot["dateCreated"] as Timestamp?;
     activity = documentSnapshot["activity"];
     contact = documentSnapshot["contact"];
     number = documentSnapshot["number"];
@@ -117,20 +117,20 @@ class CardUserModel {
   }
 
   factory CardUserModel.fromJson(Map<String, dynamic> json) => CardUserModel(
-    id: json["id"] == null ? null : json["id"] as String,
-    job: json["job"] == null ? null : json["job"] as String,
+    id: json["id"] == null ? null : json["id"] as String?,
+    job: json["job"] == null ? null : json["job"] as String?,
     description:
-    json["description"] == null ? null : json["description"] as String,
-    status: json["status"] == null ? null : json["status"] as String,
-    image: json["image"] == null ? null : json["image"] as String,
-    location: json["location"] == null ? null : json["location"] as String,
+    json["description"] == null ? null : json["description"] as String?,
+    status: json["status"] == null ? null : json["status"] as String?,
+    image: json["image"] == null ? null : json["image"] as String?,
+    location: json["location"] == null ? null : json["location"] as String?,
     dateCreated:
-    json["dateCreated"] == null ? null : json["dateCreated"] as Timestamp,
-    activity: json["activity"] == null ? null : json["activity"] as String,
-    contact: json["contact"] == null ? null : json["contact"] as String,
-    number: json["number"] == null ? null : json["number"] as String,
+    json["dateCreated"] == null ? null : json["dateCreated"] as Timestamp?,
+    activity: json["activity"] == null ? null : json["activity"] as String?,
+    contact: json["contact"] == null ? null : json["contact"] as String?,
+    number: json["number"] == null ? null : json["number"] as String?,
     schedules:
-    json["schedules"] == null ? null : json["schedules"] as String,
+    json["schedules"] == null ? null : json["schedules"] as String?,
   );
 
   factory CardUserModel.fromSnapshot(DocumentSnapshot snap) {

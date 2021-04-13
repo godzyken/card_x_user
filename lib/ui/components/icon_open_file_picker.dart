@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class IconOpenFilePicker extends StatelessWidget {
   final func;
-  final String text;
-  const IconOpenFilePicker({Key key, this.func, this.text}) : super(key: key);
+  final String? text;
+  const IconOpenFilePicker({Key? key, this.func, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

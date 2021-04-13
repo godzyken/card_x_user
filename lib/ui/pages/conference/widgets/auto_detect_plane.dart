@@ -8,8 +8,8 @@ class AutoDetectPlane extends StatefulWidget {
 }
 
 class _AutoDetectPlaneState extends State<AutoDetectPlane> {
-  ArCoreController arCoreController;
-  ArCoreNode node;
+  late ArCoreController arCoreController;
+  ArCoreNode? node;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
 
   void _handleOnPlaneDetected(ArCorePlane plane) {
     if (node != null) {
-      arCoreController.removeNode(nodeName: node.name);
+      arCoreController.removeNode(nodeName: node!.name);
     }
     _addSphere(arCoreController, plane);
   }
@@ -52,7 +52,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
         shape: sphere,
         position: plane.centerPose.translation,
         rotation: plane.centerPose.rotation);
-    controller.addArCoreNodeWithAnchor(node);
+    controller.addArCoreNodeWithAnchor(node!);
   }
 
   @override

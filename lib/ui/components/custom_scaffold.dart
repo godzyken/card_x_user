@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
-    Key key,
+    Key? key,
     this.titleText = 'Your Title',
     this.child,
     this.showAppBar = true,
@@ -11,25 +11,25 @@ class CustomScaffold extends StatelessWidget {
     this.showAppBarActions = false,
     this.enableDarkMode = false,
     this.drawerChild,
-    Widget bottomSheet,
+    Widget? bottomSheet,
     this.actions,
   })  : _bottomSheet = bottomSheet,
         super(key: key);
 
   final String titleText;
-  final Widget child;
+  final Widget? child;
   final bool showAppBar;
   final bool showAppBarActions;
   final bool showDrawer;
   final bool enableDarkMode;
-  final Widget drawerChild;
-  final Widget _bottomSheet;
-  final List<Widget> actions;
+  final Widget? drawerChild;
+  final Widget? _bottomSheet;
+  final List<Widget>? actions;
 
   static TextStyle get light => TextStyle();
   static TextStyle get dark => TextStyle();
 
-  List<Widget> get _showActions {
+  List<Widget>? get _showActions {
     if (showAppBarActions) {
       return actions;
     }

@@ -22,9 +22,7 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
 android {
     compileSdkVersion 30
 
@@ -36,9 +34,13 @@ android {
         disable 'InvalidPackage'
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.godzy.card_x_user"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -51,7 +53,7 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -70,18 +72,24 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.32"
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
     implementation 'com.google.ar.sceneform:core:1.17.1'
 
     api project(":sceneformux")
-    implementation 'com.google.ar:core:1.22.0'
+    implementation 'com.google.ar:core:1.23.0'
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-common:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.collection:collection-ktx:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.arch.core:core-common:2.1.0'
 
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test:rules:1.3.0'
@@ -93,17 +101,17 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 sceneform.asset('sampledata/andy.obj',
         'default',
         'sampledata/andy.sfa',
-        'src/main/assets/andy')
+        'src/main/res/raw/andy')
 
 sceneform.asset('sampledata/TocoToucan.obj',
         'default',
         'sampledata/TocoToucan.sfa',
-        'src/main/assets/toucan')
+        'src/main/res/raw/toucan')
 
 sceneform.asset('sampledata/ArcticFox_Posed.obj',
         'default',
         'sampledata/ArcticFox_Posed.sfa',
-        'src/main/assets/artic_fox')
+        'src/main/res/raw/artic_fox')
 
 /*sceneform.asset('sampledata/fox_face.fbx',
         'sampledata/fox_face_material.mat',
@@ -115,3 +123,5 @@ rootProject.ext {
             FirebaseSDKVersion: '26.1.1'
     ])
 }
+
+apply plugin: 'com.google.gms.google-services'

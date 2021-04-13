@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-typedef OnRowChange = void Function(int index);
+typedef OnRowChange = void Function(int? index);
 
 class CustomPaginatedTable extends StatelessWidget {
 
   const CustomPaginatedTable({
-    Key key,
+    Key? key,
     this.rowsPerPage = PaginatedDataTable.defaultRowsPerPage,
-    DataTableSource source,
-    List<DataColumn> dataColumns,
-    Widget header,
+    DataTableSource? source,
+    required List<DataColumn> dataColumns,
+    Widget? header,
     bool showActions = false,
-    List<Widget> actions,
+    List<Widget>? actions,
     this.sortColumnAsc = true,
     this.sortColumnIndex,
     this.onRowChanged,
@@ -27,37 +27,37 @@ class CustomPaginatedTable extends StatelessWidget {
         assert(sortColumnAsc != null),
   super(key: key);
 
-  final DataTableSource _source;
+  final DataTableSource? _source;
 
   /// This is the list of columns which will be shown
   ///
   /// at the top of the DataTable.
-  final List<DataColumn> _dataColumns;
+  final List<DataColumn>? _dataColumns;
 
-  final Widget _header;
+  final Widget? _header;
   final bool _showActions;
-  final List<Widget> _actions;
+  final List<Widget>? _actions;
   final int rowsPerPage;
-  final int sortColumnIndex;
+  final int? sortColumnIndex;
   final bool sortColumnAsc;
 
-  final OnRowChange onRowChanged;
+  final OnRowChange? onRowChanged;
 
-  DataTableSource get _fetchDataTableSource {
+  DataTableSource? get _fetchDataTableSource {
     if (_source != null) {
       return _source;
     }
     return _DefaultSource();
   }
 
-  List<DataColumn> get _fetchDataColumns {
+  List<DataColumn>? get _fetchDataColumns {
     if (_dataColumns != null) {
       return _dataColumns;
     }
     return _defColumns;
   }
 
-  Widget get _fetchHeader {
+  Widget? get _fetchHeader {
     if (_header != null) {
       return _header;
     }
@@ -65,7 +65,7 @@ class CustomPaginatedTable extends StatelessWidget {
     return const Text('Data with 7 rows per page');
   }
 
-  List<Widget> get _fetchActions {
+  List<Widget>? get _fetchActions {
     if (_showActions && _actions != null) {
       return _actions;
     } else if (!_showActions) {
@@ -82,11 +82,11 @@ class CustomPaginatedTable extends StatelessWidget {
       child: ConstrainedBox(
         child: PaginatedDataTable(
           actions: _fetchActions,
-          columns: _fetchDataColumns,
+          columns: _fetchDataColumns!,
           header: _fetchHeader,
           onRowsPerPageChanged: onRowChanged,
           rowsPerPage: rowsPerPage,
-          source: _fetchDataTableSource,
+          source: _fetchDataTableSource!,
           sortColumnIndex: sortColumnIndex,
           sortAscending: sortColumnAsc,
         ),

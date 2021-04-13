@@ -4,10 +4,10 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
-  String uid;
-  String email;
-  String name;
-  String photoUrl;
+  String? uid;
+  String? email;
+  String? name;
+  String? photoUrl;
 
   UserModel({this.uid, this.email, this.name, this.photoUrl});
 
@@ -16,7 +16,7 @@ class UserModel {
 
   String toRawJson() => json.encode(toJson());
 
-  UserModel.fromDocumentSnapshot({DocumentSnapshot documentSnapshot}) {
+  UserModel.fromDocumentSnapshot({required DocumentSnapshot documentSnapshot}) {
     uid = documentSnapshot.id;
     name = documentSnapshot["name"];
     email = documentSnapshot["email"];
@@ -33,14 +33,14 @@ class UserModel {
   }
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        uid: json["Uid"] == null ? null : json["Uid"] as String,
-        name: json["Name"] == null ? null : json["Name"] as String,
-        email: json["Email"] == null ? null : json["Email"] as String,
-        photoUrl: json["PhotoUrl"] == null ? null : json["PhotoUrl"] as String,
+        uid: json["Uid"] == null ? null : json["Uid"] as String?,
+        name: json["Name"] == null ? null : json["Name"] as String?,
+        email: json["Email"] == null ? null : json["Email"] as String?,
+        photoUrl: json["PhotoUrl"] == null ? null : json["PhotoUrl"] as String?,
       );
 
-  factory UserModel.fromSnapshot(DocumentSnapshot snap) {
-    Map<String, dynamic> map = snap.data();
+  factory UserModel.fromSnapshot(DocumentSnapshot? snap) {
+    Map<String, dynamic> map = snap!.data()!;
     if (map.containsKey('name')) {
       return UserModel.fromMap(
         map,

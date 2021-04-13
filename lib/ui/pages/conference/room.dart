@@ -15,7 +15,7 @@ class RoomState extends State<RoomPage> {
   /// if channel textField is validated to have error
   bool _validateError = false;
 
-  ClientRole _role = ClientRole.Broadcaster;
+  ClientRole? _role = ClientRole.Broadcaster;
 
   @override
   void dispose() {
@@ -59,7 +59,7 @@ class RoomState extends State<RoomPage> {
                     leading: Radio(
                       value: ClientRole.Broadcaster,
                       groupValue: _role,
-                      onChanged: (ClientRole value) {
+                      onChanged: (ClientRole? value) {
                         setState(() {
                           _role = value;
                         });
@@ -71,7 +71,7 @@ class RoomState extends State<RoomPage> {
                     leading: Radio(
                       value: ClientRole.Audience,
                       groupValue: _role,
-                      onChanged: (ClientRole value) {
+                      onChanged: (ClientRole? value) {
                         setState(() {
                           _role = value;
                         });

@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 
 
 class UserCard extends StatelessWidget {
-  final String uid;
-  final CardUserModel cardUserModel;
+  final String? uid;
+  final CardUserModel? cardUserModel;
 
-  const UserCard({Key key, this.uid, this.cardUserModel}) : super(key: key);
+  const UserCard({Key? key, this.uid, this.cardUserModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final labels = AppLocalizations.of(context);
+    final labels = AppLocalizations.of(context)!;
 
     return Container(
       decoration: BoxDecoration(
         image: new DecorationImage(
-          image: NetworkImage('${cardUserModel.image}', scale: 1.0),
+          image: NetworkImage('${cardUserModel!.image}', scale: 1.0),
           fit: BoxFit.cover,
         ),
       ),
@@ -40,7 +40,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(labels.card.title + ': ${cardUserModel.job}',
+                  child: Text(labels.card!.title! + ': ${cardUserModel!.job}',
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
                       fontSize: 25,
@@ -56,7 +56,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(labels.card.activity + ': ${cardUserModel.activity}',
+                  child: Text(labels.card!.activity! + ': ${cardUserModel!.activity}',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(labels.card.location + ': ${cardUserModel.location}',
+                  child: Text(labels.card!.location! + ': ${cardUserModel!.location}',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class UserCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(labels.card.description + ': ${cardUserModel.description}',
+                  child: Text(labels.card!.description! + ': ${cardUserModel!.description}',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -102,7 +102,7 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    labels.card.phoneNumber + ': ${cardUserModel.number}',
+                    labels.card!.phoneNumber! + ': ${cardUserModel!.number}',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    labels.card.contact + ': ${cardUserModel.contact}',
+                    labels.card!.contact! + ': ${cardUserModel!.contact}',
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
                       fontSize: 22,
@@ -135,7 +135,7 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    labels.card.schedules + ': ${cardUserModel.schedules}',
+                    labels.card!.schedules! + ': ${cardUserModel!.schedules}',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -151,7 +151,7 @@ class UserCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    labels.card.dateCreated + ': ${cardUserModel.dateCreated}',
+                    labels.card!.dateCreated! + ': ${cardUserModel!.dateCreated}',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,

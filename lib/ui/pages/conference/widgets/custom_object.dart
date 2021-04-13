@@ -11,7 +11,7 @@ class CustomObject extends StatefulWidget {
 }
 
 class _CustomObjectState extends State<CustomObject> {
-  ArCoreController arCoreController;
+  late ArCoreController arCoreController;
 
   @override
   Widget build(BuildContext context) {

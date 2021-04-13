@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CardDetailsView extends StatelessWidget {
-  final UserModel userModel;
-  final CardUserModel cardUserModel;
+  final UserModel? userModel;
+  final CardUserModel? cardUserModel;
 
-  const CardDetailsView({Key key, this.userModel, this.cardUserModel})
+  const CardDetailsView({Key? key, this.userModel, this.cardUserModel})
       : super(key: key);
 
   @override
@@ -48,7 +48,7 @@ class CardDetailsView extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                userModel.email,
+                userModel!.email!,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class CardDetailsView extends StatelessWidget {
             FormVerticalSpace(),
             Expanded(
               child: Text(
-                userModel.name,
+                userModel!.name!,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,

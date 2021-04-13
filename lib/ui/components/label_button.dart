@@ -8,14 +8,14 @@ LabelButton(
 
 class LabelButton extends StatelessWidget {
   LabelButton({this.labelText, this.onPressed});
-  final String labelText;
-  final void Function() onPressed;
+  final String? labelText;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       child: Text(
-        labelText,
+        labelText!,
       ),
       onPressed: onPressed,
     );

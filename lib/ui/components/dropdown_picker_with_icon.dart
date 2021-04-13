@@ -4,15 +4,15 @@ class DropdownPickerWithIcon extends StatelessWidget {
   DropdownPickerWithIcon(
       {this.menuOptions, this.selectedOption, this.onChanged});
 
-  final List<dynamic> menuOptions;
-  final String selectedOption;
-  final void Function(String) onChanged;
+  final List<dynamic>? menuOptions;
+  final String? selectedOption;
+  final void Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     //if (Platform.isIOS) {}
     return DropdownButton<String>(
-        items: menuOptions
+        items: menuOptions!
             .map((data) => DropdownMenuItem<String>(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
