@@ -3,10 +3,10 @@ import 'package:flutter/rendering.dart';
 
 extension WidgetModifier on Widget {
   /// Set the background color..
-  Widget background(Color color) {
+  Widget background(Color? color) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: color,
+        color: color!,
       ),
       child: this,
     );
@@ -42,13 +42,13 @@ extension WidgetModifier on Widget {
     );
   }
 
-  Widget clickable(void Function() action, {bool opaque = true}) {
+  Widget clickable(void Function() action, {bool? opaque = true}) {
     return GestureDetector(
-      behavior: opaque ? HitTestBehavior.opaque : HitTestBehavior.deferToChild,
+      behavior: opaque! ? HitTestBehavior.opaque : HitTestBehavior.deferToChild,
       onTap: action,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
-        opaque: opaque ?? false,
+        opaque: opaque,
         child: this,
       ),
     );

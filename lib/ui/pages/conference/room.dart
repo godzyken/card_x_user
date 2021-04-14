@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:card_x_user/ui/pages/conference/conference.dart';
 import 'package:flutter/material.dart';

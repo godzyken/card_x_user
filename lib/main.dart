@@ -4,13 +4,12 @@ import 'package:card_x_user/core/controllers/controllers.dart';
 import 'package:card_x_user/localizations.dart';
 import 'package:card_x_user/ui/components/components.dart';
 import 'package:card_x_user/ui/pages/conference/conference.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart'
     show ArCoreController;
 
@@ -56,11 +55,6 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.languages.keys.toList(),
-          // <- Supported locales
-          //end language translation stuff
-          navigatorObservers: [
-            FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
-          ],
           debugShowCheckedModeBanner: false,
           //defaultTransition: Transition.fade,
           theme: AppThemes.lightTheme,
