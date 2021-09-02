@@ -1,0 +1,50 @@
+{
+  "product": {
+    "idProduct": 265535,
+    "idMetaproduct": 9372,
+    "countReprints": 2,
+    "enName": "Springleaf Drum",
+    "localization": [
+      {
+        "idLanguage": 1,
+        "languageName": "English",
+        "productName": "Springleaf Drum"
+      },
+      {
+        "idLanguage": 2,
+        "languageName": "French",
+        "productName": "Tambour de sautefeuille"
+      }
+    ],
+    "website": "/Products/Singles/Born+of+the+Gods/Springleaf+Drum",
+    "image": "./img/cards/Born_of_the_Gods/springleaf_drum.jpg",
+    "gameName": "Magic the Gathering",
+    "categoryName": "Magic Single",
+    "number": "162",
+    "rarity": "Uncommon",
+    "expansion": {
+      "idExpansion": 1469,
+      "enName": "Born of the Gods",
+      "expansionIcon": 246
+    },
+    "priceGuide": {
+      "SELL": 0.29,
+      "LOW": 0.02,
+      "LOWEX": 0,
+      "LOWFOIL": 0.02,
+      "AVG": 0.44,
+      "TREND": 0.28,
+      "TRENDFOIL": 4.00
+    },
+    "reprint": [
+      {
+        "idProduct": 18002,
+        "expansion": "Lorwyn",
+        "expansionIcon": 81
+      }
+    ],
+    "links": {
+      "url": "https://api.cardmarket.com/ws/documentation/API_2.0:Entities:Hateoas"
+    }
+  }
+}

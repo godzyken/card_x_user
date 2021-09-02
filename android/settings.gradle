@@ -10,8 +10,9 @@ def flutterSdkPath = properties.getProperty("flutter.sdk")
 assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
 apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
 
+/*
 include ':sceneform'
 project(':sceneform').projectDir=new File('sceneformsrc/sceneform')
 
 include ':sceneformux'
-project(':sceneformux').projectDir=new File('sceneformux/ux')
+project(':sceneformux').projectDir=new File('sceneformux/ux')*/

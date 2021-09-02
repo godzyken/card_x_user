@@ -1,0 +1,214 @@
+{
+  "packs": [
+    {
+      "name": "de-DE-v301-f25",
+      "language-tag": "de-DE",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/de-DE/v301/de-DE-v301-f25.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "d7bff51b61c9af10f86a78b906581263",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 17148168,
+      "size": 37815455,
+      "verify_sizes": true
+    },
+    {
+      "name": "en-AU-v301-f25",
+      "language-tag": "en-AU",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/en-AU/v301/en-AU-v301-f25.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "e8dc9b8d47b9d62d95d32ef1c462603b",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 15853431,
+      "size": 34009928,
+      "verify_sizes": true
+    },
+    {
+      "name": "en-CA-v301-f24",
+      "language-tag": "en-CA",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/en-CA/v301/en-CA-v301-f24.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "f7d4ddc11880a9269ba3a8bfda36d7e2",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 15429867,
+      "size": 31773305,
+      "verify_sizes": true
+    },
+    {
+      "name": "en-GB-v201-f20",
+      "language-tag": "en-GB",
+      "version": "201",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/en-GB/v201/en-GB-v201-f20.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "5d6db746c2b199a484b4a82d41320503",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 18979692,
+      "size": 40090820,
+      "verify_sizes": true
+    },
+    {
+      "name": "en-IN-v301-f25",
+      "language-tag": "en-IN",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/en-IN/v301/en-IN-v301-f25.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "195b0452de29a7eaec88092d2165c766",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 15766162,
+      "size": 31846273,
+      "verify_sizes": true
+    },
+    {
+      "name": "en-US-v310-f32",
+      "language-tag": "en-US",
+      "version": "310",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/en-US/v310/en-US-v310-f32.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "3aea0ac41d60b5a6eb654c385e8a4e71",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 24985950,
+      "size": 49255892,
+      "verify_sizes": true
+    },
+    {
+      "name": "es-ES-v301-f25",
+      "language-tag": "es-ES",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/es-ES/v301/es-ES-v301-f25.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "9cd9f3eb33d6695ee20f72ad276d0cdc",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 12854156,
+      "size": 25240066,
+      "verify_sizes": true
+    },
+    {
+      "name": "es-US-v200-f2",
+      "language-tag": "es-US",
+      "version": "200",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/es-US/v200/es-US-v200-f21.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "e7de2d5542ae66fe54fc002bcc73258c",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 10008072,
+      "size": 18790284,
+      "verify_sizes": true
+    },
+    {
+      "name": "fr-FR-v401-f29",
+      "language-tag": "fr-FR",
+      "version": "401",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/fr-FR/v401/fr-FR-v401-f29.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "81fcd81dee503844b7433eb0f0201562",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 18649381,
+      "size": 40567935,
+      "verify_sizes": true
+    },
+    {
+      "name": "hi-IN-v200-f18",
+      "language-tag": "hi-IN",
+      "version": "200",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/hi-IN/v200/hi-IN-v200-f18.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "f017f18c092885735b16916d649c8a37",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 14641316,
+      "size": 23462277,
+      "verify_sizes": true
+    },
+    {
+      "name": "id-ID-v200-f21",
+      "language-tag": "id-ID",
+      "version": "200",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/id-ID/v200/id-ID-v200-f21.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "013941153f23d22c0f48067f5231fbc4",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 9969854,
+      "size": 14808306,
+      "verify_sizes": true
+    },
+    {
+      "name": "it-IT-v301-f25",
+      "language-tag": "it-IT",
+      "version": "301",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/it-IT/v301/it-IT-v301-f25.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "31989c83b2f55c38ccca8bbcd744cfb7",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 12784686,
+      "size": 25306761,
+      "verify_sizes": true
+    },
+    {
+      "name": "nl-NL-v1",
+      "language-tag": "nl-NL",
+      "version": "1",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/nl-NL/nl-NL-v1.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "718e0f9685fed01efb0affb975d12ab2",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 18524265,
+      "size": 23519854,
+      "verify_sizes": true
+    },
+    {
+      "name": "pt-BR-v200-f20",
+      "language-tag": "pt-BR",
+      "version": "200",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/pt-BR/v200/pt-BR-v200-f20.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "5dd13d7a250f472579bdfeb7255a503c",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 15076546,
+      "size": 24646065,
+      "verify_sizes": true
+    },
+    {
+      "name": "ru-RU-v200-f20",
+      "language-tag": "ru-RU",
+      "version": "200",
+      "download_urls": [
+        "https://dl.google.com/android/voice/gboard/terse/ru-RU/v200/ru-RU-v200-f20.zip"
+      ],
+      "download_packing_scheme": "zip",
+      "md5_checksum": "79cb3b70413abf6618ba183782c6cd5f",
+      "validation_schemes":  [ "md5" ],
+      "compressed_size": 15138433,
+      "size": 24387457,
+      "verify_sizes": true
+    }
+  ]
+}

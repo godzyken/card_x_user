@@ -1,0 +1,29 @@
+{
+  "localization": [
+    {
+      "idLanguage": 1,
+      "languageName": "English",
+      "name": "Tarmogoyf"
+    },
+    {
+      "idLanguage": 2,
+      "languageName": "French",
+      "name": "Tarmogoyf"
+    },
+    {
+      "idLanguage": 3,
+      "languageName": "German",
+      "name": "Tarmogoyf"
+    },
+    {
+      "idLanguage": 4,
+      "languageName": "Spanish",
+      "name": "Tarmogoyf"
+    },
+    {
+      "idLanguage": 5,
+      "languageName": "Italian",
+      "name": "Tarmogoyf"
+    }
+  ]
+}

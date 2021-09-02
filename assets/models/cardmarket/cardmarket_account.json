@@ -1,0 +1,79 @@
+{
+  "account": {
+    "idUser": 123456789,
+    "username": "CranePooleSchmidt",
+    "country": "D",
+    "isCommercial": 1,
+    "maySell": true,
+    "sellerActivation": 3,
+    "riskGroup": 0,
+    "lossPercentage": "0 - 2%",
+    "reputation": 1,
+    "shipsFast": -1,
+    "sellCount": 36,
+    "soldItems": 96,
+    "avgShippingTime": 1,
+    "onVacation": false,
+    "idDisplayLanguage": 1,
+    "name": {
+      "firstName": "Denny",
+      "lastName": "Crane"
+    },
+    "homeAddress": {
+      "name": "Denny Crane",
+      "extra": null,
+      "street": "500 Boylston Street",
+      "zip": "02116",
+      "city": "Boston",
+      "country": "D"
+    },
+    "email": "denny.crane@cranepooleschmidt.com",
+    "phoneNumber": "00491234567890",
+    "vat": null,
+    "legalInformation": "",
+    "registerDate": "2011-10-26T09: 20: 12+0200",
+    "isActivated": true,
+    "moneyDetails": {
+      "totalBalance": 24.48,
+      "moneyBalance": 24.44,
+      "bonusBalance": 0.04,
+      "unpaidAmount": 0,
+      "providerRechargeAmount": 0
+    },
+    "bankAccount": {
+      "accountOwner": "Denny Crane",
+      "iban": "DENNYCRANE",
+      "bic": "DCBANK",
+      "bankName": "Denny Crane Bank"
+    },
+    "articlesInShoppingCart": 0,
+    "unreadMessages": 0
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "\/account",
+      "method": "GET"
+    },
+    {
+      "rel": "vacation",
+      "href": "\/account\/vacation",
+      "method": "PUT"
+    },
+    {
+      "rel": "language",
+      "href": "\/account\/language",
+      "method": "PUT"
+    },
+    {
+      "rel": "list_message_threads",
+      "href": "\/account\/messages",
+      "method": "GET"
+    },
+    {
+      "rel": "redeem_coupon",
+      "href": "\/account\/coupon",
+      "method": "POST"
+    }
+  ]
+}

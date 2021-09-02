@@ -1,0 +1,56 @@
+///Third-party application rate limits depend on your API key.
+///By default, requests are limited to 20,000/day.
+//If you need a higher rate limit, feel free to contact me via Discord or email and we can discuss.
+///If you aren’t using an API key, you are rate limited to 1000 requests a day, and a maxium of 30 per minute.
+
+///de24380f-8a46-4f2c-a139-716db256d4f9
+
+///Terms of services///
+
+/*
+These are the Terms of Service for using the Pokémon TCG API. You must read these terms and agree to them before using an API Key for the Pokémon TCG API account. If you do not agree with these terms, you may not use the Pokémon TCG API.
+
+We're going to use some shorthand to make this easier to read: When we say "Pokémon TCG API" we mean the Pokémon TCG Developer Portal, API, chat bots, chat rooms, and other related services. When we say "we" or "us" we mean the Pokémon TCG Developer team - those that actually develop the API.
+
+We may modify these terms at any time. We’ll try not to, but just know that we can change these terms at any time. If the changes are material, we’ll let you know by email or by posting a notice before the changes go into effect. The notice will designate a reasonable amount of time after which the new terms will go into effect for all users. If you don’t agree to the new terms, you may delete your account and stop using the Pokémon TCG API. If you do not delete your account or do not stop using the Pokémon TCG API within the notice period, your content and use of the site will be subject to the new Terms of Service going forward.
+
+Acceptable Use
+You must follow these rules for acceptable use. These rules protect you and others on the Pokémon TCG API from disruptive and toxic behavior.
+
+You may not interfere with the Pokémon TCG API's operation
+
+You may not attempt to gain access to another user's account
+You may not attempt to disrupt or tamper with the Pokémon TCG API's servers or services
+You may not place undue burden on the Pokémon TCG API through the use of automated means
+One API Key per person and one API Key per team/company
+
+You may at most use one API Key to interact with the Pokémon TCG API
+If you represent a particular company or team, you may create a separate professional account from your own personal account, but only one.
+Your Pokémon TCG API account belongs to you alone, and is not shareable or transferable
+
+You may not register a Pokémon TCG API account with the intent to share access to it with other parties or make it intentionally insecure, open, or "generic". This includes sharing access to API Keys.
+You may not sell, trade, or transfer ownership of your Pokémon TCG API account to another party
+Failure to comply has consequences. If you fail to adhere to these guidelines for acceptable use, we may (but do not have to) take any of the following actions:
+
+We may issue you a warning
+We may eject you from Pokémon TCG API-owned chatrooms
+We may suspend or delete your account
+We may restrict your future access to our services
+We may report any illegal activities to your internet service provider or appropriate law enforcement authorities
+The Pokémon TCG API team may have to take actions or make decisions about acceptable behavior that lie outside of these guidelines to protect themselves or other users. You agree that the Pokémon TCG Developer team is the final arbiter of appropriate behavior on our services and we reserve the right to suspend anyone's access to the Pokémon TCG Developer portal and Pokémon TCG API at any time, with or without cause, and with or without notice.
+
+Limitation of Liability
+
+The Pokémon TCG API is provided "AS-IS". We do our best to provide you a reliable and evolving service, but we may change, terminate
+
+The Pokémon TCG API is provided on an "AS-AVAILABLE" basis. While we will do our best to avoid it, the Pokémon TCG API may have downtime, outages, or periods of slow activity.
+
+You use the Pokémon TCG API at your own risk. You agree that the Pokémon TCG API does not owe you any compensation for site outages, software bugs, inconveniences, or our failure to live up to any statement in this document. You further agree that you will not hold us liable for any loseses, whether those be personal, financial, data, or competitive, arising from your use of the Pokémon TCG API.
+
+Price data is for informational purposes only. The Pokémon TCG API may include information about the price of third-party products or cards. Absolutely no guarantees are made for this information. See stores for final prices.
+
+Card legality is provided for informational purposes only. The Pokémon TCG API may include information about the tournament legality of cards. Absolutely no guarantees are made for this information.
+
+Questions?
+
+If you have questiosn or concerns about these terms, please don't hesitate to contact us at andrew@pokemontcg.io.*/

@@ -1,0 +1,13 @@
+{
+  "evaluation": {
+    "evaluationGrade": 1,
+    "itemDescription": 4,
+    "packaging": 1,
+    "speed": 1,
+    "comment": "not foil, but alternate art and wrong edition",
+    "complaint": [
+      "wrongEd",
+      "notFoil"
+    ]
+  }
+}

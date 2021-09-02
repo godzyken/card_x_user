@@ -5,16 +5,29 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:card_x_user/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:card_x_user/main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:nv_golden/nv_golden.dart';
+
+import 'widget_wrapper.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(GetMaterialApp());
+    /*final nvWrapper= WidgetWrapper()..withMaterialApp();
 
+    final nvGolden = NvGolden.devices(
+        deviceSizes: [Device.iphone12pro, Device.iphone5s],
+      wrap: nvWrapper.wrap)
+    ..addScenario(name: 'Full Page', widget: HomeView(),
+    );
+
+    await tester.createGolden(nvGolden, 'full_page');
+*/
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);

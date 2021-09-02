@@ -1,0 +1,90 @@
+{
+  "metaproduct": {
+    "idMetaproduct": 9074,
+    "localization": [
+      {
+        "idLanguage": 1,
+        "languageName": "English",
+        "name": "Tarmogoyf"
+      },
+      {
+        "idLanguage": 2,
+        "languageName": "French",
+        "name": "Tarmogoyf"
+      },
+      {
+        "idLanguage": 3,
+        "languageName": "German",
+        "name": "Tarmogoyf"
+      },
+      {
+        "idLanguage": 4,
+        "languageName": "Spanish",
+        "name": "Tarmogoyf"
+      },
+      {
+        "idLanguage": 2,
+        "languageName": "Italian",
+        "name": "Tarmogoyf"
+      }
+    ],
+    "product": [
+      {
+        "idProduct": 282324,
+        "idMetaproduct": 9074,
+        "countReprints": 3,
+        "enName": "Tarmogoyf",
+        "localization": [
+          {
+            "name": "Tarmogoyf",
+            "idLanguage": 1,
+            "languageName": "English"
+          },
+          {
+            "name": "Tarmogoyf",
+            "idLanguage": 2,
+            "languageName": "Italian"
+          }
+        ],
+        "website": "/Products/Singles/Modern+Masters+2015/Tarmogoyf",
+        "image": "'./img/cards/Modern_Masters_2015/tarmogoyf.jpg",
+        "gameName": "Magic the Gathering",
+        "categoryName": "Magic Single",
+        "number": "165",
+        "rarity": "Mythic",
+        "expansionName": "Modern Masters 2015",
+        "links": []
+      },
+      {
+        "idProduct": 289074,
+        "idMetaproduct": 2324,
+        "countReprints": 6,
+        "enName": "Bulbizard",
+        "localization": [
+          {
+            "name": "Bulbizard",
+            "idLanguage": 1,
+            "languageName": "English"
+          },
+          {
+            "name": "Bulbizard",
+            "idLanguage": 2,
+            "languageName": "Italian"
+          }
+        ],
+        "website": "/Products/Singles/Modern+Masters+2015/Bulbizard",
+        "image": "'./img/cards/Modern_Masters_2015/Bulbizard.jpg",
+        "gameName": "Magic the Gathering",
+        "categoryName": "Magic Single",
+        "number": "165",
+        "rarity": "Mythic",
+        "expansionName": "Modern Masters 2015",
+        "links": ["..."]
+      }
+
+    ],
+    "links": [
+      "..."
+    ]
+  }
+}

@@ -1,0 +1,4870 @@
+{
+  "data": [
+    {
+      "id": "ex9-4",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "100",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Heal Dance",
+          "text": "Once during your turn (before your attack), you may remove 2 damage counter from 1 of your Pokémon. You can't use more than 1 Heal Dance Poké-Power each turn. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Psypunch",
+          "cost": [
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "30",
+          "text": ""
+        },
+        {
+          "name": "Mind Shock",
+          "cost": [
+            "Psychic",
+            "Colorless",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 4,
+          "damage": "60",
+          "text": "This attack's damage isn't affected by Weakness or Resistance."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex9",
+        "name": "Emerald",
+        "series": "EX",
+        "printedTotal": 106,
+        "total": 106,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "EM",
+        "releaseDate": "2005/05/01",
+        "updatedAt": "2020/02/08 09:00:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex9/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex9/logo.png"
+        }
+      },
+      "number": "4",
+      "artist": "Kagemaru Himeno",
+      "rarity": "Rare Holo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex9/4.png",
+        "large": "https://images.pokemontcg.io/ex9/4_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex9-4",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 10.44,
+            "mid": 20.45,
+            "high": 40.76,
+            "market": 21.03,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 20.0,
+            "mid": 21.25,
+            "high": 31.99,
+            "market": null,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex9-4",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 4.06,
+          "lowPrice": 0.2,
+          "trendPrice": 3.49,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": 7.99,
+          "reverseHoloTrend": 4.84,
+          "lowPriceExPlus": 1.99,
+          "avg1": 10.0,
+          "avg7": 4.06,
+          "avg30": 4.15,
+          "reverseHoloAvg1": 10.0,
+          "reverseHoloAvg7": 3.28,
+          "reverseHoloAvg30": 3.53
+        }
+      }
+    },
+    {
+      "id": "ex11-6",
+      "name": "Gardevoir δ",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "100",
+      "types": [
+        "Psychic",
+        "Metal"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "This Pokémon is both Psychic Metal type."
+      ],
+      "abilities": [
+        {
+          "name": "Energy Jump",
+          "text": "Once during your turn (before your attack), you may move an Energy card attached to 1 of your Pokémon to another of your Pokémon. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Psychic Rage",
+          "cost": [
+            "Metal",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "",
+          "text": "Choose 1 of your opponent's Pokémon. This attack does 10 damage for each damage counter on Gardevoir to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "name": "Black Magic",
+          "cost": [
+            "Psychic",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "10+",
+          "text": "Does 10 damage plus 20 more damage times the number of your opponent's Benched Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex11",
+        "name": "Delta Species",
+        "series": "EX",
+        "printedTotal": 113,
+        "total": 114,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "DS",
+        "releaseDate": "2005/10/31",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex11/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex11/logo.png"
+        }
+      },
+      "number": "6",
+      "artist": "Mitsuhiro Arita",
+      "rarity": "Rare Holo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex11/6.png",
+        "large": "https://images.pokemontcg.io/ex11/6_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex11-6",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 17.0,
+            "mid": 21.0,
+            "high": 29.99,
+            "market": 23.23,
+            "directLow": 24.49
+          },
+          "reverseHolofoil": {
+            "low": 26.96,
+            "mid": 32.14,
+            "high": 49.94,
+            "market": 37.73,
+            "directLow": 37.4
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex11-6",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 8.1,
+          "lowPrice": 0.9,
+          "trendPrice": 9.48,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": 5.0,
+          "reverseHoloTrend": 16.88,
+          "lowPriceExPlus": 8.97,
+          "avg1": 4.89,
+          "avg7": 6.76,
+          "avg30": 8.36,
+          "reverseHoloAvg1": 14.9,
+          "reverseHoloAvg7": 11.21,
+          "reverseHoloAvg30": 9.99
+        }
+      }
+    },
+    {
+      "id": "dp3-7",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "level": "55",
+      "hp": "110",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Telepass",
+          "text": "Once during your turn (before your attack), you may search your opponent's discard pile for a Supporter card and use the effect of that card as the effect of this power. (The Supporter card remains in your opponent's discard pile.) You can't use more than 1 Telepass Poké-Power each turn. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Psychic Lock",
+          "cost": [
+            "Psychic",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "60",
+          "text": "During your opponent's next turn, your opponent can't use any Poké-Powers on his or her Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "+30"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "dp3",
+        "name": "Secret Wonders",
+        "series": "Diamond \u0026 Pearl",
+        "printedTotal": 132,
+        "total": 132,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "SW",
+        "releaseDate": "2007/11/01",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+          "logo": "https://images.pokemontcg.io/dp3/logo.png"
+        }
+      },
+      "number": "7",
+      "artist": "Atsuko Nishida",
+      "rarity": "Rare Holo",
+      "flavorText": "It will try to guard its trusted Trainer with its life. It has the ability to see the future.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/dp3/7.png",
+        "large": "https://images.pokemontcg.io/dp3/7_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/dp3-7",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 11.51,
+            "mid": 13.25,
+            "high": 17.99,
+            "market": 13.27,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 9.0,
+            "mid": 13.17,
+            "high": 19.99,
+            "market": 12.17,
+            "directLow": 13.17
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/dp3-7",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 3.86,
+          "lowPrice": 0.8,
+          "trendPrice": 3.6,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 2.79,
+          "reverseHoloLow": 0.9,
+          "reverseHoloTrend": 4.28,
+          "lowPriceExPlus": 2.95,
+          "avg1": 2.99,
+          "avg7": 3.46,
+          "avg30": 4.05,
+          "reverseHoloAvg1": 2.79,
+          "reverseHoloAvg7": 3.46,
+          "reverseHoloAvg30": 3.26
+        }
+      }
+    },
+    {
+      "id": "pl1-8",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "level": "61",
+      "hp": "120",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Psychic Connect",
+          "text": "As often as you like during your turn (before your attack), you may move a Psychic Energy attached to 1 of your Benched Pokémon to your Active Pokémon. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Energy Burst",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "20+",
+          "text": "Does 20 damage plus 10 more damage for each Energy attached to Gardevoir and the Defending Pokémon."
+        },
+        {
+          "name": "Psychic Protection",
+          "cost": [
+            "Psychic",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "60",
+          "text": "Gardevoir has no Weakness during your opponent's next turn."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "+30"
+        }
+      ],
+      "retreatCost": [
+        "Colorless"
+      ],
+      "convertedRetreatCost": 1,
+      "set": {
+        "id": "pl1",
+        "name": "Platinum",
+        "series": "Platinum",
+        "printedTotal": 127,
+        "total": 130,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "PL",
+        "releaseDate": "2009/02/11",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
+          "logo": "https://images.pokemontcg.io/pl1/logo.png"
+        }
+      },
+      "number": "8",
+      "artist": "Kouki Saitou",
+      "rarity": "Rare Holo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/pl1/8.png",
+        "large": "https://images.pokemontcg.io/pl1/8_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/pl1-8",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 3.65,
+            "mid": 6.25,
+            "high": 10.25,
+            "market": 9.16,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 4.6,
+            "mid": 10.25,
+            "high": 19.98,
+            "market": 10.35,
+            "directLow": 5.58
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/pl1-8",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 1.17,
+          "lowPrice": 0.1,
+          "trendPrice": 1.32,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 1.62,
+          "reverseHoloLow": 0.4,
+          "reverseHoloTrend": 2.94,
+          "lowPriceExPlus": 0.25,
+          "avg1": 1.5,
+          "avg7": 1.32,
+          "avg30": 1.58,
+          "reverseHoloAvg1": 1.79,
+          "reverseHoloAvg7": 3.68,
+          "reverseHoloAvg30": 2.06
+        }
+      }
+    },
+    {
+      "id": "ex1-7",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "100",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Psy Shadow",
+          "text": "Once during your turn (before your attack), you may search your deck for a Psychic Energy card and attach it to 1 of your Pokémon. Put 2 damage counters on that Pokémon. Shuffle your deck afterward. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Energy Burst",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "10×",
+          "text": "Does 10 damage times the total amount of Energy attached to Gardevoir and the Defending Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex1",
+        "name": "Ruby \u0026 Sapphire",
+        "series": "EX",
+        "printedTotal": 109,
+        "total": 109,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "RS",
+        "releaseDate": "2003/07/01",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex1/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex1/logo.png"
+        }
+      },
+      "number": "7",
+      "artist": "Ken Sugimori",
+      "rarity": "Rare Holo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex1/7.png",
+        "large": "https://images.pokemontcg.io/ex1/7_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex1-7",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 14.65,
+            "mid": 19.64,
+            "high": 59.99,
+            "market": 37.02,
+            "directLow": 26.98
+          },
+          "reverseHolofoil": {
+            "low": 7.99,
+            "mid": 19.97,
+            "high": 38.69,
+            "market": 18.3,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex1-7",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 6.25,
+          "lowPrice": 0.49,
+          "trendPrice": 5.78,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 2.75,
+          "reverseHoloLow": 1.0,
+          "reverseHoloTrend": 1.73,
+          "lowPriceExPlus": 2.0,
+          "avg1": 5.0,
+          "avg7": 6.15,
+          "avg30": 5.24,
+          "reverseHoloAvg1": 1.0,
+          "reverseHoloAvg7": 3.81,
+          "reverseHoloAvg30": 6.12
+        }
+      }
+    },
+    {
+      "id": "swsh35-16",
+      "name": "Gardevoir V",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "V"
+      ],
+      "hp": "210",
+      "types": [
+        "Psychic"
+      ],
+      "rules": [
+        "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Magical Shot",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30",
+          "text": ""
+        },
+        {
+          "name": "Swelling Pulse",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120+",
+          "text": "If this Pokémon was healed during this turn, this attack does 80 more damage."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swsh35",
+        "name": "Champion's Path",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 73,
+        "total": 80,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "CPA",
+        "releaseDate": "2020/09/25",
+        "updatedAt": "2020/10/25 13:45:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+          "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+        }
+      },
+      "number": "16",
+      "artist": "Kagemaru Himeno",
+      "rarity": "Rare Holo V",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swsh35/16.png",
+        "large": "https://images.pokemontcg.io/swsh35/16_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-16",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 0.99,
+            "mid": 1.89,
+            "high": 7.99,
+            "market": 1.76,
+            "directLow": 2.25
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swsh35-16",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 1.69,
+          "lowPrice": 0.5,
+          "trendPrice": 1.57,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 1.19,
+          "lowPriceExPlus": 0.5,
+          "avg1": 2.27,
+          "avg7": 1.69,
+          "avg30": 1.67,
+          "reverseHoloAvg1": 1.49,
+          "reverseHoloAvg7": 1.34,
+          "reverseHoloAvg30": 1.53
+        }
+      }
+    },
+    {
+      "id": "swsh35-17",
+      "name": "Gardevoir VMAX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "VMAX"
+      ],
+      "hp": "320",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Gardevoir V",
+      "rules": [
+        "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Max Cure",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "180",
+          "text": "Heal 50 damage from this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swsh35",
+        "name": "Champion's Path",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 73,
+        "total": 80,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "CPA",
+        "releaseDate": "2020/09/25",
+        "updatedAt": "2020/10/25 13:45:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+          "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+        }
+      },
+      "number": "17",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Holo VMAX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swsh35/17.png",
+        "large": "https://images.pokemontcg.io/swsh35/17_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-17",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 2.67,
+            "mid": 3.99,
+            "high": 29.95,
+            "market": 4.15,
+            "directLow": 4.49
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swsh35-17",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 4.88,
+          "lowPrice": 2.99,
+          "trendPrice": 4.8,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 4.57,
+          "lowPriceExPlus": 2.99,
+          "avg1": 8.66,
+          "avg7": 5.74,
+          "avg30": 4.84,
+          "reverseHoloAvg1": 5.07,
+          "reverseHoloAvg7": 4.31,
+          "reverseHoloAvg30": 4.4
+        }
+      }
+    },
+    {
+      "id": "ex16-9",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "100",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Psy Shadow",
+          "text": "Once during your turn (before your attack), you may search your deck for a Psychic Energy card and attach it to 1 of your Pokémon. Put 2 damage counters on that Pokémon. Shuffle your deck afterward. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Energy Burst",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "10×",
+          "text": "Does 10 damage times the total amount of Energy attached to Gardevoir and the Defending Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex16",
+        "name": "Power Keepers",
+        "series": "EX",
+        "printedTotal": 108,
+        "total": 108,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "PK",
+        "releaseDate": "2007/02/02",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex16/logo.png"
+        }
+      },
+      "number": "9",
+      "artist": "Midori Harada",
+      "rarity": "Rare Holo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex16/9.png",
+        "large": "https://images.pokemontcg.io/ex16/9_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex16-9",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 4.78,
+            "mid": 6.9,
+            "high": 15.97,
+            "market": 8.7,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 3.83,
+            "mid": 7.65,
+            "high": 22.97,
+            "market": 8.79,
+            "directLow": 7.65
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex16-9",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 0.61,
+          "lowPrice": 0.15,
+          "trendPrice": 0.74,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 0.55,
+          "reverseHoloLow": 3.0,
+          "reverseHoloTrend": 4.1,
+          "lowPriceExPlus": 0.79,
+          "avg1": 0.45,
+          "avg7": 1.23,
+          "avg30": 2.33,
+          "reverseHoloAvg1": 0.55,
+          "reverseHoloAvg7": 5.94,
+          "reverseHoloAvg30": 4.39
+        }
+      }
+    },
+    {
+      "id": "xy7-54",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "130",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Bright Heal",
+          "text": "Once during your turn (before your attack), you may heal 20 damage from each of your Pokémon.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Telekinesis",
+          "cost": [
+            "Colorless",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "",
+          "text": "This attack does 50 damage to 1 of your opponent's Pokémon. This attack's damage isn't affected by Weakness or Resistance."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy7",
+        "name": "Ancient Origins",
+        "series": "XY",
+        "printedTotal": 98,
+        "total": 100,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "AOR",
+        "releaseDate": "2015/08/12",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy7/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy7/logo.png"
+        }
+      },
+      "number": "54",
+      "artist": "TOKIYA",
+      "rarity": "Rare Holo",
+      "flavorText": "It has the power to predict the future. Its power peaks when it is protecting its Trainer.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy7/54.png",
+        "large": "https://images.pokemontcg.io/xy7/54_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy7-54",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 0.77,
+            "mid": 1.49,
+            "high": 5.99,
+            "market": 1.99,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 1.04,
+            "mid": 1.49,
+            "high": 2.14,
+            "market": 1.48,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy7-54",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 1.85,
+          "lowPrice": 0.74,
+          "trendPrice": 2.39,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 2.2,
+          "reverseHoloLow": 1.2,
+          "reverseHoloTrend": 5.04,
+          "lowPriceExPlus": 0.74,
+          "avg1": 1.5,
+          "avg7": 1.85,
+          "avg30": 2.33,
+          "reverseHoloAvg1": 1.8,
+          "reverseHoloAvg7": 4.64,
+          "reverseHoloAvg30": 2.74
+        }
+      }
+    },
+    {
+      "id": "bw4-57",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "110",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Psychic Mirage",
+          "text": "Each basic Psychic Energy attached to your Psychic Pokémon provides PsychicPsychic Energy. You can't apply more than 1 Psychic Mirage Ability at a time.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Mind Shock",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 4,
+          "damage": "60",
+          "text": "This attack's damage isn't affected by Weakness or Resistance."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "bw4",
+        "name": "Next Destinies",
+        "series": "Black \u0026 White",
+        "printedTotal": 99,
+        "total": 103,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "NXD",
+        "releaseDate": "2012/02/08",
+        "updatedAt": "2019/01/28 16:44:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/bw4/symbol.png",
+          "logo": "https://images.pokemontcg.io/bw4/logo.png"
+        }
+      },
+      "number": "57",
+      "artist": "Mizue",
+      "rarity": "Rare Holo",
+      "flavorText": "To protect its Trainer, it will expend all its psychic power to create a small black hole.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/bw4/57.png",
+        "large": "https://images.pokemontcg.io/bw4/57_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/bw4-57",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 3.95,
+            "mid": 3.95,
+            "high": 3.95,
+            "market": 5.34,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/bw4-57",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 2.18,
+          "lowPrice": 0.15,
+          "trendPrice": 2.56,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 2.12,
+          "reverseHoloLow": 0.5,
+          "reverseHoloTrend": 1.34,
+          "lowPriceExPlus": 0.35,
+          "avg1": 3.5,
+          "avg7": 2.0,
+          "avg30": 2.18,
+          "reverseHoloAvg1": 2.12,
+          "reverseHoloAvg7": 1.87,
+          "reverseHoloAvg30": 2.04
+        }
+      }
+    },
+    {
+      "id": "swsh35-70",
+      "name": "Gardevoir V",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "V"
+      ],
+      "hp": "210",
+      "types": [
+        "Psychic"
+      ],
+      "rules": [
+        "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Magical Shot",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30",
+          "text": ""
+        },
+        {
+          "name": "Swelling Pulse",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120+",
+          "text": "If this Pokémon was healed during this turn, this attack does 80 more damage."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swsh35",
+        "name": "Champion's Path",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 73,
+        "total": 80,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "CPA",
+        "releaseDate": "2020/09/25",
+        "updatedAt": "2020/10/25 13:45:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+          "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+        }
+      },
+      "number": "70",
+      "artist": "PLANETA Mochizuki",
+      "rarity": "Rare Holo V",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swsh35/70.png",
+        "large": "https://images.pokemontcg.io/swsh35/70_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-70",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 1.5,
+            "mid": 3.0,
+            "high": 19.99,
+            "market": 2.22,
+            "directLow": 2.69
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swsh35-70",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 3.38,
+          "lowPrice": 2.0,
+          "trendPrice": 3.75,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 3.13,
+          "lowPriceExPlus": 2.0,
+          "avg1": 6.98,
+          "avg7": 4.31,
+          "avg30": 3.35,
+          "reverseHoloAvg1": 2.7,
+          "reverseHoloAvg7": 3.29,
+          "reverseHoloAvg30": 3.55
+        }
+      }
+    },
+    {
+      "id": "swsh35-76",
+      "name": "Gardevoir VMAX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "VMAX"
+      ],
+      "hp": "320",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Gardevoir V",
+      "rules": [
+        "VMAX rule: When your Pokémon VMAX is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Max Cure",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "180",
+          "text": "Heal 50 damage from this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swsh35",
+        "name": "Champion's Path",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 73,
+        "total": 80,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "CPA",
+        "releaseDate": "2020/09/25",
+        "updatedAt": "2020/10/25 13:45:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swsh35/symbol.png",
+          "logo": "https://images.pokemontcg.io/swsh35/logo.png"
+        }
+      },
+      "number": "76",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Rainbow",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swsh35/76.png",
+        "large": "https://images.pokemontcg.io/swsh35/76_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swsh35-76",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 9.0,
+            "mid": 15.0,
+            "high": 69.99,
+            "market": 12.53,
+            "directLow": 17.99
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swsh35-76",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 20.5,
+          "lowPrice": 18.0,
+          "trendPrice": 19.73,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 19.77,
+          "lowPriceExPlus": 18.9,
+          "avg1": 19.0,
+          "avg7": 19.98,
+          "avg30": 20.52,
+          "reverseHoloAvg1": 19.25,
+          "reverseHoloAvg7": 21.24,
+          "reverseHoloAvg30": 21.8
+        }
+      }
+    },
+    {
+      "id": "xy11-78",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Link Blast",
+          "cost": [
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "30+",
+          "text": "If this Pokémon and your opponent's Active Pokémon have the same amount of Energy attached to them, this attack does 70 more damage."
+        },
+        {
+          "name": "Luminous Blade",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120",
+          "text": "Discard an Energy attached to this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "78",
+      "artist": "Eske Yoshinob",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/78.png",
+        "large": "https://images.pokemontcg.io/xy11/78_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-78",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 1.19,
+            "mid": 2.0,
+            "high": 10.99,
+            "market": 1.89,
+            "directLow": 1.43
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-78",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 2.56,
+          "lowPrice": 0.69,
+          "trendPrice": 2.36,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 2.36,
+          "lowPriceExPlus": 1.5,
+          "avg1": 3.57,
+          "avg7": 2.82,
+          "avg30": 2.7,
+          "reverseHoloAvg1": 3.0,
+          "reverseHoloAvg7": 2.77,
+          "reverseHoloAvg30": 2.81
+        }
+      }
+    },
+    {
+      "id": "xy11-79",
+      "name": "M Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "MEGA",
+        "EX"
+      ],
+      "hp": "210",
+      "types": [
+        "Fairy",
+        "Psychic"
+      ],
+      "evolvesFrom": "Gardevoir-EX",
+      "rules": [
+        "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Despair Ray",
+          "cost": [
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "110+",
+          "text": "Discard as many of your Benched Pokémon as you like. This attack does 10 more damage for each Benched Pokémon you discarded in this way."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "79",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/79.png",
+        "large": "https://images.pokemontcg.io/xy11/79_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-79",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 1.85,
+            "mid": 4.24,
+            "high": 22.99,
+            "market": 4.1,
+            "directLow": 3.08
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-79",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 5.56,
+          "lowPrice": 2.49,
+          "trendPrice": 5.74,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 4.88,
+          "lowPriceExPlus": 3.0,
+          "avg1": 5.0,
+          "avg7": 5.72,
+          "avg30": 5.76,
+          "reverseHoloAvg1": 4.75,
+          "reverseHoloAvg7": 4.83,
+          "reverseHoloAvg30": 4.51
+        }
+      }
+    },
+    {
+      "id": "sma-SV75",
+      "name": "Gardevoir-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2",
+        "GX"
+      ],
+      "hp": "230",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "abilities": [
+        {
+          "name": "Secret Spring",
+          "text": "Once during your turn (before your attack), you may attach a Fairy Energy card from your hand to 1 of your Pokémon.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Infinite Force",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Energy attached to both Active Pokémon."
+        },
+        {
+          "name": "Twilight-GX",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Shuffle 10 cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sma",
+        "name": "Shiny Vault",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 94,
+        "total": 94,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "releaseDate": "2019/08/23",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sma/symbol.png",
+          "logo": "https://images.pokemontcg.io/sma/logo.png"
+        }
+      },
+      "number": "SV75",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Shiny GX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sma/SV75.png",
+        "large": "https://images.pokemontcg.io/sma/SV75_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sma-SV75",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 21.99,
+            "mid": 38.04,
+            "high": 115058.16,
+            "market": 29.04,
+            "directLow": 38.5
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sma-SV75",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 32.02,
+          "lowPrice": 26.49,
+          "trendPrice": 33.89,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 43.06,
+          "lowPriceExPlus": 28.39,
+          "avg1": 38.5,
+          "avg7": 33.64,
+          "avg30": 28.98,
+          "reverseHoloAvg1": 37.88,
+          "reverseHoloAvg7": 35.2,
+          "reverseHoloAvg30": 43.76
+        }
+      }
+    },
+    {
+      "id": "sm3-93",
+      "name": "Gardevoir-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2",
+        "GX"
+      ],
+      "hp": "230",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "abilities": [
+        {
+          "name": "Secret Spring",
+          "text": "Once during your turn (before your attack), you may attach a Fairy Energy card from your hand to 1 of your Pokémon.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Infinite Force",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Energy attached to both Active Pokémon."
+        },
+        {
+          "name": "Twilight-GX",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Shuffle 10 cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm3",
+        "name": "Burning Shadows",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 147,
+        "total": 147,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "BUS",
+        "releaseDate": "2017/08/05",
+        "updatedAt": "2019/02/19 23:25:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm3/logo.png"
+        }
+      },
+      "number": "93",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Holo GX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm3/93.png",
+        "large": "https://images.pokemontcg.io/sm3/93_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm3-93",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 1.45,
+            "mid": 2.69,
+            "high": 8.49,
+            "market": 1.91,
+            "directLow": 2.5
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm3-93",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 2.33,
+          "lowPrice": 0.99,
+          "trendPrice": 2.29,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 2.81,
+          "lowPriceExPlus": 1.4,
+          "avg1": 2.75,
+          "avg7": 2.13,
+          "avg30": 2.35,
+          "reverseHoloAvg1": 3.3,
+          "reverseHoloAvg7": 2.97,
+          "reverseHoloAvg30": 2.61
+        }
+      }
+    },
+    {
+      "id": "xy11-101",
+      "name": "Gardevoir Spirit Link",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pokémon Tool"
+      ],
+      "rules": [
+        "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+        "Your turn does not end if the Pokémon this card is attached to becomes M Gardevoir-EX.",
+        "You may play as many Item cards as you like during your turn (before your attack)."
+      ],
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "101",
+      "artist": "5ban Graphics",
+      "rarity": "Uncommon",
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/101.png",
+        "large": "https://images.pokemontcg.io/xy11/101_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-101",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "normal": {
+            "low": 0.04,
+            "mid": 0.25,
+            "high": 1.08,
+            "market": 0.14,
+            "directLow": 0.1
+          },
+          "reverseHolofoil": {
+            "low": 0.2,
+            "mid": 0.47,
+            "high": 1.99,
+            "market": 0.38,
+            "directLow": 0.25
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-101",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 0.05,
+          "lowPrice": 0.02,
+          "trendPrice": 0.06,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 0.66,
+          "reverseHoloLow": 0.19,
+          "reverseHoloTrend": 0.44,
+          "lowPriceExPlus": 0.02,
+          "avg1": 0.07,
+          "avg7": 0.05,
+          "avg30": 0.06,
+          "reverseHoloAvg1": 0.5,
+          "reverseHoloAvg7": 0.66,
+          "reverseHoloAvg30": 0.32
+        }
+      }
+    },
+    {
+      "id": "xy5-105",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Life Leap",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "20",
+          "text": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon."
+        },
+        {
+          "name": "Shining Wind",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "100",
+          "text": "During your opponent's next turn, this Pokémon has no Weakness."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy5",
+        "name": "Primal Clash",
+        "series": "XY",
+        "printedTotal": 160,
+        "total": 160,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PRC",
+        "releaseDate": "2015/02/04",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy5/logo.png"
+        }
+      },
+      "number": "105",
+      "artist": "Eske Yoshinob",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy5/105.png",
+        "large": "https://images.pokemontcg.io/xy5/105_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy5-105",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 1.5,
+            "mid": 2.38,
+            "high": 4.99,
+            "market": 2.4,
+            "directLow": 2.12
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy5-105",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 3.27,
+          "lowPrice": 1.69,
+          "trendPrice": 3.05,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 3.47,
+          "lowPriceExPlus": 2.4,
+          "avg1": 5.3,
+          "avg7": 3.2,
+          "avg30": 2.96,
+          "reverseHoloAvg1": 6.99,
+          "reverseHoloAvg7": 3.35,
+          "reverseHoloAvg30": 2.74
+        }
+      }
+    },
+    {
+      "id": "xy5-106",
+      "name": "M Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "MEGA",
+        "EX"
+      ],
+      "hp": "210",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Gardevoir-EX",
+      "rules": [
+        "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Brilliant Arrow",
+          "cost": [
+            "Fairy",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Fairy Energy attached to all of your Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy5",
+        "name": "Primal Clash",
+        "series": "XY",
+        "printedTotal": 160,
+        "total": 160,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PRC",
+        "releaseDate": "2015/02/04",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy5/logo.png"
+        }
+      },
+      "number": "106",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy5/106.png",
+        "large": "https://images.pokemontcg.io/xy5/106_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy5-106",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 2.2,
+            "mid": 3.57,
+            "high": 10.01,
+            "market": 3.18,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy5-106",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 3.56,
+          "lowPrice": 0.99,
+          "trendPrice": 4.39,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 3.37,
+          "lowPriceExPlus": 2.95,
+          "avg1": 4.14,
+          "avg7": 3.88,
+          "avg30": 4.03,
+          "reverseHoloAvg1": 4.0,
+          "reverseHoloAvg7": 3.49,
+          "reverseHoloAvg30": 3.81
+        }
+      }
+    },
+    {
+      "id": "ex2-96",
+      "name": "Gardevoir ex",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "level": "ex",
+      "hp": "150",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Feedback",
+          "cost": [
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "",
+          "text": "Count the number of cards in your opponent's hand. Put that many damage counters on the Defending Pokémon."
+        },
+        {
+          "name": "Psystorm",
+          "cost": [
+            "Psychic",
+            "Colorless",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 4,
+          "damage": "10×",
+          "text": "Does 10 damage times the total amount of Energy attached to all Pokémon in play."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Grass",
+          "value": "×2"
+        },
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex2",
+        "name": "Sandstorm",
+        "series": "EX",
+        "printedTotal": 100,
+        "total": 100,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "SS",
+        "releaseDate": "2003/09/18",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex2/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex2/logo.png"
+        }
+      },
+      "number": "96",
+      "artist": "Hikaru Koike",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex2/96.png",
+        "large": "https://images.pokemontcg.io/ex2/96_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex2-96",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 37.0,
+            "mid": 50.0,
+            "high": 62.81,
+            "market": 55.89,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex2-96",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 18.5,
+          "lowPrice": 2.0,
+          "trendPrice": 18.72,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 9.26,
+          "lowPriceExPlus": 14.99,
+          "avg1": 9.0,
+          "avg7": 20.43,
+          "avg30": 13.6,
+          "reverseHoloAvg1": 12.99,
+          "reverseHoloAvg7": 12.39,
+          "reverseHoloAvg30": 13.1
+        }
+      }
+    },
+    {
+      "id": "ex15-93",
+      "name": "Gardevoir ex δ",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "level": "ex",
+      "hp": "150",
+      "types": [
+        "Fire"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "abilities": [
+        {
+          "name": "Imprison",
+          "text": "Once during your turn (before your attack), if Gardevoir ex is your Active Pokémon, you may put an Imprison marker on 1 of your opponent's Pokémon. Any Pokémon that has any Imprison markers on it can't use any Poké-Powers or Poké-Bodies. This power can't be used if Gardevoir ex is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Flame Ball",
+          "cost": [
+            "Fire",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "80",
+          "text": "You may move a Fire Energy card attached to Gardevoir ex to 1 of your Benched Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "ex15",
+        "name": "Dragon Frontiers",
+        "series": "EX",
+        "printedTotal": 101,
+        "total": 101,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "DF",
+        "releaseDate": "2006/11/01",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex15/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex15/logo.png"
+        }
+      },
+      "number": "93",
+      "artist": "Masahiko Ishii",
+      "rarity": "Rare Holo EX",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/ex15/93.png",
+        "large": "https://images.pokemontcg.io/ex15/93_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex15-93",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 49.7,
+            "mid": 74.49,
+            "high": 99.95,
+            "market": 79.92,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/ex15-93",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 35.0,
+          "lowPrice": 3.0,
+          "trendPrice": 27.41,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 33.27,
+          "lowPriceExPlus": 19.99,
+          "avg1": 35.0,
+          "avg7": 29.22,
+          "avg30": 22.2,
+          "reverseHoloAvg1": 15.5,
+          "reverseHoloAvg7": 30.0,
+          "reverseHoloAvg30": 23.4
+        }
+      }
+    },
+    {
+      "id": "xy11-111",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Link Blast",
+          "cost": [
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "30+",
+          "text": "If this Pokémon and your opponent's Active Pokémon have the same amount of Energy attached to them, this attack does 70 more damage."
+        },
+        {
+          "name": "Luminous Blade",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120",
+          "text": "Discard an Energy attached to this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "111",
+      "artist": "Ryo Ueda",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/111.png",
+        "large": "https://images.pokemontcg.io/xy11/111_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-111",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 2.84,
+            "mid": 4.87,
+            "high": 29.55,
+            "market": 4.71,
+            "directLow": 4.99
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-111",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 7.69,
+          "lowPrice": 1.0,
+          "trendPrice": 6.94,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 6.2,
+          "lowPriceExPlus": 4.5,
+          "avg1": 14.0,
+          "avg7": 7.22,
+          "avg30": 7.37,
+          "reverseHoloAvg1": 7.31,
+          "reverseHoloAvg7": 6.46,
+          "reverseHoloAvg30": 5.76
+        }
+      }
+    },
+    {
+      "id": "xy11-112",
+      "name": "M Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "MEGA",
+        "EX"
+      ],
+      "hp": "210",
+      "types": [
+        "Fairy",
+        "Psychic"
+      ],
+      "evolvesFrom": "Gardevoir-EX",
+      "rules": [
+        "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Despair Ray",
+          "cost": [
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "110+",
+          "text": "Discard as many of your Benched Pokémon as you like. This attack does 10 more damage for each Benched Pokémon you discarded in this way."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "112",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/112.png",
+        "large": "https://images.pokemontcg.io/xy11/112_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-112",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 4.99,
+            "mid": 8.89,
+            "high": 24.99,
+            "market": 8.89,
+            "directLow": 7.43
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-112",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 9.74,
+          "lowPrice": 4.0,
+          "trendPrice": 9.33,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 10.47,
+          "lowPriceExPlus": 5.0,
+          "avg1": 4.79,
+          "avg7": 9.02,
+          "avg30": 9.97,
+          "reverseHoloAvg1": 3.98,
+          "reverseHoloAvg7": 9.43,
+          "reverseHoloAvg30": 8.51
+        }
+      }
+    },
+    {
+      "id": "xy11-116",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Link Blast",
+          "cost": [
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "30+",
+          "text": "If this Pokémon and your opponent's Active Pokémon have the same amount of Energy attached to them, this attack does 70 more damage."
+        },
+        {
+          "name": "Luminous Blade",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120",
+          "text": "Discard an Energy attached to this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy11",
+        "name": "Steam Siege",
+        "series": "XY",
+        "printedTotal": 114,
+        "total": 116,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "STS",
+        "releaseDate": "2016/08/03",
+        "updatedAt": "2019/04/10 19:59:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy11/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy11/logo.png"
+        }
+      },
+      "number": "116",
+      "artist": "Eske Yoshinob",
+      "rarity": "Rare Secret",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy11/116.png",
+        "large": "https://images.pokemontcg.io/xy11/116_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy11-116",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 12.98,
+            "mid": 17.89,
+            "high": 75.0,
+            "market": 18.25,
+            "directLow": 19.99
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy11-116",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 20.9,
+          "lowPrice": 6.0,
+          "trendPrice": 19.66,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 21.61,
+          "lowPriceExPlus": 19.9,
+          "avg1": 18.0,
+          "avg7": 21.67,
+          "avg30": 19.02,
+          "reverseHoloAvg1": 15.0,
+          "reverseHoloAvg7": 19.48,
+          "reverseHoloAvg30": 17.67
+        }
+      }
+    },
+    {
+      "id": "bw5-109",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "110",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Psychic Mirage",
+          "text": "Each basic Psychic Energy attached to your Psychic Pokémon provides PsychicPsychic Energy. You can't apply more than 1 Psychic Mirage Ability at a time.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Mind Shock",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 4,
+          "damage": "60",
+          "text": "This attack's damage isn't affected by Weakness or Resistance."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "bw5",
+        "name": "Dark Explorers",
+        "series": "Black \u0026 White",
+        "printedTotal": 108,
+        "total": 111,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "DEX",
+        "releaseDate": "2012/05/09",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/bw5/symbol.png",
+          "logo": "https://images.pokemontcg.io/bw5/logo.png"
+        }
+      },
+      "number": "109",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Secret",
+      "flavorText": "This extremely rare Pokémon is a different color than usual. It is very hard to find.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/bw5/109.png",
+        "large": "https://images.pokemontcg.io/bw5/109_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/bw5-109",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 279.0,
+            "mid": 280.0,
+            "high": 509.23,
+            "market": 300.0,
+            "directLow": 509.23
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/bw5-109",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 35.0,
+          "lowPrice": 30.0,
+          "trendPrice": 47.46,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 70.56,
+          "lowPriceExPlus": 68.0,
+          "avg1": 19.99,
+          "avg7": 49.07,
+          "avg30": 38.19,
+          "reverseHoloAvg1": 50.0,
+          "reverseHoloAvg7": 92.26,
+          "reverseHoloAvg30": 46.97
+        }
+      }
+    },
+    {
+      "id": "g1-RC30",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Life Leap",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "20",
+          "text": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon."
+        },
+        {
+          "name": "Shining Wind",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "100",
+          "text": "During your opponent's next turn, this Pokémon has no Weakness."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "g1",
+        "name": "Generations",
+        "series": "XY",
+        "printedTotal": 115,
+        "total": 115,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "GEN",
+        "releaseDate": "2016/02/22",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+          "logo": "https://images.pokemontcg.io/g1/logo.png"
+        }
+      },
+      "number": "RC30",
+      "artist": "Mizue",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/g1/RC30.png",
+        "large": "https://images.pokemontcg.io/g1/RC30_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/g1-RC30",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 3.75,
+            "mid": 7.2,
+            "high": 27.99,
+            "market": 8.24,
+            "directLow": 7.19
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/g1-RC30",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 6.79,
+          "lowPrice": 2.22,
+          "trendPrice": 6.28,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 6.88,
+          "lowPriceExPlus": 4.0,
+          "avg1": 8.99,
+          "avg7": 7.11,
+          "avg30": 6.99,
+          "reverseHoloAvg1": 15.99,
+          "reverseHoloAvg7": 5.79,
+          "reverseHoloAvg30": 5.62
+        }
+      }
+    },
+    {
+      "id": "bw11-RC10",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "120",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "attacks": [
+        {
+          "name": "Psybeam",
+          "cost": [
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "40",
+          "text": "The Defending Pokémon is now Confused."
+        },
+        {
+          "name": "Eternal Radiance",
+          "cost": [
+            "Psychic",
+            "Psychic"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "",
+          "text": "Move all damage counters from this Pokémon to the Defending Pokémon. This Pokémon can't use Eternal Radiance during your next turn."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless"
+      ],
+      "convertedRetreatCost": 1,
+      "set": {
+        "id": "bw11",
+        "name": "Legendary Treasures",
+        "series": "Black \u0026 White",
+        "printedTotal": 113,
+        "total": 115,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "LTR",
+        "releaseDate": "2013/11/06",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+          "logo": "https://images.pokemontcg.io/bw11/logo.png"
+        }
+      },
+      "number": "RC10",
+      "artist": "Atsuko Nishida",
+      "rarity": "Uncommon",
+      "flavorText": "To protect its Trainer, it will expend all its psychic power to create a small black hole.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/bw11/RC10.png",
+        "large": "https://images.pokemontcg.io/bw11/RC10_hires.png"
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/bw11-RC10",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 4.17,
+          "lowPrice": 1.99,
+          "trendPrice": 3.15,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": 1.99,
+          "reverseHoloTrend": 2.74,
+          "lowPriceExPlus": 3.0,
+          "avg1": 2.9,
+          "avg7": 3.09,
+          "avg30": 1.79,
+          "reverseHoloAvg1": 4.0,
+          "reverseHoloAvg7": 2.18,
+          "reverseHoloAvg30": 1.17
+        }
+      }
+    },
+    {
+      "id": "g1-RC31",
+      "name": "M Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "MEGA",
+        "EX"
+      ],
+      "hp": "210",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Gardevoir-EX",
+      "rules": [
+        "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Brilliant Arrow",
+          "cost": [
+            "Fairy",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Fairy Energy attached to all of your Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "g1",
+        "name": "Generations",
+        "series": "XY",
+        "printedTotal": 115,
+        "total": 115,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "GEN",
+        "releaseDate": "2016/02/22",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/g1/symbol.png",
+          "logo": "https://images.pokemontcg.io/g1/logo.png"
+        }
+      },
+      "number": "RC31",
+      "artist": "Megumi Mizutani",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/g1/RC31.png",
+        "large": "https://images.pokemontcg.io/g1/RC31_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/g1-RC31",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 5.0,
+            "mid": 9.5,
+            "high": 19.99,
+            "market": 9.78,
+            "directLow": 9.0
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/g1-RC31",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 7.78,
+          "lowPrice": 2.99,
+          "trendPrice": 7.78,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 11.68,
+          "lowPriceExPlus": 5.0,
+          "avg1": 9.16,
+          "avg7": 8.06,
+          "avg30": 7.48,
+          "reverseHoloAvg1": 7.5,
+          "reverseHoloAvg7": 14.44,
+          "reverseHoloAvg30": 9.6
+        }
+      }
+    },
+    {
+      "id": "xy5-130",
+      "name": "Gardevoir Spirit Link",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pokémon Tool"
+      ],
+      "rules": [
+        "Attach a Pokémon Tool to 1 of your Pokémon that doesn't already have a Pokémon Tool attached to it.",
+        "Your turn does not end if the Pokémon this card is attached to becomes M Gardevoir-EX.",
+        "You may play as many Item cards as you like during your turn (before your attack)."
+      ],
+      "set": {
+        "id": "xy5",
+        "name": "Primal Clash",
+        "series": "XY",
+        "printedTotal": 160,
+        "total": 160,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PRC",
+        "releaseDate": "2015/02/04",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy5/logo.png"
+        }
+      },
+      "number": "130",
+      "artist": "5ban Graphics",
+      "rarity": "Uncommon",
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy5/130.png",
+        "large": "https://images.pokemontcg.io/xy5/130_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy5-130",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "normal": {
+            "low": 0.1,
+            "mid": 0.25,
+            "high": 1.0,
+            "market": 0.17,
+            "directLow": 0.15
+          },
+          "reverseHolofoil": {
+            "low": 0.2,
+            "mid": 0.39,
+            "high": 1.95,
+            "market": 0.27,
+            "directLow": 0.25
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy5-130",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 0.1,
+          "lowPrice": 0.02,
+          "trendPrice": 0.17,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 0.59,
+          "reverseHoloLow": 0.14,
+          "reverseHoloTrend": 0.4,
+          "lowPriceExPlus": 0.02,
+          "avg1": 0.1,
+          "avg7": 0.17,
+          "avg30": 0.15,
+          "reverseHoloAvg1": 0.59,
+          "reverseHoloAvg7": 0.46,
+          "reverseHoloAvg30": 0.34
+        }
+      }
+    },
+    {
+      "id": "dp3-131",
+      "name": "Gardevoir LV.X",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Level-Up"
+      ],
+      "level": "X",
+      "hp": "130",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Gardevoir",
+      "rules": [
+        "Put this card onto your Active Gardevoir. Gardevoir LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+      ],
+      "abilities": [
+        {
+          "name": "Teleportation",
+          "text": "Once during your turn (before your attack), choose 1 of your Active Pokémon or 1 or your Benched Pokémon and switch Gardevoir with that Pokémon. This power can't be used if Gardevoir is affected by a Special Condition.",
+          "type": "Poké-Power"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bring Down",
+          "cost": [
+            "Psychic",
+            "Psychic"
+          ],
+          "convertedEnergyCost": 2,
+          "damage": "",
+          "text": "Choose 1 Pokémon (yours or your opponent's) with the fewest remaining HP (excluding Gardevoir) and that Pokémon is now Knocked Out."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Psychic",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "dp3",
+        "name": "Secret Wonders",
+        "series": "Diamond \u0026 Pearl",
+        "printedTotal": 132,
+        "total": 132,
+        "legalities": {
+          "unlimited": "Legal"
+        },
+        "ptcgoCode": "SW",
+        "releaseDate": "2007/11/01",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+          "logo": "https://images.pokemontcg.io/dp3/logo.png"
+        }
+      },
+      "number": "131",
+      "artist": "Ryo Ueda",
+      "rarity": "Rare Holo LV.X",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/dp3/131.png",
+        "large": "https://images.pokemontcg.io/dp3/131_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/dp3-131",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 25.0,
+            "mid": 27.3,
+            "high": 37.12,
+            "market": 35.95,
+            "directLow": 37.12
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/dp3-131",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 14.4,
+          "lowPrice": 3.98,
+          "trendPrice": 12.23,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 10.09,
+          "lowPriceExPlus": 14.95,
+          "avg1": 10.0,
+          "avg7": 10.53,
+          "avg30": 12.87,
+          "reverseHoloAvg1": 8.9,
+          "reverseHoloAvg7": 9.8,
+          "reverseHoloAvg30": 10.82
+        }
+      }
+    },
+    {
+      "id": "sm10-130",
+      "name": "Gardevoir \u0026 Sylveon-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "TAG TEAM",
+        "GX"
+      ],
+      "hp": "260",
+      "types": [
+        "Fairy"
+      ],
+      "rules": [
+        "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Fairy Song",
+          "cost": [
+            "Colorless"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Search your deck for up to 2 Fairy Energy cards and attach them to your Benched Pokémon in any way you like. Then, shuffle your deck."
+        },
+        {
+          "name": "Kaleidostorm",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "150",
+          "text": "Move any number of Energy from your Pokémon to your other Pokémon in any way you like."
+        },
+        {
+          "name": "Magical Miracle-GX",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "200",
+          "text": "If this Pokémon has at least 3 extra Fairy Energy attached to it (in addition to this attack's cost), your opponent shuffles their hand into their deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm10",
+        "name": "Unbroken Bonds",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 214,
+        "total": 234,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "UNB",
+        "releaseDate": "2019/05/03",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm10/logo.png"
+        }
+      },
+      "number": "130",
+      "artist": "Mitsuhiro Arita",
+      "rarity": "Rare Holo GX",
+      "nationalPokedexNumbers": [
+        282,
+        700
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm10/130.png",
+        "large": "https://images.pokemontcg.io/sm10/130_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm10-130",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 5.0,
+            "mid": 8.55,
+            "high": 19.98,
+            "market": 7.76,
+            "directLow": 8.12
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm10-130",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 5.9,
+          "lowPrice": 5.0,
+          "trendPrice": 5.92,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": null,
+          "lowPriceExPlus": null,
+          "avg1": 5.9,
+          "avg7": 5.75,
+          "avg30": 5.75,
+          "reverseHoloAvg1": null,
+          "reverseHoloAvg7": null,
+          "reverseHoloAvg30": null
+        }
+      }
+    },
+    {
+      "id": "xy5-155",
+      "name": "Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "EX"
+      ],
+      "hp": "170",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesTo": [
+        "M Gardevoir-EX"
+      ],
+      "rules": [
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Life Leap",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "20",
+          "text": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon."
+        },
+        {
+          "name": "Shining Wind",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "100",
+          "text": "During your opponent's next turn, this Pokémon has no Weakness."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy5",
+        "name": "Primal Clash",
+        "series": "XY",
+        "printedTotal": 160,
+        "total": 160,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PRC",
+        "releaseDate": "2015/02/04",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy5/logo.png"
+        }
+      },
+      "number": "155",
+      "artist": "Ryo Ueda",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy5/155.png",
+        "large": "https://images.pokemontcg.io/xy5/155_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy5-155",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 5.99,
+            "mid": 13.14,
+            "high": 38.99,
+            "market": 15.85,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy5-155",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 22.0,
+          "lowPrice": 6.0,
+          "trendPrice": 18.22,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 15.96,
+          "lowPriceExPlus": 10.0,
+          "avg1": 27.99,
+          "avg7": 20.58,
+          "avg30": 14.41,
+          "reverseHoloAvg1": 15.0,
+          "reverseHoloAvg7": 14.44,
+          "reverseHoloAvg30": 13.13
+        }
+      }
+    },
+    {
+      "id": "xy5-156",
+      "name": "M Gardevoir-EX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "MEGA",
+        "EX"
+      ],
+      "hp": "210",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Gardevoir-EX",
+      "rules": [
+        "Mega Evolution rule: When 1 of your Pokémon becomes a Mega Evolution Pokémon, your turn ends.",
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Brilliant Arrow",
+          "cost": [
+            "Fairy",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Fairy Energy attached to all of your Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "xy5",
+        "name": "Primal Clash",
+        "series": "XY",
+        "printedTotal": 160,
+        "total": 160,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PRC",
+        "releaseDate": "2015/02/04",
+        "updatedAt": "2020/05/01 16:06:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy5/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy5/logo.png"
+        }
+      },
+      "number": "156",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/xy5/156.png",
+        "large": "https://images.pokemontcg.io/xy5/156_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy5-156",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 6.75,
+            "mid": 12.42,
+            "high": 17.99,
+            "market": 13.76,
+            "directLow": 6.75
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/xy5-156",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 12.0,
+          "lowPrice": 6.0,
+          "trendPrice": 13.84,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 15.99,
+          "lowPriceExPlus": 7.5,
+          "avg1": 9.99,
+          "avg7": 14.2,
+          "avg30": 10.66,
+          "reverseHoloAvg1": 15.0,
+          "reverseHoloAvg7": 18.09,
+          "reverseHoloAvg30": 13.2
+        }
+      }
+    },
+    {
+      "id": "sm8-141",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "130",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "attacks": [
+        {
+          "name": "Brilliant Search",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Search your deck for up to 3 cards and put them into your hand. Then, shuffle your deck."
+        },
+        {
+          "name": "Sensitive Ray",
+          "cost": [
+            "Fairy",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "70+",
+          "text": "If you played a Supporter card from your hand during this turn, this attack does 90 more damage."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm8",
+        "name": "Lost Thunder",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 214,
+        "total": 236,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "LOT",
+        "releaseDate": "2018/11/02",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm8/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm8/logo.png"
+        }
+      },
+      "number": "141",
+      "artist": "Ryota Murayama",
+      "rarity": "Rare Holo",
+      "flavorText": "It has the power to predict the future. Its power peaks when it is protecting its Trainer.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm8/141.png",
+        "large": "https://images.pokemontcg.io/sm8/141_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm8-141",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 0.28,
+            "mid": 0.8,
+            "high": 1.99,
+            "market": 0.83,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 0.55,
+            "mid": 0.79,
+            "high": 1.99,
+            "market": 0.79,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm8-141",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 2.27,
+          "lowPrice": 0.7,
+          "trendPrice": 1.75,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 2.15,
+          "reverseHoloLow": 0.99,
+          "reverseHoloTrend": 3.27,
+          "lowPriceExPlus": 0.7,
+          "avg1": 1.0,
+          "avg7": 2.11,
+          "avg30": 1.54,
+          "reverseHoloAvg1": 3.0,
+          "reverseHoloAvg7": 3.12,
+          "reverseHoloAvg30": 2.07
+        }
+      }
+    },
+    {
+      "id": "sm3-140",
+      "name": "Gardevoir-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2",
+        "GX"
+      ],
+      "hp": "230",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "abilities": [
+        {
+          "name": "Secret Spring",
+          "text": "Once during your turn (before your attack), you may attach a Fairy Energy card from your hand to 1 of your Pokémon.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Infinite Force",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Energy attached to both Active Pokémon."
+        },
+        {
+          "name": "Twilight-GX",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Shuffle 10 cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm3",
+        "name": "Burning Shadows",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 147,
+        "total": 147,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "BUS",
+        "releaseDate": "2017/08/05",
+        "updatedAt": "2019/02/19 23:25:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm3/logo.png"
+        }
+      },
+      "number": "140",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm3/140.png",
+        "large": "https://images.pokemontcg.io/sm3/140_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm3-140",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 3.01,
+            "mid": 4.96,
+            "high": 19.95,
+            "market": 4.6,
+            "directLow": 4.12
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm3-140",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 7.5,
+          "lowPrice": 4.95,
+          "trendPrice": 7.79,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 8.36,
+          "lowPriceExPlus": 5.5,
+          "avg1": 10.0,
+          "avg7": 7.19,
+          "avg30": 8.17,
+          "reverseHoloAvg1": 8.0,
+          "reverseHoloAvg7": 8.02,
+          "reverseHoloAvg30": 7.31
+        }
+      }
+    },
+    {
+      "id": "sm3-159",
+      "name": "Gardevoir-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2",
+        "GX"
+      ],
+      "hp": "230",
+      "types": [
+        "Fairy"
+      ],
+      "evolvesFrom": "Kirlia",
+      "rules": [
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "abilities": [
+        {
+          "name": "Secret Spring",
+          "text": "Once during your turn (before your attack), you may attach a Fairy Energy card from your hand to 1 of your Pokémon.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Infinite Force",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30×",
+          "text": "This attack does 30 damage times the amount of Energy attached to both Active Pokémon."
+        },
+        {
+          "name": "Twilight-GX",
+          "cost": [
+            "Fairy"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Shuffle 10 cards from your discard pile into your deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm3",
+        "name": "Burning Shadows",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 147,
+        "total": 147,
+        "legalities": {
+          "unlimited": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "BUS",
+        "releaseDate": "2017/08/05",
+        "updatedAt": "2019/02/19 23:25:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm3/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm3/logo.png"
+        }
+      },
+      "number": "159",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Rainbow",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm3/159.png",
+        "large": "https://images.pokemontcg.io/sm3/159_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm3-159",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 11.99,
+            "mid": 17.99,
+            "high": 157.0,
+            "market": 18.01,
+            "directLow": 29.94
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm3-159",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 19.3,
+          "lowPrice": 14.5,
+          "trendPrice": 18.18,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 25.71,
+          "lowPriceExPlus": 16.99,
+          "avg1": 17.0,
+          "avg7": 18.94,
+          "avg30": 17.76,
+          "reverseHoloAvg1": 23.5,
+          "reverseHoloAvg7": 23.45,
+          "reverseHoloAvg30": 19.69
+        }
+      }
+    },
+    {
+      "id": "sm10-204",
+      "name": "Gardevoir \u0026 Sylveon-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "TAG TEAM",
+        "GX"
+      ],
+      "hp": "260",
+      "types": [
+        "Fairy"
+      ],
+      "rules": [
+        "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Fairy Song",
+          "cost": [
+            "Colorless"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Search your deck for up to 2 Fairy Energy cards and attach them to your Benched Pokémon in any way you like. Then, shuffle your deck."
+        },
+        {
+          "name": "Kaleidostorm",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "150",
+          "text": "Move any number of Energy from your Pokémon to your other Pokémon in any way you like."
+        },
+        {
+          "name": "Magical Miracle-GX",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "200",
+          "text": "If this Pokémon has at least 3 extra Fairy Energy attached to it (in addition to this attack's cost), your opponent shuffles their hand into their deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm10",
+        "name": "Unbroken Bonds",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 214,
+        "total": 234,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "UNB",
+        "releaseDate": "2019/05/03",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm10/logo.png"
+        }
+      },
+      "number": "204",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282,
+        700
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm10/204.png",
+        "large": "https://images.pokemontcg.io/sm10/204_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm10-204",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 9.47,
+            "mid": 14.9,
+            "high": 24.99,
+            "market": 12.33,
+            "directLow": 15.25
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm10-204",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 16.66,
+          "lowPrice": 12.0,
+          "trendPrice": 15.58,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 11.26,
+          "lowPriceExPlus": 12.0,
+          "avg1": 13.0,
+          "avg7": 15.87,
+          "avg30": 14.36,
+          "reverseHoloAvg1": 8.89,
+          "reverseHoloAvg7": 12.06,
+          "reverseHoloAvg30": 11.06
+        }
+      }
+    },
+    {
+      "id": "sm10-205",
+      "name": "Gardevoir \u0026 Sylveon-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "TAG TEAM",
+        "GX"
+      ],
+      "hp": "260",
+      "types": [
+        "Fairy"
+      ],
+      "rules": [
+        "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Fairy Song",
+          "cost": [
+            "Colorless"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Search your deck for up to 2 Fairy Energy cards and attach them to your Benched Pokémon in any way you like. Then, shuffle your deck."
+        },
+        {
+          "name": "Kaleidostorm",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "150",
+          "text": "Move any number of Energy from your Pokémon to your other Pokémon in any way you like."
+        },
+        {
+          "name": "Magical Miracle-GX",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "200",
+          "text": "If this Pokémon has at least 3 extra Fairy Energy attached to it (in addition to this attack's cost), your opponent shuffles their hand into their deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm10",
+        "name": "Unbroken Bonds",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 214,
+        "total": 234,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "UNB",
+        "releaseDate": "2019/05/03",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm10/logo.png"
+        }
+      },
+      "number": "205",
+      "artist": "Atsuko Nishida",
+      "rarity": "Rare Ultra",
+      "nationalPokedexNumbers": [
+        282,
+        700
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm10/205.png",
+        "large": "https://images.pokemontcg.io/sm10/205_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm10-205",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 39.95,
+            "mid": 47.45,
+            "high": 80.0,
+            "market": 48.99,
+            "directLow": 73.41
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm10-205",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 58.85,
+          "lowPrice": 45.0,
+          "trendPrice": 59.51,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 40.53,
+          "lowPriceExPlus": 45.0,
+          "avg1": 44.95,
+          "avg7": 53.8,
+          "avg30": 47.38,
+          "reverseHoloAvg1": 45.0,
+          "reverseHoloAvg7": 37.0,
+          "reverseHoloAvg30": 33.6
+        }
+      }
+    },
+    {
+      "id": "sm10-225",
+      "name": "Gardevoir \u0026 Sylveon-GX",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "TAG TEAM",
+        "GX"
+      ],
+      "hp": "260",
+      "types": [
+        "Fairy"
+      ],
+      "rules": [
+        "TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Fairy Song",
+          "cost": [
+            "Colorless"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "",
+          "text": "Search your deck for up to 2 Fairy Energy cards and attach them to your Benched Pokémon in any way you like. Then, shuffle your deck."
+        },
+        {
+          "name": "Kaleidostorm",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "150",
+          "text": "Move any number of Energy from your Pokémon to your other Pokémon in any way you like."
+        },
+        {
+          "name": "Magical Miracle-GX",
+          "cost": [
+            "Fairy",
+            "Fairy",
+            "Fairy"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "200",
+          "text": "If this Pokémon has at least 3 extra Fairy Energy attached to it (in addition to this attack's cost), your opponent shuffles their hand into their deck. (You can't use more than 1 GX attack in a game.)"
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "resistances": [
+        {
+          "type": "Darkness",
+          "value": "-20"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "sm10",
+        "name": "Unbroken Bonds",
+        "series": "Sun \u0026 Moon",
+        "printedTotal": 214,
+        "total": 234,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "UNB",
+        "releaseDate": "2019/05/03",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm10/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm10/logo.png"
+        }
+      },
+      "number": "225",
+      "artist": "5ban Graphics",
+      "rarity": "Rare Rainbow",
+      "nationalPokedexNumbers": [
+        282,
+        700
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/sm10/225.png",
+        "large": "https://images.pokemontcg.io/sm10/225_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm10-225",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 31.16,
+            "mid": 35.57,
+            "high": 89.99,
+            "market": 34.24,
+            "directLow": null
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/sm10-225",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": null,
+          "lowPrice": 19.94,
+          "trendPrice": 33.54,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": 35.94,
+          "lowPriceExPlus": 25.0,
+          "avg1": 55.0,
+          "avg7": 41.63,
+          "avg30": 28.83,
+          "reverseHoloAvg1": 34.99,
+          "reverseHoloAvg7": 37.73,
+          "reverseHoloAvg30": 25.98
+        }
+      }
+    },
+    {
+      "id": "swsh6-61",
+      "name": "Gardevoir",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "hp": "140",
+      "types": [
+        "Psychic"
+      ],
+      "evolvesFrom": "Kirlia",
+      "abilities": [
+        {
+          "name": "Shining Arcana",
+          "text": "Once during your turn, you may look at the top 2 cards of your deck and attach any number of basic Energy cards you find there to your Pokémon in any way you like. Put the other cards into your hand.",
+          "type": "Ability"
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Brainwave",
+          "cost": [
+            "Colorless",
+            "Colorless",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "60+",
+          "text": "This attack does 30 more damage for each Psychic Energy attached to this Pokémon."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swsh6",
+        "name": "Chilling Reign",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 198,
+        "total": 233,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "CRE",
+        "releaseDate": "2021/06/18",
+        "updatedAt": "2021/06/18 12:12:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swsh6/symbol.png",
+          "logo": "https://images.pokemontcg.io/swsh6/logo.png"
+        }
+      },
+      "number": "61",
+      "artist": "kodama",
+      "rarity": "Rare Holo",
+      "flavorText": "To protect its Trainer, it will expend all its psychic power to create a small black hole.",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swsh6/61.png",
+        "large": "https://images.pokemontcg.io/swsh6/61_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swsh6-61",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 0.25,
+            "mid": 0.99,
+            "high": 10.93,
+            "market": 0.84,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 0.35,
+            "mid": 1.04,
+            "high": 9999.0,
+            "market": 1.01,
+            "directLow": 9999.0
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swsh6-61",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 0.61,
+          "lowPrice": 0.08,
+          "trendPrice": 0.61,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": 0.83,
+          "reverseHoloLow": 0.15,
+          "reverseHoloTrend": 0.67,
+          "lowPriceExPlus": 0.08,
+          "avg1": 0.51,
+          "avg7": 0.68,
+          "avg30": 0.61,
+          "reverseHoloAvg1": 0.35,
+          "reverseHoloAvg7": 0.64,
+          "reverseHoloAvg30": 0.81
+        }
+      }
+    },
+    {
+      "id": "swshp-SWSH105",
+      "name": "Gardevoir V",
+      "supertype": "Pokémon",
+      "subtypes": [
+        "Basic",
+        "V"
+      ],
+      "hp": "210",
+      "types": [
+        "Psychic"
+      ],
+      "rules": [
+        "V rule: When your Pokémon V is Knocked Out, your opponent takes 2 Prize cards."
+      ],
+      "attacks": [
+        {
+          "name": "Magical Shot",
+          "cost": [
+            "Psychic"
+          ],
+          "convertedEnergyCost": 1,
+          "damage": "30",
+          "text": ""
+        },
+        {
+          "name": "Swelling Pulse",
+          "cost": [
+            "Psychic",
+            "Psychic",
+            "Colorless"
+          ],
+          "convertedEnergyCost": 3,
+          "damage": "120+",
+          "text": "If this Pokémon was healed during this turn, this attack does 80 more damage."
+        }
+      ],
+      "weaknesses": [
+        {
+          "type": "Metal",
+          "value": "×2"
+        }
+      ],
+      "retreatCost": [
+        "Colorless",
+        "Colorless"
+      ],
+      "convertedRetreatCost": 2,
+      "set": {
+        "id": "swshp",
+        "name": "SWSH Black Star Promos",
+        "series": "Sword \u0026 Shield",
+        "printedTotal": 103,
+        "total": 103,
+        "legalities": {
+          "unlimited": "Legal",
+          "standard": "Legal",
+          "expanded": "Legal"
+        },
+        "ptcgoCode": "PR-SW",
+        "releaseDate": "2019/11/15",
+        "updatedAt": "2021/03/15 10:46:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/swshp/symbol.png",
+          "logo": "https://images.pokemontcg.io/swshp/logo.png"
+        }
+      },
+      "number": "SWSH105",
+      "artist": "5ban Graphics",
+      "rarity": "Promo",
+      "nationalPokedexNumbers": [
+        282
+      ],
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "images": {
+        "small": "https://images.pokemontcg.io/swshp/SWSH105.png",
+        "large": "https://images.pokemontcg.io/swshp/SWSH105_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/swshp-SWSH105",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "holofoil": {
+            "low": 3.0,
+            "mid": 3.72,
+            "high": 14.0,
+            "market": 4.1,
+            "directLow": 10.45
+          }
+        }
+      },
+      "cardmarket": {
+        "url": "https://prices.pokemontcg.io/cardmarket/swshp-SWSH105",
+        "updatedAt": "2021/08/25",
+        "prices": {
+          "averageSellPrice": 5.7,
+          "lowPrice": 4.0,
+          "trendPrice": 5.84,
+          "germanProLow": null,
+          "suggestedPrice": null,
+          "reverseHoloSell": null,
+          "reverseHoloLow": null,
+          "reverseHoloTrend": null,
+          "lowPriceExPlus": 4.0,
+          "avg1": 4.99,
+          "avg7": 6.81,
+          "avg30": 8.25,
+          "reverseHoloAvg1": null,
+          "reverseHoloAvg7": null,
+          "reverseHoloAvg30": null
+        }
+      }
+    }
+  ],
+  "page": 1,
+  "pageSize": 250,
+  "count": 41,
+  "totalCount": 41
+}
