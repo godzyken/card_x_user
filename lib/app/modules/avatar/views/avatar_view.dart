@@ -8,14 +8,14 @@ import '../controllers/avatar_controller.dart';
 class AvatarView extends GetView<AvatarController> {
   @override
   Widget build(BuildContext context) {
-    return controller.photo == null
+    return controller.user!.photoURL == null
         ? LogoGraphicHeader()
         : Hero(
-        tag: controller.user,
+        tag: 'user-image',
         child: CircleAvatar(
           child: ClipOval(
             child: Image.network(
-              controller.photo
+              controller.user!.photoURL!
             ),
           ),
         ));

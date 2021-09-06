@@ -46,7 +46,7 @@ class ScanCardController extends GetxController {
 
   get error => RxStatus.error('message');
 
-  void onCreate() async {
+  void onUpdate() async {
     try {
       var config = ScanbotSdkConfig(
           loggingEnabled: true,
@@ -73,9 +73,6 @@ class ScanCardController extends GetxController {
 
   @override
   void onInit() async {
-    print(checkLicenseStatus(context));
-    onCreate();
-    print(checkLicenseStatus(context!));
 
     pages = _pageRepository.pages;
     super.onInit();
@@ -83,7 +80,7 @@ class ScanCardController extends GetxController {
 
   @override
   void onReady() {
-    startDocumentScanning();
+    onUpdate();
     super.onReady();
   }
 
@@ -391,7 +388,7 @@ class ScanCardController extends GetxController {
 
   void showResultTextDialog(context, result) {
     Widget okButton = TextButton(
-      onPressed: () => Navigator.pop(context),
+      onPressed: () => Get.back(result: context, canPop: true),
       child: Text('OK'),
     );
     // set up the AlertDialog

@@ -4,9 +4,9 @@ import 'package:card_x_user/app/modules/settings/services/translatiions/app_tran
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:logging/logging.dart';
 
 import '../globals.dart';
-
 
 class LanguageController extends GetxController {
   static LanguageController get to => Get.find();
@@ -23,38 +23,39 @@ class LanguageController extends GetxController {
 
   // Retrieves and Sets language based on device settings
   setInitialLocalLanguage() {
-    if ((currentLanguageStore.value == '') ||
-        (currentLanguageStore.value == null)) {
-      String _deviceLanguage = ui.window.locale.toString();
-      _deviceLanguage =
-          _deviceLanguage.substring(0, 2); //only get 1st 2 characters
-      print(ui.window.locale.toString());
-      updateLanguage(_deviceLanguage);
-    }
+    String? _deviceLanguage = ui.window.locale.toString();
+    _deviceLanguage =
+        _deviceLanguage.substring(0, 2); //only get 1st 2 characters
+    print(ui.window.locale.toString());
+    updateLanguage(_deviceLanguage);
   }
 
 // Gets current language stored
-  RxString get currentLanguageStore {
+  RxString? get currentLanguageStore {
     language.value = store.read('language');
     return language;
   }
 
   Locale? get getLocale {
+    language.value = Globals.defaultLanguage;
+    updateLanguage(Globals.defaultLanguage);
 
-      language.value = Globals.defaultLanguage;
-      updateLanguage(Globals.defaultLanguage);
+    Locale? _updatedLocal = AppTranslationService.locale;
 
-      Locale? _updatedLocal = AppTranslationService.locale;
+    return _updatedLocal;
+  }
 
-      return _updatedLocal;
-    }
-    // gets the default language key (from the translation language system)
+  // gets the default language key (from the translation language system)
 
 // updates the language stored
-  Future<void> updateLanguage(String value) async {
-    language.value = value;
-    await store.write("language", value);
-    Get.updateLocale(getLocale!);
-    update();
+  void updateLanguage(String? value) async {
+    try {
+      language.value = value!;
+      await store.write("language", value);
+      Get.updateLocale(getLocale!);
+      update();
+    } catch (e) {
+      Logger.root.severe(e);
+    }
   }
 }

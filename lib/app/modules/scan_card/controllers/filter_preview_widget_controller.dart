@@ -1,4 +1,4 @@
-
+import 'package:card_x_user/app/modules/scan_card/repository/page_repository.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/progress_dialog.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/utils.dart';
 import 'package:get/get.dart';
@@ -13,9 +13,11 @@ class FilterPreviewWidgetController extends GetxController {
   var context = Get.context;
 
   late final imageData;
+
   @override
   void onInit() {
-    imageData = ScanbotEncryptionHandler.getDecryptedDataFromFile(filteredImageUri!);
+    imageData =
+        ScanbotEncryptionHandler.getDecryptedDataFromFile(filteredImageUri!);
 
     super.onInit();
   }
@@ -28,8 +30,7 @@ class FilterPreviewWidgetController extends GetxController {
   @override
   void onClose() {}
 
-
-  Future<void> applyFilter() async {
+  void applyFilter() async {
     if (!await checkLicenseStatus(context!)) {
       return;
     }
@@ -38,13 +39,13 @@ class FilterPreviewWidgetController extends GetxController {
         type: ProgressDialogType.Normal, isDismissible: false);
     dialog.style(message: 'Processing');
     dialog.show();
+
     try {
-      final updatedPage =
-          await ScanbotSdk.applyImageFilter(page!, selectedFilter!);
+      final updatedPage = PageRepository()
+          .pages
+          .map((page) => ScanbotSdk.applyImageFilter(page, selectedFilter!));
       await dialog.hide();
-      GetNavigator(
-        pages: [],
-      ).onPopPage;
+      Get.back(result: updatedPage, canPop: true);
     } catch (e) {
       await dialog.hide();
       print(e);

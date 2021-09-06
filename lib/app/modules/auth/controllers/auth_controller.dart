@@ -1,5 +1,6 @@
-import 'package:card_x_user/app/components/ui.dart';
-import 'package:card_x_user/app/modules/auth/sign_up/views/sign_up_view.dart';
+import 'package:card_x_user/app/modules/admin/views/admin_view.dart';
+import 'package:card_x_user/app/modules/auth/sign_in/views/sign_in_view.dart';
+import 'package:card_x_user/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,13 +10,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../user_model.dart';
 
 class AuthController extends GetxController {
-  static AuthController to = Get.find();
+  static AuthController? get to => Get.find<AuthController>();
 
   final nameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
 
-  final _googleSignIn = GoogleSignIn(scopes: ['email']);
+  GoogleSignIn? googleSignIn;
+
+  var isSignIn = false.obs;
   final firebaseUser = Rxn<User>();
   final fireStoreUser = Rxn<UserModel>();
   final connect = GetxFire.firestore;
@@ -23,35 +26,52 @@ class AuthController extends GetxController {
 
   final admin = false.obs;
 
-  final count = 0.obs;
-
   @override
   void onInit() {
+    ever(admin, fireRoute);
+    admin.value = fireStoreUser.value!.siteAdmin!;
     super.onInit();
   }
 
   @override
   void onReady() async {
-    ever(firebaseUser, handleAuthChanged);
-    firebaseUser.value = await getUser;
-    firebaseUser.bindStream(user);
+    googleSignIn = GoogleSignIn();
+    ever(isSignIn, handleAuthChanged);
+    isSignIn.value = auth.currentUser != null;
+    auth.authStateChanges().listen((event) {
+      isSignIn.value = event != null;
+    });
+
     super.onReady();
   }
 
   @override
   void onClose() {
-    nameController.value.dispose();
-    emailController.value.dispose();
-    passwordController.value.dispose();
+    // signOut();
+    // auth.signOut();
+    // passwordController.value.dispose();
+    // firebaseUser.close();
+    // fireStoreUser.close();
+    // googleSignIn!.disconnect();
     super.onClose();
   }
 
-  void increment() => count.value++;
+  fireRoute(logged) {
+    if (logged) {
+      Get.off(AdminView());
+    } else {
+      Get.off(SignInView());
+    }
+  }
 
   ///[CRUD] on fireStore with GetXfire
   void _createUserFirestore(UserModel? userModel, User? _firebaseUser) {
-    connect.createData(
-        collection: '/users/${_firebaseUser!.uid}', data: userModel!.toJson());
+    connect
+        .createData(
+            collection: '/users/${_firebaseUser!.uid}',
+            data: userModel!.toJson())
+        .then((value) => GetxFire.openDialog
+            .messageSuccess("Create $userModel successfully!"));
     update();
   }
 
@@ -59,6 +79,7 @@ class AuthController extends GetxController {
     connect.searchData(
       collection: '/users/${_firebaseUser!.uid}',
       search: '${userModel!.id}',
+      ownerUID: '/admin/${userModel.login}'
     );
     update();
   }
@@ -113,11 +134,14 @@ class AuthController extends GetxController {
     }
   }
 
-  handleAuthChanged(_firebaseUser) async {
-    if (_firebaseUser?.uid != null) {
-      fireStoreUser.bindStream(streamFirestoreUser());
-      await isAdmin();
+  void handleAuthChanged(isLoggedIn) {
+    if (isLoggedIn) {
+      Get.offAllNamed(Routes.HOME, arguments: auth.currentUser);
+
       update();
+    } else {
+      // Get.offAllNamed(Routes.SIGNUP);
+      Get.until((route) => Get.currentRoute == '/sign-up');
     }
   }
 
@@ -156,7 +180,7 @@ class AuthController extends GetxController {
   Future<void> updateUser(BuildContext context, UserModel user, String oldEmail,
       String password) async {
     try {
-      showLoadingIndicator();
+      //showLoadingIndicator();
       await auth
           .signInWithEmailAndPassword(email: oldEmail, password: password)
           .then((_firebaseUser) {
@@ -164,7 +188,7 @@ class AuthController extends GetxController {
             .updateEmail(user.email!)
             .then((value) => _updateUserFirestore(user, _firebaseUser.user!));
       });
-      hideLoadingIndicator();
+      //hideLoadingIndicator();
       Get.snackbar('Update User Success Notice Title !'.tr,
           'Update User Success Notice !'.tr,
           snackPosition: SnackPosition.BOTTOM,
@@ -174,7 +198,7 @@ class AuthController extends GetxController {
     } on PlatformException catch (error) {
       //List<String> errors = error.toString().split(',');
       // print("Error: " + errors[1]);
-      hideLoadingIndicator();
+      Get.overlayContext!;
       print(error.code);
       String? authError;
       switch (error.code) {
@@ -193,47 +217,27 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> _googleSignOut() async {
-    await _googleSignIn.signOut().then((value) => Get.offAll(SignUpView()));
+  _googleSignOut() async {
+    await googleSignIn!
+        .signOut()
+        .then((value) => Get.until((route) => Get.currentRoute == '/sign-up'));
   }
 
-  Future<void> signOut() async {
+  signOut() async {
     nameController.value.clear();
     emailController.value.clear();
-    _googleSignOut();
+    await _googleSignOut();
     return auth.signOut();
   }
 
   ///Method to handle user sign in using email and password
   signInWithEmailAndPassword(BuildContext context) async {
-    // showLoadingIndicator();
+    // //showLoadingIndicator();
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.value.text.trim(),
-          password: passwordController.value.text.trim());
-      emailController.value.clear();
-      passwordController.value.clear();
-
-      update();
-      hideLoadingIndicator();
-    } catch (error) {
-      hideLoadingIndicator();
-      Get.snackbar('Sign in error title'.tr, 'Sign in Error'.tr,
-          snackPosition: SnackPosition.BOTTOM,
-          duration: Duration(seconds: 7),
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor!,
-          colorText: Get.theme.snackBarTheme.actionTextColor!);
-    }
-  }
-
-  ///User registration using email and password
-  registerWithEmailAndPassword(BuildContext context) async {
-    showLoadingIndicator();
-    try {
-      await auth
-          .createUserWithEmailAndPassword(
-              email: emailController.value.text,
-              password: passwordController.value.text)
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.value.text.trim(),
+              password: passwordController.value.text.trim())
           .then((result) async {
         //create the new user object
         var _newUser = UserModel(
@@ -247,10 +251,55 @@ class AuthController extends GetxController {
         passwordController.value.clear();
 
         update();
-        hideLoadingIndicator();
+        //hideLoadingIndicator();
       });
     } catch (error) {
-      hideLoadingIndicator();
+      //hideLoadingIndicator();
+      Get.snackbar('Sign in error title'.tr, 'Sign in Error'.tr,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 7),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    }
+  }
+
+  ///User registration using email and password
+  registerWithEmailAndPassword(BuildContext context) async {
+    //showLoadingIndicator();
+    try {
+      GetxFire.createUserWithEmailAndPassword(
+        email: emailController.value.text,
+        password: passwordController.value.text,
+        isSuccessDialog: true,
+        onSuccess: (userCredential) {
+          if (userCredential!.user != null) {
+            isSignIn.value = true;
+          } else {
+            isSignIn.value = false;
+          }
+        },
+        onError: (code, message) {
+          Get.snackbar('Error registration',
+              'Failed to sign with Email & Password\n$message');
+        },
+        isErrorDialog: true,
+      ).then((result) async {
+        //create the new user object
+        var _newUser = UserModel(
+            login: result!.user!.uid,
+            email: result.user!.email,
+            name: nameController.value.text,
+            avatarUrl: result.user!.photoURL);
+        //create the user in firestore
+        _createUserFirestore(_newUser, result.user!);
+        emailController.value.clear();
+        passwordController.value.clear();
+
+        update();
+        //hideLoadingIndicator();
+      });
+    } catch (error) {
+      //hideLoadingIndicator();
       Get.snackbar('Sign up error title'.tr, 'error.message'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 10),
@@ -267,7 +316,8 @@ class AuthController extends GetxController {
           id: '/${user!.uid}',
           collectionChild: '/admin',
           idChild: '/${user.tenantId}');
-      if (adminRef.isBroadcast) {
+
+      if (user.tenantId != null) {
         admin.value = true;
       } else {
         admin.value = false;
@@ -277,24 +327,35 @@ class AuthController extends GetxController {
   }
 
   ///Method to handle user sign in using [google_sign_in]
-  googleSignIn(BuildContext context) async {
-    showLoadingIndicator();
-
+  getGoogleSignIn(BuildContext context) async {
     try {
-      final GoogleSignInAccount googleUser = (await _googleSignIn.signIn())!;
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
-      await auth
-          .signInWithCredential(credential)
-          .then((value) => Get.toNamed('/home'));
+      await GetxFire.signInWithGoogle(
+        onSuccess: (userCredential) {
+          final user = userCredential!.user;
+          var _newUser = UserModel(
+            name: user!.displayName,
+            login: user.uid,
+            avatarUrl: user.photoURL,
+            email: user.email,
+          );
 
+          _createUserFirestore(_newUser, user);
+
+          Get.toNamed('/home');
+          Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
+        },
+        onError: (code, message) {
+          Get.snackbar('Error', 'Failed to sign in with Google: $message');
+        },
+        isErrorDialog: true,
+        isSuccessDialog: true,
+      );
+      //showLoadingIndicator();
       update();
 
-      hideLoadingIndicator();
+      //hideLoadingIndicator();
     } catch (error) {
-      hideLoadingIndicator();
+      //hideLoadingIndicator();
       Get.snackbar('Sign In Error Title !'.tr, 'Sign In Error !'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 7),

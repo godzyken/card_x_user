@@ -37,7 +37,7 @@ class DocumentPreController extends GetxController {
   void onClose() {}
 
   Future<void> showOperationsPage(c.Page? page) async {
-    await Get.to(PageOperationsView(page), arguments: Get.arguments);
+    await Get.toNamed('/page-operation', arguments: page);
     update();
   }
 

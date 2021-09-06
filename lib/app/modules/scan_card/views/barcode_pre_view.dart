@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scanbot_sdk/barcode_scanning_data.dart';
 
-import '../../../../main.dart';
 
 class BarcodePreView extends GetView<BarcodePreController> {
   BarcodePreView(BarcodeScanningResult? result);

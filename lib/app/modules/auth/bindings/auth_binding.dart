@@ -12,8 +12,8 @@ class AuthBinding extends Bindings {
     Get.lazyPut<AuthController>(
       () => AuthController(),
     );
-    Get.put(SignInController());
-    Get.put(SignUpController());
+    Get.lazyPut<SignInController>(()=> SignInController());
+    Get.lazyPut<SignUpController>(()=> SignUpController());
     Get.lazyPut<ResetPasswordController>(() => ResetPasswordController());
     Get.lazyPut<UpdateProfileController>(() => UpdateProfileController());
   }

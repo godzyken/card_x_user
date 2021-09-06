@@ -137,7 +137,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.text_fields),
                   title: Text('Perform OCR'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.performOcr();
                   },
                 ),
@@ -145,7 +145,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.picture_as_pdf),
                   title: Text('Save as PDF'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.createPdf();
                   },
                 ),
@@ -153,7 +153,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.picture_as_pdf),
                   title: Text('Save as PDF with OCR'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.createOcrPdf();
                   },
                 ),
@@ -161,7 +161,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.image),
                   title: Text('Safe as TIFF'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.createTiff(false);
                   },
                 ),
@@ -169,7 +169,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.image),
                   title: Text('Save as TIFF 1-bit encoded'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.createTiff(true);
                   },
                 ),
@@ -177,14 +177,14 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.image),
                   title: Text('Apply Image Filter on ALL pages'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.filterAllPages();
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.close),
                   title: Text('Cancel'),
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Get.back(result: context, canPop: true),
                 ),
               ],
             ),
@@ -203,7 +203,7 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.scanner),
                   title: Text('Scan Page'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.startDocumentScanning();
                   },
                 ),
@@ -211,14 +211,14 @@ class DocumentPreView extends GetView<DocumentPreController> {
                   leading: Icon(Icons.photo_size_select_actual),
                   title: Text('Import Page'),
                   onTap: () {
-                    Navigator.pop(context);
+                    Get.back(result: context, canPop: true);
                     controller.importImage();
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.close),
                   title: Text('Cancel'),
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Get.back(result: context, canPop: true),
                 ),
               ],
             ),

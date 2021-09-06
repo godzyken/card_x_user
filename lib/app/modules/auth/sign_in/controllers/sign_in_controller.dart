@@ -1,9 +1,10 @@
 import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 
 class SignInController extends GetxController {
-  static SignInController to = Get.find();
-  final authControl = AuthController();
+  final AuthController? _authController = Get.find<AuthController>();
+  AuthController? get authController => _authController;
 
   @override
   void onInit() {
@@ -18,14 +19,4 @@ class SignInController extends GetxController {
   @override
   void onClose() {}
 
-/*
-  signIn(context) async {
-    var isLog = await authControl.signInWithEmailAndPassword(context);
-    if(isLog) {
-      return Get.to('/home', opaque: true, arguments: Get.arguments, );
-    } else {
-      return Future.error(isLog, StackTrace.current);
-    }
-  }
-*/
 }

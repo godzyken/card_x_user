@@ -48,7 +48,7 @@ class SettingsView extends GetView<SettingsController> {
                 menuOptions: Globals.languageOptions,
                 selectedOption: _.currentLanguage,
                 onChanged: (value) async {
-                  await _.updateLanguage(value!);
+                  _.updateLanguage(value!);
                   Get.forceAppUpdate();
                 },
               ),

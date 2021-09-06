@@ -1,9 +1,10 @@
+import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 
 class SignUpController extends GetxController {
-  //TODO: Implement SignUpControllerController
+  AuthController? authController = Get.find<AuthController>();
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +17,5 @@ class SignUpController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
 }

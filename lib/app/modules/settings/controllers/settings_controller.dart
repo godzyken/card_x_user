@@ -6,6 +6,7 @@ import 'package:getxfire/getxfire.dart';
 
 class SettingsController extends GetxController {
   static SettingsController get to => Get.find();
+  AuthController? authController = Get.find<AuthController>();
   final store = GetStorage();
   final theme = "system".obs;
 
@@ -15,7 +16,7 @@ class SettingsController extends GetxController {
 
   bool get isDarkModeOn => store.read('dark') ?? false;
 
-  final signOut = AuthController.to.signOut();
+  var signOut;
 
   late final List<dynamic>? menuOptions;
   late final String? selectedOption;
@@ -29,11 +30,14 @@ class SettingsController extends GetxController {
 
   @override
   void onReady() {
+    signOut = authController!.signOut();
+
     super.onReady();
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+  }
 
   ThemeMode getThemeModeFromString(String? themeString) {
     ThemeMode _setThemeMode = ThemeMode.system;

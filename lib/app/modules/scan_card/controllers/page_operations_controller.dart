@@ -52,7 +52,7 @@ class PageOperationsController extends GetxController {
       return;
     }
 
-    final resultPage = await Get.to('/page-filtering', arguments: PageFilteringView(page));
+    final resultPage = await Get.toNamed('/page-filtering', arguments: page);
     if (resultPage != null) {
       await _updatePage(resultPage);
     }

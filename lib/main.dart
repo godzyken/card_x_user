@@ -1,4 +1,3 @@
-import 'package:card_x_user/app/modules/home/bindings/home_binding.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/license.dart';
 import 'package:card_x_user/generated/locales.g.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +14,7 @@ import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await GetxFire.init();
   await GetStorage.init();
 
@@ -31,18 +31,18 @@ Future<void> main() async {
       locale: Locale('en', 'FR'),
       fallbackLocale: Locale('en', 'FR'),
       translationsKeys: AppTranslation.translations,
-      smartManagement: SmartManagement.keepFactory,
-      defaultTransition: Transition.fade,
-      opaqueRoute: Get.isOpaqueRouteDefault,
+      // smartManagement: SmartManagement.keepFactory,
+      // showPerformanceOverlay: true,
       popGesture: Get.isPopGestureEnable,
       transitionDuration: Get.defaultTransitionDuration,
-      defaultGlobalState: true,
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
     ),
   );
 
   Get.config(
     enableLog: true,
     defaultPopGesture: true,
-    defaultTransition: Transition.cupertino
+    defaultTransition: Transition.fade
   );
 }

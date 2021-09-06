@@ -1,5 +1,3 @@
-import 'package:card_x_user/app/modules/auth/sign_in/views/sign_in_view.dart';
-import 'package:card_x_user/app/modules/auth/sign_up/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,20 +12,75 @@ class AuthView extends GetView<AuthController> {
           title: Text('Authentication Services'),
           centerTitle: true,
         ),
-        body: Stack(
-          children: [
-            SizedBox(),
-            Container(
-                child: Column(children: [
-              Row(children: [
-                Expanded(flex: 1, child: SignInView()),
-              ]),
-              SizedBox(),
-              Row(children: [
-                Expanded(flex: 1, child: SignUpView()),
-              ]),
-            ]))
-          ],
-        ));
+        body: Container(
+            alignment: Alignment.center,
+            width: Get.mediaQuery.size.width,
+            height: Get.mediaQuery.size.height,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Wrap(
+                      alignment: WrapAlignment.center,
+                      runAlignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      runSpacing: Get.mediaQuery.size.shortestSide,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                              children: [
+                            Column(
+                              children: [
+                                IconButton(
+                                  onPressed: () => Get.toNamed('/sign-in'),
+                                  icon: Icon(Icons.account_circle),
+                                  iconSize: 84.0,
+                                  padding: const EdgeInsets.all(8.0),
+                                ),
+                                Card(
+                                  child: Text('Log to your account'),
+                                )
+                              ],
+                            ),
+                          ]),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Row(children: [
+                            IconButton(
+                              onPressed: () => Get.toNamed('/sign-in'),
+                              icon: Icon(Icons.account_circle),
+                              iconSize: 84.0,
+                              padding: const EdgeInsets.all(8.0),
+                            ),
+                            Card(
+                              child: Text('Social link'),
+                            ),
+                          ]),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Row(children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () => Get.toNamed('/sign-up'),
+                                  icon: Icon(Icons.how_to_reg),
+                                  iconSize: 84.0,
+                                  padding: const EdgeInsets.all(8.0),
+                                ),
+                                Card(
+                                  child: Text('Register'),
+                                )
+                              ],
+                            )
+                          ]),
+                        )
+                      ]),
+                ])));
   }
 }

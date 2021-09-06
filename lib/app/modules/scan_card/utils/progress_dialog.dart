@@ -88,8 +88,8 @@ class ProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        if (Navigator.of(_dismissingContext!).canPop()) {
-          Navigator.of(_dismissingContext!).pop();
+        if (Get.isPopGestureEnable) {
+          Get.back(canPop: true, result: _dismissingContext, closeOverlays: true);
           if (_showLogs) debugPrint('ProgressDialog dismissed');
         } else {
           if (_showLogs) debugPrint('Cant pop ProgressDialog');
@@ -104,7 +104,7 @@ class ProgressDialog {
     if (_isShowing) {
       try {
         _isShowing = false;
-        Navigator.of(_dismissingContext!).pop(true);
+        Get.back(canPop: true, result: _dismissingContext, closeOverlays: true);
         if (_showLogs) debugPrint('ProgressDialog dismissed');
         return Future.value(true);
       } catch (_) {

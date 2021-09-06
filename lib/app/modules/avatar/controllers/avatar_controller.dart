@@ -1,18 +1,16 @@
-import 'package:card_x_user/app/modules/auth/user_model.dart';
+import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 
 class AvatarController extends GetxController {
-  //TODO: Implement AvatarController
+  AuthController? authController = Get.find<AuthController>();
 
-  final user = UserModel().obs;
-
-  get photo => user.value.avatarUrl;
-
-  final _imageLogo = 'assets/img/default.png'.obs;
+  late User? user;
 
   @override
   void onInit() {
     super.onInit();
+    user = Get.arguments;
   }
 
   @override
