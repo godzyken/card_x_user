@@ -18,5 +18,6 @@ class UserProvider extends GetConnect {
   }
 
   Future<Response<UserModel>> postUser(UserModel user) async => await post('user', user);
+
   Future<Response> deleteUser(int id) async => await delete('user/$id');
 }

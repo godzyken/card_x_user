@@ -28,6 +28,11 @@ abstract class Routes {
   static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
   static const PROFILE = _Paths.PROFILE;
   static const SOCIAL_CONNECTION = _Paths.SOCIAL_CONNECTION;
+  static const POKEMON_PRODUCT = _Paths.POKEMON_PRODUCT;
+  static const POKEMON_RARITIES = _Paths.POKEMON_RARITIES;
+  static const POKEMON_SELECT = _Paths.POKEMON_SELECT;
+  static const POKEMON_SET = _Paths.POKEMON_SET;
+  static const POKEMON_TYPES = _Paths.POKEMON_TYPES;
 }
 
 abstract class _Paths {
@@ -49,4 +54,9 @@ abstract class _Paths {
   static const UPDATE_PROFILE = '/update-profile';
   static const PROFILE = '/profile';
   static const SOCIAL_CONNECTION = '/social-connection';
+  static const POKEMON_PRODUCT = '/pokemon-product';
+  static const POKEMON_RARITIES = '/pokemon-rarities';
+  static const POKEMON_SELECT = '/pokemon-select';
+  static const POKEMON_SET = '/pokemon-set';
+  static const POKEMON_TYPES = '/pokemon-types';
 }

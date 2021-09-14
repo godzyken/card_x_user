@@ -1,9 +1,11 @@
 import 'package:card_x_user/app/modules/admin/bindings/admin_binding.dart';
 import 'package:card_x_user/app/modules/auth/bindings/auth_binding.dart';
+import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:card_x_user/app/modules/auth/services/auth_services.dart';
 import 'package:card_x_user/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 
 class EnsureAuthMiddleware extends GetMiddleware {
   static final middlewares = [
@@ -12,11 +14,16 @@ class EnsureAuthMiddleware extends GetMiddleware {
     GetMiddleware(priority: 4),
     GetMiddleware(priority: -8),
   ];
+  final AuthController? authServices = Get.put(AuthController());
+
+  int? get priority => 2;
+
 
   @override
   RouteSettings? redirect(String? route) {
-    final authService = AuthServices();
-    return authService.isLoggedInValue ? null : RouteSettings(name: '/sign-up');
+    return authServices!.auth.currentUser != null || route == Routes.SIGNIN
+        ? null
+        : RouteSettings(name: Routes.SIGNIN);
   }
 
   @override
@@ -30,7 +37,9 @@ class EnsureAuthMiddleware extends GetMiddleware {
   }
 
   @override
-  void onPageDispose() {}
+  void onPageDispose() {
+    super.onPageDispose();
+  }
 
   @override
   Widget onPageBuilt(Widget? page) {
@@ -55,14 +64,12 @@ class EnsureAuthMiddleware extends GetMiddleware {
 
   @override
   GetPage? onPageCalled(GetPage? page) {
-    final authServices = AuthServices();
-
     return page!.copy(
       name: '/home',
       settings: redirect('/auth'),
       middlewares: middlewares,
       binding: AuthBinding(),
-      arguments: '${authServices.user}',
+      arguments: '${authServices!.user}',
       popGesture: true,
     );
   }
@@ -75,11 +82,28 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
 
     if (authServices.isLoggedInValue) {
       //NEVER navigate to auth screen, when user is already authed
-      return null;
+      //return null;
 
       //OR redirect user to another screen
-      //return GetNavConfig.fromRoute(Routes.PROFILE);
+      return GetNavConfig.fromRoute(Routes.PROFILE);
     }
     return await super.redirectDelegate(route);
   }
+}
+
+class EnsureProfileMiddleware extends GetMiddleware {
+  @override
+  int? get priority => 4;
+
+  bool isProfileSet = false;
+
+  @override
+  RouteSettings? redirect(String? route) {
+    final authServices = AuthServices();
+    if (isProfileSet == authServices.isLoggedInValue) {
+      return RouteSettings(name: Routes.PROFILE);
+    }
+  }
+
+
 }

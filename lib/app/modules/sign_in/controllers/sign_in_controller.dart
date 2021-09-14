@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 class SignInController extends GetxController {
   static SignInController to = Get.find();
-  final authControl = AuthController();
 
 
   @override

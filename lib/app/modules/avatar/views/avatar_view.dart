@@ -1,35 +1,34 @@
-import 'package:card_x_user/app/modules/settings/controllers/settings_controller.dart';
+import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/avatar_controller.dart';
 
-class AvatarView extends GetView<AvatarController> {
+class AvatarView extends GetView {
   @override
   Widget build(BuildContext context) {
-    return controller.user!.photoURL == null
+    return AuthController.to!.auth.currentUser!.photoURL!.isCurrency
         ? LogoGraphicHeader()
         : Hero(
         tag: 'user-image',
         child: CircleAvatar(
           child: ClipOval(
             child: Image.network(
-              controller.user!.photoURL!
+                AuthController.to!.auth.currentUser!.photoURL!
             ),
           ),
         ));
   }
 }
 
-class LogoGraphicHeader extends GetView<SettingsController> {
+class LogoGraphicHeader extends GetView {
 
   @override
   Widget build(BuildContext context) {
     String _imageLogo = 'assets/img/default.png';
-    if(controller.isDarkModeOn == true) {
+ /*   if(SettingsController.to.isSwitcheded == true) {
       _imageLogo = 'assets/img/defaultDark.png';
-    }
+    }*/
     return Hero(
       tag: 'App Logo',
       child: CircleAvatar(

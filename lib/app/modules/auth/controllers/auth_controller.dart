@@ -5,20 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 import '../user_model.dart';
 
 class AuthController extends GetxController {
-  static AuthController? get to => Get.find<AuthController>();
+  static AuthController? get to => Get.find();
 
   final nameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
 
-  GoogleSignIn? googleSignIn;
-
   var isSignIn = false.obs;
+  bool get authenticated => isSignIn.value;
+  set authenticated(value) => isSignIn.value = value;
+
+
   final firebaseUser = Rxn<User>();
   final fireStoreUser = Rxn<UserModel>();
   final connect = GetxFire.firestore;
@@ -28,16 +29,15 @@ class AuthController extends GetxController {
 
   @override
   void onInit() {
-    ever(admin, fireRoute);
-    admin.value = fireStoreUser.value!.siteAdmin!;
+    // ever(admin, fireRoute);
+    // admin.value = fireStoreUser.value!.siteAdmin!;
     super.onInit();
   }
 
   @override
   void onReady() async {
-    googleSignIn = GoogleSignIn();
     ever(isSignIn, handleAuthChanged);
-    isSignIn.value = auth.currentUser != null;
+    isSignIn.value = GetxFire.currentUser != null;
     auth.authStateChanges().listen((event) {
       isSignIn.value = event != null;
     });
@@ -68,7 +68,8 @@ class AuthController extends GetxController {
   void _createUserFirestore(UserModel? userModel, User? _firebaseUser) {
     connect
         .createData(
-            collection: '/users/${_firebaseUser!.uid}',
+            collection: '/users',
+            id: '${_firebaseUser!.uid}',
             data: userModel!.toJson())
         .then((value) => GetxFire.openDialog
             .messageSuccess("Create $userModel successfully!"));
@@ -217,16 +218,10 @@ class AuthController extends GetxController {
     }
   }
 
-  _googleSignOut() async {
-    await googleSignIn!
-        .signOut()
-        .then((value) => Get.until((route) => Get.currentRoute == '/sign-up'));
-  }
 
   signOut() async {
     nameController.value.clear();
     emailController.value.clear();
-    await _googleSignOut();
     return auth.signOut();
   }
 
@@ -255,7 +250,7 @@ class AuthController extends GetxController {
       });
     } catch (error) {
       //hideLoadingIndicator();
-      Get.snackbar('Sign in error title'.tr, 'Sign in Error'.tr,
+      Get.snackbar('Sign in error title'.tr, '$error'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 7),
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
@@ -326,7 +321,7 @@ class AuthController extends GetxController {
     });
   }
 
-  ///Method to handle user sign in using [google_sign_in]
+  ///Method to handle user register in using [GetxFire]
   getGoogleSignIn(BuildContext context) async {
     try {
       await GetxFire.signInWithGoogle(
@@ -343,6 +338,36 @@ class AuthController extends GetxController {
 
           Get.toNamed('/home');
           Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
+        },
+        onError: (code, message) {
+          Get.snackbar('Error', 'Failed to sign in with Google: $message');
+        },
+        isErrorDialog: true,
+        isSuccessDialog: true,
+      );
+      //showLoadingIndicator();
+      update();
+
+      //hideLoadingIndicator();
+    } catch (error) {
+      //hideLoadingIndicator();
+      Get.snackbar('Sign In Error Title !'.tr, 'Sign In Error !'.tr,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 7),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor!,
+          colorText: Get.theme.snackBarTheme.actionTextColor!);
+    }
+  }
+
+
+  ///Method to login user with [GetxFire]
+  googleSignIn(BuildContext context) async {
+    try {
+      await GetxFire.signInWithGoogle(
+        onSuccess: (userCredential) {
+          final user = userCredential!.user;
+          Get.toNamed('/home');
+          Get.snackbar('Sign In', 'Sign in ${user!.uid} with Google');
         },
         onError: (code, message) {
           Get.snackbar('Error', 'Failed to sign in with Google: $message');

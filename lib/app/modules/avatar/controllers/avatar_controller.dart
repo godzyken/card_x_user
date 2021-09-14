@@ -3,14 +3,10 @@ import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 
 class AvatarController extends GetxController {
-  AuthController? authController = Get.find<AuthController>();
-
-  late User? user;
 
   @override
   void onInit() {
     super.onInit();
-    user = Get.arguments;
   }
 
   @override

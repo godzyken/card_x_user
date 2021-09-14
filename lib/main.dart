@@ -31,6 +31,8 @@ Future<void> main() async {
       locale: Locale('en', 'FR'),
       fallbackLocale: Locale('en', 'FR'),
       translationsKeys: AppTranslation.translations,
+      themeMode: ThemeMode.system,
+      darkTheme: ThemeData.dark(),
       // smartManagement: SmartManagement.keepFactory,
       // showPerformanceOverlay: true,
       popGesture: Get.isPopGestureEnable,

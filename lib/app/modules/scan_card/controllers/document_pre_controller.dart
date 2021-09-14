@@ -3,7 +3,6 @@ import 'package:card_x_user/app/modules/scan_card/repository/page_repository.dar
 import 'package:card_x_user/app/modules/scan_card/utils/progress_dialog.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/utils.dart';
 import 'package:card_x_user/app/modules/scan_card/views/filter_all_page_view.dart';
-import 'package:card_x_user/app/modules/scan_card/views/page_operations_view.dart';
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 import 'package:scanbot_sdk/common_data.dart' as c;
@@ -15,6 +14,8 @@ import 'package:scanbot_sdk/scanbot_sdk.dart';
 import 'package:scanbot_sdk/scanbot_sdk_ui.dart';
 
 class DocumentPreController extends GetxController {
+  static DocumentPreController? get to => Get.find();
+
   final PageRepository _pageRepository = PageRepository();
   late List<c.Page> pages;
   late bool shouldInitWithEncryption;

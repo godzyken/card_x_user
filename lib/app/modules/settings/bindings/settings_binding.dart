@@ -11,7 +11,6 @@ class SettingsBinding extends Bindings {
     Get.lazyPut<SettingsController>(
       () => SettingsController(),
     );
-    Get.lazyPut<AuthController>(() => AuthController());
     Get.put(LanguageController(), permanent: true);
     Get.put(MyPref());
   }

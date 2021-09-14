@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 
+import 'package:card_x_user/app/middlewares/auth_middleware.dart';
 import 'package:card_x_user/app/modules/admin/bindings/admin_binding.dart';
 import 'package:card_x_user/app/modules/admin/views/admin_view.dart';
 import 'package:card_x_user/app/modules/auth/bindings/auth_binding.dart';
@@ -11,6 +12,16 @@ import 'package:card_x_user/app/modules/card_ui/bindings/card_ui_binding.dart';
 import 'package:card_x_user/app/modules/card_ui/views/card_ui_view.dart';
 import 'package:card_x_user/app/modules/home/bindings/home_binding.dart';
 import 'package:card_x_user/app/modules/home/views/home_view.dart';
+import 'package:card_x_user/app/modules/pokemon_product/bindings/pokemon_product_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_product/views/pokemon_product_view.dart';
+import 'package:card_x_user/app/modules/pokemon_rarities/bindings/pokemon_rarities_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_rarities/views/pokemon_rarities_view.dart';
+import 'package:card_x_user/app/modules/pokemon_select/bindings/pokemon_select_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_select/views/pokemon_select_view.dart';
+import 'package:card_x_user/app/modules/pokemon_set/bindings/pokemon_set_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_set/views/pokemon_set_view.dart';
+import 'package:card_x_user/app/modules/pokemon_types/bindings/pokemon_types_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_types/views/pokemon_types_view.dart';
 import 'package:card_x_user/app/modules/profile/bindings/profile_binding.dart';
 import 'package:card_x_user/app/modules/profile/views/profile_view.dart';
 import 'package:card_x_user/app/modules/scan_card/bindings/scan_card_binding.dart';
@@ -42,7 +53,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SCAN_CARD;
+  static const INITIAL = Routes.POKEMON_PRODUCT;
 
   static final routes = [
     GetPage(
@@ -53,7 +64,7 @@ class AppPages {
       // preventDuplicates: true,
       // opaque: true,
       // maintainState: true,
-      // middlewares: [EnsureAuthMiddleware()],
+      middlewares: [EnsureAuthMiddleware(), EnsureProfileMiddleware()],
       popGesture: true,
     ),
     GetPage(
@@ -177,6 +188,31 @@ class AppPages {
       name: _Paths.SOCIAL_CONNECTION,
       page: () => SocialConnectionView(),
       binding: SocialConnectionBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_PRODUCT,
+      page: () => PokemonProductView(),
+      binding: PokemonProductBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_RARITIES,
+      page: () => PokemonRaritiesView(),
+      binding: PokemonRaritiesBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_SELECT,
+      page: () => PokemonSelectView(),
+      binding: PokemonSelectBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_SET,
+      page: () => PokemonSetView(),
+      binding: PokemonSetBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_TYPES,
+      page: () => PokemonTypesView(),
+      binding: PokemonTypesBinding(),
     ),
   ];
 }

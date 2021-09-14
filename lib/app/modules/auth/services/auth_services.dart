@@ -5,7 +5,7 @@ import 'package:getxfire/getxfire.dart';
 class AuthServices extends GetxService {
   static AuthServices? get to => Get.find();
 
-  final authController = AuthController();
+  final AuthController? authController = Get.find();
 
   Future<AuthServices> init() async {
     print('$runtimeType delays 2 sec');
@@ -14,24 +14,24 @@ class AuthServices extends GetxService {
     return this;
   }
 
- get user => authController.user;
+ get user => authController!.user;
 
   final isLoggedIn = false.obs;
 
-  bool get isLoggedInValue => isLoggedIn.value;
+  bool get isLoggedInValue => isLoggedIn.value = GetxFire.userChanges().isBroadcast;
 
-  bool? get isAdmin => authController.admin.isTrue;
+  bool? get isAdmin => authController!.admin.isTrue;
 
   bool get isAdminValue => isAdmin.reactive.value!;
 
   bool? adminStatus() {
     if (user!.isAnonymous &&
         user!.emailVerified == false &&
-        authController.fireStoreUser.value!.siteAdmin == false) {
+        authController!.fireStoreUser.value!.siteAdmin! == false) {
       return isAdminValue.reactive.value = false;
     } else if (user!.isAnonymous == false &&
-        authController.fireStoreUser.value!.siteAdmin == true &&
-        authController.firebaseUser.value!.emailVerified) {
+        authController!.fireStoreUser.value!.siteAdmin! == true &&
+        authController!.firebaseUser.value!.emailVerified) {
       return isAdminValue.reactive.value == true;
     }
 
