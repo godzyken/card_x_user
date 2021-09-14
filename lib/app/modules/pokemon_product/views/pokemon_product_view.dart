@@ -29,7 +29,7 @@ class PokemonProductView extends GetView<PokemonProductController> {
                   textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(color: Colors.white),
                   autofocus: true,
-                  maxLength: 6,
+                  maxLength: 30,
                   onChanged: (value) => controller.getCard(value),
                   decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.yellowAccent),
@@ -50,23 +50,30 @@ class PokemonProductView extends GetView<PokemonProductController> {
                 //margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                 borderOnForeground: true,
                 shadowColor: Colors.black12,
-                child: Column(
-                  children: [
-                      Image.network(
-                        controller.card!.images.small,
-                        fit: BoxFit.cover,
-                        width: Get.mediaQuery.size.shortestSide,
-                        height: Get.mediaQuery.size.shortestSide,
-                      ),
-                      // title: Obx(() {
-                      //   return Text('${controller.cardName}',
-                      //     style: TextStyle(color: Colors.orange),);
-                      // }),
-                      // subtitle: Obx(() {
-                      //   return Text('${controller.card!.evolvesFrom!}'.tr);
-                      // }),
+                child: GetBuilder<PokemonProductController>(
+                  assignId: true,
+                  init: PokemonProductController(),
+                  initState: (state) => controller.getCard(controller.card!.id),
+                  builder: (_) {
+                    return Column(
+                      children: [
+                        Image.network(
+                          _.card!.images.small,
+                          fit: BoxFit.cover,
+                          width: Get.mediaQuery.size.shortestSide,
+                          height: Get.mediaQuery.size.shortestSide,
+                        ),
+                        // title: Obx(() {
+                        //   return Text('${controller.cardName}',
+                        //     style: TextStyle(color: Colors.orange),);
+                        // }),
+                        // subtitle: Obx(() {
+                        //   return Text('${controller.card!.evolvesFrom!}'.tr);
+                        // }),
 
-                  ],
+                      ],
+                    );
+                  },
                 ),
               ),
               SizedBox(),
