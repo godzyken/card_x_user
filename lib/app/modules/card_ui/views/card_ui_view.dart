@@ -27,6 +27,7 @@ class CardUiView extends GetView<CardUiController> {
                 ElevatedButton(onPressed: _.getSubtypes, child: Text('Get subtypes')),
                 ElevatedButton(onPressed: _.getSupertypes, child: Text('Get supertypes')),
                 ElevatedButton(onPressed: _.getRarities, child: Text('Get rarities')),
+                ElevatedButton(onPressed: _.getCardFromCardmarket, child: Text('Get card from cardmarket')),
 
               ],
             ),

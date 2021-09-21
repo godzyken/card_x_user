@@ -1,0 +1,46 @@
+{
+  "article": [
+    {
+      "idArticle": 142158699,
+      "idProduct": 266361,
+      "language": {
+        "idLanguage": 1,
+        "languageName": "English"
+      },
+      "comments": "",
+      "price": 0.02,
+      "count": 3,
+      "inShoppingCart": false,
+      "seller": {
+        "idUser": 9999,
+        "username": "Maxi",
+        "registrationDate": "2011-04-04T21:23:24+0200",
+        "isCommercial": 0,
+        "isSeller": true,
+        "name": {
+          "firstName": "Max"
+        },
+        "address": {
+          "country": "D"
+        },
+        "phone": "",
+        "email": "",
+        "vat": "",
+        "riskGroup": 0,
+        "reputation": 1,
+        "shipsFast": 1,
+        "sellCount": 254,
+        "soldItems": 3321,
+        "avgShippingTime": 5,
+        "onVacation": false
+      },
+      "condition": "NM",
+      "isFoil": false,
+      "isSigned": false,
+      "isAltered": false,
+      "isPlayset": false,
+      "links": {"url": "https://api.cardmarket.com/ws/v2.0"}
+    }
+  ]
+
+}

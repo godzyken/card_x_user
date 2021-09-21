@@ -1,17 +1,19 @@
+import 'dart:convert';
+
+import 'package:card_x_user/app/modules/card_ui/services/card_market_api.dart';
 import 'package:get/get.dart';
 import 'package:pokemon_tcg/pokemon_tcg.dart';
 
-import '../pokemon_card_v2_model.dart';
+import '../models/models.dart';
 
-///GET pokemon model.json [https://api.pokemontcg.io/v2/cards?q=name:gardevoir]
-///Search engine example [https://pokemontcg.guru/]
-/// "url": "https://api.cardmarket.com/ws/v2.0/products/265535"
+
 ///hooks_riverpod 0.14.0+4
 ///
 ///"url": "https://api.ebay.com/oauth/api_scope"
 
 class CardUiController extends GetxController {
   final api = PokemonTcgApi(apiKey: 'de24380f-8a46-4f2c-a139-716db256d4f9');
+  final cardMarketApi = CardMarketApi(options: 'application/json; charset=UTF-8');
   final pokemonCardV2Model = PokemonCardV2();
 
   PaginatedPokemonCards? paginatedCardsAll;
@@ -33,6 +35,8 @@ class CardUiController extends GetxController {
   @override
   void onClose() {}
 
+  ///GET pokemon model.json [https://api.pokemontcg.io/v2/cards?q=name:*****]
+  ///Search engine example [https://pokemontcg.guru/]
   void getCards() async {
     try {
       await paginatedCardsAll!.loadMore(page: 1);
@@ -139,4 +143,22 @@ class CardUiController extends GetxController {
       print(e);
     }
   }
+
+  //----> Fin TCG <----//
+
+  ///GET pokemon model.json ["https://api.cardmarket.com/ws/v2.0/products/265535"]
+  ///[https://api.cardmarket.com/ws/v2.0/articles/:idProduct]
+  ///https://api.cardmarket.com/ws/v2.0/articles/266361?userType=private&idLanguage=1&minCondition=NM&start=0&maxResults=10
+  void getCardFromCardmarket() async {
+
+    try{
+      final card = await cardMarketApi.getCard('pikachu');
+      print(card.name);
+    } catch (e) {
+      print(e);
+    }
+
+  }
+
+
 }

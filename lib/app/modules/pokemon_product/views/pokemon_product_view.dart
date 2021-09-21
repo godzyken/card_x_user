@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pokemon_tcg/pokemon_tcg.dart';
 
 import '../controllers/pokemon_product_controller.dart';
-
 
 class PokemonProductView extends GetView<PokemonProductController> {
   @override
@@ -18,11 +16,12 @@ class PokemonProductView extends GetView<PokemonProductController> {
         padding: EdgeInsets.symmetric(vertical: 28.0, horizontal: 46.0),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Form(
                 autovalidateMode: AutovalidateMode.always,
                 child: TextFormField(
-                  controller: controller.cardName,
                   showCursor: false,
                   textInputAction: TextInputAction.search,
                   textAlign: TextAlign.center,
@@ -44,81 +43,56 @@ class PokemonProductView extends GetView<PokemonProductController> {
                 ),
               ),
               SizedBox(),
-              Card(
-                elevation: 12.0,
-                color: Colors.lightBlueAccent,
-                //margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-                borderOnForeground: true,
-                shadowColor: Colors.black12,
+              Expanded(
                 child: GetBuilder<PokemonProductController>(
                   assignId: true,
                   init: PokemonProductController(),
-                  initState: (state) => controller.getCard(controller.card!.id),
                   builder: (_) {
-                    return Column(
-                      children: [
-                        Image.network(
-                          _.card!.images.small,
-                          fit: BoxFit.cover,
-                          width: Get.mediaQuery.size.shortestSide,
-                          height: Get.mediaQuery.size.shortestSide,
-                        ),
-                        // title: Obx(() {
-                        //   return Text('${controller.cardName}',
-                        //     style: TextStyle(color: Colors.orange),);
-                        // }),
-                        // subtitle: Obx(() {
-                        //   return Text('${controller.card!.evolvesFrom!}'.tr);
-                        // }),
-
-                      ],
-                    );
+                    return Card(
+                        key: key,
+                        semanticContainer: true,
+                        elevation: 12.0,
+                        color: Colors.lightBlueAccent,
+                        margin: EdgeInsets.symmetric(
+                            vertical: 2.0, horizontal: 3.0),
+                        borderOnForeground: true,
+                        shadowColor: Colors.black12,
+                        child: Column(
+                          children: [
+                            Expanded(
+                                child: Semantics(
+                                  child: Image.network(
+                                    _.card!.images.large,
+                                    filterQuality: FilterQuality.high,
+                                    fit: BoxFit.cover,
+                                    width: Get.mediaQuery.size.shortestSide,
+                                    height: Get.mediaQuery.size.shortestSide,
+                                  ),
+                                  value: _.card!.id,
+                                  container: true,
+                                  image: true,
+                                  onTap: () => Get.toNamed('/document-view'),
+                                  header: true,
+                                  maxValueLength: 1,
+                                  checked: _.isCard,
+                                  namesRoute: true,
+                              )
+                            )
+                          ],
+                        ));
                   },
                 ),
               ),
               SizedBox(),
-              Card(
-                elevation: 12.0,
-                color: Colors.lightBlueAccent,
-                margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-                borderOnForeground: true,
-                shadowColor: Colors.black12,
-                child: GetBuilder<PokemonProductController>(
-                    init: PokemonProductController(),
-                    builder: (_) =>
-                        ListView.builder(
-                          shrinkWrap: true,
-                          controller: _.scroller,
-                          padding: EdgeInsets.all(8.0),
-                          itemCount: _.cardList.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final card = _.cardList[index];
-
-                            return buildListTile(card);
-                          },
-                        )),
-              ),
               ElevatedButton(
-                  onPressed: () => controller.getCard(controller.card!.id),
-                  child: Text('Catch Dem All !')
-              ),
+                  onPressed: () {
+                    controller.getCard(controller.card!.id);
+                  },
+                  child: Text('Catch Dem All !')),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  ListTile buildListTile(PokemonCard? card) {
-    return ListTile(
-      leading: Image.network(
-        card!.images.small,
-        fit: BoxFit.cover,
-        width: 50,
-        height: 50,
-      ),
-      title: Text(card.name, style: TextStyle(color: Colors.orange),),
-      subtitle: Text(card.evolvesFrom!.tr),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
-import '../product_entity_model.dart';
+import '../models/models.dart';
+
 
 class ProductEntityProvider extends GetConnect {
   @override

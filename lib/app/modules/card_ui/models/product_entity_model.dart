@@ -1,3 +1,5 @@
+import 'models.dart';
+
 class ProductEntity {
   Product? product;
 
@@ -218,7 +220,7 @@ class Reprint {
   }
 }
 
-class Links {
+/*class Links {
   String? url;
 
   Links({this.url});
@@ -232,4 +234,4 @@ class Links {
     data['url'] = url;
     return data;
   }
-}
+}*/

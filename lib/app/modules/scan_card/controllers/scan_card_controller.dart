@@ -26,8 +26,9 @@ import 'package:scanbot_sdk/scanbot_sdk_ui.dart';
 
 class ScanCardController extends GetxController {
   static final ScanCardController to = Get.find();
-  Image? currentPreviewImage;
   final _pageRepository = PageRepository();
+
+  Image? currentPreviewImage;
   List<c.Page?>? pages;
   Uri? path;
 

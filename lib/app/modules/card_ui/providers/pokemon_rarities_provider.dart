@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../pokemon_rarities_model.dart';
+import '../models/pokemon_rarities_model.dart';
 
 class PokemonRaritiesProvider extends GetConnect {
   @override

@@ -33,6 +33,7 @@ abstract class Routes {
   static const POKEMON_SELECT = _Paths.POKEMON_SELECT;
   static const POKEMON_SET = _Paths.POKEMON_SET;
   static const POKEMON_TYPES = _Paths.POKEMON_TYPES;
+  static const POKEMON_CARD_LIST = _Paths.POKEMON_CARD_LIST;
 }
 
 abstract class _Paths {
@@ -59,4 +60,5 @@ abstract class _Paths {
   static const POKEMON_SELECT = '/pokemon-select';
   static const POKEMON_SET = '/pokemon-set';
   static const POKEMON_TYPES = '/pokemon-types';
+  static const POKEMON_CARD_LIST = '/pokemon-card-list';
 }

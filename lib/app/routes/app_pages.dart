@@ -12,6 +12,8 @@ import 'package:card_x_user/app/modules/card_ui/bindings/card_ui_binding.dart';
 import 'package:card_x_user/app/modules/card_ui/views/card_ui_view.dart';
 import 'package:card_x_user/app/modules/home/bindings/home_binding.dart';
 import 'package:card_x_user/app/modules/home/views/home_view.dart';
+import 'package:card_x_user/app/modules/pokemon_card_list/bindings/pokemon_card_list_binding.dart';
+import 'package:card_x_user/app/modules/pokemon_card_list/views/pokemon_card_list_view.dart';
 import 'package:card_x_user/app/modules/pokemon_product/bindings/pokemon_product_binding.dart';
 import 'package:card_x_user/app/modules/pokemon_product/views/pokemon_product_view.dart';
 import 'package:card_x_user/app/modules/pokemon_rarities/bindings/pokemon_rarities_binding.dart';
@@ -53,7 +55,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.POKEMON_PRODUCT;
+  static const INITIAL = Routes.POKEMON_CARD_LIST;
 
   static final routes = [
     GetPage(
@@ -213,6 +215,11 @@ class AppPages {
       name: _Paths.POKEMON_TYPES,
       page: () => PokemonTypesView(),
       binding: PokemonTypesBinding(),
+    ),
+    GetPage(
+      name: _Paths.POKEMON_CARD_LIST,
+      page: () => PokemonCardListView(),
+      binding: PokemonCardListBinding(),
     ),
   ];
 }

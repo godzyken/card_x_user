@@ -93,7 +93,11 @@ class HomeView extends GetView<HomeController> {
             },
           ),
           ListTile(
-            title: Text('Starred'.tr),
+            leading: Icon(Icons.list_alt),
+            title: Text('Pokemon List card V1'.tr),
+            onTap: () {
+              Get.toNamed('/pokemon-card-list');
+            },
           ),
           ListTile(
             title: Text('location'.tr),

@@ -1,8 +1,5 @@
-import 'package:card_x_user/app/modules/card_ui/pokemon_set_model.dart';
-import 'package:card_x_user/app/modules/card_ui/pokemon_supertypes_model.dart';
-import 'package:card_x_user/app/modules/card_ui/pokemon_types_model.dart';
-import 'package:card_x_user/app/modules/card_ui/product_entity_model.dart';
-import 'package:card_x_user/app/modules/card_ui/sprite_card_model.dart';
+import '../models/models.dart';
+import 'package:card_x_user/app/modules/card_ui/models/sprite_card_model.dart';
 
 class PokemonCardV2 {
   List<PokemonListing>? pokemonListing;

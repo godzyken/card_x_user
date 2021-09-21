@@ -1,6 +1,6 @@
+import 'package:card_x_user/app/modules/card_ui/models/models.dart';
 import 'package:get/get.dart';
 
-import '../pokemon_card_v2_model.dart';
 
 class PokemonCardV2Provider extends GetConnect {
   @override

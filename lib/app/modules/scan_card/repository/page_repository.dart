@@ -8,11 +8,14 @@ import 'package:scanbot_sdk/scanbot_sdk.dart';
 
 class PageRepository {
   static final PageRepository _instance = PageRepository._internal();
+  static final box = GetStorage();
 
   factory PageRepository() => _instance;
 
+
   PageRepository._internal() {
     // init some stuff here
+
   }
 
   final List<c.Page> _pages = <c.Page>[];
@@ -43,7 +46,10 @@ class PageRepository {
 
   Future<void> addPage(c.Page page) async {
     _pages.add(page);
+
+    print(_pages);
     await _storePages();
+
   }
 
   Future<void> loadPages() async {
@@ -76,5 +82,7 @@ class MyPref {
   final page = ReadWriteValue("page", box);
   final storageDirectory = ReadWriteValue("storageDirectory", box);
   final extStorageDirectory = ReadWriteValue("extStorageDirectory", box);
+
+
 
 }
