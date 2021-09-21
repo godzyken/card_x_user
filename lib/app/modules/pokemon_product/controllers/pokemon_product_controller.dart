@@ -1,7 +1,9 @@
 import 'package:card_x_user/app/modules/card_ui/controllers/card_ui_controller.dart';
+import 'package:card_x_user/app/modules/scan_card/repository/page_repository.dart';
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 import 'package:pokemon_tcg/pokemon_tcg.dart';
+import 'package:scanbot_sdk/common_data.dart';
 
 class PokemonProductController extends GetxController {
   static PokemonProductController get to => Get.find();
@@ -12,6 +14,8 @@ class PokemonProductController extends GetxController {
   get cardId => card!.id;
 
   bool? get isCard => false;
+
+  get image => card!.images;
 
   @override
   void onInit() async {
@@ -72,4 +76,37 @@ class PokemonProductController extends GetxController {
       print(e);
     }
   }
+
+  Future<Page?> saveCard() async {
+
+    List<PolygonPoint>? list;
+    Uri? uri;
+    final repo = PageRepository();
+
+    try {
+      var preview = Page(card!.id);
+      uri = Uri(query: card!.images.large);
+      if (preview.pageId == cardId) {
+        preview.pageId = card!.id;
+        preview.originalPreviewImageFileUri = uri;
+        preview.detectionStatus = DetectionStatus.OK;
+        preview.polygon = list;
+
+        print(preview.polygon);
+        repo.addPage(preview);
+
+        print(preview.pageId);
+
+        return preview;
+      }
+      return preview;
+
+    } catch (e) {
+      print(e);
+      repo.clearPages();
+    }
+
+  }
+
+
 }

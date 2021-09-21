@@ -47,8 +47,8 @@ class PageRepository {
   Future<void> addPage(c.Page page) async {
     _pages.add(page);
 
-    print(_pages);
-    await _storePages();
+    print(_pages.length);
+    return await _storePages();
 
   }
 
@@ -70,13 +70,17 @@ class PageRepository {
   }
 
   Future<void> _storePages()  async {
-    final db = Get.find<MyPref>().page;
+    final db = MyPref().page;
+    print(db.key);
+    print(db.defaultValue);
+    print(db.getBox);
     return db.printInfo();
   }
 
 }
 
 class MyPref {
+  static MyPref? get to => Get.find();
   static final box = () => GetStorage('MyPref');
 
   final page = ReadWriteValue("page", box);

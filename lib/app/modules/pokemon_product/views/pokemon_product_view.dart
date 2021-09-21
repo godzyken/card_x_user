@@ -13,7 +13,13 @@ class PokemonProductView extends GetView<PokemonProductController> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 28.0, horizontal: 46.0),
+        decoration: BoxDecoration(
+            color: Colors.black38,
+            backgroundBlendMode: BlendMode.darken,
+            image: DecorationImage(
+                image: NetworkImage(controller.card!.images.small,
+                    scale: 1.0, headers: Get.arguments))),
+        padding: EdgeInsets.symmetric(vertical: 28.0, horizontal: 10.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -61,23 +67,22 @@ class PokemonProductView extends GetView<PokemonProductController> {
                           children: [
                             Expanded(
                                 child: Semantics(
-                                  child: Image.network(
-                                    _.card!.images.large,
-                                    filterQuality: FilterQuality.high,
-                                    fit: BoxFit.cover,
-                                    width: Get.mediaQuery.size.shortestSide,
-                                    height: Get.mediaQuery.size.shortestSide,
-                                  ),
-                                  value: _.card!.id,
-                                  container: true,
-                                  image: true,
-                                  onTap: () => Get.toNamed('/document-view'),
-                                  header: true,
-                                  maxValueLength: 1,
-                                  checked: _.isCard,
-                                  namesRoute: true,
-                              )
-                            )
+                              child: Image.network(
+                                _.card!.images.large,
+                                filterQuality: FilterQuality.high,
+                                fit: BoxFit.cover,
+                                width: Get.mediaQuery.size.shortestSide,
+                                height: Get.mediaQuery.size.shortestSide,
+                              ),
+                              value: _.card!.id,
+                              container: true,
+                              image: true,
+                              onLongPress: () => Get.toNamed('/document-view'),
+                              header: true,
+                              maxValueLength: 1,
+                              checked: _.isCard,
+                              namesRoute: true,
+                            ))
                           ],
                         ));
                   },
@@ -85,8 +90,9 @@ class PokemonProductView extends GetView<PokemonProductController> {
               ),
               SizedBox(),
               ElevatedButton(
-                  onPressed: () {
-                    controller.getCard(controller.card!.id);
+                  onPressed: () async {
+                    print('tape tape tape se refrin qui te plait');
+                    await controller.saveCard();
                   },
                   child: Text('Catch Dem All !')),
             ],
