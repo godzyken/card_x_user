@@ -1,5 +1,4 @@
 import 'package:card_x_user/app/components/ui.dart';
-import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -34,31 +33,41 @@ class SignInView extends GetView<SignInController> {
                     child: Column(
                       children: <Widget>[
                         FormInputFieldWithIcon(
-                          controller: AuthController.to!.emailController.value,
+                          controller: _.emailC,
                           iconPrefix: Icons.email,
                           labelText: 'Email'.tr,
                           keyboardType: TextInputType.emailAddress,
-                          onSaved: (p0) => AuthController
-                              .to!.emailController.value.text = p0!,
+                          onSaved: (p0) =>
+                          _.authController!.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         FormInputFieldWithIcon(
-                          controller:
-                              AuthController.to!.passwordController.value,
+                          controller: _.passC,
                           iconPrefix: Icons.password,
                           labelText: 'Password'.tr,
                           obscureText: true,
-                          onSaved: (p0) => AuthController
-                              .to!.emailController.value.text = p0!,
+                          onSaved: (p0) =>
+                          _.authController!.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
+                        Obx(() {
+                          return CheckboxListTile(
+                            value: _.authController!.rememberme.value,
+                            onChanged: (value) =>
+                                _.authController!.rememberme.toggle(),
+                            title: Text('Remember me'),
+                            controlAffinity: ListTileControlAffinity.leading,
+                          );
+                        }),
+                        FormVerticalSpace(),
                         PrimaryButton(
                           labelText: 'Sign In'.tr,
-                          onPressed: () => _formKey.currentState!.validate()
-                              ? AuthController.to!
-                                  .signInWithEmailAndPassword(context)
+                          onPressed: () =>
+                          _formKey.currentState!.validate()
+                              ? _.authController!
+                              .login(controller.emailC.text, controller.passC.text, _.authController!.rememberme.value)
                               : Text('Something want wrong !, verify the form'),
                         ),
                         FormVerticalSpace(),
@@ -75,7 +84,7 @@ class SignInView extends GetView<SignInController> {
                                 GestureDetector(
                                     onTap: () {
                                       // Call the a method to sign in with Google
-                                      AuthController.to!.googleSignIn(context);
+                                      _.authController!.googleSignIn(context);
                                     },
                                     child: Image(
                                         width: 55,

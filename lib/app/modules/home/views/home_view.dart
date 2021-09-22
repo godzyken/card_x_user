@@ -50,34 +50,41 @@ class HomeView extends GetView<HomeController> {
       elevation: 16.0,
       child: ListView(
         children: [
-          Container(
-            color: Colors.transparent,
-            child: UserAccountsDrawerHeader(
-              currentAccountPicture: AvatarView(),
-              currentAccountPictureSize: const Size.square(82.0),
-              accountName: Text(
-                'Name: '.tr + AuthController.to!.auth.currentUser!.displayName!,
-                style: TextStyle(color: Colors.blueAccent),
-              ),
-              accountEmail: Text(
-                  'Email: '.tr + AuthController.to!.auth.currentUser!.email!,
-                  style: TextStyle(color: Colors.deepPurple)),
-              onDetailsPressed: () => Get.toNamed('/update-profile'),
-              arrowColor: Colors.red,
-              margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Colors.black12,
-                    Colors.yellowAccent,
-                  ],
-                ),
-                backgroundBlendMode: BlendMode.softLight,
-              ),
-            ),
-          ),
+          GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (_) {
+                return Container(
+                  color: Colors.transparent,
+                  child: UserAccountsDrawerHeader(
+                    currentAccountPicture: AvatarView(),
+                    currentAccountPictureSize: const Size.square(82.0),
+                    accountName: Text(
+                      'Name: '.tr +
+                          _.authController!.auth.currentUser!.displayName!,
+                      style: TextStyle(color: Colors.blueAccent),
+                    ),
+                    accountEmail: Text(
+                        'Email: '.tr +
+                            _.authController!.auth.currentUser!.email!,
+                        style: TextStyle(color: Colors.deepPurple)),
+                    onDetailsPressed: () => Get.toNamed('/update-profile'),
+                    arrowColor: Colors.red,
+                    margin:
+                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [
+                          Colors.black12,
+                          Colors.yellowAccent,
+                        ],
+                      ),
+                      backgroundBlendMode: BlendMode.softLight,
+                    ),
+                  ),
+                );
+              }),
           ListTile(
             leading: Icon(Icons.card_giftcard_sharp),
             title: Text('My Files'.tr),

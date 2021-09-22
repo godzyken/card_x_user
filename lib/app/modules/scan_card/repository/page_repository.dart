@@ -46,8 +46,8 @@ class PageRepository {
 
   Future<void> addPage(c.Page page) async {
     _pages.add(page);
+    print('AddPage function: ' + '${_pages.length}');
 
-    print(_pages.length);
     return await _storePages();
 
   }
@@ -71,9 +71,9 @@ class PageRepository {
 
   Future<void> _storePages()  async {
     final db = MyPref().page;
-    print(db.key);
-    print(db.defaultValue);
-    print(db.getBox);
+    print('Storage db key: ' + '{$db.key}');
+    print('Storage db default value: ' + '{$db.defaultValue}');
+    print('Storage de getBox: ' + '${db.getBox}');
     return db.printInfo();
   }
 
@@ -86,7 +86,5 @@ class MyPref {
   final page = ReadWriteValue("page", box);
   final storageDirectory = ReadWriteValue("storageDirectory", box);
   final extStorageDirectory = ReadWriteValue("extStorageDirectory", box);
-
-
 
 }

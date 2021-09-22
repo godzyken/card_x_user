@@ -8,79 +8,120 @@ class AuthView extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Authentication Services'),
-          centerTitle: true,
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        title: Text('Authentication Services'),
+        centerTitle: true,
+      ),
+      body: Semantics(
+        container: true,
+        child: Column(
+          verticalDirection: VerticalDirection.down,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            LogToYourAccount(),
+            Divider(),
+            SocialLink(),
+            Divider(),
+            Register(),
+          ],
         ),
-        body: Container(
-            alignment: Alignment.center,
-            width: Get.mediaQuery.size.width,
-            height: Get.mediaQuery.size.height,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Wrap(
-                      alignment: WrapAlignment.center,
-                      runAlignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      runSpacing: Get.mediaQuery.size.shortestSide,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                              children: [
-                            Column(
-                              children: [
-                                IconButton(
-                                  onPressed: () => Get.toNamed('/sign-in'),
-                                  icon: Icon(Icons.account_circle),
-                                  iconSize: 84.0,
-                                  padding: const EdgeInsets.all(8.0),
-                                ),
-                                Card(
-                                  child: Text('Log to your account'),
-                                )
-                              ],
-                            ),
-                          ]),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Row(children: [
-                            IconButton(
-                              onPressed: () => Get.toNamed('/sign-in'),
-                              icon: Icon(Icons.account_circle),
-                              iconSize: 84.0,
-                              padding: const EdgeInsets.all(8.0),
-                            ),
-                            Card(
-                              child: Text('Social link'),
-                            ),
-                          ]),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Row(children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                  onPressed: () => Get.toNamed('/sign-up'),
-                                  icon: Icon(Icons.how_to_reg),
-                                  iconSize: 84.0,
-                                  padding: const EdgeInsets.all(8.0),
-                                ),
-                                Card(
-                                  child: Text('Register'),
-                                )
-                              ],
-                            )
-                          ]),
-                        )
-                      ]),
-                ])));
+      ),
+    );
   }
+}
+
+class Register extends GetView {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.grey,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SingleChildScrollView(
+              child: Wrap(
+                children: [
+                  IconButton(
+                    onPressed: onPressed,
+                    icon: Icon(Icons.how_to_reg),
+                    iconSize: Get.mediaQuery.size.height / 5,
+                    padding: const EdgeInsets.all(8.0),
+                  ),
+                  Card(
+                    child: Text('Register'),
+                  ),
+                ],
+              ),
+            )
+          ]),
+    );
+  }
+
+  void onPressed() => Get.toNamed('/sign-up');
+}
+
+class SocialLink extends GetView {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.redAccent,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SingleChildScrollView(
+              child: Wrap(
+                children: [
+                  IconButton(
+                    onPressed: onPressed,
+                    icon: Icon(Icons.account_circle_outlined),
+                    iconSize: Get.mediaQuery.size.height / 5,
+                    padding: const EdgeInsets.all(8.0),
+                  ),
+                  Card(
+                    child: Text('Social link'),
+                  ),
+                ],
+              ),
+            )
+          ]),
+    );
+  }
+
+  void onPressed() => Get.toNamed('/social-connection');
+}
+
+class LogToYourAccount extends GetView {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.cyan,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SingleChildScrollView(
+              child: Wrap(
+                children: [
+                  IconButton(
+                    onPressed: onPressed,
+                    icon: Icon(Icons.account_circle_sharp),
+                    iconSize: Get.mediaQuery.size.height / 5,
+                    padding: const EdgeInsets.all(8.0),
+                  ),
+                  Card(
+                    child: Text('Log to your account'.tr),
+                  ),
+                ],
+              ),
+            )
+          ]),
+    );
+  }
+
+  void onPressed() =>
+      Get.toNamed('/sign-in', arguments: AuthController().isSignIn);
 }

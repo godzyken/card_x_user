@@ -37,6 +37,13 @@ class PokemonProductController extends GetxController {
     super.onClose();
   }
 
+  void dialogError(String? msg) {
+    Get.defaultDialog(
+      title: "Ké passa a ora!!",
+      middleText: msg!,
+    );
+  }
+
   getCard(String? cardId) async {
     try {
       final cardresult = await api.getCard(cardId!);
@@ -87,23 +94,32 @@ class PokemonProductController extends GetxController {
       var preview = Page(card!.id);
       uri = Uri(query: card!.images.large);
       if (preview.pageId == cardId) {
+
         preview.pageId = card!.id;
+        print('Page ID:' + '${preview.pageId}');
+
         preview.originalPreviewImageFileUri = uri;
+        print('Original Preview file Uri:' + '${preview.originalPreviewImageFileUri}');
+
         preview.detectionStatus = DetectionStatus.OK;
+        print('Detection Status:' + '${preview.detectionStatus}');
+
         preview.polygon = list;
+        print('Polygon:' + '${preview.polygon!.length}');
 
-        print(preview.polygon);
         repo.addPage(preview);
-
-        print(preview.pageId);
+        print('Preview:' + '$preview');
 
         return preview;
+      } else {
+        dialogError("le champs de put est vide");
       }
       return preview;
 
     } catch (e) {
       print(e);
       repo.clearPages();
+      dialogError(e.toString());
     }
 
   }

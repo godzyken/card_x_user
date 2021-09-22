@@ -9,6 +9,6 @@ class SignInBinding extends Bindings {
     Get.lazyPut<SignInController>(
       () => SignInController(),
     );
-    Get.lazyPut(()=> AuthController());
+    Get.lazyPut<AuthController>(()=> AuthController());
   }
 }

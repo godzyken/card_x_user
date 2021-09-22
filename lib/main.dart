@@ -11,7 +11,6 @@ import 'package:scanbot_sdk/scanbot_sdk_models.dart';
 import 'app/routes/app_pages.dart';
 
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -43,8 +42,8 @@ Future<void> main() async {
   );
 
   Get.config(
-    enableLog: true,
-    defaultPopGesture: true,
-    defaultTransition: Transition.fade
+      enableLog: true,
+      defaultPopGesture: true,
+      defaultTransition: Transition.fade
   );
 }

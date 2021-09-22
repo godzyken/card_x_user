@@ -1,5 +1,4 @@
 import 'package:card_x_user/app/components/ui.dart';
-import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -34,41 +33,40 @@ class SignUpView extends GetView<SignUpController> {
                     child: Column(
                       children: <Widget>[
                         FormInputFieldWithIcon(
-                          controller: AuthController.to!.nameController.value,
+                          controller: _.authController!.nameController.value,
                           iconPrefix: Icons.account_circle,
                           labelText: 'Name'.tr,
                           keyboardType: TextInputType.name,
                           onSaved: (p0) =>
-                          AuthController.to!.nameController.value.text = p0!,
+                          _.authController!.nameController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         FormInputFieldWithIcon(
-                          controller: AuthController.to!.emailController.value,
+                          controller: _.authController!.emailController.value,
                           iconPrefix: Icons.email,
                           labelText: 'Email'.tr,
                           keyboardType: TextInputType.emailAddress,
                           onSaved: (p0) =>
-                          AuthController.to!.emailController.value.text = p0!,
+                          _.authController!..emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         FormInputFieldWithIcon(
                           controller:
-                          AuthController.to!.passwordController.value,
+                          _.authController!.passwordController.value,
                           iconPrefix: Icons.password,
                           labelText: 'Password'.tr,
                           obscureText: true,
                           onSaved: (p0) =>
-                          AuthController.to!.emailController.value.text = p0!,
+                          _.authController!..emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         PrimaryButton(
                           labelText: 'Register'.tr,
-                          onPressed: () => _formKey = _formKey.currentState!
-                              .validate()
-                              ? AuthController.to!.registerWithEmailAndPassword(context)
+                          onPressed: () => _formKey.currentState!.validate()
+                              ? _.authController!.registerWithEmailAndPassword(context)
                               : Text('Something want wrong !, verify the form'),
                         ),
                         FormVerticalSpace(),
@@ -84,7 +82,7 @@ class SignUpView extends GetView<SignUpController> {
                                 GestureDetector(
                                     onTap: () {
                                       // Call the a method to sign in with Google
-                                      AuthController.to!.getGoogleSignIn(context);
+                                      _.authController!.getGoogleSignIn(context);
                                     },
                                     child: Image(width: 55, image: AssetImage('assets/img/google_logo.png'))
                                 ),

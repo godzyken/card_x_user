@@ -1,21 +1,22 @@
 import 'package:card_x_user/app/modules/admin/views/admin_view.dart';
-import 'package:card_x_user/app/modules/auth/sign_in/views/sign_in_view.dart';
+import 'package:card_x_user/app/modules/sign_in/views/sign_in_view.dart';
 import 'package:card_x_user/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:getxfire/getxfire.dart';
 
 import '../user_model.dart';
 
 class AuthController extends GetxController {
-  static AuthController? get to => Get.find();
 
   final nameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
 
   var isSignIn = false.obs;
+  var rememberme = false.obs;
   bool get authenticated => isSignIn.value;
   set authenticated(value) => isSignIn.value = value;
 
@@ -24,6 +25,13 @@ class AuthController extends GetxController {
   final fireStoreUser = Rxn<UserModel>();
   final connect = GetxFire.firestore;
   final auth = GetxFire.auth;
+
+  Map<String, String> _dataUser = {
+    'email': 'isgodzy@gmail.com',
+    'password': 'dattebayo',
+    'name': 'Rio',
+    'rememberme': 'Rio',
+  };
 
   final admin = false.obs;
 
@@ -61,6 +69,51 @@ class AuthController extends GetxController {
       Get.off(AdminView());
     } else {
       Get.off(SignInView());
+    }
+  }
+
+  void dialogError(String? msg) {
+    Get.defaultDialog(
+      title: 'Hi mé ké passo!',
+      middleText: msg!,
+    );
+  }
+
+  void autoLogin() {
+    final box = GetStorage();
+    if (box.read("datauser") != null) {
+      final data = box.read("dataUser") as Map<String, dynamic>;
+      login(data["email"], data["password"], data["rememberme"]);
+    }
+  }
+
+  void login(String? email, String? password, bool rememberme) {
+    if (email != '' && password != '') {
+      if(GetUtils.isEmail(email!)) {
+        if (email == _dataUser['email'] && password == _dataUser["password"]) {
+          if (rememberme) {
+            final box = GetStorage();
+            box.write('dataUser', {
+              "email": email,
+              "password": password,
+              "rememberme": rememberme,
+            });
+          } else {
+            final box = GetStorage();
+            if(box.read('dataUser') != null) {
+              box.erase();
+            }
+          }
+
+          isSignIn.value = true;
+        } else {
+          dialogError('Data user is not valid');
+        }
+      } else {
+
+      }
+    } else {
+
     }
   }
 
@@ -210,7 +263,7 @@ class AuthController extends GetxController {
           authError = 'Unknown Error'.tr;
           break;
       }
-      Get.snackbar('Wrong Password Notice Title !'.tr, 'auth Error !'.tr,
+      Get.snackbar('Wrong Password Notice Title !'.tr, '$authError!'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 10),
           backgroundColor: Get.theme.snackBarTheme.backgroundColor!,
@@ -272,6 +325,7 @@ class AuthController extends GetxController {
           } else {
             isSignIn.value = false;
           }
+          update();
         },
         onError: (code, message) {
           Get.snackbar('Error registration',
@@ -327,35 +381,52 @@ class AuthController extends GetxController {
       await GetxFire.signInWithGoogle(
         onSuccess: (userCredential) {
           final user = userCredential!.user;
-          var _newUser = UserModel(
-            name: user!.displayName,
-            login: user.uid,
-            avatarUrl: user.photoURL,
-            email: user.email,
-          );
+          final box = GetStorage();
 
-          _createUserFirestore(_newUser, user);
+          if (rememberme.isTrue) {
+            var _newUser = UserModel(
+              name: user!.displayName,
+              login: user.uid,
+              avatarUrl: user.photoURL,
+              email: user.email,
+            );
+            box.write('dataUser', {_newUser.toJson()});
 
-          Get.toNamed('/home');
-          Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
+            _createUserFirestore(_newUser, user);
+
+            isSignIn.value = true;
+
+            Get.toNamed('/home', arguments: isSignIn);
+            Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
+          } else {
+            final box = GetStorage();
+            if (box.read('dataUser') != null) {
+              box.erase();
+            }
+          }
         },
         onError: (code, message) {
+          final box = GetStorage();
+          if (box.read('dataUser') != null) {
+            box.erase();
+          }
           Get.snackbar('Error', 'Failed to sign in with Google: $message');
+
         },
         isErrorDialog: true,
         isSuccessDialog: true,
       );
       //showLoadingIndicator();
       update();
-
+      Get.offAllNamed(Routes.HOME, arguments: isSignIn.value);
       //hideLoadingIndicator();
     } catch (error) {
       //hideLoadingIndicator();
-      Get.snackbar('Sign In Error Title !'.tr, 'Sign In Error !'.tr,
+      Get.snackbar('Sign In Error Title !'.tr, '$error !'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 7),
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor!,
-          colorText: Get.theme.snackBarTheme.actionTextColor!);
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
     }
   }
 

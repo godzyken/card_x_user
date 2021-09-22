@@ -55,7 +55,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.POKEMON_CARD_LIST;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../controllers/settings_controller.dart';
 import '../menu_options_model.dart';
 
-class SettingsView extends GetView {
+class SettingsView extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +38,7 @@ class SettingsView extends GetView {
               trailing: ElevatedButton(
                   onPressed: () {
                     print('sa marche ou pas?');
-                    AuthController.to!.signOut();
+                    controller.authController!.signOut();
                   },
                   child: Text('Sign out!')),
             ),
