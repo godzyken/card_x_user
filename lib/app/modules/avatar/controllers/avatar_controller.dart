@@ -9,11 +9,13 @@ class AvatarController extends GetxController {
   @override
   void onInit() {
     authController = AuthController();
+    update();
     super.onInit();
   }
 
   @override
   void onReady() {
+
     super.onReady();
   }
 

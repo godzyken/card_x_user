@@ -192,6 +192,7 @@ class AuthController extends GetxController {
     if (isLoggedIn) {
       Get.offAllNamed(Routes.HOME, arguments: auth.currentUser);
 
+      isSignIn.value = true;
       update();
     } else {
       // Get.offAllNamed(Routes.SIGNUP);
@@ -382,7 +383,9 @@ class AuthController extends GetxController {
         onSuccess: (userCredential) {
           final user = userCredential!.user;
           final box = GetStorage();
+          isSignIn.value = true;
 
+          update();
           if (rememberme.isTrue) {
             var _newUser = UserModel(
               name: user!.displayName,
@@ -394,7 +397,6 @@ class AuthController extends GetxController {
 
             _createUserFirestore(_newUser, user);
 
-            isSignIn.value = true;
 
             Get.toNamed('/home', arguments: isSignIn);
             Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
@@ -437,11 +439,17 @@ class AuthController extends GetxController {
       await GetxFire.signInWithGoogle(
         onSuccess: (userCredential) {
           final user = userCredential!.user;
-          Get.toNamed('/home');
+
           Get.snackbar('Sign In', 'Sign in ${user!.uid} with Google');
+          isSignIn.value = true;
+          Get.toNamed('/home', arguments: isSignIn);
+
+          update();
         },
         onError: (code, message) {
           Get.snackbar('Error', 'Failed to sign in with Google: $message');
+          isSignIn.value = false;
+          update();
         },
         isErrorDialog: true,
         isSuccessDialog: true,

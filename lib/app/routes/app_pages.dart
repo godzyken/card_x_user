@@ -192,10 +192,21 @@ class AppPages {
       binding: SocialConnectionBinding(),
     ),
     GetPage(
-      name: _Paths.POKEMON_PRODUCT,
-      page: () => PokemonProductView(),
-      binding: PokemonProductBinding(),
-    ),
+        name: _Paths.POKEMON_PRODUCT,
+        page: () => PokemonProductView(),
+        binding: PokemonProductBinding(),
+        children: [
+          GetPage(
+            name: _Paths.POKEMON_SET,
+            page: () => PokemonSetView(),
+            binding: PokemonSetBinding(),
+          ),
+          GetPage(
+            name: _Paths.POKEMON_RARITIES,
+            page: () => PokemonRaritiesView(),
+            binding: PokemonRaritiesBinding(),
+          ),
+        ]),
     GetPage(
       name: _Paths.POKEMON_RARITIES,
       page: () => PokemonRaritiesView(),

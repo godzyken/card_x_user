@@ -82,6 +82,15 @@ class CardUiController extends GetxController {
     }
   }
 
+  void getCardName(String? name) async {
+    try {
+      final card = await api.getCard('$name');
+      print(card.name);
+    } catch (e) {
+      print(e);
+    }
+  }
+
   void getSet() async {
     try {
       final set = await api.getSet('SwSh5');

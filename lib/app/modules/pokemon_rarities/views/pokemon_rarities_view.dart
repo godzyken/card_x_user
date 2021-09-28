@@ -9,15 +9,24 @@ class PokemonRaritiesView extends GetView<PokemonRaritiesController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PokemonRaritiesView'),
+        title: Text('Pokemon Rarities'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'PokemonRaritiesView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: GetBuilder<PokemonRaritiesController>(
+          init: PokemonRaritiesController(),
+          builder: (_) {
+            return Center(
+              child: ListView.separated(
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      title: Text('${_.rarities[index].type}'),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const Divider(),
+                  itemCount: _.rarities.length),
+            );
+          }),
     );
   }
 }

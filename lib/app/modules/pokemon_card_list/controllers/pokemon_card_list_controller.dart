@@ -1,6 +1,7 @@
 import 'package:card_x_user/app/modules/card_ui/controllers/card_ui_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 import 'package:pokemon_tcg/pokemon_tcg.dart';
 
 class PokemonCardListController extends GetxController {
@@ -8,11 +9,17 @@ class PokemonCardListController extends GetxController {
 
   final api = CardUiController().api;
   final scroller = ScrollController();
+
   var cardList = <PokemonCard>[].obs;
+
+  CardImages? get images => cardList.single.images;
+  CardSet? get set => cardList.single.set;
+
 
   @override
   void onInit() {
     getCardList();
+    update();
     super.onInit();
   }
 
@@ -28,9 +35,7 @@ class PokemonCardListController extends GetxController {
     try {
       final result = await api.getCards();
       print(result.length);
-
       cardList.value = result;
-      print(cardList);
 
       update();
 
@@ -39,4 +44,5 @@ class PokemonCardListController extends GetxController {
       print(e);
     }
   }
+
 }

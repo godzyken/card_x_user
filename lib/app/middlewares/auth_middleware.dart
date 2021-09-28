@@ -20,9 +20,9 @@ class EnsureAuthMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    return authServices.isSignIn.value != false || route == Routes.HOME
+    return authServices.isSignIn.value == false || route == Routes.AUTH
         ? null
-        : RouteSettings(name: Routes.AUTH);
+        : RouteSettings(name: Routes.AUTH, arguments: authServices.isSignIn.value);
   }
 
   @override
@@ -61,7 +61,7 @@ class EnsureAuthMiddleware extends GetMiddleware {
   @override
   GetPage? onPageCalled(GetPage? page) {
     return page!.copy(
-      name: '/auth',
+      name: '/home',
       settings: redirect('/auth'),
       middlewares: middlewares,
       binding: AuthBinding(),
