@@ -8,57 +8,15 @@ import 'package:get/get.dart';
 import '../controllers/pokemon_set_controller.dart';
 
 class PokemonSetView extends GetView<PokemonSetController> {
-
-  get curve => CurvedAnimation(parent: AnimationMin(first, next), curve: curve);
-
-  Animation<double> get next => kAlwaysCompleteAnimation;
-
-  Animation<double> get first => kAlwaysDismissedAnimation;
-
-  double get offset => Offset(0.0, 1.0).distanceSquared;
-
-  get duration => Duration(
-        seconds: 1,
-      );
-
-  double get dx => 1.0;
-  double get dy => 1.0;
-
   @override
   Widget build(BuildContext context) {
-    return Draggable(
-        affinity: Axis.horizontal,
-        onDraggableCanceled: (velocity, offset) => Offset(dx, dy),
-        feedbackOffset: Offset.zero,
-        rootOverlay: true,
-        dragAnchorStrategy: (draggable, context, position) => Offset(dx, dy),
-        childWhenDragging: PokemonSetView(),
-        feedback: PokemonRaritiesView(),
-        child: buildDraggableScrollableSheet);
-  }
-
-  DraggableScrollableSheet get buildDraggableScrollableSheet {
-    return DraggableScrollableSheet(
-        initialChildSize: 0.5,
-        minChildSize: 0.25,
-        maxChildSize: 1.0,
-        expand: false,
-        builder: (context, scrollController) {
-          return SingleChildScrollView(
-            dragStartBehavior: DragStartBehavior.start,
-            physics: FixedExtentScrollPhysics().parent,
-            controller: scrollController,
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            scrollDirection: Axis.horizontal,
-            clipBehavior: Clip.hardEdge,
-            padding: EdgeInsets.all(2.0),
-            child: GetBuilder<PokemonSetController>(
-                assignId: true,
-                init: PokemonSetController(),
-                builder: (_) {
-                  return _.cardSet?.id == null ? Center(child: CircularProgressIndicator()) : cardSet(_);
-                }),
-          );
+    return GetBuilder<PokemonSetController>(
+        assignId: true,
+        init: PokemonSetController(),
+        builder: (_) {
+          return _.cardSet?.id == null
+              ? Center(child: CircularProgressIndicator())
+              : cardSet(_);
         });
   }
 
@@ -81,25 +39,17 @@ class PokemonSetView extends GetView<PokemonSetController> {
             Expanded(
               flex: 1,
               child: Card(
-                  key: key,
-                  elevation: 12.0,
-                  color: Colors.transparent,
-                  margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
-                  borderOnForeground: true,
-                  shadowColor: Colors.black12,
-                  child: Wrap(
-                    verticalDirection: VerticalDirection.up,
-                    runAlignment: WrapAlignment.end,
-                    direction: Axis.horizontal,
-                    children: [
-                      tableSet(_),
-                    ],
-                  )),
-            ),
-            SizedBox(),
-            ElevatedButton(
-              onPressed: () => Get.back(closeOverlays: true, canPop: true, result: PokemonProductView() ),
-              child: Text('Retour !'),
+                key: key,
+                elevation: 12.0,
+                color: Colors.transparent,
+                margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
+                borderOnForeground: true,
+                shadowColor: Colors.black12,
+                child: SingleChildScrollView(
+                  child: tableSet(_),
+                  scrollDirection: Axis.vertical,
+                ),
+              ),
             ),
           ],
         ),
@@ -116,8 +66,8 @@ class PokemonSetView extends GetView<PokemonSetController> {
         style: BorderStyle.solid,
       ),
       columnWidths: const <int, TableColumnWidth>{
-        0: FixedColumnWidth(100.0),
-        1: FixedColumnWidth(100.0),
+        0: FlexColumnWidth(10.0),
+        1: IntrinsicColumnWidth(flex: 10.0),
         2: FixedColumnWidth(16.0),
       },
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -164,7 +114,7 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.greenAccent,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -203,7 +153,39 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.lime,
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(16.0),
+              shape: BoxShape.rectangle,
+            ),
+            children: [
+              Container(
+                height: 32,
+                color: Colors.transparent,
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
+                child: Text(
+                  'Legalities',
+                  style: textStyleCell,
+                ),
+              ),
+              TableCell(
+                  verticalAlignment: TableCellVerticalAlignment.middle,
+                  child: Container(
+                      height: 32,
+                      width: 32,
+                      alignment: Alignment.center,
+                      child: (Text(
+                        '${_.cardSet!.legalities.unlimited}',
+                        style: textStyleCell,
+                      )))),
+              Container(
+                height: 64,
+                color: Colors.red,
+              ),
+            ]),
+        TableRow(
+            decoration: BoxDecoration(
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -234,7 +216,7 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.orangeAccent,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -265,7 +247,7 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.tealAccent,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -297,7 +279,7 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.blueAccent,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -329,7 +311,7 @@ class PokemonSetView extends GetView<PokemonSetController> {
             ]),
         TableRow(
             decoration: BoxDecoration(
-              color: Colors.cyanAccent,
+              color: Colors.white30,
               borderRadius: BorderRadius.circular(16.0),
               shape: BoxShape.rectangle,
             ),
@@ -391,38 +373,6 @@ class PokemonSetView extends GetView<PokemonSetController> {
                 color: Colors.red,
               ),
             ]),
-        TableRow(
-            decoration: BoxDecoration(
-              color: Colors.white38,
-              borderRadius: BorderRadius.circular(16.0),
-              shape: BoxShape.rectangle,
-            ),
-            children: [
-              Container(
-                height: 32,
-                color: Colors.transparent,
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
-                child: Text(
-                  'Legalities',
-                  style: textStyleCell,
-                ),
-              ),
-              TableCell(
-                  verticalAlignment: TableCellVerticalAlignment.middle,
-                  child: Container(
-                      height: 32,
-                      width: 32,
-                      alignment: Alignment.center,
-                      child: (Text(
-                        '${_.cardSet!.legalities.unlimited}',
-                        style: textStyleCell,
-                      )))),
-              Container(
-                height: 64,
-                color: Colors.red,
-              ),
-            ]),
       ],
     );
   }
@@ -438,10 +388,10 @@ class PokemonSetView extends GetView<PokemonSetController> {
 
   TextStyle get textStyleCell {
     return TextStyle(
-      color: Colors.black87,
+      color: Colors.white,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
-      fontSize: 14.5,
+      fontSize: 16.5,
     );
   }
 }

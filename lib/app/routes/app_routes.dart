@@ -20,6 +20,8 @@ abstract class Routes {
   static const RSTPSWD = _Paths.RSTPSWD;
   static const AVATAR = _Paths.AVATAR;
   static const SCAN_CARD = _Paths.SCAN_CARD;
+  static const BARCODE_PREVIEW = _Paths.BARCODE_PREVIEW;
+  static const DOCUMENT_PREVIEW = _Paths.DOCUMENT_PREVIEW;
   static const ADMIN = _Paths.ADMIN;
   static const UN_KNOWN_ROUTE_PAGE = _Paths.UN_KNOWN_ROUTE_PAGE;
   static const SIGN_IN = _Paths.SIGN_IN;
@@ -47,6 +49,9 @@ abstract class _Paths {
   static const RSTPSWD = '/reset-password';
   static const AVATAR = '/avatar';
   static const SCAN_CARD = '/scan-card';
+  static const BARCODE_PREVIEW = '/barcode-preview';
+  static const DOCUMENT_PREVIEW = '/document-preview';
+
   static const ADMIN = '/admin';
   static const UN_KNOWN_ROUTE_PAGE = '/un-known-route-page';
   static const SIGN_IN = '/sign-in';

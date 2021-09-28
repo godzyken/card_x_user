@@ -35,7 +35,7 @@ class ScanCardView extends GetView<ScanCardController> {
               title: 'Import image',
             ),
             MenuItemView(
-              // onTap: () => _.gotoImagesView(),
+              onTap: () => _.gotoImagesView(),
               title: 'View Results',
             ),
             TitleItemWidget("data inspector mon fwewe"),

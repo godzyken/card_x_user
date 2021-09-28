@@ -113,7 +113,7 @@ class ScanCardController extends GetxController {
     if (result != null) {
       if (isOperationSuccessful(result)) {
         await _pageRepository.addPages(result.pages);
-        await _gotoImagesView();
+        await gotoImagesView();
       }
     }
   }
@@ -133,9 +133,9 @@ class ScanCardController extends GetxController {
     return encryptionParams;
   }
 
-  Future<dynamic> _gotoImagesView() async {
+  Future<dynamic> gotoImagesView() async {
     imageCache?.clear();
-    return await Get.to('/document-preview');
+    return await Get.toNamed('/document-preview');
   }
 
   Future<String> getDemoStorageBaseDirectory() async {
@@ -169,7 +169,7 @@ class ScanCardController extends GetxController {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       await _createPage(Uri.file(image?.path ?? ''), GetPlatform.isWindows);
-      await _gotoImagesView();
+      await gotoImagesView();
     } catch (e) {
       Logger.root.severe(e);
     }
@@ -222,7 +222,7 @@ class ScanCardController extends GetxController {
       if (result.operationResult == OperationResult.SUCCESS) {
         if (isOperationSuccessful(result)) {
           await _pageRepository.addPages(result.pages);
-          await _gotoImagesView();
+          await gotoImagesView();
           displayPageImage(result.pages[0]);
         }
       }

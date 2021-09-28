@@ -9,6 +9,10 @@ import 'package:scanbot_sdk/common_data.dart' as c;
 class PokemonProductController extends GetxController {
   static PokemonProductController get to => Get.find();
   final api = CardUiController().api;
+  final pageController = PageController(
+      initialPage: 1, viewportFraction: 1.0
+  );
+
   PokemonCard? card;
 
   List<PokemonCard?> cardList = [];

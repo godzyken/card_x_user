@@ -108,7 +108,7 @@ class AppPages {
             popGesture: true,
           ),
           GetPage(
-            name: '/document-preview',
+            name: _Paths.DOCUMENT_PREVIEW,
             page: () => DocumentPreView(),
             arguments: Get.arguments,
             popGesture: true,

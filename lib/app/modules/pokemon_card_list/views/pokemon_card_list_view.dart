@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -30,21 +33,25 @@ class PokemonCardListView extends GetView<PokemonCardListController> {
     return GetBuilder<PokemonCardListController>(
         init: PokemonCardListController(),
         initState: (state) => controller.getCardList(),
-        builder: (_) => ListView.builder(
-              shrinkWrap: true,
-              controller: _.scroller,
-              addAutomaticKeepAlives: true,
-              addRepaintBoundaries: true,
-              addSemanticIndexes: true,
-              semanticChildCount: _.cardList.length,
-              padding: EdgeInsets.all(0.0),
-              itemCount: _.cardList.length,
-              itemBuilder: (BuildContext context, int index) {
-                final card = _.cardList[index];
+        builder: (_) => listViewBuilder(_));
+  }
 
-                return buildListTile(card);
-              },
-            ));
+  ListView listViewBuilder(PokemonCardListController _) {
+    return ListView.builder(
+            shrinkWrap: true,
+            controller: _.scroller,
+            addAutomaticKeepAlives: true,
+            addRepaintBoundaries: true,
+            addSemanticIndexes: true,
+            semanticChildCount: _.cardList.length,
+            padding: EdgeInsets.all(0.0),
+            itemCount: _.cardList.length,
+            itemBuilder: (BuildContext context, int index) {
+              final card = _.cardList[index];
+
+              return buildListTile(card);
+            },
+          );
   }
 
   Card buildListTile(PokemonCard? card) {
@@ -420,54 +427,93 @@ class PokemonCardListView extends GetView<PokemonCardListController> {
 
   ListView listAttacks(PokemonCard card) {
     return ListView.separated(
-                itemBuilder: (BuildContext context, int index) =>
-                    Table(
-                      border: TableBorder.all(),
-                      columnWidths: const <int, TableColumnWidth>{
-                        0: IntrinsicColumnWidth(flex: 1),
-                        1: FlexColumnWidth(1.0),
-                      },
-                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                      defaultColumnWidth: FlexColumnWidth(3.0),
-                      children: <TableRow>[
-                        TableRow(children: [
-                          Container(
-                            height: 32,
-                            color: Colors.grey,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
-                            child: Text('${card.attacks[index].name}'),
-                          ),
-                          TableCell(
-                              verticalAlignment: TableCellVerticalAlignment.middle,
-                              child: Container(
-                                  height: 32,
-                                  width: 32,
-                                  alignment: Alignment.center,
-                                  child: Text('${card.attacks[index].damage}'))),
-                        ]),
-                        TableRow(children: [
-                          Container(
-                            height: 32,
-                            color: Colors.grey,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
-                            child: Text('${card.attacks[index].convertedEnergyCost}'),
-                          ),
-                          TableCell(
-                              verticalAlignment: TableCellVerticalAlignment.middle,
-                              child: Container(
-                                  height: 32,
-                                  width: 32,
-                                  alignment: Alignment.center,
-                                  child: Text('${card.attacks[index].text}'))),
-                        ]),
-                      ],
-                    ),
-                separatorBuilder: (BuildContext context, int index) =>
-                    Divider(),
-                itemCount: card.attacks.length,
-              );
+      itemBuilder: (BuildContext context, int index) => Table(
+        border: TableBorder.all(),
+        columnWidths: const <int, TableColumnWidth>{
+          0: IntrinsicColumnWidth(flex: 1),
+          1: FlexColumnWidth(1.0),
+        },
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        defaultColumnWidth: FlexColumnWidth(3.0),
+        children: <TableRow>[
+          TableRow(children: [
+            Container(
+              height: 32,
+              color: Colors.grey,
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
+              child: Text('${card.attacks[index].name}'),
+            ),
+            TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
+                child: Container(
+                    height: 32,
+                    width: 32,
+                    alignment: Alignment.center,
+                    child: Text('${card.attacks[index].damage}'))),
+          ]),
+          TableRow(children: [
+            Container(
+              height: 32,
+              color: Colors.grey,
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
+              child: Text('${card.attacks[index].convertedEnergyCost}'),
+            ),
+            TableCell(
+                verticalAlignment: TableCellVerticalAlignment.middle,
+                child: Container(
+                    height: 32,
+                    width: 32,
+                    alignment: Alignment.center,
+                    child: Text('${card.attacks[index].text}'))),
+          ]),
+        ],
+      ),
+      separatorBuilder: (BuildContext context, int index) => Divider(),
+      itemCount: card.attacks.length,
+      physics: CustomScrollPhysics(),
+    );
+  }
+}
+
+class CustomSimulation extends Simulation {
+  final double initPosition;
+  final double velocity;
+
+  CustomSimulation({required this.initPosition, required this.velocity});
+
+  @override
+  double dx(double time) {
+    return velocity;
   }
 
+  @override
+  bool isDone(double time) {
+    return false;
+  }
+
+  @override
+  double x(double time) {
+    var max =
+        math.max(math.min(initPosition, 0.0), initPosition + velocity * time);
+
+    return max;
+  }
+}
+
+class CustomScrollPhysics extends ScrollPhysics {
+  @override
+  ScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return CustomScrollPhysics();
+  }
+
+  @override
+  Simulation createBallisticSimulation(
+      ScrollMetrics position, double velocity) {
+    return CustomSimulation(
+      initPosition: position.pixels,
+      velocity: velocity,
+    );
+  }
 }
