@@ -67,7 +67,7 @@ class HomeView extends GetView<HomeController> {
                         'Email: '.tr +
                             _.authController!.auth.currentUser!.email!,
                         style: TextStyle(color: Colors.deepPurple)),
-                    onDetailsPressed: () => Get.toNamed('/update-profile'),
+                    onDetailsPressed: () => Get.toNamed('/profile'),
                     arrowColor: Colors.red,
                     margin:
                         EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

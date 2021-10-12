@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -130,7 +128,7 @@ class PokemonCardListView extends GetView<PokemonCardListController> {
             ),
             children: [
               Container(
-                height: 32,
+                height: 20,
                 color: Colors.transparent,
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5),
