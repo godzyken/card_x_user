@@ -37,8 +37,8 @@ class SignInView extends GetView<SignInController> {
                           iconPrefix: Icons.email,
                           labelText: 'Email'.tr,
                           keyboardType: TextInputType.emailAddress,
-                          onSaved: (p0) =>
-                          _.authController!.emailController.value.text = p0!,
+                          onSaved: (p0) => _
+                              .authController.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
@@ -47,16 +47,16 @@ class SignInView extends GetView<SignInController> {
                           iconPrefix: Icons.password,
                           labelText: 'Password'.tr,
                           obscureText: true,
-                          onSaved: (p0) =>
-                          _.authController!.emailController.value.text = p0!,
+                          onSaved: (p0) => _
+                              .authController.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         Obx(() {
                           return CheckboxListTile(
-                            value: _.authController!.rememberme.value,
+                            value: _.authController.rememberme.value,
                             onChanged: (value) =>
-                                _.authController!.rememberme.toggle(),
+                                _.authController.rememberme.toggle(),
                             title: Text('Remember me'),
                             controlAffinity: ListTileControlAffinity.leading,
                           );
@@ -64,11 +64,17 @@ class SignInView extends GetView<SignInController> {
                         FormVerticalSpace(),
                         PrimaryButton(
                           labelText: 'Sign In'.tr,
-                          onPressed: () =>
-                          _formKey.currentState!.validate()
-                              ? _.authController!
-                              .login(controller.emailC.text, controller.passC.text, _.authController!.rememberme.value)
-                              : Text('Something want wrong !, verify the form'),
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              _.authController.login(
+                                  _.emailC.text,
+                                  _.passC.text,
+                                  _.authController.rememberme.value);
+                              _.authController.signInWithEmailAndPassword(context);
+                            } else {
+                              Text('Something want wrong !, verify the form');
+                            }
+                          },
                         ),
                         FormVerticalSpace(),
                         FormVerticalSpace(),
@@ -84,7 +90,7 @@ class SignInView extends GetView<SignInController> {
                                 GestureDetector(
                                     onTap: () {
                                       // Call the a method to sign in with Google
-                                      _.authController!.googleSignIn(context);
+                                      _.authController.googleSignIn(context);
                                     },
                                     child: Image(
                                         width: 55,

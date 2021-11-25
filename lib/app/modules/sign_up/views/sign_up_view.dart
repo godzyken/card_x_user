@@ -33,40 +33,40 @@ class SignUpView extends GetView<SignUpController> {
                     child: Column(
                       children: <Widget>[
                         FormInputFieldWithIcon(
-                          controller: _.authController!.nameController.value,
+                          controller: _.auth.value.nameController.value,
                           iconPrefix: Icons.account_circle,
                           labelText: 'Name'.tr,
                           keyboardType: TextInputType.name,
                           onSaved: (p0) =>
-                          _.authController!.nameController.value.text = p0!,
+                          _.auth.value.nameController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         FormInputFieldWithIcon(
-                          controller: _.authController!.emailController.value,
+                          controller: _.auth.value.emailController.value,
                           iconPrefix: Icons.email,
                           labelText: 'Email'.tr,
                           keyboardType: TextInputType.emailAddress,
                           onSaved: (p0) =>
-                          _.authController!..emailController.value.text = p0!,
+                          _.auth.value.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         FormInputFieldWithIcon(
                           controller:
-                          _.authController!.passwordController.value,
+                          _.auth.value.passwordController.value,
                           iconPrefix: Icons.password,
                           labelText: 'Password'.tr,
                           obscureText: true,
                           onSaved: (p0) =>
-                          _.authController!..emailController.value.text = p0!,
+                          _.auth.value.emailController.value.text = p0!,
                           maxLines: 1,
                         ),
                         FormVerticalSpace(),
                         PrimaryButton(
                           labelText: 'Register'.tr,
                           onPressed: () => _formKey.currentState!.validate()
-                              ? _.authController!.registerWithEmailAndPassword(context)
+                              ? _.auth.value.registerWithEmailAndPassword(context)
                               : Text('Something want wrong !, verify the form'),
                         ),
                         FormVerticalSpace(),
@@ -82,7 +82,7 @@ class SignUpView extends GetView<SignUpController> {
                                 GestureDetector(
                                     onTap: () {
                                       // Call the a method to sign in with Google
-                                      _.authController!.getGoogleSignIn(context);
+                                      _.auth.value.getGoogleSignIn(context);
                                     },
                                     child: Image(width: 55, image: AssetImage('assets/img/google_logo.png'))
                                 ),

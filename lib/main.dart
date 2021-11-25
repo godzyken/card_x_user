@@ -1,3 +1,4 @@
+import 'package:card_x_user/app/firebase/options.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/license.dart';
 import 'package:card_x_user/generated/locales.g.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,10 @@ import 'app/routes/app_pages.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await GetxFire.init();
+  await GetxFire.init(
+      name: 'card_x_user',
+      options: firebaseOptions
+  );
   await GetStorage.init();
 
   await ScanbotSdk.initScanbotSdk(ScanbotSdkConfig(

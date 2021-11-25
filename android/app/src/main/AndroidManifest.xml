@@ -69,7 +69,11 @@
         </intent>
     </queries>
 
-    <application android:allowBackup="true" >
+    <application
+        android:allowBackup="true"
+        android:fullBackupOnly="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="card_x_user">
         <provider
             android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
             android:authorities="${applicationId}.flutter.image_provider"

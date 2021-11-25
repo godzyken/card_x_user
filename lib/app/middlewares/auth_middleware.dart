@@ -13,21 +13,24 @@ class EnsureAuthMiddleware extends GetMiddleware {
     GetMiddleware(priority: 4),
     GetMiddleware(priority: -8),
   ];
+
   final authServices = AuthController();
 
+  @override
   int? get priority => 2;
 
+  bool get isAuthenticated => authServices.isSignIn.value;
 
   @override
   RouteSettings? redirect(String? route) {
-    return authServices.isSignIn.value == false || route == Routes.AUTH
-        ? null
-        : RouteSettings(name: Routes.AUTH, arguments: authServices.isSignIn.value);
+    if (isAuthenticated == false) {
+      return RouteSettings(name: Routes.SIGN_IN);
+    }
+    return RouteSettings(name: Routes.HOME);
   }
 
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
-    final authServices = AuthController();
     if (!authServices.isSignIn.value) {
       final newRoute = Routes.LOGIN_THEN(route.location!);
       return GetNavConfig.fromRoute(newRoute);
@@ -43,25 +46,25 @@ class EnsureAuthMiddleware extends GetMiddleware {
   @override
   Widget onPageBuilt(Widget? page) {
     print('bindings are ready');
-    return page!;
+    return super.onPageBuilt(page!);
   }
 
   @override
-  GetPageBuilder? onPageBuildStart(GetPageBuilder? page) => page;
+  GetPageBuilder? onPageBuildStart(GetPageBuilder? page) => super.onPageBuildStart(page!);
 
   @override
   List<Bindings>? onBindingsStart(List<Bindings>? bindings) {
-    final authService = Get.find<AuthController>();
-    if (authService.admin.value) {
+    if (authServices.admin.value) {
       bindings!.add(AdminBinding());
     }
-    return bindings;
+    return super.onBindingsStart(bindings!);
   }
 
   @override
   GetPage? onPageCalled(GetPage? page) {
     return page!.copy(
       name: '/home',
+      title: 'Welcome ${authServices.firebaseUser.value?.displayName} ',
       settings: redirect('/auth'),
       middlewares: middlewares,
       binding: AuthBinding(),
@@ -72,9 +75,10 @@ class EnsureAuthMiddleware extends GetMiddleware {
 }
 
 class EnsureNotAuthedMiddleware extends GetMiddleware {
+  final authServices = AuthController();
+
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
-    final authServices = Get.put(AuthController());
 
     if (authServices.isSignIn.value) {
       //NEVER navigate to auth screen, when user is already authed
@@ -88,6 +92,9 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
 }
 
 class EnsureProfileMiddleware extends GetMiddleware {
+
+  final authServices = AuthController();
+
   @override
   int? get priority => 4;
 
@@ -95,11 +102,8 @@ class EnsureProfileMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    final authServices = AuthController();
     if (isProfileSet.value == authServices.isSignIn.isFalse) {
-      return RouteSettings(name: Routes.HOME);
+      return RouteSettings(name: Routes.SIGNUP);
     }
   }
-
-
 }

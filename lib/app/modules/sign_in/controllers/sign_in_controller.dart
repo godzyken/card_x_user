@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 class SignInController extends GetxController {
   static SignInController get to => Get.find();
-  AuthController? authController;
+  final authController = AuthController();
 
   var hidden = true.obs;
   var rememberme = false.obs;
@@ -14,9 +14,9 @@ class SignInController extends GetxController {
 
   @override
   void onInit() {
-    authController = AuthController();
-    emailC = authController!.emailController.value;
-    passC = authController!.passwordController.value;
+
+    emailC = authController.emailController.value;
+    passC = authController.passwordController.value;
     checkData();
 
     super.onInit();

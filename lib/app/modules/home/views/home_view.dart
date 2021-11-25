@@ -1,4 +1,3 @@
-import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:card_x_user/app/modules/avatar/views/avatar_view.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +59,12 @@ class HomeView extends GetView<HomeController> {
                     currentAccountPictureSize: const Size.square(82.0),
                     accountName: Text(
                       'Name: '.tr +
-                          _.authController!.auth.currentUser!.displayName!,
+                          '${
+                            _.authController?.auth.currentUser != null
+                                ? 'user not login'
+                                : _.authController?.auth.currentUser!
+                                    .displayName!
+                          }',
                       style: TextStyle(color: Colors.blueAccent),
                     ),
                     accountEmail: Text(

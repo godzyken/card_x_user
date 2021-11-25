@@ -10,16 +10,16 @@ import 'package:getxfire/getxfire.dart';
 import '../user_model.dart';
 
 class AuthController extends GetxController {
-
   final nameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
 
   var isSignIn = false.obs;
   var rememberme = false.obs;
-  bool get authenticated => isSignIn.value;
-  set authenticated(value) => isSignIn.value = value;
 
+  bool get authenticated => isSignIn.value;
+
+  set authenticated(value) => isSignIn.value = value;
 
   final firebaseUser = Rxn<User>();
   final fireStoreUser = Rxn<UserModel>();
@@ -88,10 +88,15 @@ class AuthController extends GetxController {
   }
 
   void login(String? email, String? password, bool rememberme) {
+    print('Echoo');
     if (email != '' && password != '') {
-      if(GetUtils.isEmail(email!)) {
+      print('Echoo1');
+      if (GetUtils.isEmail(email!)) {
+        print('Echoo2');
         if (email == _dataUser['email'] && password == _dataUser["password"]) {
+          print('Echoo3');
           if (rememberme) {
+            print('Echoo4');
             final box = GetStorage();
             box.write('dataUser', {
               "email": email,
@@ -99,22 +104,18 @@ class AuthController extends GetxController {
               "rememberme": rememberme,
             });
           } else {
+            print('Echoo5');
             final box = GetStorage();
-            if(box.read('dataUser') != null) {
+            if (box.read('dataUser') != null) {
               box.erase();
             }
           }
-
           isSignIn.value = true;
         } else {
           dialogError('Data user is not valid');
         }
-      } else {
-
-      }
-    } else {
-
-    }
+      } else {}
+    } else {}
   }
 
   ///[CRUD] on fireStore with GetXfire
@@ -131,10 +132,9 @@ class AuthController extends GetxController {
 
   void _searchUserFirestore(UserModel? userModel, User? _firebaseUser) {
     connect.searchData(
-      collection: '/users/${_firebaseUser!.uid}',
-      search: '${userModel!.id}',
-      ownerUID: '/admin/${userModel.login}'
-    );
+        collection: '/users/${_firebaseUser!.uid}',
+        search: '${userModel!.id}',
+        ownerUID: '/admin/${userModel.login}');
     update();
   }
 
@@ -223,7 +223,7 @@ class AuthController extends GetxController {
           colorText: Get.theme.snackBarTheme.actionTextColor);
       update();
     } catch (e) {
-      Get.snackbar('reset password failed'.tr, 'error message'.tr,
+      Get.snackbar('reset password failed $e'.tr, 'error message'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 10),
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
@@ -272,6 +272,29 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<void> deleteUser(
+      BuildContext context, UserModel userModel, User? id) async {
+    try {
+      var userId = userModel.id;
+
+      if (id == userId) {
+        _removeUserFirestore(userModel, id);
+      } else {
+        Get.snackbar('remove user from firebase failed'.tr, 'remove user'.tr,
+            snackPosition: SnackPosition.BOTTOM,
+            duration: Duration(seconds: 5),
+            backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+            colorText: Get.theme.snackBarTheme.actionTextColor);
+        update();
+      }
+    } catch (e) {
+      Get.snackbar('remove user $e'.tr, 'error removed failed'.tr,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 10),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    }
+  }
 
   signOut() async {
     nameController.value.clear();
@@ -283,7 +306,7 @@ class AuthController extends GetxController {
   signInWithEmailAndPassword(BuildContext context) async {
     // //showLoadingIndicator();
     try {
-      await FirebaseAuth.instance
+      await auth
           .signInWithEmailAndPassword(
               email: emailController.value.text.trim(),
               password: passwordController.value.text.trim())
@@ -302,9 +325,9 @@ class AuthController extends GetxController {
         update();
         //hideLoadingIndicator();
       });
-    } catch (error) {
+    } on FirebaseAuthException catch (code, message) {
       //hideLoadingIndicator();
-      Get.snackbar('Sign in error title'.tr, '$error'.tr,
+      Get.snackbar('Sign in error title: $code'.tr, '$message'.tr,
           snackPosition: SnackPosition.BOTTOM,
           duration: Duration(seconds: 7),
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
@@ -336,10 +359,11 @@ class AuthController extends GetxController {
       ).then((result) async {
         //create the new user object
         var _newUser = UserModel(
-            login: result!.user!.uid,
-            email: result.user!.email,
-            name: nameController.value.text,
-            avatarUrl: result.user!.photoURL);
+          login: result!.user!.uid,
+          email: result.user!.email,
+          name: nameController.value.text,
+          avatarUrl: result.user!.photoURL,
+        );
         //create the user in firestore
         _createUserFirestore(_newUser, result.user!);
         emailController.value.clear();
@@ -392,11 +416,11 @@ class AuthController extends GetxController {
               login: user.uid,
               avatarUrl: user.photoURL,
               email: user.email,
+              company: user.displayName,
             );
             box.write('dataUser', {_newUser.toJson()});
 
             _createUserFirestore(_newUser, user);
-
 
             Get.toNamed('/home', arguments: isSignIn);
             Get.snackbar('Sign In', 'Sign in ${user.uid} with Google');
@@ -413,7 +437,6 @@ class AuthController extends GetxController {
             box.erase();
           }
           Get.snackbar('Error', 'Failed to sign in with Google: $message');
-
         },
         isErrorDialog: true,
         isSuccessDialog: true,
@@ -431,7 +454,6 @@ class AuthController extends GetxController {
           colorText: Get.theme.snackBarTheme.actionTextColor);
     }
   }
-
 
   ///Method to login user with [GetxFire]
   googleSignIn(BuildContext context) async {
@@ -468,3 +490,96 @@ class AuthController extends GetxController {
     }
   }
 }
+
+/*
+class AuthController extends GetxController {
+  final auth = GetxFire.auth;
+  final connect = GetxFire.firestore;
+  final firebaseUser = Rxn<User>();
+  final userModel = Rxn<UserModel>();
+
+  var isSignIn = false.obs;
+  var admin = false.obs;
+  var isProfileExist = false.obs;
+
+  Stream<User?> get user => GetxFire.userChanges();
+
+  ///[Streams] the firestore user from the firestore collection
+  Stream<QuerySnapshot<Object?>> streamFirestoreUser() {
+    print('stream on firestore users of userModel');
+
+    return connect.streamData(
+      collection: 'users',
+      idChild: userModel.value!.login,
+      collectionChild: userModel.value!.login,
+      isErrorDialog: true,
+      onError: (error) => Get.snackbar('Stream database error', 'Error is : $error'),
+    );
+  }
+
+
+  ///Method to login user with [GetxFire]
+  googleSignIn() async {
+    await GetxFire.signInWithGoogle(
+      onSuccess: (userCredential) {
+        final user = userCredential!.user;
+
+        GetxFire.openDialog.messageSuccess('Message: Congrats',
+            title: 'You are just sign in with google',
+            duration: Duration(seconds: 20));
+
+        isSignIn.value = true;
+        Get.toNamed('/home', arguments: isSignIn.value);
+
+        update();
+      },
+      onError: (code, message) {
+        GetxFire.openDialog.messageError('Message: $message',
+            title: 'Sign in with google error : $code',
+            duration: Duration(seconds: 20));
+
+        isSignIn.value = false;
+        update();
+      },
+      isErrorDialog: true,
+      isSuccessDialog: true,
+    );
+    //showLoadingIndicator();
+  }
+
+  createUser(String? email, String? password) async {
+    await GetxFire
+        .createUserWithEmailAndPassword(
+      email: email!,
+      password: password!,
+    )
+        .then(
+            (result) {
+          final userModel = UserModel(
+            login: result!.user!.uid,
+            email: result.user!.email,
+            name: result.user!.displayName,
+            company: result.user!.displayName,
+            avatarUrl: result.user!.photoURL,
+          );
+          update();
+        }
+    )
+        .onError((error, stackTrace) => null)
+  }
+
+  signOut() async {
+    user.every((element) => decontUser(element!.uid));
+    return auth.signOut();
+  }
+
+  bool decontUser(String? userId) {
+    if (userId == UserModel().id) {
+      auth.signOut();
+    } else {
+      auth.authStateChanges();
+    }
+    return true;
+  }
+}
+*/
