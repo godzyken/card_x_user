@@ -8,8 +8,6 @@ import 'package:card_x_user/app/modules/scan_card/utils/progress_dialog.dart';
 import 'package:card_x_user/app/modules/scan_card/utils/utils.dart';
 import 'package:card_x_user/app/modules/scan_card/views/barcode_pre_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
 import 'package:getxfire/getxfire.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -63,7 +61,6 @@ class ScanCardController extends GetxController {
       PageRepository().loadPages();
       shouldInitWithEncryption = true;
       success;
-
     } catch (e) {
       Logger.root.severe(e);
     }
@@ -74,7 +71,6 @@ class ScanCardController extends GetxController {
 
   @override
   void onInit() async {
-
     pages = _pageRepository.pages;
     super.onInit();
   }
@@ -331,7 +327,7 @@ class ScanCardController extends GetxController {
               PermissionStatus.granted || //android
           permissions[Permission.photos] == PermissionStatus.granted) {
         //ios
-        var result = await ScanbotSdk.detectBarcodeFromImageFile(
+        var result = await ScanbotSdk.detectBarcodesOnImage(
             Uri.file(image?.path ?? ''), PredefinedBarcodes.allBarcodeTypes());
         if (result.operationResult == OperationResult.SUCCESS) {
           await Get.toNamed('BarcodesResultPreviewWidget',

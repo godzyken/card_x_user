@@ -1,15 +1,15 @@
 final String licenseKey =
-    "lrMfJyA4iIyfFtzG/6KOKPm07Aqb24" +
-        "ezRoj6/yJ2hpEzMCjpIN9twnYGxv1Y" +
-        "Nu7wXxM18hlIIlG+s9PC7QytoFY8RH" +
-        "gXojy3N9iI9mCshbKnS2yeVagvnRb7" +
-        "DIWPIICTYzHoP0N6zZLxRSfI4CuCwm" +
-        "3u31afU80x8ahmy7eiAeeVuXmoEdpq" +
-        "VRjaRn5ZPdI0ARtz5zxJRtDAxuW4wO" +
-        "8rUWY7Cp9T1Q+bXluKwtKDHwBSx8le" +
-        "ahGp1tcQBZC6pidcnCgWyjoEaM9nDo" +
-        "jFyUm/PcBCPl9TvJbnIG6tVLXTDkIZ" +
-        "XfuDloBhZlIycn+pzHo/qJjMYFY0g5" +
-        "2wNj0kESihMA==\nU2NhbmJvdFNESw" +
-        "pjb20uZ29kenkuY2FyZF94X3VzZXIK" +
-        "MTYzMzIxOTE5OQo4Mzg4NjA3CjM=\n";
+    "axEyMZybNawjnrWRSmqO2I5nOsmOTv" +
+    "Pu0sfs5f7gY/Vg1btePRUG+n5O8O8g" +
+    "JcqBI09YRl/RjF9p2Q+XCnyFDb1k8/" +
+    "Pn0A+AKdVj6r4rSwzTSI4J7ERNwz0W" +
+    "02MtB2wIrYNcO11X8ZsML6mfP4tdKG" +
+    "mXZ4jIMRsrz2mfTgBeR/PYUXQwwWuu" +
+    "BdiCmKPZEWAtFhFPDLeE1lPsX/chjD" +
+    "tqJcCUY3XbIh1YGLy9QQFIP6R5GhFc" +
+    "L21awHSzuwVy99F25x54qRTjlr51WI" +
+    "lqkWfFeul1CvXcX0/vXbGVIR8yaKHb" +
+    "NscgfGO6rXT4aHEcTawQSgjZHBlShF" +
+    "51I8krqm+AVw==\nU2NhbmJvdFNESw" +
+    "pjb20uZ29kenkuY2FyZF94X3VzZXIK" +
+    "MTY0NDI3ODM5OQo4Mzg4NjA3CjM=\n";

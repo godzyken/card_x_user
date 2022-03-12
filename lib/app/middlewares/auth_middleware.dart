@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 
+import '../modules/auth/controllers/auth_controller.dart';
+
 class EnsureAuthMiddleware extends GetMiddleware {
   static final middlewares = [
     GetMiddleware(priority: 2),
@@ -19,19 +21,18 @@ class EnsureAuthMiddleware extends GetMiddleware {
   @override
   int? get priority => 2;
 
-  bool get isAuthenticated => authServices.isSignIn.value;
-
   @override
   RouteSettings? redirect(String? route) {
-    if (isAuthenticated == false) {
+    if (authServices.isSignIn.isFalse) {
       return RouteSettings(name: Routes.SIGN_IN);
+    } else {
+      return RouteSettings(name: Routes.HOME);
     }
-    return RouteSettings(name: Routes.HOME);
   }
 
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
-    if (!authServices.isSignIn.value) {
+    if (!authServices.isSignIn.isTrue) {
       final newRoute = Routes.LOGIN_THEN(route.location!);
       return GetNavConfig.fromRoute(newRoute);
     }
@@ -50,11 +51,12 @@ class EnsureAuthMiddleware extends GetMiddleware {
   }
 
   @override
-  GetPageBuilder? onPageBuildStart(GetPageBuilder? page) => super.onPageBuildStart(page!);
+  GetPageBuilder? onPageBuildStart(GetPageBuilder? page) =>
+      super.onPageBuildStart(page!);
 
   @override
   List<Bindings>? onBindingsStart(List<Bindings>? bindings) {
-    if (authServices.admin.value) {
+    if (authServices.admin.isTrue) {
       bindings!.add(AdminBinding());
     }
     return super.onBindingsStart(bindings!);
@@ -79,8 +81,7 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
 
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
-
-    if (authServices.isSignIn.value) {
+    if (authServices.isSignIn.isTrue) {
       //NEVER navigate to auth screen, when user is already authed
       //return null;
 
@@ -92,7 +93,6 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
 }
 
 class EnsureProfileMiddleware extends GetMiddleware {
-
   final authServices = AuthController();
 
   @override

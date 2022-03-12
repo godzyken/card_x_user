@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
   static ProfileController? get to => Get.find();
   AuthController? authController;
   ScrollController? scrollController;
@@ -17,6 +16,7 @@ class ProfileController extends GetxController {
   Color? color;
 
   final count = 0.obs;
+  final profileSet = false.obs;
 
   var selectedImagePath = ''.obs;
   var selectedImageSize = ''.obs;
@@ -50,10 +50,12 @@ class ProfileController extends GetxController {
     final pickFile = await ImagePicker().pickImage(source: imageSource!);
     if (pickFile != null) {
       selectedImagePath.value = pickFile.path;
-      selectedImageSize.value = ((File(selectedImagePath.value)).lengthSync()/1024/1024).toStringAsFixed(2) + ' Mb';
+      selectedImageSize.value =
+          ((File(selectedImagePath.value)).lengthSync() / 1024 / 1024)
+                  .toStringAsFixed(2) +
+              ' Mb';
 
       _savePicture(selectedImagePath.value);
-
     } else {
       Get.snackbar('Avatar error loading'.tr, 'No image selected'.tr,
           snackPosition: SnackPosition.BOTTOM,
@@ -64,10 +66,12 @@ class ProfileController extends GetxController {
   }
 
   void _savePicture(String? value) async {
-    await authController!.auth.currentUser!.updatePhotoURL(value);
+    if (value != null) {
+      await authController!.auth.currentUser!.updatePhotoURL(value);
 
-    update();
+      profileSet.value = true;
+
+      update();
+    }
   }
-
 }
-

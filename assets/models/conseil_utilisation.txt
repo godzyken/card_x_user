@@ -1,0 +1,13 @@
+2) Tu peux uploader une image ou en prendre une avec la caméra de ton téléphone portable, mais ton navigateur doit avoir accès à ta caméra pour pouvoir l’utiliser. Quelques règles à suivre pour obtenir des images de qualité:
+
+Ta caméra devrait être en mode portrait et place la carte en vertical. Évite faire pivoter la caméra.
+L’arrière-plan doit présenter un fort contraste avec le bord de la carte. Utilise des fonds blancs ou gris clair pour les cartes à bordure noire et des fonds noirs ou gris foncé pour les cartes à bordure blanche.
+Tu devrais éviter complètement les arrière-plans à motifs.
+La carte doit être entièrement visible et le fond doit avoir au moins la même largeur que la bordure de la carte.
+Essaye de limiter la taille totale de l'image. Elle ne doit pas dépasser 10 Mo.
+Les formats d'image disponibles sont JPG et PNG.
+3) Après le téléchargement de l'image, tu peux / dois confirmer si la carte a été détectée correctement ou pas. Cette étape n'a lieu que pendant la version bêta, afin que nous puissions collecter des données pour améliorer les algorithmes de détection.
+
+Si tu confirmes que la carte n'a pas été détectée correctement, tu seras renvoyé à la page initiale.
+Si tu confirmes que la carte a été correctement détectée, tu seras envoyé à la page produit correspondante.
+Si tu confirmes que la carte a été détectée correctement ET tu es connecté ET que tu es un vendeur activé, tu iras à la page produit correspondante avec l'onglet Vente actif.

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SignInController extends GetxController {
-  static SignInController get to => Get.find();
   final authController = AuthController();
 
   var hidden = true.obs;
@@ -42,5 +41,7 @@ class SignInController extends GetxController {
       rememberme.value = data["rememberme"];
     }
   }
+
+  signInWithGoogle(context) => authController.googleSignIn(context);
 
 }

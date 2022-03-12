@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HelloSceneformActivity">
 
-    <fragment android:name="com.godzy.card_x_user.ui.main.HelloSceneformFragment"
+    <androidx.fragment.app.FragmentContainerView android:name="com.godzy.card_x_user.ui.main.HelloSceneformFragment"
         android:id="@+id/ux_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

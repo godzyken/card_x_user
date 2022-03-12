@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:nv_golden/nv_golden.dart';
 
@@ -17,16 +16,17 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(GetMaterialApp());
-    /*final nvWrapper= WidgetWrapper()..withMaterialApp();
+    final nvWrapper = WidgetWrapper()..withMaterialApp();
 
     final nvGolden = NvGolden.devices(
         deviceSizes: [Device.iphone12pro, Device.iphone5s],
-      wrap: nvWrapper.wrap)
-    ..addScenario(name: 'Full Page', widget: HomeView(),
-    );
+        wrap: nvWrapper.wrap)
+      ..addScenario(
+        name: 'Full Page',
+        widget: GetMaterialApp(),
+      );
 
     await tester.createGolden(nvGolden, 'full_page');
-*/
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);

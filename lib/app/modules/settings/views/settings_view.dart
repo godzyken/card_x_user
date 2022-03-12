@@ -1,10 +1,8 @@
-import 'package:card_x_user/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import '../controllers/settings_controller.dart';
-import '../menu_options_model.dart';
 
 class SettingsView extends GetView<SettingsController> {
   @override
