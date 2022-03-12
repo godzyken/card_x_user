@@ -81,6 +81,7 @@ class SignUpController extends GetxController {
         final user = userCredential!.user;
         final box = GetStorage();
         isReg.value = true;
+        auth.value.isSignIn.value = true;
 
         update();
         if (rememberMe.isTrue) {
@@ -118,51 +119,4 @@ class SignUpController extends GetxController {
       isSuccessDialog: true,
     );
   }
-}
-
-abstract class SignUpControllerBase extends GetStream<User?> {
-  final userModel = UserModel().obs;
-  final user = User;
-  SignUpController? signUpController;
-  var isUser = false.obs;
-  var isVerify = false.obs;
-
-  @override
-  LightSubscription<User?> listen(
-      void Function(User? event) onData, {
-        Function? onError,
-        void Function()? onDone,
-        bool? cancelOnError
-      }) {
-    // TODO: implement listen
-    print('user : $user\n');
-    print('userModel : $userModel');
-
-    ever(signUpController!.isReg, isUser);
-
-    addSubscription(listen((event) {
-      if (event?.uid.toString() == userModel.value.login ){
-        Get.to('/profile');
-      } else {
-        if (event?.uid.toString() == null ){
-
-          Get.to('/auth');
-        } else {
-          print(event!.uid);
-        }
-      }
-
-    }));
-
-
-    return super.listen(
-        onData,
-        onError: onError,
-        onDone: onDone,
-        cancelOnError: cancelOnError
-    );
-  }
-
-
-
 }

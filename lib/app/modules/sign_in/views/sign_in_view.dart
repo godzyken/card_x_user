@@ -90,7 +90,7 @@ class SignInView extends GetView<SignInController> {
                                 GestureDetector(
                                     onTap: () {
                                       // Call the a method to sign in with Google
-                                      _.authController.googleSignIn(context);
+                                      _.signInWithGoogle(context);
                                     },
                                     child: Image(
                                         width: 55,
@@ -100,7 +100,7 @@ class SignInView extends GetView<SignInController> {
                             ),
                           ],
                         ),
-                        Text("Haven't got an Acccount ?"),
+                        Text("Haven't got an Account ?"),
                         TextButton(
                           onPressed: () {
                             Get.toNamed('/sign-up');
