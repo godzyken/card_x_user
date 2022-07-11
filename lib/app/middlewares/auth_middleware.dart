@@ -103,7 +103,14 @@ class EnsureProfileMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (isProfileSet.value == authServices.isSignIn.isFalse) {
-      return RouteSettings(name: Routes.SIGNUP);
+      return authServices.isSignIn.value
+          ? null
+          : RouteSettings(name: Routes.SIGNUP);
+    } else {
+      isProfileSet.value = true;
+      return authServices.isSignIn.value
+          ? null
+          : RouteSettings(name: Routes.PROFILE);
     }
   }
 }
